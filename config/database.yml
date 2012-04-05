@@ -13,14 +13,12 @@
 # gem 'pg'
 #
 development:
-  adapter: postgis
+  adapter: postgresql
   encoding: unicode
-  database: prepared.ly_development
+  database: preparedly_development
   pool: 5
-  username: prepared.ly
-  password:
-  schema_search_path: "public,postgis"
-  script_dir: /usr/local/share/postgis
+  username: joemerante
+  password: 
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -41,20 +39,17 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  adapter: postgis
+  adapter: postgresql
   encoding: unicode
-  database: prepared.ly_test
+  database: preparedly_test
   pool: 5
-  username: prepared.ly
-  password:
-  schema_search_path: "public,postgis"
-  script_dir: /usr/local/share/postgis
+  username: joemerante
+  password: 
 
 production:
-  adapter: postgis
+  adapter: postgresql
   encoding: unicode
-  database: prepared.ly_production
+  database: preparedly_production
   pool: 5
-  username: prepared.ly
-  password:
-  schema_search_path: "public,postgis"
+  username: joemerante
+  password: 

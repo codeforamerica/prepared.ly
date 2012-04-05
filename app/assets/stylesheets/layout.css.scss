@@ -1,0 +1,107 @@
+.container {
+  width: 710px;
+}
+
+body {
+  background-image: url('watercolor.png');
+  background-repeat: no-repeat;
+}
+
+header {
+  padding-top: 20px;
+
+  img {
+  padding: 1em;
+  background: white;
+  }
+}
+
+section {
+  margin-top: 1em;
+  font-size: 120%;
+  padding: 20px;
+  background: white;
+}
+
+section h1 {
+  font-size: 200%;
+}
+
+/* Links */
+
+a {
+  color: #000;
+  font-size: 18px;
+  text-decoration: none;
+
+  $visited-link-color: #069;
+
+  &:hover {
+    color: $visited-link-color;
+    text-decoration: underline;
+  }
+
+  &:visited {
+  color: $visited-link-color;
+  }
+}
+
+/* Navigation */
+
+nav {
+  float: right;
+  background-color: white;
+  padding: 0 0.7em;
+  white-space: nowrap;
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+      display: inline-block;
+      padding: 0.2em 0;
+
+      a {
+        padding: 0 5px;
+        font-weight: bold;
+
+        &:visited {
+          color: #069;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+/* Sign up button */
+
+a.signup_button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 100px;
+  color: white;
+  background: #ccf;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 10px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 10px;
+  width: 710px;
+  margin-left: auto;
+  margin-right: auto;
+
+  nav {
+  float: none;
+  }
+}

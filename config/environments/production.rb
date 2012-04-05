@@ -51,6 +51,9 @@ Preparedly::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
+  # Precompile Blueprint CSS
+  config.assets.precompile += [ "blueprint/*.css" ]
+
   # Enable threaded mode
   # config.threadsafe!
 
