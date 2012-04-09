@@ -63,6 +63,4 @@ production:
   pool: 5
   username: preparedly
   password:
-  su_username: cfa
-  su_password:
   schema_search_path: "public,postgis"
