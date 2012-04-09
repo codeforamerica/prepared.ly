@@ -15,18 +15,20 @@
 development:
   adapter: postgis
   encoding: unicode
-  database: prepared.ly_development
+  database: preparedly_development
   pool: 5
-  username: prepared.ly
+  username: preparedly
   password:
+  su_username: cfa
+  su_password:
   schema_search_path: "public,postgis"
   script_dir: /usr/local/share/postgis
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  #host: localhost
-  #port: 5432
+  host: localhost
+  port: 5432
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -43,18 +45,24 @@ development:
 test:
   adapter: postgis
   encoding: unicode
-  database: prepared.ly_test
+  database: preparedly_test
   pool: 5
-  username: prepared.ly
+  username: preparedly
   password:
+  su_username: cfa
+  su_password:
   schema_search_path: "public,postgis"
   script_dir: /usr/local/share/postgis
+  host: localhost
+  port: 5432
 
 production:
   adapter: postgis
   encoding: unicode
-  database: prepared.ly_production
+  database: preparedly_production
   pool: 5
-  username: prepared.ly
+  username: preparedly
   password:
+  su_username: cfa
+  su_password:
   schema_search_path: "public,postgis"
