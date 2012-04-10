@@ -25,7 +25,10 @@ You can see a running version of the application at
     brew install postgis
 
     # Create regular database user named `preparedly`, empty password
+    createuser --pwprompt preparedly 
+
     # Create superuser database user named `cfa`, empty password
+    createuser --pwprompt --superuser cfa 
 
     git clone git://github.com/codeforamerica/prepared.ly.git
     cd prepared.ly 
