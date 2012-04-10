@@ -1,8 +1,8 @@
-# Ruby on Rails Template
-A readme template for Ruby on Rails Applications
+# prepared.ly 
+Join the community of fire-prepared Austinites. Wildfires are a real and ongoing threat, so it’s important to be in the know and get up to date real time information. Rally with your neighbors and work with your local firefighters to keep wildfires in the wild, and your home and neighborhood safe.
 
 ## <a name="screenshots"></a>Screenshot
-![Adopt a Hydrant](https://github.com/codeforamerica/adopt-a-hydrant/raw/master/screenshot.png "Adopt a Hydrant")
+![prepared.ly](http://dl.dropbox.com/u/55826838/preparedly/wf1.png "prepared.ly")
 
 ## <a name="build"></a>Build Status
 [![Build Status](https://secure.travis-ci.org/codeforamerica/cfa_template.png?branch=master)][travis]
@@ -21,10 +21,15 @@ You can see a running version of the application at
 [demo]: http://cfa_template.herokuapp.com/
 
 ## <a name="installation"></a>Installation
-    git clone git://github.com/codeforamerica/cfa_template.git
-    cd adopt-a-hydrant
-    bundle install
-    rake db:migrate
+    brew install postgres
+    brew install postgis
+
+    # Create regular database user named `preparedly`, empty password
+    # Create superuser database user named `cfa`, empty password
+
+    git clone git://github.com/codeforamerica/prepared.ly.git
+    cd prepared.ly 
+    rake db:create
 
 ## <a name="usage"></a>Usage
     rails server
