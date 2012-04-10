@@ -1,4 +1,6 @@
 Preparedly::Application.routes.draw do
+  devise_for :users
+
   get "map/index"
 
   get "home/index"
