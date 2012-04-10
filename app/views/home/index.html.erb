@@ -1,2 +1,8 @@
 <h1>Welcome to prepared.ly</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+<%= form_tag("/map", :method=> "get") do %>
+    <%= label_tag(:q, "Type in your address and we can get started:") %><br/>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Locate") %>
+<% end %>
+<p>We aren't going to keep this unless you decide to make an account.</p>
