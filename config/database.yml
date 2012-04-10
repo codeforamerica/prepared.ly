@@ -63,4 +63,3 @@ production:
   pool: 5
   username: preparedly
   password:
-  schema_search_path: "public,postgis"
