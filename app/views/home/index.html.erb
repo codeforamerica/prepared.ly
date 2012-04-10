@@ -1,7 +1,7 @@
-<h1>Welcome to prepared.ly</h1>
+<h1>prepared.ly</h1>
 
 <%= form_tag("/map", :method=> "get") do %>
-    <%= label_tag(:q, "Type in your address and we can get started:") %><br/>
+    <%= label_tag(:q, "Welcome. Type in your address and we can get started:") %><br/>
     <%= text_field_tag(:q) %>
     <%= submit_tag("Locate") %>
 <% end %>

@@ -3,6 +3,8 @@ Preparedly::Application.routes.draw do
 
   get "home/index"
 
+  match "map" => "map#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
