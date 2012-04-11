@@ -33,6 +33,7 @@ You can see a running version of the application at
     git clone git://github.com/codeforamerica/prepared.ly.git
     cd prepared.ly 
     rake db:create
+    rake db:migrate
 
 ## <a name="usage"></a>Usage
     rails server
