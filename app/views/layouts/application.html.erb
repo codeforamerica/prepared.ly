@@ -10,12 +10,19 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-<ul class="hmenu">
+<div id="nav-bar">
+	<ul id="nav-bar-items">
   <%= render 'devise/menu/registration_items' %>
   <%= render 'devise/menu/login_items' %>
-</ul>
+		<li><a href="">about</a></li>
+	</ul>
+</div>
+<div id="main">
 
+<div id="logo">
+	<h1>prepared.ly</h1>
+</div>
 <%= yield %>
-
+</div>
 </body>
 </html>
