@@ -1,6 +1,7 @@
 
 <%= form_tag("/map", :method=> "get") do %>
-    <%= label_tag(:q, "Welcome. Type in your address and we can get started:") %><br/>
+<h2> Welcome. </h2>
+    <%= label_tag(:q, "Type in your address and we can get started:") %><br/>
     <%= text_field_tag(:q) %>
     <%= submit_tag("Locate") %>
 <% end %>

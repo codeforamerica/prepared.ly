@@ -25,9 +25,37 @@ audio:not([controls]) { display: none; }
 [hidden] { display: none; }
 
 html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-html, button, input, select, textarea { font-family: sans-serif; color: #222; }
-body { margin: 0; font-size: 1em; line-height: 1.4; }
+html, button, input, select, textarea { 
+	font-family: sans-serif; 
+	color: #222; 
+	}
+body { margin: 0; 
+		line-height: 1.4; 
+		font-family: "museo-sans", sans-serif;
+		color: #666666;
+}
 
+h1 {
+	font-size: 28px;
+	font-style: normal;
+	font-weight: 700;
+}
+h2 {
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 100;
+	margin: 0px;
+	}
+p, label {	
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 300;
+}	
+input {
+	margin: 10px;
+	padding: 5px;
+
+}
 ::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
 ::selection { background: #fe57a1; color: #fff; text-shadow: none; }
 
@@ -98,7 +126,7 @@ td { vertical-align: top; }
    ========================================================================== */
 /*----navigation bar along top ---*/
 #nav-bar {
-    background-color: #303030;
+    background-color: #333333;
     background-position: 0 -138px;
     background-repeat: repeat-x;
     height: 40px;
@@ -119,16 +147,35 @@ td { vertical-align: top; }
 	display: inline;
 	list-style-type: none;
 	padding-right: 20px;
-	float:right;
+	float: right;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 500;
 }
 /*----prepared.ly logo ---*/
 #logo {
+	background: url('preparedly-red.png') no-repeat;
+	height:100px;
+	width:315px;
+	position: relative;
+	top: 50px;
+	left: 45px;
 }
 /*----main-container ---*/
 #main {
-	padding:40px;
+	padding:50px;
+	position: relative;
+	top: 15px;
 }
-
+#beta {
+	background: url('superbeta.png') no-repeat;
+    height: 100px;
+    left: -2px;
+    position: absolute;
+    top: 0;
+    width: 100px;
+    z-index: 5;
+}
 
 
 /* =============================================================================

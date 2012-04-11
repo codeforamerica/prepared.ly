@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <title>Preparedly</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript" src="http://use.typekit.com/osj8jgk.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
+<div id="beta">
+</div>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-
 <div id="nav-bar">
 	<ul id="nav-bar-items">
   <%= render 'devise/menu/registration_items' %>
@@ -17,11 +21,9 @@
 		<li><a href="">about</a></li>
 	</ul>
 </div>
-<div id="main">
-
-<div id="logo">
-	<h1>prepared.ly</h1>
+<div id="logo" title"preparedly">
 </div>
+<div id="main">
 <%= yield %>
 </div>
 </body>
