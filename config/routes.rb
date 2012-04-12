@@ -1,7 +1,10 @@
 Preparedly::Application.routes.draw do
   resources :authentications
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users
+
+
+  match 'auth/twitter/callback' => 'authentications#create'
 
   get "map/index"
 

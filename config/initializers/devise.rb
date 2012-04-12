@@ -212,8 +212,10 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
 
-  require 'omniauth-twitter'
-  config.omniauth :twitter, 'iYUW65gCJmpkTYoHnQWw', ENV['TWITTER_SECRET'], :scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}} 
+  require "omniauth-twitter"
+  config.omniauth :twitter, "iYUW65gCJmpkTYoHnQWw", "YUyRsCCXjKe2FMHpfzoZjUwt43HgjtnVgmpz93Z5k"
+  # add line for heroku
+  # :scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
