@@ -1,11 +1,8 @@
 class User < ActiveRecord::Base
-	# many ways to authenticate into a single user account, so authentication and identity are separate
-	has_many :authentications
-
   # Include default devise modules. Others available are:
-  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable
+  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+         :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :first_name, :last_name, :phone, :address,

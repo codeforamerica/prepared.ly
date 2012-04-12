@@ -1,14 +1,5 @@
 Preparedly::Application.routes.draw do
-  resources :authentications
-
   devise_for :users
-
-
-  match 'auth/twitter/callback' => 'authentications#create'
-
-  get "map/index"
-
-  get "home/index"
 
   match "map" => "map#index"
 
