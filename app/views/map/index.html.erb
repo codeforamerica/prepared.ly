@@ -1,4 +1,29 @@
 Address: <%= @address %> <br/>
 Coordinates: <%= @coordinates %> <br/>
 
-<iframe width=640 height=480 src='https://tinio.cartodb.com/tables/afd_station_location/embed_map'></iframe>
+<!-- div that will display the map that is set using below javascript -->
+<div id="map"></div>
+
+
+<!-- scripts -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://code.leafletjs.com/leaflet-0.3.1/leaflet.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+ 
+      stamenTiles();
+
+      function stamenTiles() {
+        
+        // make a map, using normal leaflet and stamen toner tiles
+        var map = new L.Map('map');
+        var mapCenter = new L.LatLng(<%= @coordinates[0] %>, <%= @coordinates[1] %>);
+        var mapZoom = 11;
+        var baseUrl = 'http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg',
+            attrib = 'Map tiles by Stamen',
+            baseLayer = new L.TileLayer(baseUrl, {attribution: attrib, maxZoom:18});
+        map.addLayer(baseLayer);
+        map.setView(mapCenter, mapZoom);
+      }
+    });
+</script>
