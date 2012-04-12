@@ -1,10 +1,10 @@
 Preparedly::Application.routes.draw do
-  resources :authentications
-
   devise_for :users
 
   match "locate" => "map#get"
   match "map" => "map#post"
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
