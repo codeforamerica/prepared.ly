@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120411070505) do
+ActiveRecord::Schema.define(:version => 20120411203427) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -42,6 +42,10 @@ ActiveRecord::Schema.define(:version => 20120411070505) do
     t.string   "address"
     t.string   "phone"
     t.boolean  "preferred_contact"
+    t.string   "provider"
+    t.string   "twitter_id"
+    t.string   "twitter_screen_name"
+    t.string   "twitter_display_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
