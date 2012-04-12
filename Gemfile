@@ -44,3 +44,7 @@ gem "high_voltage"
 gem 'wunderground_ruby'
 
 gem 'nokogiri'
+
+gem 'omniauth'
+
+gem 'omniauth-twitter'
