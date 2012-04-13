@@ -28,10 +28,12 @@ html, button, input, select, textarea {
 	font-family: sans-serif; 
 	color: #222; 
 	}
-body { margin: 0; 
-		line-height: 1.4; 
-		font-family: "museo-sans", sans-serif;
-		color: #666666;
+body { 
+	background:url('bg.gif')repeat-x;
+	margin: 0; 
+	line-height: 1.4; 
+	font-family: "museo-sans", sans-serif;
+	color: #666666;
 }
 
 h1 {
@@ -40,13 +42,13 @@ h1 {
 	font-weight: 700;
 }
 h2 {
-	font-size: 24px;
+	font-size: 20px;
 	font-style: normal;
 	font-weight: 100;
 	margin: 0px;
 	}
 p, label {	
-	font-size: 18px;
+	font-size: 16px;
 	font-style: normal;
 	font-weight: 300;
 }	
@@ -151,6 +153,16 @@ td { vertical-align: top; }
 	font-style: normal;
 	font-weight: 500;
 }
+#beta {
+	background: url('superbeta.png') no-repeat;
+    height: 100px;
+    left: -2px;
+    position: absolute;
+    top: 0;
+    width: 100px;
+    z-index: 5;
+}
+
 /*----prepared.ly logo ---*/
 #logo {
 	background: url('preparedly-red.png') no-repeat;
@@ -165,15 +177,6 @@ td { vertical-align: top; }
 	padding:50px;
 	position: relative;
 	top: 15px;
-}
-#beta {
-	background: url('superbeta.png') no-repeat;
-    height: 100px;
-    left: -2px;
-    position: absolute;
-    top: 0;
-    width: 100px;
-    z-index: 5;
 }
 
 
