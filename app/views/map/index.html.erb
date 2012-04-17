@@ -25,6 +25,8 @@ Humidity: <%= @relative_humidity %> <br/>
             attrib = 'Map tiles by Stamen',
             baseLayer = new L.TileLayer(baseUrl, {attribution: attrib, maxZoom:18});
         map.addLayer(baseLayer);
+        var homeMarker = new L.Marker(new L.LatLng(<%= @coordinates[0] %>, <%= @coordinates[1] %>));
+        map.addLayer(homeMarker);
         map.setView(mapCenter, mapZoom);
       }
     });
