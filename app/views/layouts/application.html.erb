@@ -22,19 +22,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 <div id="beta">
 </div>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-<div id="nav-bar">
-	<ul id="nav-bar-items">
-  <%= render 'devise/menu/registration_items' %>
-  <%= render 'devise/menu/login_items' %>
-		<li><a href="">about</a></li>
+<div class="nav-bar">
+	<ul class="nav-bar-items">
+  		<%= render 'devise/menu/registration_items' %>
+  		<%= render 'devise/menu/login_items' %>
+
+		<li><%= link_to "About", page_path("about") %>
+		</li>
 	</ul>
 </div>
+<a href="https://www.prepared.ly/">
 <div id="logo" title"preparedly">
 </div>
+</a>
+
 <div id="main">
 <%= yield %>
 </div>

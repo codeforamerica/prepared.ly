@@ -1,8 +1,9 @@
-
 <%= form_tag("/map", :method=> "get") do %>
 <h2> Welcome. </h2>
-    <%= label_tag(:q, "Type in your address and we can get started:") %><br/>
-    <%= text_field_tag(:q) %>
-    <%= submit_tag("Locate") %>
+    <%= label_tag(:q, "Type in your address and we can get started:") %> <br/>
+    <%= text_field_tag(:q, nil,  :placeholder => 'enter your address here', :class => 'address') %>
+    <%= submit_tag("Locate", :class => 'button blue') %>
+
 <% end %>
-<p>We aren't going to keep this unless you decide to make an account.</p>
+<p class="note">We won't save your address unless you decide to make an account.</br>
+<a href="">What is prepared.ly?</a></p>
