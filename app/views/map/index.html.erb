@@ -1,3 +1,15 @@
+<% content_for :stylesheet_yield do %>
+  <!-- TODO: Move in controller specific stylesheet -->
+  <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.css">
+  <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.ie.css">
+  <style>
+    #map {
+      height: 480px;
+      width: 640px;
+    }
+  </style>
+<% end %>
+
 Address: <%= @address %> <br/>
 Coordinates: <%= @coordinates %> <br/>
 Wind: <%= @wind_conditions %> <br/>
@@ -6,7 +18,7 @@ Humidity: <%= @relative_humidity %> <br/>
 <!-- div that will display the map that is set using below javascript -->
 <div id="map"></div>
 
-
+<% content_for :javascript_yield do %>
 <!-- scripts -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="http://code.leafletjs.com/leaflet-0.3.1/leaflet.js"></script>
@@ -31,3 +43,4 @@ Humidity: <%= @relative_humidity %> <br/>
       }
     });
 </script>
+<% end %>

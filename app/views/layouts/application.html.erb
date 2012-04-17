@@ -4,16 +4,7 @@
 
   <title>Preparedly</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <!-- TODO: Move in controller specific stylesheet -->
-  <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.css">
-  <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.ie.css">
-  <style>
-    #map {
-      height: 480px;
-      width: 640px;
-    }
-  </style>
-
+  <%= yield :stylesheet_yield %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -40,9 +31,10 @@
 <%= yield %>
 </div>
 
-<%= javascript_include_tag "application" %>
 <script type="text/javascript" src="http://use.typekit.com/osj8jgk.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<%= yield :javascript_yield %>
+<%= javascript_include_tag "application" %>
 
 </body>
 </html>
