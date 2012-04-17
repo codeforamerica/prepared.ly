@@ -39,4 +39,8 @@ gem 'jquery-rails'
 
 gem 'devise'
 gem 'omniauth'
+gem 'omniauth-openid'
 gem 'omniauth-twitter'
+
+# add mongrel to help with handling super long openid callback url
+gem 'mongrel', '1.2.0.pre2'
