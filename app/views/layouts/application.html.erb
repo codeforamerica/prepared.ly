@@ -14,11 +14,6 @@
     }
   </style>
 
-  <!-- TODO: Move JS at bottom of body? -->
-  <%= javascript_include_tag "application" %>
-  <script type="text/javascript" src="http://use.typekit.com/osj8jgk.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -44,5 +39,10 @@
 <div id="main">
 <%= yield %>
 </div>
+
+<%= javascript_include_tag "application" %>
+<script type="text/javascript" src="http://use.typekit.com/osj8jgk.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
 </body>
 </html>
