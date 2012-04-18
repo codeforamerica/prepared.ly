@@ -47,6 +47,7 @@ gem 'nokogiri'
 
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 # add mongrel to help with handling super long openid callback url
 gem 'mongrel', '1.2.0.pre2'
