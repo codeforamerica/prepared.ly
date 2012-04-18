@@ -40,3 +40,5 @@ gem 'jquery-rails'
 gem 'devise'
 
 gem "high_voltage"
+
+gem 'wunderground_ruby'
