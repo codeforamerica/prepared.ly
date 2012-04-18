@@ -1,5 +1,4 @@
 <% content_for :stylesheet_yield do %>
-  <!-- TODO: Move in controller specific stylesheet -->
   <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.css">
   <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.ie.css">
   <style>
@@ -22,12 +21,14 @@ Humidity: <%= @relative_humidity %> <br/>
 <!-- scripts -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="http://code.leafletjs.com/leaflet-0.3.1/leaflet.js"></script>
+<script type="text/javascript" src="http://vizzuality.github.com/cartodb-leaflet/wax.leaflet.min.js"></script>
+<script type="text/javascript" src="http://vizzuality.github.com/cartodb-leaflet/cartodb-leaflet.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
  
-      stamenTiles();
+      stamenTilesWithStations();
 
-      function stamenTiles() {
+      function stamenTilesWithStations() {
         
         // make a map, using normal leaflet and stamen toner tiles
         var map = new L.Map('map');
@@ -40,6 +41,27 @@ Humidity: <%= @relative_humidity %> <br/>
         var homeMarker = new L.Marker(new L.LatLng(<%= @coordinates[0] %>, <%= @coordinates[1] %>));
         map.addLayer(homeMarker);
         map.setView(mapCenter, mapZoom);
+
+        var cartodbLeaflet = new L.CartoDBLayer({
+        show_cartodb_logo: false,
+        map_canvas: 'map',
+        map: map,
+        user_name:'tinio',
+        table_name: 'afd_station_location',
+        query: "SELECT cartodb_id, the_geom_webmercator FROM {{table_name}} ORDER BY ST_Distance(the_geom, ST_GeomFromText('POINT(<%= @coordinates[1]%> <%= @coordinates[0] %>)',4326)) LIMIT 1",
+        tile_style: "#{{table_name}} {" +
+                   "marker-fill:#FF6600;" +
+                   "marker-line-color:white;" +
+                   "marker-line-width:3;" +
+                   "marker-opacity:1;" +
+                   "marker-line-opacity:1;" +
+                   "marker-placement:point;" +
+                   "marker-type:ellipse;" +
+                   "marker-allow-overlap:true;" +
+                "}",
+        infowindow: "SELECT cartodb_id, address FROM {{table_name}} WHERE cartodb_id={{feature}}",
+        auto_bound: false 
+        });
       }
     });
 </script>
