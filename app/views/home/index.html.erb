@@ -1,4 +1,4 @@
-<%= form_tag("/map", :method=> "get") do %>
+<%= form_tag("/map", :method=> "post") do %>
 <h2> Welcome. </h2>
     <%= label_tag(:q, "Type in your address and we can get started:") %> <br/>
     <%= text_field_tag(:q, nil,  :placeholder => 'enter your address here', :class => 'address') %>
