@@ -1,7 +1,15 @@
 <%= form_tag("/map", :method=> "get") do %>
-<h2> Welcome to Prepared.ly! </h2>
+<h2> About Prepared.ly </h2>
+<p>
+Prepared.ly is a collaborative project between the City of Austin, the Austin Fire Department, and <a href="codeforamerica.org">Code for America.</a> 
+We think losing homes to wildfires is preventable if we all work together, so we built a tool to prove it! </p>
 
-We're excited you've joined! Fire is a real threat and we’re glad you’ve taken the first step to becoming a wildfire-prepared home owner. Prepared.ly's mission is to connect you with your neighbors and local fire fighters, to help everyone work together to create more fire-aware Austin communities. 
+<h2> So, help us prove it. </h2>
+<p>We're excited you're here! If you haven't yet, <%= link_to('set up an account', new_user_registration_path)  %>. 
+Fire is a real threat and we’re glad you’ve taken the first step to becoming a wildfire-prepared home owner. 
+Prepared.ly's mission is to connect you with your neighbors and local fire fighters, 
+to help everyone work together to create more fire-aware Austin communities. 
+
 Get started with Prepared.ly
 </br>
 <ol>
@@ -13,5 +21,9 @@ Get started with Prepared.ly
 Welcome to the the good fight!</br>
 The Prepared.ly  Team (@ATXPreparedly)
 </p>
+<h2> Get in touch <h2>
+<p> Give us feedback, send us an email, email the fire department, follow us on twitter, share this page
+</p>
+<img src="/assets/cfaaustin.png" title="cfa austin">
 <% end %>
 

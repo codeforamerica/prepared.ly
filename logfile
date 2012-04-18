@@ -4,3 +4,4 @@ LOG:  database system is ready to accept connections
 WARNING:  corrupted statistics file "pg_stat_tmp/pgstat.stat"
 WARNING:  corrupted statistics file "pg_stat_tmp/pgstat.stat"
 WARNING:  corrupted statistics file "pg_stat_tmp/pgstat.stat"
+WARNING:  corrupted statistics file "pg_stat_tmp/pgstat.stat"
