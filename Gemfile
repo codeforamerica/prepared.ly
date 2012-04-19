@@ -39,7 +39,7 @@ gem 'jquery-rails'
 
 gem 'devise'
 gem 'omniauth'
-gem 'omniauth-openid'
+gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
