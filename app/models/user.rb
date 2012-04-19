@@ -5,37 +5,36 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :first_name, :last_name, :phone, :address,
-  :preferred_contact, :password, :password_confirmation, :remember_me,
-  :provider, :twitter_id, :twitter_screen_name, :twitter_display_name
-  # attr_accessible :title, :body
-  
-  # find twitter user from oauth hash or create if nonexistent; twitter hash does not return email
-  def self.find_for_twitter_oauth(access_token, signed_in_resource=nil)
-    data = access_token.extra.raw_info
-    if user = User.where(:provider => data["provider"]).first
+  attr_accessible :email, :first_name, :last_name, :phone, :address, :preferred_contact, :password, :password_confirmation, :remember_me, :provider, :provider_id, :twitter_screen_name, :twitter_display_name
+
+  def self.find_or_create_for_twitter(access_token, signed_in_resource=nil)
+    data = access_token
+    # search by twitter uid instead of email since user might not have set their email yet
+    if user = User.where(:provider_id => data["uid"]).first
       user
-    else # Create a user with a stub password
-      User.create!(:provider => data["provider"], :twitter_id => data["user_id"], :twitter_screen_name => data["nickname"], :twitter_display_name => data["name"], :password => Devise.friendly_token[0,20]) 
-    end
-  end
-  
-  # authenticate using google or google apps account
-  def self.find_for_open_id(access_token, signed_in_resource=nil)
-    data = access_token.info
-    if user = User.where(:email => data["email"]).first
-      user
-    else # Create a user with a stub password.
-      User.create!(:email => data["email"], :provider => data["provider"], :password => Devise.friendly_token[0,20])
+    else # create user with stub password; twitter doesn't return email; need a valid email for devise to validate
+      user = User.create!(:email => "temp@example.com", :password => Devise.friendly_token[0,20], :provider => data["provider"], :provider_id => data["uid"], :twitter_screen_name => data.info["nickname"], :twitter_display_name => data.info["name"])
     end
   end
 
-  def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
-    data = access_token.extra.raw_info
-    if user = self.find_by_email(data.email)
+  # authenticate using google oauth2
+  def self.find_or_create_for_google_oauth2(access_token, signed_in_resource=nil)
+    data = access_token
+    if user = User.where(:email => data.info["email"]).first
       user
-    else # Create a user with a stub password. 
-      self.create!(:email => data.email, :password => Devise.friendly_token[0,20]) 
+    else # Create a user with a stub password.
+      User.create!(:email => data.info["email"], :password => Devise.friendly_token[0,20], :provider => data["provider"], :provider_id => data["uid"], :first_name => data.info["first_name"], :last_name => data.info["last_name"])
+    end
+  end
+
+  def self.find_or_create_for_facebook(access_token, signed_in_resource=nil)
+    # uncomment line below to see what facebook returns in omniauth hash, set value accordingly
+    # raise request.env["omniauth.auth"].to_yaml
+    data = access_token
+    if user = User.where(:email => data.info["email"]).first
+      user
+    else # Create a user with a stub password.
+      User.create!(:email => data.info["email"], :password => Devise.friendly_token[0,20], :provider => data["provider"], :provider_id => data["uid"], :first_name => data.info["first_name"], :last_name => data.info["last_name"])
     end
   end
 end

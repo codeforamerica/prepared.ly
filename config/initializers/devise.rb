@@ -215,9 +215,9 @@ Devise.setup do |config|
   require 'omniauth-twitter'
   config.omniauth :twitter, ENV['TWITTER_ID'], ENV['TWITTER_SECRET'], {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
 
-  require 'openid/store/filesystem'
-  config.omniauth :open_id, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id', :require => 'omniauth-openid'
-
+  require 'omniauth-google-oauth2'
+  config.omniauth :google_oauth2, ENV['GOOGLE_ID'], ENV['GOOGLE_SECRET'], {access_type: 'online', approval_prompt: ''}
+  
   require 'omniauth-facebook'
   config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET'], {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
   # ==> Warden configuration
