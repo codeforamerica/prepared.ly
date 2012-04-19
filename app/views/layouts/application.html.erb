@@ -5,6 +5,7 @@
   <title>Preparedly</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= yield :stylesheet_yield %>
+  <%= yield :fb_og_tags %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -16,8 +17,7 @@
         <p class="alert"><%= alert %></p>
             <div class="nav-bar">
                 <ul class="nav-bar-items">
-                    <%= render 'devise/menu/registration_items' %>
-                    <%= render 'devise/menu/login_items' %>
+                    <%= yield :nav_bar_items %>
                     <li><%= link_to "About", page_path("about") %>
                     </li>
                 </ul>

@@ -1,7 +1,8 @@
 Preparedly::Application.routes.draw do
   devise_for :users
 
-  match "map" => "map#index"
+  match "locate" => "map#get"
+  match "map" => "map#post"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

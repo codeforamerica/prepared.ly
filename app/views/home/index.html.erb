@@ -1,9 +1,8 @@
-<%= form_tag("/map", :method=> "post") do %>
-<h2> Welcome. </h2>
-    <%= label_tag(:q, "Type in your address and we can get started:") %> <br/>
-    <%= text_field_tag(:q, nil,  :placeholder => 'enter your address here', :class => 'address') %>
-    <%= submit_tag("Locate", :class => 'button blue') %>
-
+<% content_for :fb_og_tags do %>
+<meta property="og:title" content="prepared.ly - Make staying prepared fun and easy!" /><meta property="og:type" content="company" /><meta property="og:site_name" content="prepared.ly" /><meta property="og:url" content="http://prepared.ly" /><meta property="og:image" content="https://launchrock-assets.s3.amazonaws.com/facebook-files/UPZ4FCUWFEtEXSu.png" /><meta property="og:description" content="I just signed up to be the first to know about prepared.ly, a home and neighborhood safety app by Code for America Austin" />
 <% end %>
-<p class="note">We won't save your address unless you decide to make an account.</br>
-<a href="">What is prepared.ly?</a></p>
+
+<center>
+<div rel="OYFK0YJK" class="lrdiscoverwidget" data-logo="off" data-background="off" data-share-url="prepared.ly" data-css=""></div><script type="text/javascript" src="http://launchrock-ignition.s3.amazonaws.com/ignition.1.1.js"></script>
+</center>
+

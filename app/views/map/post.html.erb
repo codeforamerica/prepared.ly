@@ -9,6 +9,11 @@
   </style>
 <% end %>
 
+<% content_for :nav_bar_items do %>
+    <%= render 'devise/menu/registration_items' %>
+    <%= render 'devise/menu/login_items' %>
+<% end %>
+
 Address: <%= @address %> <br/>
 Coordinates: <%= @coordinates %> <br/>
 Wind: <%= @wind_conditions %> <br/>

@@ -3,7 +3,10 @@ require 'nokogiri'
 require 'open-uri'
 
 class MapController < ApplicationController
-  def index
+  def get 
+  end
+
+  def post 
     @address = params[:q]
     @coordinates = Geocoder.coordinates(@address)
     w_api = Wunderground.new(ENV['WUNDERGROUND_API_KEY'])

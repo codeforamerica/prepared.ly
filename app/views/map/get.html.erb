@@ -1,0 +1,14 @@
+<% content_for :nav_bar_items do %>
+    <%= render 'devise/menu/registration_items' %>
+    <%= render 'devise/menu/login_items' %>
+<% end %>
+
+<%= form_tag("/map", :method=> "post") do %>
+<h2> Welcome. </h2>
+    <%= label_tag(:q, "Type in your address and we can get started:") %> <br/>
+    <%= text_field_tag(:q, nil,  :placeholder => 'enter your address here', :class => 'address') %>
+    <%= submit_tag("Locate", :class => 'button blue') %>
+
+<% end %>
+<p class="note">We won't save your address unless you decide to make an account.</br>
+<a href="">What is prepared.ly?</a></p>
