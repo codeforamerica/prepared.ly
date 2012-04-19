@@ -1,7 +1,0 @@
-LOG:  database system was shut down at 2012-04-12 20:24:52 PDT
-LOG:  autovacuum launcher started
-LOG:  database system is ready to accept connections
-WARNING:  corrupted statistics file "pg_stat_tmp/pgstat.stat"
-WARNING:  corrupted statistics file "pg_stat_tmp/pgstat.stat"
-WARNING:  corrupted statistics file "pg_stat_tmp/pgstat.stat"
-WARNING:  corrupted statistics file "pg_stat_tmp/pgstat.stat"
