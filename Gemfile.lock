@@ -68,6 +68,7 @@ GEM
     mime-types (1.18)
     multi_json (1.2.0)
     multi_xml (0.4.4)
+    nokogiri (1.5.2)
     orm_adapter (0.0.7)
     pg (0.13.2)
     polyglot (0.3.3)
@@ -135,6 +136,7 @@ DEPENDENCIES
   devise
   high_voltage
   jquery-rails
+  nokogiri
   pg
   rails (= 3.2.3)
   sass-rails (~> 3.2.3)

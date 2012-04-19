@@ -45,7 +45,7 @@ Humidity: <%= @relative_humidity %> <br/>
         map: map,
         user_name:'tinio',
         table_name: 'cntys04',
-        query: "SELECT cartodb_id, the_geom_webmercator FROM {{table_name}}",
+        query: "SELECT cartodb_id, the_geom_webmercator FROM {{table_name}} WHERE name in (<%= @counties_list %>)",
         infowindow: "SELECT cartodb_id, name_locas FROM {{table_name}} WHERE cartodb_id={{feature}}",
         auto_bound: false 
         });
