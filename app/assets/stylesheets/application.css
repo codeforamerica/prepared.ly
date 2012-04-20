@@ -57,7 +57,7 @@ p, label {
 	font-style: normal;
 	font-weight: 300;
 }	
-label {
+.address label {
 	display:none;
 	}	
 input {

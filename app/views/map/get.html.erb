@@ -6,7 +6,7 @@
 
 <%= form_tag("/map", :method=> "post") do %>
 <h2> Welcome. </h2>
-    <%= label_tag(:q, "Type in your address and we can get started:") %> <br/>
+    <%= label_tag(:q, "Type in your address and we can get started:", :class => 'address') %> <br/>
     <%= text_field_tag(:q, nil,  :placeholder => 'enter your address here', :class => 'address') %>
     <%= submit_tag("Locate", :class => 'button blue') %>
 
