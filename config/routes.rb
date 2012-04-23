@@ -6,6 +6,7 @@ Preparedly::Application.routes.draw do
 
   match "locate" => "map#get"
   match "map" => "map#post"
+  match "share" => "share#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
