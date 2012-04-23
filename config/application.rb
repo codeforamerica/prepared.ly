@@ -59,5 +59,9 @@ module Preparedly
 
     # Devise settings
     config.assets.initalize_on_precompile = false
+
+    # Rack:Affliates configuration
+    config.middleware.use Rack::Affiliates
+
   end
 end
