@@ -4,9 +4,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_or_create_for_twitter(request.env["omniauth.auth"])
     flash[:notice] = "Signed in with Twitter successfully."
     # use devise-provided method to redirect the user
-    if @user.email == "temp@example.com" || @user.phone == nil
+    if @user.email == "temp@example.com" || @user.phone.nil?
       sign_in @user, :event => :authentication
-      redirect_to user_omniauth_reg_path
+      redirect_to users_get_path
     else
       sign_in_and_redirect @user, :event => :authentication
      end
@@ -16,9 +16,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_or_create_for_google_oauth2(request.env["omniauth.auth"])
     flash[:notice] = "Signed in with Google successfully."
     # use devise-provided method to redirect the user
-    if @user.phone == nil
+    if @user.phone.nil?
       sign_in @user, :event => :authentication
-      redirect_to user_omniauth_reg_path
+      redirect_to users_get_path
     else
       sign_in_and_redirect @user, :event => :authentication
      end
@@ -28,9 +28,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_or_create_for_facebook(request.env["omniauth.auth"], current_user)
     flash[:notice] = "Signed in with Facebook successfully."
     # use devise-provided method to redirect the user
-    if @user.email != nil
+    if @user.phone.nil?
       sign_in @user, :event => :authentication
-      redirect_to user_omniauth_reg_path
+      redirect_to users_get_path
     else
       sign_in_and_redirect @user, :event => :authentication
      end

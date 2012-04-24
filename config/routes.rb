@@ -7,7 +7,9 @@ Preparedly::Application.routes.draw do
   match "locate" => "map#get"
   match "map" => "map#post"
   match "share" => "share#index"
-  match "user/omniauth_reg" => "user#omniauth_reg"
+  match "users/get" => "users#get"
+
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

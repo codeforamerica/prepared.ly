@@ -1,6 +1,8 @@
-<h2>Additional info</h2>
+<h2>Additional Info</h2>
+<div>We're almost there! Please confirm the following information</div>
 
-<% form_for(@user) do |f| %>
+<%= form_for(@user, { :action => "update" }) do |f| %>
+
 <div>
 <%= f.label :email %><br />
 <%= f.email_field :email %>
