@@ -1,20 +1,37 @@
-<!-- FB Setup-->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=366357736748301";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<a href='/?ref=<%= @referral_code %>'>http://www.prepared.ly/?ref=<%= @referral_code %></a>
-<br/>
-<div class="fb-like" data-href="http://www.prepared.ly/?ref=<%= @referral_code %>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-action="recommend"></div>
-<br/>
-<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.prepared.ly/?ref=<%= @referral_code %>" data-text="Make staying prepared fun and easy! Check out the site" data-via="ATXPreparedly" data-size="large" data-hashtags="cfaATX">Tweet</a>
-
 <% content_for :javascript_yield do %>
-<!-- Twitter Setup-->
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  <!-- Tumblr Setup-->
+  <script type="text/javascript">
+      var tumblr_link_url = "http://www.prepared.ly/?ref=<%= @referral_code %>";
+      var tumblr_link_name = "prepared.ly";
+      var tumblr_link_description = "Make staying prepared fun and easy!";
+  </script>
+
+  <script type="text/javascript">
+      var tumblr_button = document.createElement("a");
+      tumblr_button.setAttribute("href", "http://www.tumblr.com/share/link?url=" + encodeURIComponent(tumblr_link_url) + "&name=" + encodeURIComponent(tumblr_link_name) + "&description=" + encodeURIComponent(tumblr_link_description));
+      tumblr_button.setAttribute("title", "Share on Tumblr");
+      tumblr_button.setAttribute("style", "display:inline-block; text-indent:-9999px; overflow:hidden; width:81px; height:20px; background:url('http://platform.tumblr.com/v1/share_1.png') top left no-repeat transparent;");
+      tumblr_button.innerHTML = "Share on Tumblr";
+      document.getElementById("tumblr_button_abc123").appendChild(tumblr_button);
+  </script>
+
+  <!-- FB Setup-->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=366357736748301";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Twitter Setup-->
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 <% end %>
+
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.prepared.ly/?ref=<%= @referral_code %>" data-text="Make staying prepared fun and easy! Check out the site" data-via="ATXPreparedly" data-hashtags="cfaATX">Tweet</a>
+<span id="tumblr_button_abc123"></span>
+<div class="fb-like" data-href="http://www.prepared.ly/" ref="<%= @referral_code %>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-action="recommend"></div>
+<br/>
+<br/>
+Share Link: <input size=35 value="http://www.prepared.ly/?ref=<%= @referral_code %>">
