@@ -4,7 +4,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_or_create_for_twitter(request.env["omniauth.auth"])
     flash[:notice] = "Signed in with Twitter successfully."
     # use devise-provided method to redirect the user
-    if @user.email == "temp@example.com" || @user.phone.nil?
+    if @user.email == "changeme@changeme.com" || @user.phone.nil?
       sign_in @user, :event => :authentication
       redirect_to users_get_path
     else
