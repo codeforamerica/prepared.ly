@@ -15,8 +15,11 @@
     <li><%= link_to "About", page_path("about") %></li>
 <% end %>
 
-Address: <%= @address %> <br/>
-Coordinates: <%= @coordinates %> <br/>
+<%= form_tag("/map", :method=> "post") do %>
+    <%= text_field_tag(:q, nil,  :value => @address, :class => 'address') %>
+    <%= submit_tag("Locate", :class => 'button blue') %>
+<% end %>
+
 Wind: <%= @wind_conditions %> <br/>
 Humidity: <%= @relative_humidity %> <br/>
 
