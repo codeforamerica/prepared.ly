@@ -1,3 +1,9 @@
+<% content_for :nav_bar_items do %>
+    <%= render 'devise/menu/registration_items' %>
+    <%= render 'devise/menu/login_items' %>
+    <li><%= link_to "About", page_path("about") %></li>
+<% end %>
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>

@@ -1,3 +1,9 @@
+<% content_for :nav_bar_items do %>
+    <%= render 'devise/menu/registration_items' %>
+    <%= render 'devise/menu/login_items' %>
+    <li><%= link_to "About", page_path("about") %></li>
+<% end %>
+
 <%= form_tag("/map", :method=> "get") do %>
 <h2> About Prepared.ly </h2>
 <p>
