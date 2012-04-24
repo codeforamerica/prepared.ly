@@ -11,6 +11,11 @@ Preparedly::Application.routes.draw do
 
   resources :users
 
+  # TODO: remove after removing launchrock signup
+  devise_scope :user do
+    root :to => "map#get"
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
