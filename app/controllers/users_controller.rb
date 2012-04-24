@@ -7,6 +7,6 @@ class UsersController < ApplicationController
 	def update
 		@user = current_user	
 		@user.update_attributes(params[:user])
-		redirect_to locate_path, :flash => { :success => "Profile updated." }
+		redirect_to share_path, :flash => { :success => "Profile updated." }
 	end
 end
