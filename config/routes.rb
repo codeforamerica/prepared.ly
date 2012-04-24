@@ -4,11 +4,11 @@ Preparedly::Application.routes.draw do
       :registrations => "users/registrations" 
   }
 
-  match "locate" => "map#get"
-  match "map" => "map#post"
+  get "map" => "map#get"
+  post "map" => "map#post"
   match "share" => "share#index"
-  match "users/get" => "users#get"
 
+  match "users/get" => "users#get"
   resources :users
 
   # The priority is based upon order of creation:
