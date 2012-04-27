@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423223845) do
+ActiveRecord::Schema.define(:version => 20120426235805) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(:version => 20120423223845) do
     t.string   "destroy"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "fire_stations", :force => true do |t|
+    t.string   "address"
+    t.integer  "zip"
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+    t.spatial  "latlon",     :limit => {:srid=>0, :type=>"point"}
   end
 
   create_table "sessions", :force => true do |t|
