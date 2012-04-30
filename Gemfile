@@ -51,3 +51,5 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
 gem 'rack-affiliates'
+
+gem 'rails_admin'
