@@ -2,7 +2,7 @@ class CreateAddresses < ActiveRecord::Migration
   def change
     create_table :addresses do |t|
       t.string :address
-      t.point :latlon
+      t.point :latlon, :geographic => true
 
       t.timestamps
     end
