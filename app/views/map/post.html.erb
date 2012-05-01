@@ -15,7 +15,7 @@
     <li><%= link_to "About", page_path("about") %></li>
 <% end %>
 
-<%= form_tag("/map", :method=> "post") do %>
+<%= form_tag("/map", :method=> "post") do%>
     <%= text_field_tag(:q, nil,  :value => @address.address, :class => 'address') %>
     <%= submit_tag("Locate", :class => 'button blue') %>
 <% end %>
@@ -41,14 +41,14 @@
 <script type="text/javascript" src="http://vizzuality.github.com/cartodb-leaflet/cartodb-leaflet.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
- 
+
       stamenTilesWithStations();
 
       function stamenTilesWithStations() {
-        
+
         // make a map, using normal leaflet and stamen toner tiles
         var map = new L.Map('map');
-        var mapCenter = new L.LatLng(<%= @address.latlon.x %>, <%= @address.latlon.y %>);
+        var mapCenter = new L.LatLng(<%= @address.latlon.y %>, <%= @address.latlon.x %>);
         var mapZoom = 12;
         var baseUrl = 'http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg',
             attrib = 'Map tiles by Stamen',
@@ -66,7 +66,7 @@
         auto_bound: false 
         });
 
-        var homeMarker = new L.Marker(new L.LatLng(<%= @address.latlon.x %>, <%= @address.latlon.y %>));
+        var homeMarker = new L.Marker(new L.LatLng(<%= @address.latlon.y %>, <%= @address.latlon.x %>));
         map.addLayer(homeMarker);
         map.setView(mapCenter, mapZoom);
 
