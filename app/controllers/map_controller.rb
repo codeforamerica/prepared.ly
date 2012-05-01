@@ -11,6 +11,10 @@ class MapController < ApplicationController
     coordinates = Geocoder.coordinates(address_str)
     @address = Address.create(:address => address_str, :latlon => 'POINT(' + coordinates[1].to_s + ' ' + coordinates[0].to_s + ')')
 
+    # Closest Fire Station
+    @cfs = FireStation.order("ST_Distance(latlon, '" + @address.latlon.to_s + "') LIMIT 1")[0]
+    @distance = @address.latlon.distance(@cfs.latlon)
+
     w_api = Wunderground.new(ENV['WUNDERGROUND_API_KEY'])
     w_response = w_api.get_conditions_for(@address.latlon.y.to_s + "," + @address.latlon.x.to_s)
     @wind_conditions = w_response['current_observation']['wind_string']
