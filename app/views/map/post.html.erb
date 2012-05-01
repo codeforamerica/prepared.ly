@@ -16,7 +16,7 @@
 <% end %>
 
 <%= form_tag("/map", :method=> "post") do %>
-    <%= text_field_tag(:q, nil,  :value => @address, :class => 'address') %>
+    <%= text_field_tag(:q, nil,  :value => @address.address, :class => 'address') %>
     <%= submit_tag("Locate", :class => 'button blue') %>
 <% end %>
 
@@ -48,7 +48,7 @@
         
         // make a map, using normal leaflet and stamen toner tiles
         var map = new L.Map('map');
-        var mapCenter = new L.LatLng(<%= @coordinates[0] %>, <%= @coordinates[1] %>);
+        var mapCenter = new L.LatLng(<%= @address.latlon.x %>, <%= @address.latlon.y %>);
         var mapZoom = 12;
         var baseUrl = 'http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg',
             attrib = 'Map tiles by Stamen',
@@ -66,7 +66,7 @@
         auto_bound: false 
         });
 
-        var homeMarker = new L.Marker(new L.LatLng(<%= @coordinates[0] %>, <%= @coordinates[1] %>));
+        var homeMarker = new L.Marker(new L.LatLng(<%= @address.latlon.x %>, <%= @address.latlon.y %>));
         map.addLayer(homeMarker);
         map.setView(mapCenter, mapZoom);
 
@@ -76,7 +76,7 @@
         map: map,
         user_name:'tinio',
         table_name: 'afd_station_location',
-        query: "SELECT cartodb_id, the_geom_webmercator FROM {{table_name}} ORDER BY ST_Distance(the_geom, ST_GeomFromText('POINT(<%= @coordinates[1]%> <%= @coordinates[0] %>)',4326)) LIMIT 1",
+        query: "SELECT cartodb_id, the_geom_webmercator FROM {{table_name}} ORDER BY ST_Distance(the_geom, ST_GeomFromText('POINT(<%= @address.latlon.x %> <%= @address.latlon.y %>)',4326)) LIMIT 1",
         infowindow: "SELECT cartodb_id, address FROM {{table_name}} WHERE cartodb_id={{feature}}",
         auto_bound: false 
         });

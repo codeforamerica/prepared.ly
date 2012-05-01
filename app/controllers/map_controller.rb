@@ -7,10 +7,12 @@ class MapController < ApplicationController
   end
 
   def post 
-    @address = params[:q]
-    @coordinates = Geocoder.coordinates(@address)
+    address_str = params[:q]
+    coordinates = Geocoder.coordinates(address_str)
+    @address = Address.create(:address => address_str, :latlon => 'POINT(' + coordinates[0].to_s + ' ' + coordinates[1].to_s + ')')
+
     w_api = Wunderground.new(ENV['WUNDERGROUND_API_KEY'])
-    w_response = w_api.get_conditions_for(@coordinates[0].to_s + "," + @coordinates[1].to_s)
+    w_response = w_api.get_conditions_for(@address.latlon.x.to_s + "," + @address.latlon.y.to_s)
     @wind_conditions = w_response['current_observation']['wind_string']
     @relative_humidity = w_response['current_observation']['relative_humidity']
 
