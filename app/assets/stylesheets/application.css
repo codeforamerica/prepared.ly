@@ -164,7 +164,7 @@ button, input {
 		to(#fc8346));
 }
 
-/*
+/* TODO
 	-webkit-box-shadow:
 		0px 1px 2px rgba(77,77,77,0.3),
 		inset 0px 0px 3px rgba(122,41,0,1);
@@ -188,8 +188,10 @@ input[type="search"] {
 	-moz-box-sizing: content-box; 
 	-webkit-box-sizing: content-box; 
 	box-sizing: content-box; }
+/* TODO
 input[type="search"]::
 	-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
+*/
 button::
 	-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
 textarea { 
