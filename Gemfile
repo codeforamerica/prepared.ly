@@ -41,7 +41,7 @@ gem 'devise'
 
 gem "high_voltage"
 
-gem 'wunderground_ruby'
+gem 'httparty'
 
 gem 'nokogiri'
 
@@ -55,3 +55,5 @@ gem 'rack-affiliates'
 gem 'rails_admin'
 
 gem 'rgeo-geojson'
+
+gem 'wunderground_ruby'

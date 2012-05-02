@@ -196,6 +196,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   high_voltage
+  httparty
   jquery-rails
   nokogiri
   omniauth
