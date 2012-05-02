@@ -33,9 +33,9 @@ ActiveRecord::Schema.define(:version => 20120502010306) do
 
   create_table "counties", :force => true do |t|
     t.string   "name"
-    t.spatial  "geometry",   :limit => {:srid=>4326, :type=>"multi_polygon", :geographic=>true}
-    t.datetime "created_at",                                                                     :null => false
-    t.datetime "updated_at",                                                                     :null => false
+    t.spatial  "geometry",   :limit => {:srid=>4326, :type=>"geometry", :geographic=>true}
+    t.datetime "created_at",                                                                :null => false
+    t.datetime "updated_at",                                                                :null => false
   end
 
   create_table "fire_stations", :force => true do |t|

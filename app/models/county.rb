@@ -12,7 +12,7 @@ class County < ActiveRecord::Base
     records.each do |record|
       county = County.create
       county.name = record['NAME']
-      county.geometry = record.geometry
+      county.geometry = factory.collection([record.geometry])
       county.save!
       puts record['NAME']
     end
