@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120501160957) do
+ActiveRecord::Schema.define(:version => 20120502010306) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(:version => 20120501160957) do
     t.string   "destroy"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "counties", :force => true do |t|
+    t.string   "name"
+    t.spatial  "geometry",   :limit => {:srid=>4326, :type=>"polygon", :geographic=>true}
+    t.datetime "created_at",                                                               :null => false
+    t.datetime "updated_at",                                                               :null => false
   end
 
   create_table "fire_stations", :force => true do |t|
