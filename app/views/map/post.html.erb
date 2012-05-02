@@ -22,6 +22,8 @@
 
 <div>
   <div style="width:200px; float: left">
+    Risk Level:
+    <h1><%= @risk_level %></h1>
     Wind:<br/>
     <%= @wind_conditions %> <br/>
     <br/>
@@ -33,8 +35,6 @@
     <br/>
     Inside of a Burn Ban:<br/>
     <%= @inside_burnban %><br/>
-    <br/>
-
     <br/>
     Coordinates:<br/>
     <%= @address.latlon.y %> <%= @address.latlon.x %> <br/>

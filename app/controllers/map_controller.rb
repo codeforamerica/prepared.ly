@@ -1,12 +1,36 @@
-require 'wunderground'
 require 'nokogiri'
 require 'open-uri'
+require 'wunderground'
+
+class TFS
+  include HTTParty
+
+  base_uri 'http://ags1.dtsgis.com/ArcGIS/rest/services/v2'
+
+  def self.risk_assessment(latlon)
+    response = get('/RiskAssessment/MapServer/identify',
+      :query => {
+        :geometryType => "esriGeometryPoint",
+        :geometry => "{x: " + latlon.x.to_s + ", y: " + latlon.y.to_s + "}",
+        :sr => 4326,
+        :layers => 'all',
+        :tolerance => 3,
+        :mapExtent => '-98,30,-97,31',
+        :imageDisplay => '572,740,96',
+        :returnGeometry => true,
+        :f => 'pjson'
+      }
+    )
+    json_response = JSON.parse(response.body)
+    return json_response['results'][0]['attributes']['Pixel Value'].to_i
+  end
+end
 
 class MapController < ApplicationController
-  def get 
+  def get
   end
 
-  def post 
+  def post
     address_str = params[:q]
     coordinates = Geocoder.coordinates(address_str)
     @address = Address.create(:address => address_str, :latlon => 'POINT(' + coordinates[1].to_s + ' ' + coordinates[0].to_s + ')')
@@ -26,7 +50,10 @@ class MapController < ApplicationController
     rss.encoding = 'utf-8'
     counties = rss.css('rss channel item description').text
     @counties_list = '\'' + counties.strip.split(', ').join("\', \'") + '\''
-    @inside_burnban = nil
+    @inside_burnban = 'nil'
+
+    # Risk Assessment Level
+    @risk_level = TFS.risk_assessment(@address.latlon)
 
   end
 end
