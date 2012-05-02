@@ -13,6 +13,8 @@ Preparedly::Application.routes.draw do
   match "users/get" => "users#get"
   resources :users
 
+  match "/survey" => redirect("http://bit.ly/preparedlysurvey"), :as => :survey
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
