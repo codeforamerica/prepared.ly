@@ -52,6 +52,12 @@ h2 {
 	font-weight: 100;
 	margin: 0px;
 	}
+h4 {
+	font-size: 20px;
+	margin:0px;
+	font-weight:500;
+	color:#cc6633;
+}	
 p, label {	
 	font-size: 16px;
 	font-style: normal;
@@ -274,7 +280,24 @@ td { vertical-align: top; }
 #main {
 	padding:50px;
 	position: relative;
-	top: 15px;
+}
+#map {
+	border: #cc6633 solid thin;
+	width: 63%;
+    height: 480px;
+}
+#map-detail {
+	width:33%; 
+	float: left;
+	padding: 15px;
+	border: #cc6633 solid thin;
+	height: 450px;
+	margin-right: 3px;
+}
+#address-map {
+	position: relative;
+	top:-15px;
+	left:715px;
 }
 .address {
 	width:300px;

@@ -1,12 +1,7 @@
 <% content_for :stylesheet_yield do %>
   <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.css">
   <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.ie.css">
-  <style>
-    #map {
-      height: 480px;
-      width: 640px;
-    }
-  </style>
+
 <% end %>
 
 <% content_for :nav_bar_items do %>
@@ -14,30 +9,26 @@
     <%= render 'devise/menu/login_items' %>
     <li><%= link_to "About", page_path("about") %></li>
 <% end %>
-
+<div id="address-map">
 <%= form_tag("/map", :method=> "post") do%>
     <%= text_field_tag(:q, nil,  :value => @address.address, :class => 'address') %>
     <%= submit_tag("Locate", :class => 'button blue') %>
 <% end %>
-
+</div>
 <div>
-  <div style="width:200px; float: left">
-    Risk Level:
-    <h1><%= @risk_level %></h1>
-    Wind:<br/>
-    <%= @wind_conditions %> <br/>
+  <div id="map-detail">
+    <span class="note">Detail view for</span> <h4><%= @address.address %></h4>
+    <hr>
+    Risk Level: <%= @risk_level %><br/>
+    Wind: <%= @wind_conditions %> 
     <br/>
-    Humidity:<br/>
-    <%= @relative_humidity %> <br/>
+    Humidity: <%= @relative_humidity %>
     <br/>
-    Distance:<br/>
-    <%= @distance %> meters <br/>
+    Distance: <%= @distance %> meters 
     <br/>
-    Inside of a Burn Ban:<br/>
-    <%= @inside_burnban %><br/>
+    Inside of a Burn Ban: <%= @inside_burnban %>
     <br/>
-    Coordinates:<br/>
-    <%= @address.latlon.y %> <%= @address.latlon.x %> <br/>
+    Coordinates: <%= @address.latlon.y %> <%= @address.latlon.x %> 
   </div>
   </div>
   <!-- div that will display the map that is set using below javascript -->
