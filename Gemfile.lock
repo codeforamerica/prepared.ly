@@ -161,6 +161,8 @@ GEM
       activerecord (>= 3.0.3)
       arel (>= 2.0.6)
       rgeo (>= 0.3.10)
+    rgeo-geojson (0.2.3)
+      rgeo (>= 0.3.7)
     sass (3.1.15)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -204,6 +206,7 @@ DEPENDENCIES
   rack-affiliates
   rails (= 3.2.3)
   rails_admin
+  rgeo-geojson
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
   wunderground_ruby
