@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(:version => 20120501160957) do
 
   create_table "fire_stations", :force => true do |t|
     t.string   "address"
+    t.spatial  "latlon",     :limit => {:srid=>4326, :type=>"point", :geographic=>true}
     t.integer  "zip"
-    t.datetime "created_at",                                       :null => false
-    t.datetime "updated_at",                                       :null => false
-    t.spatial  "latlon",     :limit => {:srid=>0, :type=>"point"}
+    t.datetime "created_at",                                                             :null => false
+    t.datetime "updated_at",                                                             :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|

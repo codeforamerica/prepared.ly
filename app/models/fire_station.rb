@@ -3,6 +3,7 @@ require 'open-uri'
 
 class FireStation < ActiveRecord::Base
   attr_accessible :address, :latlon, :zip
+  set_rgeo_factory_for_column(:latlon, RGeo::Geographic.spherical_factory(:srid => 4326))
 
   def self.populate
     csv_text = nil

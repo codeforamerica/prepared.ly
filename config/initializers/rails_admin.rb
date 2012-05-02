@@ -1,4 +1,4 @@
-# RailsAdmin config file. Generated on April 30, 2012 16:16
+# RailsAdmin config file. Generated on May 01, 2012 17:51
 # See github.com/sferik/rails_admin for more informations
 
 RailsAdmin.config do |config|
@@ -31,10 +31,10 @@ RailsAdmin.config do |config|
 
   #  ==> Included models
   # Add all excluded models here:
-  # config.excluded_models = [Authentication, FireStation, Location, User]
+  # config.excluded_models = [Address, Authentication, FireStation, User]
 
   # Add models here if you want to go 'whitelist mode':
-  # config.included_models = [Authentication, FireStation, Location, User]
+  # config.included_models = [Address, Authentication, FireStation, User]
 
   # Application wide tried label methods for models' instances
   # config.label_methods << :description # Default is [:name, :title]
@@ -79,6 +79,20 @@ RailsAdmin.config do |config|
 
   # All fields marked as 'hidden' won't be shown anywhere in the rails_admin unless you mark them as visible. (visible(true))
 
+  # config.model Address do
+  #   # Found associations:
+  #   # Found columns:
+  #     configure :id, :integer 
+  #     configure :address, :string 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime   #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
   # config.model Authentication do
   #   # Found associations:
   #     configure :user, :belongs_to_association   #   # Found columns:
@@ -104,20 +118,6 @@ RailsAdmin.config do |config|
   #     configure :id, :integer 
   #     configure :address, :string 
   #     configure :zip, :integer 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime   #   # Sections:
-  #   list do; end
-  #   export do; end
-  #   show do; end
-  #   edit do; end
-  #   create do; end
-  #   update do; end
-  # end
-  # config.model Location do
-  #   # Found associations:
-  #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :address, :string 
   #     configure :created_at, :datetime 
   #     configure :updated_at, :datetime   #   # Sections:
   #   list do; end
