@@ -16,5 +16,7 @@
 
 *.swp
 
+/data/*
+
 .DS_Store
 logfile
