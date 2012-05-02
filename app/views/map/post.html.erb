@@ -59,10 +59,10 @@
       function stamenTilesWithStations() {
 
         // make a map, using normal leaflet and stamen toner tiles
-        var map = new L.Map('map');
+        var map = new L.Map('map', {maxZoom: 18});
         var mapCenter = new L.LatLng(<%= @address.latlon.y %>, <%= @address.latlon.x %>);
         var mapZoom = 12;
-        var baseUrl = 'http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg',
+        var baseUrl = 'http://{s}.tile.stamen.com/terrain/{z}/{x}/{y}.jpg',
             attrib = 'Map tiles by Stamen',
             baseLayer = new L.TileLayer(baseUrl, {attribution: attrib, maxZoom:18});
         map.addLayer(baseLayer);
