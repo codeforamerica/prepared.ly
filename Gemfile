@@ -53,6 +53,3 @@ gem 'omniauth-facebook'
 gem 'rack-affiliates'
 
 gem 'rails_admin'
-
-gem 'rgeo-shapefile'
-gem 'dbf'
