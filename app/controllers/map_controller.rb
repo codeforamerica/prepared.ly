@@ -26,6 +26,7 @@ class MapController < ApplicationController
     rss.encoding = 'utf-8'
     counties = rss.css('rss channel item description').text
     @counties_list = '\'' + counties.strip.split(', ').join("\', \'") + '\''
+    @inside_burnban = nil
 
   end
 end
