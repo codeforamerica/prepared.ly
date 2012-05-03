@@ -9,17 +9,22 @@
     <%= render 'devise/menu/login_items' %>
     <li><%= link_to "About", page_path("about") %></li>
 <% end %>
-<div id="address-map">
+<div id="map-main">
+<div id="map-content-top">
+    <div id="address-map">
 <%= form_tag("/map", :method=> "post") do%>
     <%= text_field_tag(:q, nil,  :value => @address.address, :class => 'address') %>
     <%= submit_tag("Locate", :class => 'button blue') %>
 <% end %>
+    </div>
 </div>
 <div>
   <div id="map-detail">
     <span class="note">Detail view for</span> <h4><%= @address.address %></h4>
     <hr>
-    Risk Level: <%= @risk_level %><br/>
+    <span class="note">This location is designated as: </span>
+    <span class="risk">Class <span class="risk risk-<%= @risk_level %>"><%= @risk_level %></span><br/></span>
+    <p class="note"> Class 3 denotes a moderate risk based on your location, and proximity to wildlands. Find out more, here.</p>
     Wind: <%= @wind_conditions %> 
     <br/>
     Humidity: <%= @relative_humidity %>
@@ -34,8 +39,7 @@
   <!-- div that will display the map that is set using below javascript -->
   <div id="map"></div>
 </div>
-
-
+</div>
 <% content_for :javascript_yield do %>
 <!-- scripts -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
