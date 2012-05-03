@@ -1,4 +1,6 @@
 Preparedly::Application.routes.draw do
+  get "about/index"
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users, :controllers => { 
@@ -9,6 +11,8 @@ Preparedly::Application.routes.draw do
   get "map" => "map#get"
   post "map" => "map#post"
   match "share" => "share#index"
+
+  get "about_test" => "about#index"
 
   match "users/get" => "users#get"
   resources :users

@@ -52,6 +52,16 @@ h2 {
 	font-weight: 100;
 	margin: 0px;
 	}
+
+h4 {
+	font-size: 20px;
+	margin:0px;
+	font-weight:500;
+	color:#3AAFBF;
+}	
+
+
+
 p, label {	
 	font-size: 16px;
 	font-style: normal;
@@ -84,7 +94,29 @@ a:hover { color: #CC6633; }
 a:focus { outline: thin dotted; }
 a:hover, a:active { outline: 0; }
 
-
+.risk {
+	font-size: 20px;
+	margin:0px;
+	font-weight:500px;
+}
+.risk-5 {
+	color:#FF3366;
+	} 
+.risk-2 {
+	color:#FF6633;
+	} 
+.risk-3 {
+	color:#FF9933;
+	} 
+.risk-2 {
+	color:#FFCC33;
+	} 
+.risk-1 {
+	color:#339933;
+	} 
+.risk-0 {
+	color:#99CCCC;
+	}
 
 abbr[title] { border-bottom: 1px dotted; }
 b, strong { font-weight: bold; }
@@ -261,20 +293,50 @@ td { vertical-align: top; }
     z-index: 5;
 }
 
-/*----prepared.ly logo ---*/
+/*-----------------------------prepared.ly logo ---*/
 #logo {
 	background: url('preparedly-red.png') no-repeat;
 	height:100px;
-	width:315px;
+	width:200px;
 	position: relative;
 	top: 50px;
 	left: 45px;
 }
-/*----main-container ---*/
+/*-----------------------------main-container ---*/
 #main {
 	padding:50px;
 	position: relative;
-	top: 15px;
+}
+
+/*---map detail ---*/
+#map-main {
+	width:100%;
+	position:inherit;
+	top:-30px;
+}
+#map {
+	border: #3AAFBF solid thin;
+	width: 63%;
+    height: 480px;
+}
+#map-detail {
+	width:32%; 
+	float: left;
+	padding: 17px;
+	border: #3AAFBF solid thin;
+	height: 446px;
+	margin-right: 8px;
+}
+#map-content-top {
+	width:100%;
+	height:53px;
+}
+
+#address-map {
+    display: block;
+    float: right;
+    position: relative;
+    width: 411px;
 }
 .address {
 	width:300px;
