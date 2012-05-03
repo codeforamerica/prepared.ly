@@ -37,4 +37,12 @@ class User < ActiveRecord::Base
       User.create!(:email => data.info["email"], :password => Devise.friendly_token[0,20], :provider => data["provider"], :provider_id => data["uid"], :first_name => data.info["first_name"], :last_name => data.info["last_name"])
     end
   end
+
+  after_create :send_welcome_email
+
+  private
+    def send_welcome_email
+      # substitute @user if self doesnt work
+      UserMailer.welcome_email(self).deliver
+    end
 end
