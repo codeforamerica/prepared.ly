@@ -3,7 +3,7 @@
     <%= render 'devise/menu/login_items' %>
     <li><%= link_to "About", page_path("about") %></li>
 <% end %>
-
+<div id="about">
 <%= form_tag("/map", :method=> "get") do %>
 <h2> About Prepared.ly </h2>
 <p>
@@ -32,4 +32,4 @@ The Prepared.ly  Team (@ATXPreparedly)
 </p>
 <img src="/assets/cfaaustin.png" title="cfa austin">
 <% end %>
-
+</div>

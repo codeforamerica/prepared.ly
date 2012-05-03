@@ -293,7 +293,7 @@ td { vertical-align: top; }
     z-index: 5;
 }
 
-/*----prepared.ly logo ---*/
+/*-----------------------------prepared.ly logo ---*/
 #logo {
 	background: url('preparedly-red.png') no-repeat;
 	height:100px;
@@ -302,7 +302,7 @@ td { vertical-align: top; }
 	top: 50px;
 	left: 45px;
 }
-/*----main-container ---*/
+/*-----------------------------main-container ---*/
 #main {
 	padding:50px;
 	position: relative;

@@ -23,7 +23,7 @@
     <span class="note">Detail view for</span> <h4><%= @address.address %></h4>
     <hr>
     <span class="note">This location is designated as: </span>
-    <span class="risk">Class <span class="risk risk-<%= @risk_level %>"><%= @risk_level %></span><br/></span>
+    <span class="risk risk-<%= @risk_level %>">Class <%= @risk_level %></span><br/>
     <p class="note"> Class 3 denotes a moderate risk based on your location, and proximity to wildlands. Find out more, here.</p>
     Wind: <%= @wind_conditions %> 
     <br/>
