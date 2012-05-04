@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :first_name, :last_name, :phone, :address, :preferred_contact, :password, :password_confirmation, :remember_me, :provider, :provider_id, :twitter_screen_name, :twitter_display_name
+  attr_accessible :email, :first_name, :last_name, :phone, :address, :preferred_contact, :password, :password_confirmation, :remember_me, :provider, :provider_id, :twitter_screen_name, :twitter_display_name, :referral_code
 
   def self.find_or_create_for_twitter(access_token, signed_in_resource=nil)
     data = access_token
@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
     if user = User.where(:provider_id => data["uid"]).first
       user
     else # create user with stub password; twitter doesn't return email; need a valid email for devise to validate
-      user = User.create!(:email => "temp@example.com", :password => Devise.friendly_token[0,20], :provider => data["provider"], :provider_id => data["uid"], :twitter_screen_name => data.info["nickname"], :twitter_display_name => data.info["name"])
+      user = User.create!(:email => "change@changeme.com", :password => Devise.friendly_token[0,20], :provider => data["provider"], :provider_id => data["uid"], :twitter_screen_name => data.info["nickname"], :twitter_display_name => data.info["name"])
     end
   end
 
@@ -37,4 +37,9 @@ class User < ActiveRecord::Base
       User.create!(:email => data.info["email"], :password => Devise.friendly_token[0,20], :provider => data["provider"], :provider_id => data["uid"], :first_name => data.info["first_name"], :last_name => data.info["last_name"])
     end
   end
+
+   def send_welcome_email
+      UserMailer.welcome_email(self).deliver
+   end 
+
 end
