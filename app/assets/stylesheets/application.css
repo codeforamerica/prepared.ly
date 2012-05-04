@@ -199,17 +199,14 @@ button, input {
 		to(#fc8346));
 }
 .button.orange.signup {
-}
-
 	-webkit-box-shadow:
 		0px 1px 2px rgba(77,77,77,0.3),
 		inset 0px 0px 3px rgba(122,41,0,1);
 	text-shadow:
 		0px -1px 0px rgba(255,255,255,0.1),
 		0px 1px 0px rgba(125,125,125,1);
-
-
-
+		}
+		
 button, input[type="button"], input[type="reset"], input[type="submit"] { 
 	cursor: pointer; -webkit-appearance: button; *overflow: visible; }
 button[disabled], input[disabled] { 
