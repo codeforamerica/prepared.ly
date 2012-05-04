@@ -6,6 +6,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
 
     def after_sign_up_path_for(resource)
+      @user = current_user
+      unless @user.email == "change@changeme.com"
+      	@user.send_welcome_email
+      end
       "/share"
     end
 end
