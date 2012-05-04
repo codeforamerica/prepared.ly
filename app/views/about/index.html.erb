@@ -1,2 +1,7 @@
+<% content_for :nav_bar_items do %>
+    <%= render 'devise/menu/registration_items' %>
+    <%= render 'devise/menu/login_items' %>
+    <li><%= link_to "About", page_path("about") %></li>
+<% end %>
 <h1>About#index</h1>
 <p>Find me in app/views/about/index.html.erb</p>
