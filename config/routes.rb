@@ -12,7 +12,7 @@ Preparedly::Application.routes.draw do
   post "map" => "map#post"
   match "share" => "share#index"
 
-  get "about_test" => "about#index"
+  get "about" => "about#index"
 
   match "users/get" => "users#get"
   resources :users

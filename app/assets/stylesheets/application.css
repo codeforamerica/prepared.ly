@@ -58,10 +58,8 @@ h4 {
 	margin:0px;
 	font-weight:500;
 	color:#3AAFBF;
+	text-align:left;
 }	
-
-
-
 p, label {	
 	font-size: 16px;
 	font-style: normal;
@@ -98,6 +96,8 @@ a:hover, a:active { outline: 0; }
 	font-size: 20px;
 	margin:0px;
 	font-weight:500px;
+	text-align: left;
+	padding:5px;
 }
 .risk-5 {
 	color:#FF3366;
@@ -117,6 +117,9 @@ a:hover, a:active { outline: 0; }
 .risk-0 {
 	color:#99CCCC;
 	}
+.risk-title {
+	color:#666666;
+	}	
 
 abbr[title] { border-bottom: 1px dotted; }
 b, strong { font-weight: bold; }
@@ -195,16 +198,17 @@ button, input {
 		from(#cc6633),
 		to(#fc8346));
 }
+.button.orange.signup {
+}
 
-/* TODO
 	-webkit-box-shadow:
 		0px 1px 2px rgba(77,77,77,0.3),
 		inset 0px 0px 3px rgba(122,41,0,1);
 	text-shadow:
 		0px -1px 0px rgba(255,255,255,0.1),
 		0px 1px 0px rgba(125,125,125,1);
-}
-*/
+
+
 
 button, input[type="button"], input[type="reset"], input[type="submit"] { 
 	cursor: pointer; -webkit-appearance: button; *overflow: visible; }
@@ -292,7 +296,9 @@ td { vertical-align: top; }
     width: 100px;
     z-index: 5;
 }
-
+ .notice, .alert {
+ 	height: 0px;
+ 	}
 /*-----------------------------prepared.ly logo ---*/
 #logo {
 	background: url('preparedly-red.png') no-repeat;
@@ -341,7 +347,52 @@ td { vertical-align: top; }
 .address {
 	width:300px;
 }
-/*----footer stuff---*/
+.condition {
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 300;
+	text-align: left;
+	padding:5px;
+	vertical-align:top;
+
+}
+.condition-type {
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	text-align: right;
+	padding:5px;
+	width:180px;
+	vertical-align:top;
+}
+
+/*-------------------------------------------------about-page ---*/
+
+#about-logo {
+}
+#about-wrap {
+	background:url('blue-sky.png')repeat-x;	
+	height:400px;
+}
+#about-green {
+	background: #336633;
+	height:100%;
+    position: relative;
+    top: -119px;
+    z-index: -3;
+}
+
+#skyline {	
+	background: url('footer.png') no-repeat;
+    height: 113px;
+    margin: 0 auto;
+    padding: 0 10px;
+    width: 979px;
+    position: relative;
+	top: -94px;
+	}		
+
+/*------------------------------------------------footer stuff---*/
 #wrap {min-height: 100%;}
 
 #main-wrap {overflow:auto;

@@ -20,21 +20,43 @@
 </div>
 <div>
   <div id="map-detail">
-    <span class="note">Detail view for</span> <h4><%= @address.address %></h4>
-    <hr>
-    <span class="note">This location is designated as: </span>
-    <span class="risk risk-<%= @risk_level %>">Class <%= @risk_level %></span><br/>
-    <p class="note"> Class 3 denotes a moderate risk based on your location, and proximity to wildlands. Find out more, here.</p>
-    Wind: <%= @wind_conditions %> 
-    <br/>
-    Humidity: <%= @relative_humidity %>
-    <br/>
-    Distance: <%= @distance %> meters 
-    <br/>
-    Inside of a Burn Ban: <%= @inside_burnban %>
-    <br/>
-    Coordinates: <%= @address.latlon.y %> <%= @address.latlon.x %> 
-  </div>
+        <table>
+            <tr>
+                <th colspan="2">
+                    <h4><%= @address.address %></h4>
+                    <hr>
+                </th>
+            </tr>
+            <tr>
+                <td class="risk risk-title">Risk of this location:</th>
+                <td class="risk risk-<%= @risk_level %>">Class <%= @risk_level %></td>
+            </tr>
+            <tr class="note">
+                <td colspan="2">Class 3 denotes a moderate risk based on your location, and proximity to wildlands. Find out more, here.</td>
+            </tr>
+            <tr>
+                <td class="condition-type">Wind:</td>
+                <td class="condition"> <%= @wind_conditions %> </td>
+            </tr>
+            <tr>
+                <td class="condition-type">Humidity: </td>
+                <td class="condition"><%= @relative_humidity %></td>
+            </tr>
+            <tr>
+                <td class="condition-type">Distance:</td>
+                <td class="condition"> <%= @distance %> meters</td>
+            </tr>
+            <tr>
+                <td class="condition-type">Inside of a Burn Ban:</td>
+                <td class="condition"> <%= @inside_burnban %></td>
+            </tr>
+            <tr>
+                <td class="condition-type">Coordinates:</th>
+                <td class="condition"> <%= @address.latlon.y %> <%= @address.latlon.x %></td>
+            </tr>
+    </table>
+        <input class="button orange signup" type="submit" value="Sign up" name="commit">
+    </div>
   </div>
   <!-- div that will display the map that is set using below javascript -->
   <div id="map"></div>
