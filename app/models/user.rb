@@ -41,9 +41,7 @@ class User < ActiveRecord::Base
   after_create :send_welcome_email
 
    def send_welcome_email
-      unless User.where(:email => "change@changeme.com")
         UserMailer.welcome_email(self).deliver
-      end
    end 
 
 end
