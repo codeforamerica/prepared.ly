@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
     end
   end
 
- # after_create :send_welcome_email
+  after_create :send_welcome_email
 
    def send_welcome_email
       UserMailer.welcome_email(self).deliver
