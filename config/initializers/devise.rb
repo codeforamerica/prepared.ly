@@ -211,6 +211,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+  # make sure the heroku config vars are named the same as what's below!
 
   require 'omniauth-twitter'
   config.omniauth :twitter, ENV['TWITTER_ID'], ENV['TWITTER_SECRET'], {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
