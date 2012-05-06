@@ -5,7 +5,7 @@ class UserMailer < ActionMailer::Base
   	@user 				= user
   	@url 					= "http://prepared.ly/users/sign_in"
   	@referral_url	= "http://www.prepared.ly/?ref=<%= @referral_code %>"
-  	attachments.inline['preparedly-red.png'] = File.read('assets/preparedly-red.png')
+  	attachments.inline['preparedly-red.png'] = File.read('preparedly-red.png')
   	mail(:to => user.email, :subject => "Welcome to Prepared.ly")
   end
 end
