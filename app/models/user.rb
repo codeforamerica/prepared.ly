@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
 
   def self.find_or_create_for_yahoo(access_token, signed_in_resource=nil)
     # uncomment line below to see what is returned in the omniauth hash, set value accordingly
-    # raise request.env["omniauth.auth"].to_yaml
+    raise request.env["omniauth.auth"].to_yaml
     data = access_token
     if user = User.where(:email => data.info["email"]).first
       user
