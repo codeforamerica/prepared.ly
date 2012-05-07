@@ -298,7 +298,7 @@ td { vertical-align: top; }
  	}
 /*-----------------------------prepared.ly logo ---*/
 #logo {
-	background: url('preparedly-red.png') no-repeat;
+	/*background: url('preparedly-red.png') no-repeat;*/
 	height:100px;
 	width:200px;
 	position: relative;
@@ -367,18 +367,66 @@ td { vertical-align: top; }
 
 #about-logo {
 }
+
+#about-main {
+    margin: -40px 40px;
+    padding: 0px 50px;
+    z-index:10;
+    }
 #about-wrap {
 	background:url('blue-sky.png')repeat-x;	
-	height:400px;
-}
-#about-green {
-	background: #336633;
-	height:100%;
-    position: relative;
-    top: -119px;
-    z-index: -3;
+	height:300px;
 }
 
+#column-wrapper {
+	margin:10px;
+	padding:10px;
+}
+.column {
+	float:left;
+	width:50%;
+	position: relative;	
+	padding-bottom:40px;
+}
+#space {
+	height:200px;
+	width:100%;
+	}
+#column-wrapper h1{
+	font-size: 48px;
+	font-style: normal;
+	font-weight: 700;
+	color: #99CCCC;
+	text-align:center;
+	border-bottom:solid 1px #99CCCC;
+	font-family: "museo-sans", sans-serif;
+}
+#column-wrapper h3{
+	font-size: 17px;
+	font-style: normal;
+	font-weight: 300;
+	color: #339999;
+	text-align:center;
+}
+
+
+.column p, .column h2 {
+	margin:5px;
+	padding:5px;
+	}
+.column p{
+	height: 100px;
+	color:#ffffff;
+}
+
+.column h2{
+	font-weight: 700;
+	color:#ffffff;
+}
+.column-full {
+	width:100%;
+	position: relative;
+}
 #skyline {	
 	background: url('footer.png') no-repeat;
     height: 113px;
@@ -388,7 +436,16 @@ td { vertical-align: top; }
     position: relative;
 	top: -94px;
 	}		
-
+#about-green {
+	background: #336633;
+	height:1800px;
+    position: relative;
+}
+#green {
+	background:#336633;
+	top:-36px;
+	position:relative;
+	}
 /*------------------------------------------------footer stuff---*/
 #wrap {min-height: 100%;}
 

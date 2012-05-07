@@ -1,59 +1,55 @@
-<!DOCTYPE html>
-<html>
-<head>
+    <!DOCTYPE html>
+    <html>
+    <head>
+    
+      <title>Preparedly</title>
+      <%= stylesheet_link_tag    "application", :media => "all" %>
+      <%= yield :stylesheet_yield %>
+      <%= yield :fb_og_tags %>
+      <%= csrf_meta_tags %>
+      <!-- Google Analytics -->
+        <script type="text/javascript">
+    
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-30366897-1']);
+          _gaq.push(['_trackPageview']);
+    
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+    
+        </script>
 
-  <title>Preparedly</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= yield :stylesheet_yield %>
-  <%= yield :fb_og_tags %>
-  <%= csrf_meta_tags %>
-  <!-- Google Analytics -->
-    <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-30366897-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-    </script>
-</head>
-<body>
-<div id="beta">
-</div>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-            <div class="nav-bar">
-                <ul class="nav-bar-items">
-                    <%= yield :nav_bar_items %>
-                </ul>
-            </div>
-            <a href="/">
-                <div id="logo" title="preparedly">
+    </head>
+    <body>
+    <div id="beta">
+    </div>
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+                <div class="nav-bar">
+                    <ul class="nav-bar-items">
+                        <%= yield :nav_bar_items %>
+                    </ul>
                 </div>
-            </a>
-<div id="about-wrap">
-            <div id="main">
-                <%= yield %>
-            </div>
-</div>            
-            
-<div id="about-bg">
-</div>
-
-	<div id="skyline">
-	</div>
-		<div id="about-green">
-	</div>
-
-<script type="text/javascript" src="http://use.typekit.com/osj8jgk.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<%= yield :javascript_yield %>
-<%= javascript_include_tag "application" %>
-
-</body>
-</html>
+                <a href="/">
+                    <div id="logo" title="preparedly">
+                    </div>
+                </a>
+    <div id="about-green">
+        <div id="about-wrap">
+                    <div id="about-main">
+                        <%= yield %>
+                    </div>
+        </div>            
+        <div id="skyline">
+        </div>
+    </div>
+    <script type="text/javascript" src="http://use.typekit.com/osj8jgk.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <%= yield :javascript_yield %>
+    <%= javascript_include_tag "application" %>
+    
+    </body>
+    </html>
