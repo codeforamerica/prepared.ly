@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120502010306) do
+ActiveRecord::Schema.define(:version => 20120507174737) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20120502010306) do
     t.string   "twitter_display_name"
     t.string   "provider_id"
     t.string   "referral_code"
+    t.string   "share_code"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
