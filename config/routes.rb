@@ -1,6 +1,4 @@
 Preparedly::Application.routes.draw do
-  resources :messages
-
   get "about/index"
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
