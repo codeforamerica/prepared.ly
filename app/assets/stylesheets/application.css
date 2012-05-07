@@ -35,7 +35,7 @@ html, button, input, select, textarea {
 body { 
 	background:url('bg.gif')repeat-x;
 	margin: 0; 
-	line-height: 1.6; 
+	/*line-height: 1.6; */
 	font-family: "museo-sans", sans-serif;
 	color: #666666;
 	height:100%;
@@ -119,6 +119,7 @@ a:hover, a:active { outline: 0; }
 	}
 .risk-title {
 	color:#666666;
+	width:300px;
 	}	
 
 abbr[title] { border-bottom: 1px dotted; }
