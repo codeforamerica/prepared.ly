@@ -74,6 +74,8 @@ GEM
       jquery-rails
       railties (>= 3.1.0)
     json (1.6.6)
+    jwt (0.1.4)
+      json (>= 1.2.4)
     kaminari (0.13.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -108,6 +110,8 @@ GEM
       omniauth (~> 1.0)
     omniauth-twitter (0.0.10)
       multi_json (~> 1.3)
+      omniauth-oauth (~> 1.0)
+    omniauth-yahoo (0.0.4)
       omniauth-oauth (~> 1.0)
     orm_adapter (0.0.7)
     pg (0.13.2)
@@ -177,6 +181,10 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
+    twilio-ruby (3.7.0)
+      builder (>= 2.1.2)
+      jwt (>= 0.1.2)
+      multi_json (>= 1.3.0)
     tzinfo (0.3.33)
     uglifier (1.2.4)
       execjs (>= 0.3.0)
@@ -203,11 +211,13 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-twitter
+  omniauth-yahoo
   pg
   rack-affiliates
   rails (= 3.2.3)
   rails_admin
   rgeo-geojson
   sass-rails (~> 3.2.3)
+  twilio-ruby
   uglifier (>= 1.0.3)
   wunderground_ruby

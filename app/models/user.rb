@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  # authenticate using google oauth2
   def self.find_or_create_for_google_oauth2(access_token, signed_in_resource=nil)
     data = access_token
     if user = User.where(:email => data.info["email"]).first
@@ -28,7 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def self.find_or_create_for_facebook(access_token, signed_in_resource=nil)
-    # uncomment line below to see what facebook returns in omniauth hash, set value accordingly
+    # uncomment line below to see what is returned in the omniauth hash, set value accordingly
     # raise request.env["omniauth.auth"].to_yaml
     data = access_token
     if user = User.where(:email => data.info["email"]).first
@@ -38,8 +37,19 @@ class User < ActiveRecord::Base
     end
   end
 
-   def send_welcome_email
-      UserMailer.welcome_email(self).deliver
-   end 
+  def self.find_or_create_for_yahoo(access_token, signed_in_resource=nil)
+    # uncomment line below to see what is returned in the omniauth hash, set value accordingly
+    # raise request.env["omniauth.auth"].to_yaml
+    data = access_token
+    if user = User.where(:email => data.info["email"]).first
+      user
+    else # Create a user with a stub password.
+      User.create!(:email => data.info["email"], :password => Devise.friendly_token[0,20], :provider => data["provider"], :provider_id => data["uid"], :first_name => data.info["first_name"], :last_name => data.info["last_name"])
+    end
+  end
+
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver
+  end 
 
 end

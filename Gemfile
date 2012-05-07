@@ -49,11 +49,14 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+gem 'omniauth-yahoo'
 
 gem 'rack-affiliates'
 
 gem 'rails_admin'
 
 gem 'rgeo-geojson'
+
+gem 'twilio-ruby'
 
 gem 'wunderground_ruby'
