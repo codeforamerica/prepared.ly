@@ -57,4 +57,6 @@ gem 'rails_admin'
 
 gem 'rgeo-geojson'
 
+gem 'twilio-ruby'
+
 gem 'wunderground_ruby'
