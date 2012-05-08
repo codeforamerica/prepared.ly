@@ -68,7 +68,11 @@ class MapController < ApplicationController
     counties_text = rss.css('rss channel item description').text
     counties_array = counties_text.strip.split(', ')
     @counties_list = '\'' + counties_array.join("\', \'") + '\''
-    @inside_burnban = counties_array.include?(CartoDB.current_county(@address.latlon))
+    if counties_array.include?(CartoDB.current_county(@address.latlon))
+      @inside_burnban = 'yes' 
+    else
+      @inside_burnban = 'no'
+    end
 
     # Risk Assessment Level
     @risk_level = TFS.risk_assessment(@address.latlon)
