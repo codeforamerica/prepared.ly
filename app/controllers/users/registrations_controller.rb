@@ -1,16 +1,18 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super()
-    current_user.referral_code = request.env['affiliate.tag']
-    if session[:last_address_id]
-      last_address = Address.find(session[:last_address_id])
-      current_user.address = last_address.address
-    end
-    current_user.save!
+    if current_user
+      current_user.referral_code = request.env['affiliate.tag']
+      if session[:last_address_id]
+        last_address = Address.find(session[:last_address_id])
+        current_user.address = last_address.address
+      end
+      current_user.save!
 
-    # don't send welcome email when Twitter sign up creates temporary email
-    unless current_user.email == "change@changeme.com"
-      current_user.send_welcome_email
+      # don't send welcome email when Twitter sign up creates temporary email
+      unless current_user.email == "change@changeme.com"
+        current_user.send_welcome_email
+      end
     end
   end
 
