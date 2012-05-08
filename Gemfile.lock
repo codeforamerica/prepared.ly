@@ -58,7 +58,6 @@ GEM
       rack (~> 1.1)
     haml (3.1.4)
     hashie (1.2.0)
-    high_voltage (1.1.1)
     hike (1.2.1)
     hpricot (0.8.6)
     httparty (0.8.2)
@@ -203,7 +202,6 @@ DEPENDENCIES
   activerecord-postgis-adapter
   coffee-rails (~> 3.2.1)
   devise
-  high_voltage
   httparty
   jquery-rails
   nokogiri

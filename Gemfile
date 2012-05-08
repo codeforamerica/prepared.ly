@@ -39,8 +39,6 @@ gem 'jquery-rails'
 
 gem 'devise'
 
-gem "high_voltage"
-
 gem 'httparty'
 
 gem 'nokogiri'
