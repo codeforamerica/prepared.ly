@@ -76,6 +76,17 @@ class MapController < ApplicationController
 
     # Risk Assessment Level
     @risk_level = TFS.risk_assessment(@address.latlon)
-
+    risk_text_mapping = Hash.new {0}
+    risk_text_mapping[0] = "Minimal Direct Wildfire Impacts"
+    risk_text_mapping[1] = "Very Low"
+    risk_text_mapping[2] = "Very Low to Low"
+    risk_text_mapping[3] = "Low"
+    risk_text_mapping[4] = "Low to Moderate"
+    risk_text_mapping[5] = "Moderate"
+    risk_text_mapping[6] = "Moderate to High"
+    risk_text_mapping[7] = "High"
+    risk_text_mapping[8] = "High to Very High"
+    risk_text_mapping[9] = "Very High"
+    @risk_text = risk_text_mapping[@risk_level]
   end
 end
