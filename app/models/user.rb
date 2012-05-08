@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :first_name, :last_name, :phone, :address, :preferred_contact, :password, :password_confirmation, :remember_me, :provider, :provider_id, :twitter_screen_name, :twitter_display_name, :referral_code
+  attr_accessible :email, :first_name, :last_name, :phone, :address, :preferred_contact, :password, :password_confirmation, :remember_me, :provider, :provider_id, :twitter_screen_name, :twitter_display_name, :referral_code, :admin
 
   def self.find_or_create_for_twitter(access_token, signed_in_resource=nil)
     data = access_token

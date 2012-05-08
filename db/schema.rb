@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120507190711) do
+ActiveRecord::Schema.define(:version => 20120508012614) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20120507190711) do
     t.string   "provider_id"
     t.string   "referral_code"
     t.string   "share_code"
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
