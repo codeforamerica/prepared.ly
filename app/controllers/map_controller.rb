@@ -26,6 +26,22 @@ class TFS
   end
 end
 
+class CartoDB
+  include HTTParty
+
+  base_uri 'http://tinio.cartodb.com/api/v2'
+
+  def self.current_county(latlon)
+    response = get('/sql',
+      :query => {
+        :q => "SELECT name FROM cntys04 ORDER BY ST_Distance(ST_GeomFromText('POINT(" + latlon.x.to_s + " " + latlon.y.to_s + ")',4326), the_geom) LIMIT 1;"
+      }
+    )
+    json_response = JSON.parse(response.body)
+    return json_response['rows'][0]['name']
+  end
+end
+
 class MapController < ApplicationController
   def get
   end
@@ -48,9 +64,10 @@ class MapController < ApplicationController
     # Counties with a Burn Ban
     rss = Nokogiri::XML(open('http://tfsfrp.tamu.edu/wildfires/BurnBan.xml'))
     rss.encoding = 'utf-8'
-    counties = rss.css('rss channel item description').text
-    @counties_list = '\'' + counties.strip.split(', ').join("\', \'") + '\''
-    @inside_burnban = 'nil'
+    counties_text = rss.css('rss channel item description').text
+    counties_array = counties_text.strip.split(', ')
+    @counties_list = '\'' + counties_array.join("\', \'") + '\''
+    @inside_burnban = counties_array.include?(CartoDB.current_county(@address.latlon))
 
     # Risk Assessment Level
     @risk_level = TFS.risk_assessment(@address.latlon)
