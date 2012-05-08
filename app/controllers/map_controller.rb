@@ -49,7 +49,8 @@ class MapController < ApplicationController
   def post
     address_str = params[:q]
     coordinates = Geocoder.coordinates(address_str)
-    @address = Address.create(:address => address_str, :latlon => 'POINT(' + coordinates[1].to_s + ' ' + coordinates[0].to_s + ')')
+    @address = Address.find_or_create_by_address(:address => address_str, 
+      :latlon => 'POINT(' + coordinates[1].to_s + ' ' + coordinates[0].to_s + ')')
 
     # Closest Fire Station
     @cfs = FireStation.order("ST_Distance(latlon, '" + @address.latlon.to_s + "') LIMIT 1")[0]
