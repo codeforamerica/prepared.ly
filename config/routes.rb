@@ -1,6 +1,6 @@
 Preparedly::Application.routes.draw do
 
-  get "resources/index"
+  match "resources" => "resources#index"
 
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
