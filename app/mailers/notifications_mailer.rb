@@ -7,6 +7,4 @@ class NotificationsMailer < ActionMailer::Base
     @message = message
     mail(:subject => "[Prepared.ly] #{message.subject}")
   end
-
-end
 end
