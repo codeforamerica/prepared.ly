@@ -7,7 +7,7 @@
 <% content_for :nav_bar_items do %>
     <%= render 'devise/menu/registration_items' %>
     <%= render 'devise/menu/login_items' %>
-    <li><%= link_to "About", page_path("about") %></li>
+    <li><%= link_to "about", page_path("about") %></li>
 <% end %>
 <div id="map-main">
 <div id="map-content-top">
@@ -20,7 +20,7 @@
 </div>
 <div>
   <div id="map-detail">
-        <table>
+        <table id="table-map">
             <tr>
                 <th colspan="2">
                     <h4><%= @address.address %></h4>
@@ -31,8 +31,8 @@
                 <td class="risk risk-title">Risk of this location:</th>
                 <td class="risk risk-<%= @risk_level %>">Class <%= @risk_level %></td>
             </tr>
-            <tr class="note">
-                <td colspan="2">Class 3 denotes a moderate risk based on your location, and proximity to wildlands. Find out more, here.</td>
+            <tr>
+                <td colspan="2" class="note">Class 3 denotes a moderate risk based on your location, and proximity to wildlands.</td>
             </tr>
             <tr>
                 <td class="condition-type">Wind:</td>
@@ -43,7 +43,7 @@
                 <td class="condition"><%= @relative_humidity %></td>
             </tr>
             <tr>
-                <td class="condition-type">Distance:</td>
+                <td class="condition-type">Distance to fire station:</td>
                 <td class="condition"> <%= @distance %> meters</td>
             </tr>
             <tr>
@@ -55,7 +55,7 @@
                 <td class="condition"> <%= @address.latlon.y %> <%= @address.latlon.x %></td>
             </tr>
     </table>
-        <input class="button orange signup" type="submit" value="Sign up" name="commit">
+        <a href="users/sign_up"><button class="button blue signup big">sign up</button></a>
     </div>
   </div>
   <!-- div that will display the map that is set using below javascript -->
