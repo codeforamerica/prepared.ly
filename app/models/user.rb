@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
-# to have many ways to authenticate into a single user account, add this line and a related controller and model
+  # to have many ways to authenticate into a single user account, add this line and a related controller and model
   has_many :authentications
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :first_name, :last_name, :phone, :address, :preferred_contact, :password, :password_confirmation, :remember_me, :provider, :provider_id, :twitter_screen_name, :twitter_display_name, :referral_code, :admin
 
@@ -51,5 +53,4 @@ class User < ActiveRecord::Base
   def send_welcome_email
     UserMailer.welcome_email(self).deliver
   end 
-
 end
