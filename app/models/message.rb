@@ -1,18 +1,22 @@
-require 'twilio-ruby'
+class Message
 
-class Message < ActiveRecord::Base
-  attr_accessible :body
+  include ActiveModel::Validations
+  include ActiveModel::Conversion
+  extend ActiveModel::Naming
 
-  def send_message
-    @client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
-    User.find(:all, :conditions => "phone != ''").each do |user|
-      @client.account.sms.messages.create(
-        :from => '+15128616101',
-        :to => user.phone,
-        :body => self.body
-      )
+  attr_accessor :name, :email, :subject, :body
+
+  validates :name, :email, :subject, :body, :presence => true
+  validates :email, :format => { :with => %r{.+@.+\..+} }, :allow_blank => true
+  
+  def initialize(attributes = {})
+    attributes.each do |name, value|
+      send("#{name}=", value)
     end
   end
 
-  after_create :send_message
+  def persisted?
+    false
+  end
+
 end

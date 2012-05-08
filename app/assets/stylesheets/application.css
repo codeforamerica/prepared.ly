@@ -207,7 +207,34 @@ button, input {
 		0px -1px 0px rgba(255,255,255,0.1),
 		0px 1px 0px rgba(125,125,125,1);
 		}
-		
+
+input[type="submit"]
+{
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: normal;
+    margin: 10px 0;
+    overflow: hidden;
+    padding: 6px 15px;
+    position: relative;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+    	background: -moz-linear-gradient(
+		top,
+		#cc6633 0%,
+		#fc8346);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#cc6633),
+		to(#fc8346));
+}
+
 button, input[type="button"], input[type="reset"], input[type="submit"] { 
 	cursor: pointer; -webkit-appearance: button; *overflow: visible; }
 button[disabled], input[disabled] { 
@@ -447,6 +474,28 @@ td { vertical-align: top; }
 	top:-36px;
 	position:relative;
 	}
+
+/*------------------------------------------------contact form---*/
+
+#contact-detail {
+	width:32%; 
+	float: left;
+	padding: 17px;
+	border: #3AAFBF solid thin;
+	height: 650px;
+	margin-right: 8px;
+}
+
+#feedback {
+	background: url('feedback.png') no-repeat;
+    height: 100px;
+    left: -2px;
+    position: absolute;
+    width: 100px;
+    z-index: 5;
+
+}
+
 /*------------------------------------------------footer stuff---*/
 #wrap {min-height: 100%;}
 
