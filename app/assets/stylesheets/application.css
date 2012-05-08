@@ -39,6 +39,7 @@ body {
 	font-family: "museo-sans", sans-serif;
 	color: #666666;
 	height:100%;
+	line-height:1.7em;
 }
 
 h1 {
@@ -97,7 +98,6 @@ a:hover, a:active { outline: 0; }
 	margin:0px;
 	font-weight:500px;
 	text-align: left;
-	padding:5px;
 }
 .risk-5 {
 	color:#FF3366;
@@ -119,7 +119,8 @@ a:hover, a:active { outline: 0; }
 	}
 .risk-title {
 	color:#666666;
-	width:300px;
+	width:210px;
+	text-align:right;
 	}	
 
 abbr[title] { border-bottom: 1px dotted; }
@@ -189,14 +190,19 @@ button, input {
     border: 1px solid #339999;
 
 }
+.button.big {
+	width: 336px;
+	padding:10px;
+	font-size:20px;
+}
 .button.orange {
 	background: -moz-linear-gradient(
 		top,
-		#cc6633 0%,
+		#ff9933 0%,
 		#fc8346);
 	background: -webkit-gradient(
 		linear, left top, left bottom, 
-		from(#cc6633),
+		from(#ff9933),
 		to(#fc8346));
 }
 .button.orange.signup {
@@ -239,7 +245,9 @@ td { vertical-align: top; }
 
 .chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
 
-
+#table-map {
+	height:385px;
+}
 
 /* ===== Primary Styles ========================================================
    Author:Emily
@@ -298,18 +306,28 @@ td { vertical-align: top; }
  	height: 0px;
  	}
 /*-----------------------------prepared.ly logo ---*/
-#logo {
-	/*background: url('preparedly-red.png') no-repeat;*/
+#logo-wrapper {
 	height:100px;
 	width:200px;
 	position: relative;
 	top: 50px;
 	left: 45px;
+	z-index:100;
+}
+#logo {
+	background: url('preparedly-red.png') no-repeat;
+	height:112px;
+	width:241px;
+}
+#logo a{
+	height:100px;
+	width:300px;
 }
 /*-----------------------------main-container ---*/
 #main {
 	padding:50px;
 	position: relative;
+	top: 15px;
 }
 
 /*---map detail ---*/
@@ -346,16 +364,17 @@ td { vertical-align: top; }
 	width:300px;
 }
 .condition {
-	font-size: 16px;
 	font-style: normal;
 	font-weight: 300;
 	text-align: left;
 	padding:5px;
 	vertical-align:top;
+	font-size: 14px;
+
 
 }
 .condition-type {
-	font-size: 16px;
+	font-size: 14px;
 	font-style: normal;
 	font-weight: 500;
 	text-align: right;
@@ -370,7 +389,7 @@ td { vertical-align: top; }
 }
 
 #about-main {
-    margin: -40px 40px;
+    margin: 100px 40px;
     padding: 0px 50px;
     z-index:10;
     }
@@ -390,7 +409,7 @@ td { vertical-align: top; }
 	padding-bottom:40px;
 }
 #space {
-	height:200px;
+	height:150px;
 	width:100%;
 	}
 #column-wrapper h1{
@@ -400,14 +419,17 @@ td { vertical-align: top; }
 	color: #99CCCC;
 	text-align:center;
 	border-bottom:solid 1px #99CCCC;
-	font-family: "museo-sans", sans-serif;
+	line-height:50px;
 }
 #column-wrapper h3{
-	font-size: 17px;
+	font-size: 20px;
 	font-style: normal;
 	font-weight: 300;
 	color: #339999;
 	text-align:center;
+    top: -35px;
+    position: relative;
+    line-height:25px;
 }
 
 
@@ -439,8 +461,7 @@ td { vertical-align: top; }
 	}		
 #about-green {
 	background: #336633;
-	height:1800px;
-    position: relative;
+	height:1650px;
 }
 #green {
 	background:#336633;
