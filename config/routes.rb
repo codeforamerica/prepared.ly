@@ -1,4 +1,8 @@
 Preparedly::Application.routes.draw do
+
+  match 'contact' => 'contact#new', :as => 'contact', :via => :get
+  match 'contact' => 'contact#create', :as => 'contact', :via => :post
+
   get "about/index"
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
