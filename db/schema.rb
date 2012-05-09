@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120509180801) do
+ActiveRecord::Schema.define(:version => 20120509190209) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address"
@@ -48,8 +48,9 @@ ActiveRecord::Schema.define(:version => 20120509180801) do
 
   create_table "messages", :force => true do |t|
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.datetime "scheduled_time"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

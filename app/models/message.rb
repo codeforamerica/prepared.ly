@@ -1,7 +1,7 @@
 require 'twilio-ruby'
 
 class Message < ActiveRecord::Base
-	attr_accessible :body
+	attr_accessible :body, :scheduled_time
 
 	def send_message
 		@client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])	
