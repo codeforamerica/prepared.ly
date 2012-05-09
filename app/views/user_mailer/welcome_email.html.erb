@@ -8,16 +8,17 @@
     <h1>Welcome to Prepared.ly!</h1>
     <p><h2>Thanks for signing up. Get started:</h2></p>
     <ol>
-      <li><p><a href="users/sign_in">Sign in</a> to adjust your alert preferences, view weather-based risk, find resources and contact a wildfire specialist.</p></li>
+      <%= @referral_url %>
+      <li><p><a href="<%= @url %>">Sign in</a> to adjust your alert preferences, view weather-based risk, find resources and contact a wildfire specialist.</p></li>
       <li><p>Tell your neighbors and friends across town about Prepared.ly:</p>
         <ul>
-          <li>Share this link: <% @referral_url %></li>
-          <li>Discuss on <a href="http://www.facebook.com">Facebook</a></li>
-          <li>Post on <a href="http://www.tumblr.com">Tumblr</a></li>
-          <li>Share on <a href="http://www.twitter.com"> Twitter</a></li>
+          <li><a href="<%= @referral_url %>">Share this link</a></li>
+          <li><a href="<%= @facebook_share %>">Discuss on Facebook</a></li>
+          <li><a href="<%= @tumblr_share %>">Post on Tumblr</a></li>
+          <li><a href="<%= @twitter_share %>">Share on Twitter</a></li>
         </ul>
       </li> 
-      <li><p>Use our <a href="http://prepared.ly/survey">survey</a> to help assess your preparedness and improve our services.  Please <a href="mailto:info@prepared.ly">email us</a> your feedback.</p></li>
+      <li><p>Use our <a href="<%= @survey %>">survey</a> to help assess your preparedness and improve our services.  Please <a href="mailto:info@prepared.ly">email us</a> your feedback.</p></li>
     </ol>
   </body>
 </html>
