@@ -12,6 +12,8 @@ class Message < ActiveRecord::Base
         :to => user.phone,
         :body => self.body
         )
+        self.sent = true
+        self.save!
       rescue Exception => e
         logger.debug "Unable to send sms message to " + user.phone
         logger.debug e
@@ -19,5 +21,5 @@ class Message < ActiveRecord::Base
 		end
 	end
 
-	after_create :send_message  	
+	after_create :send_message
 end
