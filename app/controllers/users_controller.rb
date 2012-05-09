@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 		prev_email = @user.email
 		@user.update_attributes(params[:user])
 		# send welcome email to Twitter user who updates their email at signup
-		if prev_email == "change@changeme.com" && @user.email != "change@changeme.com" 
+		if prev_email == "change@changeme.com" || prev_email == @user.email
 			@user.send_welcome_email
 		end
 		redirect_to share_path, :flash => { :success => "Profile updated." }

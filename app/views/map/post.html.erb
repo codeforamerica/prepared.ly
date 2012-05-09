@@ -29,7 +29,11 @@
             </tr>
             <tr>
                 <td class="risk risk-title">Risk of this location:</th>
-                <td class="risk risk-<%= @risk_level %>"><%= @risk_text %></td>
+                <% if @risk_level %>
+                  <td class="risk risk-<%= @risk_level %>"><%= @risk_text %></td>
+                <% else %>
+                  <td class="risk">No risk data is available at this location</td>
+                <% end %>
             </tr>
             <tr>
                 <td colspan="2" class="note">See more about your risk level, here.</td>

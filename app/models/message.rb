@@ -5,12 +5,17 @@ class Message < ActiveRecord::Base
 
 	def send_message
 		@client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])	
-		User.find(:all, :conditions => "phone != ''").each do |user|	
-			@client.account.sms.messages.create(	
-			:from => '+15128616101', 	
-			:to => user.phone,
-			:body => self.body
-			)
+		User.where(:sms_opt_in => true).find(:all, :conditions => "phone != ''").each do |user|	
+      begin
+        @client.account.sms.messages.create(	
+        :from => '+15128616101', 	
+        :to => user.phone,
+        :body => self.body
+        )
+      rescue Exception => e
+        logger.debug "Unable to send sms message to " + user.phone
+        logger.debug e
+      end
 		end
 	end
 
