@@ -583,7 +583,7 @@ td { vertical-align: top; }
 	padding-bottom: 180px;}  /* must be same height as the footer */
 
 #footer {position: relative;
-	margin-top: -113px; /* negative value of footer height */
+	margin-top: -220px; /* negative value of footer height */
 	height: 113px;
 	clear:both;
 	} 
