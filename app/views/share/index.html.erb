@@ -5,18 +5,19 @@
 <% end %>
 
 <h2>Thanks for signing up! Please tell others about prepared.ly</h2>
+
 <br/>
-<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.prepared.ly/?ref=<%= @referral_code %>" data-text="Make staying prepared fun and easy! Check out the site" data-via="ATXPreparedly" data-hashtags="cfaATX">Tweet</a>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.prepared.ly/?ref=<%= @share_code %>" data-text="Make staying prepared fun and easy! Check out the site" data-via="ATXPreparedly" data-hashtags="cfaATX">Tweet</a>
 <span id="tumblr_button_abc123"></span>
-<div class="fb-like" data-href="http://www.prepared.ly/" ref="<%= @referral_code %>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-action="recommend"></div>
+<div class="fb-like" data-href="http://www.prepared.ly/" ref="<%= @share_code %>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-action="recommend"></div>
 <br/>
 <br/>
-Share Link: <input size=35 value="http://www.prepared.ly/?ref=<%= @referral_code %>">
+Share Link: <input size=35 value="http://www.prepared.ly/?ref=<%= @share_code %>">
 
 <% content_for :javascript_yield do %>
   <!-- Tumblr Setup-->
   <script type="text/javascript">
-      var tumblr_link_url = "http://www.prepared.ly/?ref=<%= @referral_code %>";
+      var tumblr_link_url = "http://www.prepared.ly/?ref=<%= @share_code %>";
       var tumblr_link_name = "prepared.ly";
       var tumblr_link_description = "Make staying prepared fun and easy!";
   </script>

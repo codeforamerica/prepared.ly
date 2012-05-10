@@ -9,6 +9,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
       current_user.save!
 
+      # create referral and share codes here for non-oauth users
+      # see users_controller for creation of share code for oauth users 
+      referral_id = 123456789 + current_user.id
+      @referral_code = referral_id.to_s(36)
+      current_user.share_code = @referral_code
+      current_user.save!
+     
       # don't send welcome email when Twitter sign up creates temporary email
       unless current_user.email == "change@changeme.com"
         current_user.send_welcome_email

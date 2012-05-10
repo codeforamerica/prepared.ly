@@ -1,8 +1,7 @@
 class ShareController < ApplicationController
     def index
-        referral_id = 123456789 + current_user.id
-        @referral_code = referral_id.to_s(36) 
-        current_user.share_code = @referral_code
-        current_user.save!
+    # user's share code is generated in the create action of registrations_controller.rb for regular signups
+    # or in the users_controller.rb for oauth users so it's saved to the user before the welcome email goes
+	    @share_code = current_user.share_code
     end
 end
