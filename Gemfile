@@ -37,6 +37,8 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+gem 'exception_notification'
+
 gem 'devise'
 
 gem 'httparty'

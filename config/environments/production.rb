@@ -68,3 +68,8 @@ Preparedly::Application.configure do
   # devise setting
   config.action_mailer.default_url_options = { :host => 'preparedly.herokuapp.com' }
 end
+
+Preparedly::Application.config.middleware.use ExceptionNotifier,
+  :email_prefix => "[prepared.ly] ",
+  :sender_address => %{"notifier" <info@prepared.ly>},
+  :exception_recipients => %w{aurelio@codeforamerica.org}
