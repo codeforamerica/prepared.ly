@@ -70,16 +70,16 @@ Ruby and Rails can be installed easily along with [RVM][] using the script found
     $ git clone git://github.com/codeforamerica/prepared.ly.git
   
     #Enter project directory
-    $ cd prepared.ly
-    
+    $ cd prepared.ly 
+
     #Install needed ruby gems
     $ bundle install
 
     # Create database
-    $ rake db::create
+    $ rake db:create
 
     # Migrate data into database
-    $ rake db::migrate
+    $ rake db:migrate
 
     # Run application
     $ rails server
