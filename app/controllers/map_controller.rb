@@ -60,7 +60,8 @@ class MapController < ApplicationController
 
       # Closest Fire Station
       @cfs = FireStation.order("ST_Distance(latlon, '" + @address.latlon.to_s + "') LIMIT 1")[0]
-      @distance = "%.02f" % @address.latlon.distance(@cfs.latlon)
+      d_meters = @address.latlon.distance(@cfs.latlon)
+      @distance = "%.02f" % (d_meters/1609.344)
 
       # Weather Conditions
       w_api = Wunderground.new(ENV['WUNDERGROUND_API_KEY'])
