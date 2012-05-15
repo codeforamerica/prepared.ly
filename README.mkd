@@ -34,10 +34,7 @@ These are the basic requirements for installation using the directions below.
 
 #### <a name="ubuntu-requirements"></a>Ubuntu
 
-Ruby and Rails can be installed easily along with [RVM][] using the script found [here][].
-
-[RVM]: https://rvm.io//  
-[here]: https://github.com/rkjha/RailsOnUbuntu 
+These are covered in the installation directions.
 
 ### <a name="mac-installation"></a>Mac Installation
     $ brew install postgres
@@ -57,33 +54,142 @@ Ruby and Rails can be installed easily along with [RVM][] using the script found
 
 ### <a name="ubuntu-installation"></a>Ubuntu Installation
 
-    # Install Postgresql and PostGIS
-    $ sudo apt-get install postgresql postgis
+These instructions assume that you have a working Ubuntu Installation.  These will take you from a basic Ubuntu installation to a working development environment.
+
+Run the following command to install dependencies on your system:
+
+    $ sudo apt-get install build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion nodejs 
+
+This command installs all the necessary libraries needed for configuring Ruby Environment Manager, RVM, on your system specifically for Ruby.
+
+Install RVM, you can go [here](https://rvm.io//) to read more about it, but this is the minimal required.
+*Note:  This installs RVM just for the user that is logged in, this is the preferred method, please consult the RVM documentation if you would like to perform the installation differently.*
+
+    $ curl -L get.rvm.io | bash -s stable
+
+This command will need to be ran each time the shell is reopened.  To avoid doing so, please add this to your bashrc or bash_profile
+   
+    $ source ~/.rvm/scripts/rvm
     
+    #Add this to your bashrc or bash_profile
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
+
+This installs ruby 1.9.3
+
+    $ rvm install 1.9.3
+
+Once completed, run the following command which makes ruby 1.9.3 the default ruby:
+
+    $ rvm --default use 1.9.3
+
+Now type:
+
+    $ ruby -v
+
+You should see:
+
+    ruby 1.9.3pXXX # XXX represents the current patch set
+
+Once this command completed you will have a working ruby environment.
+
+Prepared.ly uses Postgres with PostGIS as the database.  You will need to get those environments configured also.  here are the steps that are required.  The libpq-dev library is very important for building the ruby postgres gem.
+
+    $ sudo apt-get install python-software-properties
+
+    #Install postgres database:
+    $ sudo apt-get install postgresql-9.1 libpq-dev postgresql-contrib-9.1
+
+*Note:  If you would like a gui database manager, then use the following command:
+
+    $ sudo apt-get install pgadmin3
+
+
+Install PostGIS:
+
+    $ sudo apt-get install proj-bin postgresql-9.1-postgis
+
+Next you need to configure postgres to allow connections
+
+You will start by editing this file:
+
+/etc/postgresql/9.1/main/postgresql.conf
+
+You will need to go down the the **Connections and Authentication** section.
+
+Remove the # sign at this line:
+
+    #listen_addresses = 'localhost'
+
+You will also need to edit this file: 
+
+    /etc/postgresql/9.1/main/pg_hba.conf
+
+Go to the IPv4 section and add the following entry
+
+    # IPv4 local connections:
+    local   all             all                                     md5
+
+Restart the database after making the change
+
+    $ sudo /etc/init.d/postgresql restart
+
+
+Since the only user who can connect to a fresh install is the postgres user, here is how to create yourself a database account (which is in this case also a database superuser) with the same name as your login name and then create a password for the user: 
+
+    $ sudo -u postgres createuser --superuser $USER
+    $ sudo -u postgres psql
+
+    $ postgres=# \password $USER
+
+Read more [here](https://help.ubuntu.com/community/PostgreSQL).
+
+Now the basic environment is configured now it is time to install the application and its dependencies.
+
+To get the applicaiton do the following:
+
+    $ mkdir code
+    $ cd code
+    
+    #Clone from Github
+    $ git clone git://github.com/codeforamerica/prepared.ly.git
+
+    $ cd prepared.ly 
+
+    #Install dependencies
+    $ bundle install
+
+
+Create the database account:
+
     # Create regular database user named 'preparedly, empty password
     $ createuser -h localhost --pwprompt preparedly
 
     # Create superuser database user named 'cfa', empty password
     $ createuser -h localhost --pwprompt --superuser cfa
 
-    #Clone repository
-    $ git clone git://github.com/codeforamerica/prepared.ly.git
-  
-    #Enter project directory
-    $ cd prepared.ly 
+Edit your database.yml.  
 
-    #Install needed ruby gems
-    $ bundle install
+You will need to edit the passwords for the acccounts and the *script_dir* for the postgis integration.  To do so 
+To find the scripts directory on ubuntu it is:
 
-    # Create database
+    /usr/share/postgresql/9.1/contrib/postgis-1.5
+
+    #From prepared.ly directory
+    /config/database.yml
+
+
+Now it is time to create your database:
+
     $ rake db:create
-
-    # Migrate data into database
     $ rake db:migrate
 
-    # Run application
+Finally:
+
     $ rails server
 
+Go here:  http://0.0.0.0:3000
+
+You should see the home page of the Prepared.ly application.
 
 ## <a name="usage"></a>Usage
     rails server
