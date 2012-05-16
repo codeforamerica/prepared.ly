@@ -9,6 +9,11 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :first_name, :last_name, :phone, :address, :sms_opt_in, :password, :password_confirmation, :remember_me, :preferred_contact, :provider, :provider_id, :twitter_screen_name, :twitter_display_name, :share_code, :referral_code, :admin
 
+  validates :phone, :format => {
+    :with => /^(\(?\d\d\d\)?)?( |-|\.)?\d\d\d( |-|\.)?\d{4,4}(( |-|\.)?[ext\.]+ ?\d+)?$/,
+    :on => :create
+  }
+
   def self.find_or_create_for_twitter(access_token, signed_in_resource=nil)
     data = access_token
     # search by twitter uid instead of email since user might not have set their email yet
