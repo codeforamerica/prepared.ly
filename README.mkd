@@ -2,7 +2,7 @@
 Join the community of fire-prepared Austinites. Wildfires are a real and ongoing threat, so it’s important to be in the know and get up to date real time information. Rally with your neighbors and work with your local firefighters to keep wildfires in the wild, and your home and neighborhood safe.
 
 ## <a name="screenshots"></a>Screenshot
-![prepared.ly](https://skitch.com/tinio/84um6/ "prepared.ly")
+![prepared.ly](https://img.skitch.com/20120516-brru1gdmjjuut2rn5ug9w25cnn.jpg "prepared.ly")
 
 ## <a name="build"></a>Build Status
 [![Build Status](https://secure.travis-ci.org/codeforamerica/cfa_template.png?branch=master)][travis]
@@ -140,14 +140,7 @@ bug report should include a pull request with failing specs.
 This library aims to support and is [tested against][travis] the following Ruby
 implementations:
 
-* Ruby 1.8.7
-* Ruby 1.9.2
 * Ruby 1.9.3
-* [Rubinius][]
-* [Ruby Enterprise Edition][ree]
-
-[rubinius]: http://rubini.us/
-[ree]: http://www.rubyenterpriseedition.com/
 
 If something doesn't work on one of these interpreters, it should be considered
 a bug.
