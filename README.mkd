@@ -2,7 +2,7 @@
 Join the community of fire-prepared Austinites. Wildfires are a real and ongoing threat, so it’s important to be in the know and get up to date real time information. Rally with your neighbors and work with your local firefighters to keep wildfires in the wild, and your home and neighborhood safe.
 
 ## <a name="screenshots"></a>Screenshot
-![prepared.ly](http://dl.dropbox.com/u/55826838/preparedly/wf1.png "prepared.ly")
+![prepared.ly](https://skitch.com/tinio/84um6/ "prepared.ly")
 
 ## <a name="build"></a>Build Status
 [![Build Status](https://secure.travis-ci.org/codeforamerica/cfa_template.png?branch=master)][travis]
@@ -16,7 +16,7 @@ Join the community of fire-prepared Austinites. Wildfires are a real and ongoing
 
 ## <a name="demo"></a>Demo
 You can see a running version of the application at
-[http://cfa_template.herokuapp.com/][demo].
+[http://prepared.ly/][demo].
 
 [demo]: http://cfa_template.herokuapp.com/
 
@@ -166,8 +166,4 @@ time of a major release, support for that Ruby version may be dropped.
 ## <a name="copyright"></a>Copyright
 Copyright (c) 2011 Code for America. See [LICENSE][] for details.
 
-[license]: https://github.com/codeforamerica/cfa_template/blob/master/LICENSE.mkd
-
-[![Code for America Tracker](http://stats.codeforamerica.org/codeforamerica/cfa_template.png)][tracker]
-
-[tracker]: http://stats.codeforamerica.org/projects/cfa_template
+[license]: https://github.com/codeforamerica/prepared.ly/blob/master/LICENSE.mkd
