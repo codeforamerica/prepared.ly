@@ -56,14 +56,16 @@
                 <td class="condition-type">Inside of a Burn Ban:</td>
                 <td class="condition"> <%= @inside_burnban %></td>
             </tr>
-            <tr>
-                <td colspan="2"><h4><br><br>Help your home and community stay prepared for wildfire...</h4></th>
-            </tr>
-            <tr>
-                <td colspan="2" class="note">                 
-                    <a href="users/sign_up"><button class="blue button signup big">sign up now >></button></a>
-                </td>
-            </tr>
+            <% if not user_signed_in? %>
+              <tr>
+                  <td colspan="2"><h4><br><br>Help your home and community stay prepared for wildfire...</h4></th>
+              </tr>
+              <tr>
+                  <td colspan="2" class="note">                 
+                      <a href="users/sign_up"><button class="blue button signup big">sign up now >></button></a>
+                  </td>
+              </tr>
+            <% end %>
       </table>
       </div>
     </div>
