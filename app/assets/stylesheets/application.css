@@ -307,9 +307,9 @@ td { vertical-align: top; }
 	list-style-type: none;
 	padding-right: 20px;
 	float: right;
-	font-size: 13px;
+	font-size: 15px;
 	font-style: normal;
-	font-weight: 500;
+	font-weight: 700;
 }
 .nav-bar-items a{ 
 	color: #ffffff; 
@@ -391,7 +391,6 @@ td { vertical-align: top; }
 }
 
 #address-map {
-	float: right;
 	margin-right: 10px;
 /*    display: block;
     float: right;
@@ -533,7 +532,7 @@ td { vertical-align: top; }
 	padding:5px;
 	}
 .reg p{
-	height: 100px;
+	height: 140px;
 	color:#666666;
 }
 

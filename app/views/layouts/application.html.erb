@@ -23,7 +23,12 @@
         <p class="alert"><%= alert %></p>
             <div class="nav-bar">
                 <ul class="nav-bar-items">
-                    <%= yield :nav_bar_items %>
+                    <!--NAVIGATION!-->
+					<%= render 'devise/menu/registration_items' %>
+					<%= render 'devise/menu/login_items' %>
+					<li><%= link_to "resources", resources_path %></li> 
+					<li><%= link_to "about", about_path %></li>
+
                 </ul>
             </div>
             <div id="logo-wrapper">
