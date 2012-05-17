@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require_tree .
 */
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -32,7 +33,7 @@ html, button, input, select, textarea {
 	color: #222; 
 	}
 body { 
-	background:url('bg.gif')repeat-x;
+	background:none;
 	margin: 0; 
 	/*line-height: 1.6; */
 	font-family: "museo-sans", sans-serif;
@@ -93,35 +94,7 @@ a:hover { color: #CC6633; }
 a:focus { outline: thin dotted; }
 a:hover, a:active { outline: 0; }
 
-.risk {
-	font-size: 20px;
-	margin:0px;
-	font-weight:500px;
-	text-align: left;
-}
-.risk-9 {
-	color:#FF3366;
-	} 
-.risk-7, .risk-8 {
-	color:#FF6633;
-	} 
-.risk-5, .risk-6 {
-	color:#FF9933;
-	} 
-.risk-3, .risk-4 {
-	color:#FFCC33;
-	} 
-.risk-1, .risk-2 {
-	color:#339933;
-	} 
-.risk-0 {
-	color:#99CCCC;
-	}
-.risk-title {
-	color:#666666;
-	width:210px;
-	text-align:justify;
-	}	
+
 
 abbr[title] { border-bottom: 1px dotted; }
 b, strong { font-weight: bold; }
@@ -359,8 +332,6 @@ td { vertical-align: top; }
 	padding:50px;
 	position: relative;
 	top: 15px;
-	width:90%;
-	max-width:65em;
 }
 
 /*---map detail ---*/
@@ -370,20 +341,13 @@ td { vertical-align: top; }
 	top:-30px;
 }
 #map {
-	border: #3AAFBF solid thin;
-	min-width: 325px;
-    height: 479px;
-    width:60%;
-	float:left;
-	margin-top: 1px;
+	border: none;
+	width: 63%;
+    height: 480px;
 }
 #map-detail {
-	border: #3AAFBF solid thin;
-	margin-left: 8px;
-    height: 449px;
-    padding: 15px;
-    width:35%;
-	float:left;
+	width:100%; 
+	border: none;
 }
 #map-content-top {
 	width:100%;
@@ -391,12 +355,10 @@ td { vertical-align: top; }
 }
 
 #address-map {
-	float: right;
-	margin-right: 10px;
-/*    display: block;
-    float: right;
+    display: block;
+    float: left;
     position: relative;
-    width: 30%;*/
+    width: 411px;
 }
 .address {
 	width:300px;
@@ -564,60 +526,10 @@ td { vertical-align: top; }
 }
 
 /*------------------------------------------------footer stuff---*/
-#footer-main {
-    margin: 100px 40px;
-    padding: 40px 50px;
-    z-index:10;
+#footer {
+    display:none;
     }
-.column-3 {
-	float:left;
-	width:30%;
-	position: relative;	
-	padding-bottom:40px;
-}
-.column-3 img {
-	padding: 0 70px;
-	}
-	
-.column-3 p{
-	color: #99cccc;
-    margin: 38px 0 0 60px;
-    }	
-#wrap {min-height: 100%;}
 
-#main-wrap {overflow:auto;
-	padding-bottom: 180px;}  /* must be same height as the footer */
-
-#footer {position: relative;
-	margin-top: -220px; /* negative value of footer height */
-	height: 113px;
-	clear:both;
-	} 
-
-#footer-bottom {
-	background: url('footer.png') no-repeat;
-    height: 113px;
-    margin: 0 auto;
-    padding: 0 10px;
-    width: 979px;
-    position:relative;
-    top:-306px;
-	}	
-#footer-green {
-	background: #336633;
-	height:326px;
-    position: relative;
-    top: 114px;
-    z-index: -3;
-}
-/*Opera Fix*/
-body:before {/* thanks to Maleika (Kohoutec)*/
-content:"";
-height:100%;
-float:left;
-width:0;
-margin-top:-32767px;/* thank you Erik J - negate effect of float*/
-}
 
 
 
