@@ -88,7 +88,7 @@ input {
 ::selection { background: #fe57a1; color: #fff; text-shadow: none; }
 
 a { 
-	color: #339999; 
+	color: #FF9933; 
 	text-decoration:none;
 	}
 a:visited { 
@@ -200,7 +200,7 @@ button, input {
 		to(#339999));
 }
 .button.big {
-	width: 336px;
+	width: 90%;
 	padding:10px;
 	font-size:20px;
 }
@@ -277,7 +277,10 @@ input:valid, textarea:valid {  }
 input:invalid, textarea:invalid { 
 	background-color: #f0dddd; }
 
-table { border-collapse: collapse; border-spacing: 0; }
+table { 
+	border-collapse: collapse; 
+	border-spacing: 0;
+	width:100%; }
 td { vertical-align: top; }
 
 .chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
@@ -388,7 +391,7 @@ td { vertical-align: top; }
 	margin-left: 8px;
     height: 449px;
     padding: 15px;
-    width:35%;
+    width:275px;
 	float:left;
 }
 #map-content-top {
@@ -408,22 +411,13 @@ td { vertical-align: top; }
 }
 .condition {
 	font-style: normal;
-	font-weight: 300;
-	text-align: left;
-	padding:5px;
-	vertical-align:top;
-	font-size: 14px;
-
-
+	font-weight: 500;
+	font-size: 16px;
 }
 .condition-type {
-	font-size: 14px;
+	font-size: 16px;
 	font-style: normal;
-	font-weight: 500;
-	text-align: right;
-	padding:5px;
-	width:180px;
-	vertical-align:top;
+	font-weight: 700;
 }
 
 /*-------------------------------------------------about-page ---*/
@@ -447,13 +441,12 @@ td { vertical-align: top; }
 }
 .column {
 	float:left;
-	width:49%;
+	width:45%;
 	position: relative;	
-	padding-bottom:40px;
-	margin: 5px;
+	margin: 0 20px 0 0;
 }
 #space {
-	height:150px;
+	height:350px;
 	width:100%;
 	}
 .column-wrapper h1{
@@ -482,16 +475,18 @@ td { vertical-align: top; }
 	padding:5px;*/
 	}
 .column-wrapper p{
-	height: 100px;
+/*	height: 100px;*/
 	color:#ffffff;
 }
 
 .column-wrapper h2{
+	margin-top: 30px;
 	font-weight: 700;
 	color:#ffffff;
 }
 .column-full {
 	width:100%;
+	float: left;
 }
 #skyline {	
 	background: url('footer.png') no-repeat;
@@ -504,7 +499,7 @@ td { vertical-align: top; }
 	}		
 #about-green {
 	background: #336633;
-	height:1650px;
+	height:2550px;
 }
 #green {
 	background:#336633;
@@ -545,7 +540,7 @@ td { vertical-align: top; }
 	}
 	
 .reg p{
-	height: 140px;
+/*	height: 140px;*/
 	color:#666666;
 }
 

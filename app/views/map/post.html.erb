@@ -21,51 +21,48 @@
     <div id="map"></div>
     <div id="map-detail">
 
-        <table id="table-map">
+        <table>
+            <thead>
+                <td><h4><%= @address.address %></h4>
+                <hr></hr></td>
+                
+            </thead>
             <tr>
-                <th colspan="2">
-                    <h4><%= @address.address %></h4>
-                    <hr>
-                </th>
+                <td class="risk risk-title">Risk of this location:</td>
             </tr>
             <tr>
-                <td class="risk risk-title">Risk of this location:</th>
-                <% if @risk_level %>
+        <% if @risk_level %>
                   <td class="risk risk-<%= @risk_level %>"><%= @risk_text %></td>
                 <% else %>
                   <td class="risk">No risk data is available at this location</td>
                 <% end %>
-            </tr>
-            <tr>
+           <!-- <tr>
                 <td colspan="2" class="note">See more about your risk level, here.</td>
+            </tr>-->
+            <tr>
+                <td><span class="condition-type">Wind: </span><span class="condition"><%= @wind_conditions %></span></td>
             </tr>
             <tr>
-                <td class="condition-type">Wind:</td>
-                <td class="condition"> <%= @wind_conditions %> </td>
+                <td><span class="condition-type">Humidity:</span><span class="class="condition"> <%= @relative_humidity %></span></td>
             </tr>
             <tr>
-                <td class="condition-type">Humidity: </td>
-                <td class="condition"><%= @relative_humidity %></td>
-            </tr>
-<!--        <tr>
+                <td><span class="condition-type">Inside of a Burn Ban: </span><span class="class="condition"> <%= @inside_burnban %></span></td>
+            </tr>             
+        </table>
+<!--      <table id="table-map">
+            <tr>
                 <td class="condition-type">Distance to fire station:</td>
                 <td class="condition"> <%= @distance %> miles</td>
             </tr> -->
-            <tr>
-                <td class="condition-type">Inside of a Burn Ban:</td>
-                <td class="condition"> <%= @inside_burnban %></td>
-            </tr>
             <% unless user_signed_in? %>
-              <tr>
-                  <td colspan="2"><h4><br><br>Help your home and community stay prepared for wildfire...</h4></th>
-              </tr>
-              <tr>
-                  <td colspan="2" class="note">                 
-                      <a href="users/sign_up"><button class="blue button signup big">sign up now >></button></a>
-                  </td>
-              </tr>
+
+          <h4>
+              <br>
+              <br>
+              Help your home and community stay prepared for wildfire...
+          </h4>
+            <a href="users/sign_up"><button class="blue button signup big">sign up now >></button></a>
             <% end %>
-      </table>
       </div>
     </div>
 <!--
