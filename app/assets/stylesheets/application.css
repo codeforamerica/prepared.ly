@@ -515,6 +515,11 @@ td { vertical-align: top; }
 	border-bottom:solid 1px #99CCCC;
 	line-height:50px;
 }
+#nounderline {
+	line-height:50px;
+	border-bottom:none;
+	
+}
 .reg h3{
 	font-size: 20px;
 	font-style: normal;
@@ -531,6 +536,7 @@ td { vertical-align: top; }
 	margin:5px;
 	padding:5px;
 	}
+	
 .reg p{
 	height: 140px;
 	color:#666666;
