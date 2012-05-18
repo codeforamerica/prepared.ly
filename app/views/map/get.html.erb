@@ -1,29 +1,38 @@
-<%= form_tag("/map", :method=> "post") do %>
-<h2> Welcome. Please enter your address to get started. </h2>
-    <%= text_field_tag(:q, nil,  :placeholder => 'enter your address in Texas here', :class => 'address') %>
-    <%= submit_tag("Locate", :class => 'blue button') %>
+            <%= form_tag("/map", :method=> "post") do %>
+            <h2> Welcome. <br>Enter your address and we'll tell you about the risk of your location! </h2>
+                <%= text_field_tag(:q, nil,  :placeholder => 'enter your address in Texas here', :class => 'address') %>
+                <%= submit_tag("Locate", :class => 'blue button') %>
+            
+            <% end %>
+            <div class="note"> Include city and state, only available for the state of Texas.</div>
+            </br>
+             <hr></hr>
+             </br>
+            <h2><strong>Last Summer, over 1300 homes were destroyed in Bastrop County due to wildfire.</strong><br>
+            We don’t want that to happen to you. We’ve developed an easy-to-use application that brings 
+            together a variety of checklists and fire tools, and gives them to you in a manageable, timely, 
+            and actionable form.
+            </h2>
+            </br>
 
-<% end %>
-<div class="note"> Include city and state, only available for the state of Texas.</div>
+            <a href="/about"><button class="blue button signup big">Read more about prepared.ly >></button></a>
+            </br>
+            <hr></hr>
+<div class="column-wrapper">   
+    <div class="column-full reg">
+       <div class="column reg">
+            
+            <h5><strong>Help us make it better.</strong> We’re piloting the application in Austin, Texas. If you're a resident of Austin or Travis County, please fill it out <a href="../survey">our survey</a> and we’ll use the information you give us to make it work better. We appreciate your time and your input helps us develop a tool that will work for you. 
+            <br>
+             <a href="../survey">Fill out the survey >></a>
+            </h5>
+       </div>     
+       <div class="column reg">
+            <h5><strong>Prepared.ly is</strong> a project created by Code for Ameria for the City of Austin and Travis County. Austin is one of 8 cities participating in the 2013 city program, and the Code for America 
+            Austin Team is collaborating with the Austin Fire Department, and the City of Austin to create 
+            Prepared.ly, a tool to help homeowners be more prepared for wildfires. 
+            </h5>
+         </div>
+     </div>       
 
- <hr></hr>
- </br>
-<h2><strong>Last Summer, over 1300 homes were destroyed in Bastrop County due to wildfire.</strong><br>
-We don’t want that to happen to you. We’ve developed an easy-to-use application that brings 
-together a variety of checklists and fire tools, and gives them to you in a manageable, timely, 
-and actionable form.
-</h2>
-
-<!--</br></br>
-We’re piloting the application in Austin, Texas.
-You’ll find a survey attached on the next page, please fill it out and we’ll use the information you give us to make it work better. You can fill it out online at www.prepared.ly/survey, or by hand and return it to your block captain. We appreciate your time and your input helps us develop a tool that will work for you. 
-</br></br>
-Prepared.ly is a project by Code for Ameria for the City of Austin and Travis County. 
-Austin is one of 8 cities participating in the 2013 city program, and the Code for America 
-Austin Team is collaborating with the Austin Fire Department, and the City of Austin to create 
-Prepared.ly, a tool to help homeowners be more prepared for wildfires. 
--->
- </br>
-<h2> <strong><a href="/about">About prepared.ly</a><strong></h2>
-
-<hr></hr>
+</div>

@@ -61,6 +61,12 @@ h4 {
 	text-align:left;
 	line-height:26px;
 }	
+h5 {
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 100;
+	margin: 0px;
+}	
 p, label {	
 	font-size: 16px;
 	font-style: normal;
@@ -441,9 +447,10 @@ td { vertical-align: top; }
 }
 .column {
 	float:left;
-	width:50%;
+	width:49%;
 	position: relative;	
 	padding-bottom:40px;
+	margin: 5px;
 }
 #space {
 	height:150px;
@@ -471,8 +478,8 @@ td { vertical-align: top; }
 
 
 .column-wrapper p, .column-wrapper h2 {
-	margin:5px;
-	padding:5px;
+/*	margin:5px;
+	padding:5px;*/
 	}
 .column-wrapper p{
 	height: 100px;
@@ -533,8 +540,8 @@ td { vertical-align: top; }
 
 
 .reg p, .reg h2 {
-	margin:5px;
-	padding:5px;
+/*	margin:5px;
+	padding:5px;*/
 	}
 	
 .reg p{

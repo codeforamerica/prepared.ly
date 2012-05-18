@@ -55,7 +55,7 @@
                 <td class="condition-type">Inside of a Burn Ban:</td>
                 <td class="condition"> <%= @inside_burnban %></td>
             </tr>
-            <% if not user_signed_in? %>
+            <% unless user_signed_in? %>
               <tr>
                   <td colspan="2"><h4><br><br>Help your home and community stay prepared for wildfire...</h4></th>
               </tr>
