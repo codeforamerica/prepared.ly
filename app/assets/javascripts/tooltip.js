@@ -17,5 +17,5 @@ $('.trigger').mouseover(function() {
 }); // end click
 
  $('.trigger').mouseout(function () {
-     $('.tooltip').fadeOut(200);
+     $('.tooltip').fadeOut(800);
  }); // end mouseout
