@@ -129,6 +129,23 @@ a:hover, a:active { outline: 0; }
 	text-align:justify;
 	}	
 
+.tooltip {
+    width: 35%;
+    padding: 5px;
+    background-color: white;
+    border: 3px solid rgb(195,151,51);
+    border-radius : 5px;
+    display: none;
+    z-index: 999;
+}
+
+.trigger {
+    border-bottom: 1px dashed white;
+    cursor : help;
+
+}
+
+
 abbr[title] { border-bottom: 1px dotted; }
 b, strong { font-weight: bold; }
 blockquote { margin: 1em 40px; }

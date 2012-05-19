@@ -32,7 +32,8 @@
             </tr>
             <tr>
         <% if @risk_level %>
-                  <td class="risk risk-<%= @risk_level %>"><%= @risk_text %></td>
+                  <td class="risk risk-<%= @risk_level %>"><%= @risk_text %><span class="trigger" data-tooltip="#riskTooltip"><img src="assets/question.png" /></span>
+                  </td>
                 <% else %>
                   <td class="risk">No risk data is available at this location</td>
                 <% end %>
@@ -125,3 +126,7 @@
     </script>
   <% end %>
 <% end %>
+
+ <div class="tooltip" id="riskTooltip">
+    The risk level is supplied by the Texas Forest Service Wildfire Risk Assessment Portal (TxWRAP), which uses the Fire Intensity Scale (FIS). The FIS quantifies potential fire intensity based on high to extreme weather conditions, fuels, and topography. Find out more on <a href="http://www.texaswildfirerisk.com/Map">the TxWRAP</a>.
+</div>
