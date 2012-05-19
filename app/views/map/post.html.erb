@@ -32,7 +32,7 @@
             </tr>
             <tr>
         <% if @risk_level %>
-                  <td class="risk risk-<%= @risk_level %>"><%= @risk_text %>&nbsp<span class="trigger" data-tooltip="#riskTooltip"><img src="assets/question.png" /></span>
+                  <td class="risk risk-<%= @risk_level %>"><%= @risk_text %>&nbsp&nbsp<span class="trigger" data-tooltip="#riskTooltip"><img src="assets/question.png" /></span>
                   </td>
                 <% else %>
                   <td class="risk">No risk data is available at this location</td>

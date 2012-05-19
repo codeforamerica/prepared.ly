@@ -1,27 +1,21 @@
 $('.tooltip').hide();
 
-$('.trigger').click(function() {
-  var ttLeft,
-    ttTop,
+$('.trigger').mouseover(function() {
+  var ttLeft,ttTop,
     $this=$(this),
-    $tip = $($this.attr('data-tooltip')),
-    triggerPos = $this.offset(),
-     triggerH = $this.outerHeight(),
-     triggerW = $this.outerWidth(),
-     tipW = $tip.outerWidth(),
-     tipH = $tip.outerHeight(),
-     scrollTop = $(document).scrollTop(); // end var
-		
-		ttTop = triggerPos.left;
-		ttLeft = triggerPos.right;
+    $tip = $($this.attr('data-tooltip')); // end var
 
-	 $tip.css({
-	     left : ttLeft ,
-	     top : ttTop,
-	     position: 'absolute'
-	     }).fadeIn(200);
+	triggerPos = $("#map").offset();	
+	ttTop = triggerPos.top;
+	ttLeft = triggerPos.left;
+
+	$tip.css({
+	   left : ttLeft ,
+	   top : ttTop,
+	   position: 'absolute'
+	   }).fadeIn(200);
 }); // end click
 
- // $('.trigger').mouseout(function () {
- //     $('.tooltip').fadeOut(200);
- // }); // end mouseout
+ $('.trigger').mouseout(function () {
+     $('.tooltip').fadeOut(200);
+ }); // end mouseout

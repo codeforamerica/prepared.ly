@@ -130,7 +130,7 @@ a:hover, a:active { outline: 0; }
 	}	
 
 .tooltip {
-    width: 35%;
+    width: 40%;
     padding: 5px;
     background-color: white;
     border: 3px solid rgb(195,151,51);
@@ -140,7 +140,7 @@ a:hover, a:active { outline: 0; }
 }
 
 .trigger {
-    border-bottom: 1px dashed white;
+    
 }
 
 
