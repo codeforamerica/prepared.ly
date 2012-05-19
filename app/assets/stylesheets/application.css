@@ -141,8 +141,6 @@ a:hover, a:active { outline: 0; }
 
 .trigger {
     border-bottom: 1px dashed white;
-    cursor : help;
-
 }
 
 
