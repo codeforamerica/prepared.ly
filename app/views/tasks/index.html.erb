@@ -1,0 +1,27 @@
+<h1>Listing tasks</h1>
+
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Difficulty</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <td><%= @random.task %></td>
+    <td><%= @random.difficulty %></td>
+  </tr>
+</table>
+
+<br />
+
+<%= link_to 'Skip for now', tasks_path %>
+
+<br />
+
+<%= link_to 'Already Done', :controller => 'completed_tasks', :action => 'completed' %>  
+
+<br />
+<% link_to 'New Task', new_task_path %>
+

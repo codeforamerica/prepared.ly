@@ -1,6 +1,13 @@
 Preparedly::Application.routes.draw do
 
+  resources :completed_tasks
+  resources :tasks
+
   match "resources" => "resources#index"
+
+  match 'completed' => 'completed_tasks#completed'
+
+  #match "completed" => :controller => { :completed_tasks => "completed" }
 
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post

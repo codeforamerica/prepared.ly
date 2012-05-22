@@ -20,6 +20,7 @@
 
 <%- if devise_mapping.omniauthable? %>
 		
+		<%# display Sign in with Google instead of google_oauth2 in sign up link %>
 	  <%- resource_class.omniauth_providers.each do |provider| %>
 	  	 <%- if (provider.to_s == "google_oauth2" ) %>
 				<%= provider_icon "google_oauth2" %>

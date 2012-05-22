@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 
+  task_id: 
+  completed: 
+  remind: 2012-05-21
+
+two:
+  user_id: 
+  task_id: 
+  completed: 
+  remind: 2012-05-21
