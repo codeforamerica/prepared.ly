@@ -99,51 +99,6 @@ a:hover { color: #CC6633; }
 a:focus { outline: thin dotted; }
 a:hover, a:active { outline: 0; }
 
-.risk {
-	font-size: 20px;
-	margin:0px;
-	font-weight:500px;
-	text-align: left;
-}
-.risk-9 {
-	color:#FF3366;
-	} 
-.risk-7, .risk-8 {
-	color:#FF6633;
-	} 
-.risk-5, .risk-6 {
-	color:#FF9933;
-	} 
-.risk-3, .risk-4 {
-	color:#FFCC33;
-	} 
-.risk-1, .risk-2 {
-	color:#339933;
-	} 
-.risk-0 {
-	color:#99CCCC;
-	}
-.risk-title {
-	color:#666666;
-	width:210px;
-	text-align:justify;
-	}	
-
-.tooltip {
-    width: 40%;
-    padding: 5px;
-    background-color: white;
-    border: 3px solid rgb(195,151,51);
-    border-radius : 5px;
-    display: none;
-    z-index: 999;
-}
-
-.trigger {
-    
-}
-
-
 abbr[title] { border-bottom: 1px dotted; }
 b, strong { font-weight: bold; }
 blockquote { margin: 1em 40px; }
@@ -387,7 +342,8 @@ td { vertical-align: top; }
 	max-width:65em;
 }
 
-/*---map detail ---*/
+/*------------------------------map detail ---*/
+
 #map-main {
 	width:100%;
 	position:inherit;
@@ -434,6 +390,70 @@ td { vertical-align: top; }
 	font-style: normal;
 	font-weight: 700;
 }
+/*------------- map: tool tip and risk assessment -------*/
+.risk {
+	font-size: 20px;
+	margin:0px;
+	font-weight:500px;
+	text-align: left;
+}
+.risk-9 {
+	color:#FF3366;
+	} 
+.risk-7, .risk-8 {
+	color:#FF6633;
+	} 
+.risk-5, .risk-6 {
+	color:#FF9933;
+	} 
+.risk-3, .risk-4 {
+	color:#FFCC33;
+	} 
+.risk-1, .risk-2 {
+	color:#339933;
+	} 
+.risk-0 {
+	color:#99CCCC;
+	}
+.risk-title {
+	color:#666666;
+	width:210px;
+	text-align:justify;
+	}	
+
+a.tooltip {outline:none; } 
+a.tooltip strong {line-height:30px;} 
+a.tooltip:hover {text-decoration:none;} 
+a.tooltip span { 
+	z-index:10;
+	display:none; 
+	padding:14px 20px; 
+	margin-top:-30px; 
+	margin-left:28px; width:240px; 
+	line-height:16px; 
+	} 
+a.tooltip:hover span{ 
+	display:inline; 
+	position:absolute; 
+	color:#333333; 
+	border:1px solid #333333; 
+	background:#ffffff;
+	} 
+.callout {
+	z-index:20;
+	position:absolute;
+	top:30px;border:0;
+	left:-12px;
+	} 
+/*CSS3 extras*/ 
+a.tooltip span { 
+	border-radius:4px; 
+	-moz-border-radius: 4px; 
+	-webkit-border-radius: 4px; 
+	-moz-box-shadow: 5px 5px 8px #CCC; 
+	-webkit-box-shadow: 5px 5px 8px #CCC; 
+	box-shadow: 5px 5px 8px #CCC; 
+	}
 
 /*-------------------------------------------------about-page ---*/
 
