@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120521214603) do
+ActiveRecord::Schema.define(:version => 20120523205440) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20120521214603) do
     t.integer  "user_id"
     t.integer  "task_id"
     t.boolean  "completed"
+    t.date     "remind"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -90,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20120521214603) do
     t.string   "difficulty"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "fact"
   end
 
   create_table "users", :force => true do |t|

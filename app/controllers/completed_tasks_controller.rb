@@ -13,8 +13,6 @@ class CompletedTasksController < ApplicationController
   # GET /completed_tasks/1
   # GET /completed_tasks/1.json
   def show
-    @completed_task = CompletedTask.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @completed_task }
@@ -22,7 +20,7 @@ class CompletedTasksController < ApplicationController
   end
 
   def completed
-    @user = current_user
+    current_user
     task_id = session[:task_id]
     unless CompletedTask.exists?(:user_id => current_user.id, :task_id => task_id, :completed => TRUE)
       CompletedTask.create!(:user_id => current_user.id, :task_id => task_id, :completed => TRUE)
