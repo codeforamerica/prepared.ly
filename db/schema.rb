@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(:version => 20120523205440) do
     t.integer  "user_id"
     t.integer  "task_id"
     t.boolean  "completed"
-    t.date     "remind"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
