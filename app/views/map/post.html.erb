@@ -41,7 +41,11 @@
             </tr>
             <tr>
                 <td class="note">
-                    <a href="#" class="tooltip"> About Risk Level <span> 
+                    <a href="#" id="map-pop" data-content="<strong> About Risk Level </strong><br>The risk level is supplied by the Texas Forest Service Wildfire Risk Assessment 
+                    Portal (TxWRAP), which uses the Fire Intensity Scale (FIS). 
+                    The FIS quantifies potential fire intensity based on high to extreme weather 
+                    conditions, fuels, and topography." class="note">About Risk Level</a>
+                    <!--<a href="#" class="tooltip"> About Risk Level <span> 
                     <img class="callout" src="/assets/callout.png" /> 
                     <strong> About Risk Level </strong>
                     <br /> 
@@ -50,7 +54,7 @@
                     The FIS quantifies potential fire intensity based on high to extreme weather 
                     conditions, fuels, and topography. </span> </a>  
                     <span> 
-                    <img class="callout" src="/assets/callout.png" /> 
+                    <img class="callout" src="/assets/callout.png" /> -->
                     &#124;
                 <a href="http://www.texaswildfirerisk.com/Map" target="blank">go to TxWRAP site</a>
                 </td> 
@@ -69,6 +73,7 @@
             </tr>        
         </table>
 
+
 <!--      <table id="table-map">
             <tr>
                 <td class="condition-type">Distance to fire station:</td>
@@ -83,7 +88,7 @@
             <a href="users/sign_up"><button class="btn btn-info btn-large">sign up now >></button></a>
             <% end %>
       </div>
-    </div>
+    </div>  
 <!--
   </div>-->
   <% else %>
@@ -92,7 +97,16 @@
 </div>
 <% content_for :javascript_yield do %>
   <!-- scripts -->
-  
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $("#map-pop")
+     .popover({/*trigger: 'manual'*/})
+     .click(function(e){
+       e.preventDefault();
+       //$('#map-pop').popover('show');
+    });
+   });
+  </script>
   <script src="http://code.leafletjs.com/leaflet-0.3.1/leaflet.js"></script>
 <!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="app/assets/javascripts/wax.leaflet.min.js"></script>
