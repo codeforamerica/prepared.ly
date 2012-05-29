@@ -1,7 +1,6 @@
 class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
-  #add comment to get a commit...
 
   def index
     # @tasks = Task.all
