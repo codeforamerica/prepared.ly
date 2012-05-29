@@ -1,21 +1,30 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %>*<br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :phone %><br />
-  <%= f.phone_field :phone %></div>
-
-  <div><%= f.label :password %>*<br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %>*<br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
- 
-<%= render "links" %>
+<form class="form-horizontal">
+    <fieldset>
+        <legend>Sign up</legend>
+            <div class="control-group">
+                    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+                    <%= devise_error_messages! %>
+                <div>
+                    <div><%= f.label :email %>*<br />
+                    <%= f.email_field :email %>
+                </div>
+                <div>
+                    <%= f.label :phone %><br />
+                    <%= f.phone_field :phone %>
+                </div>
+                <div>
+                    <%= f.label :password %>*<br />
+                    <%= f.password_field :password %>
+                </div>
+                <div>
+                    <%= f.label :password_confirmation %>*<br />
+                    <%= f.password_field :password_confirmation %>
+                </div>
+                <div>
+                    <%= f.submit "Sign Up", :class => 'btn btn-primary' %>
+                </div>
+                <% end %>
+                <%= render "links" %>
+        </div>
+    </fieldset>
+</form>

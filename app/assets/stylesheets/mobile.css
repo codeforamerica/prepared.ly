@@ -418,7 +418,7 @@ button, input {
 		0px -1px 0px rgba(255,255,255,0.1),
 		0px 1px 0px rgba(125,125,125,1);
 		}
-
+/*
 input[type="submit"]
 {
     border-radius: 5px 5px 5px 5px;
@@ -444,7 +444,7 @@ input[type="submit"]
 		linear, left top, left bottom, 
 		from(#cc6633),
 		to(#fc8346));
-}
+}*/
 
 button, input[type="button"], input[type="reset"], input[type="submit"] { 
 	cursor: pointer; -webkit-appearance: button; *overflow: visible; }

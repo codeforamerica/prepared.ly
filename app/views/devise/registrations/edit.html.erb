@@ -1,35 +1,35 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :first_name %><br />
-  <%= f.text_field :first_name %></div>
-
-  <div><%= f.label :last_name %><br />
-  <%= f.text_field :last_name %></div>
-
-  <div><%= f.label :phone %><br />
-  <%= f.phone_field :phone %></div>
-
-  <div><%= f.label :address %><br />
-  <%= f.text_field :address %></div>
-
-  <div><%= f.label 'Check to receive SMS notifications' %><br />
-  <%= f.check_box :sms_opt_in %></div>
-
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Update" %></div>
-<% end %>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
-
-<%= link_to "Back", :back %>
+<div class="control-group">
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+      <%= devise_error_messages! %>
+    
+      <div><%= f.label :email %><br />
+      <%= f.email_field :email %></div>
+    
+      <div><%= f.label :first_name %><br />
+      <%= f.text_field :first_name %></div>
+    
+      <div><%= f.label :last_name %><br />
+      <%= f.text_field :last_name %></div>
+    
+      <div><%= f.label :phone %><br />
+      <%= f.phone_field :phone %></div>
+    
+      <div><%= f.label :address %><br />
+      <%= f.text_field :address %></div>
+    
+      <div><%= f.label 'Check to receive SMS notifications' %><br />
+      <%= f.check_box :sms_opt_in %></div>
+    
+      <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password, :autocomplete => "off" %></div>
+    
+      <div><%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation %></div>
+    
+      <div><%= f.submit "Update" %></div>
+    <% end %>
+    <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+    
+    <%= link_to "Back", :back %>
+</div>

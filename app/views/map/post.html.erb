@@ -11,14 +11,16 @@
 -->
   <% if @coordinates %>
   <div>
-    <div id="address-map">
-        <%= form_tag("/map", :method=> "post") do%>
-          <%= text_field_tag(:q, nil,  :value => @address_str, :class => 'address') %>
-          <%= submit_tag("Locate", :class => 'blue button') %>
-        <% end %>
+    <div class="controls">
+        <div class="input-append">
+            <%= form_tag("/map", :method=> "post") do%>
+                <%= text_field_tag(:q, nil,  :value => @address_str,  :class => 'form-inline input-xx-large') %><%= submit_tag("Go", :class => 'btn btn-info btn') %>
+            <% end %>
+        </div>
     </div>
-      <!-- div that will display the map that is set using below javascript -->
+<!-- div that will display the map that is set using below javascript -->
     <div id="map"></div>
+    
     <div id="map-detail">
         <table>
             <thead>
@@ -30,7 +32,7 @@
                 <td class="risk risk-title">Risk of this location:</td>
             </tr>
             <tr>
-        <% if @risk_level %>
+                <% if @risk_level %>    
                   <td class="risk risk-<%= @risk_level %>"><%= @risk_text %>
                   </td>
                 <% else %>
@@ -73,15 +75,12 @@
                 <td class="condition"> <%= @distance %> miles</td>
             </tr> -->
             <% unless user_signed_in? %>
-<!-- <div class="tooltip" id="riskTooltip">
-    The risk level is supplied by the Texas Forest Service Wildfire Risk Assessment Portal (TxWRAP), which uses the Fire Intensity Scale (FIS). The FIS quantifies potential fire intensity based on high to extreme weather conditions, fuels, and topography. Find out more on <a href="http://www.texaswildfirerisk.com/Map">the TxWRAP</a>.
-</div>-->
           <h4>
               <br>
               <br>
               Want to get started?
           </h4>
-            <a href="users/sign_up"><button class="blue button signup big">sign up now >></button></a>
+            <a href="users/sign_up"><button class="btn btn-info btn-large">sign up now >></button></a>
             <% end %>
       </div>
     </div>
@@ -97,7 +96,8 @@
   <script src="http://code.leafletjs.com/leaflet-0.3.1/leaflet.js"></script>
   <script type="text/javascript" src="app/assets/javascripts/wax.leaflet.min.js"></script>
   <script type="text/javascript" src="app/assets/javascripts/cartodb-leaflet.js"></script>
-<!--  <script type="text/javascript" src="app/assets/javascripts/tooltip.js"></script>-->
+  <script type="text/javascript" src="/assets/bootstrap-tooltip.js"></script>
+
   <% if @coordinates %>
     <script type="text/javascript">
         $(document).ready(function() {
