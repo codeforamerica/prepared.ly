@@ -1,29 +1,29 @@
 <h1>Listing tasks</h1>
 
-<table>
-  <tr>
-    <th>Task</th>
-    <th>Fact</th>
-    <th>Difficulty</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <tr>
-    <td><%= @random.task %></td>
-    <td><%= @random.fact %></td>
-    <td><%= @random.difficulty %></td>
-  </tr>
-</table>
+<div class="main-col">
+        <h2>
+            Task
+        </h2>
+        <p><%= @random.task %>
+        </p>
+        <h2>
+            Facts
+        </h2>
+        <p>
+            <%= @random.fact %>
+        </p>
+    <%= link_to 'Skip for now', tasks_path, :class => 'btn btn-success btn' %>
+    
+    <br />
+    <%= link_to "Already Done", { :controller => 'completed_tasks', :action => 'completed' }, :class => 'btn btn-success btn' -%> 
+    <br />
+    <%= link_to 'New Task', new_task_path, :class => 'btn btn-success btn' %>
 
-<br />
+</div>
+<div class="detail-col">
+    <h2>Difficulty</h2>
+    <%= @random.difficulty %>
+</div>
 
-<%= link_to 'Skip for now', tasks_path %>
 
-<br />
-
-<%= link_to 'Already Done', :controller => 'completed_tasks', :action => 'completed' %>  
-
-<br />
-<% link_to 'New Task', new_task_path %>
 
