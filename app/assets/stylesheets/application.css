@@ -222,7 +222,7 @@ td { vertical-align: top; }
 	max-width:65em;
 }
 
-/*------------------------------map detail ---*/
+/*------------------------------main column / detail column (map and tasks) ---*/
 
 #map-main {
 	width:100%;
@@ -240,7 +240,7 @@ td { vertical-align: top; }
 .main-col {
 	border: #3AAFBF solid thin;
 	min-width: 325px;
-    height: 479px;
+    /*height: 479px;*/
     width:60%;
 	float:left;
 	margin-top: 1px;
@@ -248,8 +248,8 @@ td { vertical-align: top; }
 .detail-col {
 	border: #3AAFBF solid thin;
 	margin-left: 8px;
-    height: 449px;
-    padding: 15px;
+    /*height: 460px;*/
+    padding: 10px;
     width:275px;
 	float:left;
 }
@@ -277,6 +277,23 @@ td { vertical-align: top; }
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 700;
+}
+.task, .task-hist, .task-butt {
+	padding: 10px;
+}
+.task p{
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.2em;
+    margin: 0px;
+}
+.task-hist p{
+	font-style: normal;
+	font-size: 15px;
+	font-weight: 300;
+}
+.task-butt {
 }
 /*------------- map: tool tip and risk assessment -------*/
 .risk {
@@ -699,4 +716,82 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 .popover-content ul,
 .popover-content ol {
   margin-bottom: 0;
+}
+
+/* THE SPEECH BUBBLE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.triangle-border {
+	position:relative;
+	padding:15px;
+	margin:1em 0 3em;
+	border:5px solid #5a8f00;
+	color:#333;
+	background:#fff;
+	/* css3 */
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+}
+
+/* Variant : left
+------------------------------------------ */
+
+.triangle-isosceles.left:after {
+	top:16px; /* controls vertical position */
+	left:-50px; /* value = - border-left-width - border-right-width */
+	bottom:auto;
+	border-width:10px 50px 10px 0;
+	border-color:transparent #f3961c;
+}
+.triangle-border.left {
+	margin-left:30px;
+}
+/* Variant : left
+------------------------------------------ */
+
+/* creates the larger triangle */
+.triangle-border.left:before {
+	top:10px; /* controls vertical position */
+	bottom:auto;
+	left:-30px; /* value = - border-left-width - border-right-width */
+	border-width:15px 30px 15px 0;
+	border-color:transparent #5a8f00;
+}
+
+/* creates the smaller  triangle */
+.triangle-border.left:after {
+	top:16px; /* value = (:before top) + (:before border-top) - (:after border-top) */
+	bottom:auto;
+	left:-21px; /* value = - border-left-width - border-right-width */
+	border-width:9px 21px 9px 0;
+	border-color:transparent #fff;
+}
+/* THE TRIANGLE
+------------------------------------------------------------------------------------------------------------------------------- */
+
+.triangle-border:before {
+	content:"";
+	position:absolute;
+	bottom:-20px; /* value = - border-top-width - border-bottom-width */
+	left:40px; /* controls horizontal position */
+    border-width:20px 20px 0;
+	border-style:solid;
+    border-color:#5a8f00 transparent;
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+}
+/* creates the smaller  triangle */
+.triangle-border:after {
+	content:"";
+	position:absolute;
+	bottom:-13px; /* value = - border-top-width - border-bottom-width */
+	left:47px; /* value = (:before left) + (:before border-left) - (:after border-left) */
+	border-width:13px 13px 0;
+	border-style:solid;
+	border-color:#fff transparent;
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
 }

@@ -1,24 +1,29 @@
 <h1>Listing tasks</h1>
 
 <div class="main-col">
+    <div class="task">
         <h2>
             Task
         </h2>
         <p><%= @random.task %>
         </p>
+    </div>
+    <div class="task-hist">
         <h2>
             Facts
         </h2>
         <p>
             <%= @random.fact %>
         </p>
-    <%= link_to 'Skip for now', tasks_path, :class => 'btn btn-success btn' %>
-    
-    <br />
-    <%= link_to "Already Done", { :controller => 'completed_tasks', :action => 'completed' }, :class => 'btn btn-success btn' -%> 
-    <br />
-    <%= link_to 'New Task', new_task_path, :class => 'btn btn-success btn' %>
-
+    </div>
+<!--    <p class="triangle-border left">But it could be any element you want.</p> -->
+    <div class="task-butt">
+        <%= link_to 'Skip for now', tasks_path, :class => 'btn btn-success btn' %>   
+        
+        <%= link_to "Already Done", { :controller => 'completed_tasks', :action => 'completed' }, :class => 'btn btn-success btn' -%> 
+        
+        <%= link_to 'New Task', new_task_path, :class => 'btn btn-success btn' %>
+    </div>  
 </div>
 <div class="detail-col">
     <h2>Difficulty</h2>

@@ -16,7 +16,7 @@ Task.create(:task => "Take an outdoor inventory: do you have wooden shingles on 
 
 Task.create(:task => "Quick yard cleanup - clear baskets, dried flowers and the like from your deck, clear our brush, debris and combustible materials from under your deck, make sure propane tanks are tightly closed, make sure wooden furniture and other miscellaneous objects aren't too close to your home.", :difficulty => 'Hard', :fact => "Keep your deck clear of combustible items, such as baskets, dried flower arrangements and other debris.")
 
-Task.create(:task => "Create a defensible space - create a buffer zone by removing weeds, brush and other vegetation, especially if you live near the Wildland Urban Interface - keep fire and flying embers away from your home.", :difficulty => 'Superstar', :fact => "Experts suggest a well-maintained and cleared radius of at least 30 feet (extending up to 200 feet depending on the landscape) immediately around your home should be cleared and maintained.")
+Task.create(:task => "Create a defensible space.", :difficulty => 'Superstar', :fact => "Creating a buffer zone by removing weeds, brush and other vegetation is important, especially if you live near the Wildland Urban Interface. Keep fire and flying embers away from your home. Experts suggest a well-maintained and cleared radius of at least 30 feet (extending up to 200 feet depending on the landscape) immediately around your home should be cleared and maintained.")
 
 Task.create(:task => "Indoor checkup: check your smoke detector batteries, make sure family members know how to use fire extinguishers, and where gas, electric and water shut-offs are (and how to use them!).", :difficulty => 'Easy', :fact => "Take a few minutes, this one's important.")
 
