@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  attr_accessible :difficulty, :task, :fact
+  attr_accessible :difficulty, :task, :fact, :detail
   has_many :users
 
   def self.random
