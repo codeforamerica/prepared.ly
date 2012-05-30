@@ -17,30 +17,21 @@
         </p>
     </div>
 <!--    <p class="triangle-border left">But it could be any element you want.</p> -->
+    <% if user_signed_in? %>
     <div class="task-butt">
         <%= link_to 'Skip for now', tasks_path, :class => 'btn btn-success btn' %>   
         
         <%= link_to "Already Done", { :controller => 'completed_tasks', :action => 'completed' }, :class => 'btn btn-success btn' -%> 
         
         <%= link_to 'New Task', new_task_path, :class => 'btn btn-success btn' %>
-    </div>  
+    </div> 
+    <% else %>
+    <%= link_to 'Skip for now', tasks_path, :class => 'btn btn-success btn' %>
+    <a href="users/sign_up"><button class="btn btn-success btn" >Sign up to track my progress and create tasks! >></button></a>
+<% end %> 
 </div>
 <div class="detail-col">
     <h2>Difficulty</h2>
     <%= @random.difficulty %>
 </div>
-
-<%= link_to 'Skip for now', tasks_path %>
-
-<br />
-
-<% if user_signed_in? %>
-  <%= link_to 'Already Done', :controller => 'completed_tasks', :action => 'completed' %>
-  <% link_to 'New Task', new_task_path %>
-<% else %>
-  Sign up to track your progress and create tasks!
-  <a href="users/sign_up"><button class="btn btn-info btn-large">sign up now >></button></a>
-<% end %>
-
-<br />
 
