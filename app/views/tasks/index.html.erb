@@ -22,8 +22,16 @@
 
 <br />
 
-<%= link_to 'Already Done', :controller => 'completed_tasks', :action => 'completed' %>  
+<% if user_signed_in? %>
+  <%= link_to 'Already Done', :controller => 'completed_tasks', :action => 'completed' %>
+<% else %>
+  Sign up to track your progress!
+  <a href="users/sign_up"><button class="btn btn-info btn-large">sign up now >></button></a>
+<% end %>
 
 <br />
 <% link_to 'New Task', new_task_path %>
+
+<br />
+
 
