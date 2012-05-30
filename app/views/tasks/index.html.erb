@@ -5,18 +5,13 @@
         <h2>
             Task
         </h2>
-        <p><%= @random.task %>
-        </p>
+        <p><%= @random.task %></p>
+        <p>detail goes here</p>
     </div>
     <div class="task-hist">
-        <h2>
-            Facts
-        </h2>
-        <p>
-            <%= @random.fact %>
-        </p>
+
     </div>
-<!--    <p class="triangle-border left">But it could be any element you want.</p> -->
+
     <div class="task-butt">
         <%= link_to 'Skip for now', tasks_path, :class => 'btn btn-success btn' %>   
         
@@ -29,6 +24,13 @@
     <h2>Difficulty</h2>
     <%= @random.difficulty %>
 </div>
+<div class="detail-col">
+    <h2>Some context..</h2>
+    <p><%= @random.fact %></p>
+</div>
+<!--    <p class="detail-col triangle-border left">But it could be any element you want.
+        But it could be any element you want.<br>But it could be any element you want.<br>
+        But it could be any element you want.But it could be any element you want.</p>-->
 
 
 

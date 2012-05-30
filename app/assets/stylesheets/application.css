@@ -252,6 +252,7 @@ td { vertical-align: top; }
     padding: 10px;
     width:275px;
 	float:left;
+	margin-bottom: 8px
 }
 #map-content-top {
 	width:100%;
@@ -725,7 +726,7 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 	position:relative;
 	padding:15px;
 	margin:1em 0 3em;
-	border:5px solid #5a8f00;
+	border:5px solid #3AAFBF;
 	color:#333;
 	background:#fff;
 	/* css3 */
@@ -752,19 +753,19 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 
 /* creates the larger triangle */
 .triangle-border.left:before {
-	top:10px; /* controls vertical position */
+	top:27px; /* controls vertical position */
 	bottom:auto;
-	left:-30px; /* value = - border-left-width - border-right-width */
-	border-width:15px 30px 15px 0;
-	border-color:transparent #5a8f00;
+	left:-20px; /* value = - border-left-width - border-right-width */
+	border-width:35px 20px 35px 0;
+	border-color:transparent #3AAFBF;
 }
 
 /* creates the smaller  triangle */
 .triangle-border.left:after {
-	top:16px; /* value = (:before top) + (:before border-top) - (:after border-top) */
+	top:29px; /* value = (:before top) + (:before border-top) - (:after border-top) */
 	bottom:auto;
-	left:-21px; /* value = - border-left-width - border-right-width */
-	border-width:9px 21px 9px 0;
+	left:-20px; /* value = - border-left-width - border-right-width */
+	border-width:17px 22px 17px 0;
 	border-color:transparent #fff;
 }
 /* THE TRIANGLE
@@ -777,21 +778,21 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 	left:40px; /* controls horizontal position */
     border-width:20px 20px 0;
 	border-style:solid;
-    border-color:#5a8f00 transparent;
+    border-color:#3AAFBF transparent;
     /* reduce the damage in FF3.0 */
     display:block; 
     width:0;
 }
-/* creates the smaller  triangle */
+/* creates the smaller  triangle 
 .triangle-border:after {
 	content:"";
 	position:absolute;
-	bottom:-13px; /* value = - border-top-width - border-bottom-width */
-	left:47px; /* value = (:before left) + (:before border-left) - (:after border-left) */
+	bottom:-13px; /* value = - border-top-width - border-bottom-width
+	left:47px; /* value = (:before left) + (:before border-left) - (:after border-left) 
 	border-width:13px 13px 0;
 	border-style:solid;
 	border-color:#fff transparent;
-    /* reduce the damage in FF3.0 */
+    /* reduce the damage in FF3.0 
     display:block; 
     width:0;
-}
+}*/
