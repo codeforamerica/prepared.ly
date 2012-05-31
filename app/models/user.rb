@@ -60,4 +60,8 @@ class User < ActiveRecord::Base
   def send_welcome_email
     UserMailer.welcome_email(self).deliver
   end 
+
+  def send_contact_form
+    UserMailer.contact_form.deliver
+  end
 end
