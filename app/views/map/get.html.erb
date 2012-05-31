@@ -1,38 +1,49 @@
-            <%= form_tag("/map", :method=> "post") do %>
-            <h2> Welcome. <br>Enter your address and we'll tell you about the risk of your location! </h2>
-                <div class="controls">
-                    <div class="input-append">
-                        <%= text_field_tag(:q, nil,  :placeholder => 'enter your address in Texas here', :class => 'form-inline input-xx-large') %><%= submit_tag("Go", :class => 'btn btn-info btn') %>
-                        <br><span class="help-inline note"> Include city and state, currently only available for the state of Texas.<br />Please note that Prepared.ly is <strong>not</strong> an emergency notification tool.</span>
-                    </div>
-                </div>
-            <% end %>
-            </br>
-             <hr></hr>
-             </br>
-            <h2><strong>Last Summer, over 1300 homes were destroyed in Bastrop County due to wildfire.</strong><br />
+<%= form_tag("/map", :method=> "post") do %>
+<h2> Welcome. <br>Enter your address and we'll tell you about the risk of your location! </h2>
+<div class="controls">
+    <div class="input-append">
+        <%= text_field_tag(:q, nil,  :placeholder => 'enter your address in Texas here', :class => 'form-inline input-xx-large') %><%= submit_tag("Go", :class => 'btn btn-info btn') %>
+        <br><span class="help-inline note"> Include city and state, only available for the state of Texas.</span>
+    </div>
+</div>
+<% end %>
+</br>
+<hr></hr>
+</br>
+<div class="column-wrapper">       
+    <div class="column-full reg">        
+        <div class="column reg">
+            <h2><strong>Last Summer, over 1300 homes were destroyed in Bastrop County due to wildfire.</strong></h2>
+            <p>
             We don’t want that to happen to you. We’ve developed an easy-to-use application that brings together a variety of checklists and fire tools, and gives them to you in a manageable, timely, and actionable form.
+            <p>
+            <a href="/about"><button class="btn btn-info btn-large"><i class="icon-info-sign icon-white"></i> Read more about prepared.ly >></button></a>
+            </br>
+        </div>
+        <div class="column reg">
+            <h2>
+                  Want to start getting more prepared <em>right now</em>?  
             </h2>
-            </br>
-
-            <a href="/about"><button class="btn btn-info btn-large">Read more about prepared.ly >></button></a>
-            </br>
-            <hr></hr>
-<div class="column-wrapper">   
+            <p> Click here to go start browsing through things you can do to make your home more prepared.</p>
+                <a href="/tasks"><button class="btn btn-success btn-large"> <i class="icon-fire icon-white"></i> Get started! </button></a>
+        </div>  
+    </div>      
     <div class="column-full reg">
-       <div class="column reg">
-            
-            <h5><strong>Help us make it better.</strong> We’re piloting the application in Austin, Texas. If you're a resident of Austin or Travis County, please fill it out <a href="../survey">our survey</a> and we’ll use the information you give us to make it work better. We appreciate your time and your input helps us develop a tool that will work for you. 
+    <hr></hr>
+        <div class="column reg">
+            <h5>
+            <br>
+            <strong>Help us make it better.</strong> We’re piloting the application in Austin, Texas. If you're a resident of Austin or Travis County, please fill it out <a href="../survey">our survey</a> and we’ll use the information you give us to make it work better. We appreciate your time and your input helps us develop a tool that will work for you. 
             <br>
              <a href="../survey">Fill out the survey >></a>
             </h5>
        </div>     
        <div class="column reg">
-            <h5><strong>Prepared.ly is</strong> a project created by Code for Ameria for the City of Austin and Travis County. Austin is one of 8 cities participating in the 2013 city program, and the Code for America 
+            <h5>
+            <br><strong>Prepared.ly is</strong> a project created by Code for Ameria for the City of Austin and Travis County. Austin is one of 8 cities participating in the 2013 city program, and the Code for America 
             Austin Team is collaborating with the Austin Fire Department, and the City of Austin to create 
             Prepared.ly, a tool to help homeowners be more prepared for wildfires. 
             </h5>
-         </div>
-     </div>       
-
+       </div>
+    </div>       
 </div>
