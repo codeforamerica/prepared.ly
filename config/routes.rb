@@ -1,5 +1,7 @@
 Preparedly::Application.routes.draw do
 
+  resources :contacts
+
   resources :completed_tasks
   resources :tasks
 
@@ -9,8 +11,8 @@ Preparedly::Application.routes.draw do
 
   #match "completed" => :controller => { :completed_tasks => "completed" }
 
-  match 'contact' => 'contact#new', :as => 'contact', :via => :get
-  match 'contact' => 'contact#create', :as => 'contact', :via => :post
+  # match 'contact' => 'contact#new', :as => 'contact', :via => :get
+  # match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 

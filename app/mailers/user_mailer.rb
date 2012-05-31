@@ -12,4 +12,11 @@ class UserMailer < ActionMailer::Base
   	attachments.inline['preparedly-red.png'] = File.read('app/assets/images/preparedly-red.png')
   	mail(:to => user.email, :subject => "Welcome to Prepared.ly")
   end
+
+  def contact_form
+    @contact = Contact.order("created_at").last
+    attachments.inline['preparedly-red.png'] = File.read('app/assets/images/preparedly-red.png')
+    mail(:to => "joe@codeforamerica.org", :subject => "Prepared.ly Web Site Submission")
+  end
+
 end

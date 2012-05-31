@@ -72,4 +72,4 @@ end
 Preparedly::Application.config.middleware.use ExceptionNotifier,
   :email_prefix => "[prepared.ly] ",
   :sender_address => %{"notifier" <info@prepared.ly>},
-  :exception_recipients => %w{aurelio@codeforamerica.org}
+  :exception_recipients => %w{joe@codeforamerica.org}
