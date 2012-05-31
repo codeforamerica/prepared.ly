@@ -40,6 +40,11 @@ body {
 	height:100%;
 	line-height:1.7em;
 }
+.container {
+	  *zoom: 1;
+    width: auto;
+    width: 940px;
+}
 
 h1 {
 	font-size: 28px;
@@ -465,7 +470,8 @@ a.tooltip:hover span{
 	}		
 #about-green {
 	background: #336633;
-	height:2550px;
+	/*height:2550px;*/
+	height:1600px;
 }
 #green {
 	background:#336633;

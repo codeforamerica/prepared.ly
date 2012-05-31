@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Change Account Information</h2>
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
       <%= devise_error_messages! %>
     
@@ -17,16 +17,15 @@
       <div><%= f.label :address %><br />
       <%= f.text_field :address %></div>
     
-      <div><%= f.label 'Check to receive SMS notifications' %><br />
-      <%= f.check_box :sms_opt_in %></div>
+      <div><%= f.check_box :sms_opt_in %> <%= f.label 'Check to receive SMS notifications' %></div>
     
-      <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+      <div><%= f.label :password %> <span class="note">(leave blank if you don't want to change it)</span><br />
       <%= f.password_field :password, :autocomplete => "off" %></div>
     
       <div><%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation %></div>
     
-      <div><%= f.submit "Update" %></div>
+      <div><%= f.submit("Update my info", :class => 'btn btn-info') %></div>
     <% end %>
     <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
     
