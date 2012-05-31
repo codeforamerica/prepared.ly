@@ -787,10 +787,15 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 }
 .lightblue.triangle-right {
     background: -moz-linear-gradient(#99CCCC, #99CCCC) repeat scroll 0 0 transparent;
+    background-color: #99CCCC;
 }
 .darkgray.triangle-right {
     background: -moz-linear-gradient(#333333, #333333) repeat scroll 0 0 transparent;
+    background-color: #333333;
 }
+.nav-tabs .active a, .nav-tabs .active a:hover {
+	text-indent: 6px;
+	}
 
 
 /* -------------tabbed box ------------*/
