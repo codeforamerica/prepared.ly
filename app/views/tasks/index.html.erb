@@ -1,42 +1,33 @@
 <p id="notice"><%= notice %></p>
-<h1>Listing tasks</h1>
+<ul id="myTab" class="nav nav-tabs">
+    <li class="active note"><a href="#home" data-toggle="tab">YOUR TASK, SHOULD YOU CHOOSE TO ACCEPT:</a></li>
+</ul>
 
-<div class="main-col">
+<div class="main-col taskbox">
     <div class="task">
-        <h2>
-            Task
-        </h2>
         <p><%= @random.task %></p>
-        <p>detail goes here</p>
+        <div class="detail-task"><%= @random.detail %></div>
     </div>
-    <div class="task-hist">
-
-    </div>
-
-
-<!--    <p class="triangle-border left">But it could be any element you want.</p> -->
-    <% if user_signed_in? %>
     <div class="task-butt">
-        <%= link_to 'Skip for now', tasks_path, :class => 'btn btn-success btn' %>   
+        <% if user_signed_in? %>
         
-        <%= link_to "Already Done", { :controller => 'completed_tasks', :action => 'completed' }, :class => 'btn btn-success btn' -%> 
-        
-        <%= link_to 'New Task', new_task_path, :class => 'btn btn-success btn' %>
+            <%= link_to 'Skip this for now', tasks_path, :class => 'btn-large btn-inverse btn' %>   
+            
+            <%= link_to "I did it!", { :controller => 'completed_tasks', :action => 'completed' }, :class => 'btn-large btn-success btn' -%> 
+            
+            <%= link_to 'Create a new task', new_task_path, :class => 'btn-large btn-info btn' %>
+        <% else %>
+        <%= link_to 'Skip for now', tasks_path, :class => 'btn btn-success btn' %>
+        <a href="users/sign_up"><button class="btn btn-success btn" >Sign up to track my progress and create tasks! >></button></a>
+        <% end %> 
     </div> 
-    <% else %>
-    <%= link_to 'Skip for now', tasks_path, :class => 'btn btn-success btn' %>
-    <a href="users/sign_up"><button class="btn btn-success btn" >Sign up to track my progress and create tasks! >></button></a>
-<% end %> 
 </div>
-<div class="detail-col">
-    <h2>Difficulty</h2>
-    <%= @random.difficulty %>
+<div class="detail-col triangle-right left lightblue">
+    <div class="note">ON THE SCALE, THIS IS</div>
+    <%= @random.difficulty %></div>
+<div class="detail-col triangle-right left darkgray">
+    <div class="note">WHY IS THIS IMPORTANT?</div>
+    <%= @random.fact %>
 </div>
-<div class="detail-col">
-    <h2>Some context..</h2>
-    <p><%= @random.fact %></p>
-</div>
-<!--    <p class="detail-col triangle-border left">But it could be any element you want.
-        But it could be any element you want.<br>But it could be any element you want.<br>
-        But it could be any element you want.But it could be any element you want.</p>-->
+
 
