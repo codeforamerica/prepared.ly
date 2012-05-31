@@ -252,6 +252,7 @@ td { vertical-align: top; }
 	float:left;
 	margin-top: 1px;
 }
+
 .detail-col {
     border-radius: 4px 4px 4px 4px;
 	border: #3AAFBF solid thin;
@@ -261,6 +262,10 @@ td { vertical-align: top; }
     width:275px;
 	float:left;
 	margin-bottom: 8px
+}
+.detail-col.no-outline {
+	border: none;
+	padding: 0px;
 }
 #map-content-top {
 	width:100%;
