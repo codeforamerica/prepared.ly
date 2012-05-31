@@ -1,7 +1,6 @@
 Preparedly::Application.routes.draw do
 
   resources :contacts
-
   resources :completed_tasks
   resources :tasks
 
@@ -31,6 +30,8 @@ Preparedly::Application.routes.draw do
   resources :users
 
   match "/survey" => redirect("http://bit.ly/preparedlysurvey"), :as => :survey
+
+  get "terms" => "terms#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
