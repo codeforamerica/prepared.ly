@@ -10,15 +10,13 @@
     </div>
     <div class="task-butt">
         <% if user_signed_in? %>
-        
-            <%= link_to 'Skip this for now', tasks_path, :class => 'btn-large btn-inverse btn' %>   
-            
-            <%= link_to "I did it!", { :controller => 'completed_tasks', :action => 'completed' }, :class => 'btn-large btn-success btn' -%> 
-            
-            <%= link_to 'Create a new task', new_task_path, :class => 'btn-large btn-info btn' %>
+            <%= link_to '<i class="icon-time icon-white"></i> Skip this for now'.html_safe, tasks_path, :class => 'btn-large btn-inverse btn' %>   
+            <%= link_to '<i class="icon-ok icon-white"></i> I did it!'.html_safe, { :controller => 'completed_tasks', :action => 'completed' }, :class => 'btn-large btn-success btn' -%> 
+            <%= link_to '<i class="icon-pencil icon-white"></i> Create a new task'.html_safe, new_task_path, :class => 'btn-large btn-info btn' %>
         <% else %>
-        <%= link_to 'Skip for now', tasks_path, :class => 'btn btn-success btn' %>
-        <a href="users/sign_up"><button class="btn btn-success btn" >Sign up to track my progress and create tasks! >></button></a>
+            <%= link_to '<i class="icon-time icon-white"></i> Skip for now'.html_safe, tasks_path, :class => 'btn-large btn-success btn' %>
+            
+            <a href="users/sign_up"><button class="btn-large btn-info btn"><i class="icon-user icon-white"></i> Sign up to track my progress and create tasks!</button></a>
         <% end %> 
     </div> 
 </div>

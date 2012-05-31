@@ -59,7 +59,7 @@ h4 {
 	font-weight:500;
 	color:#3AAFBF;
 	text-align:left;
-	line-height:26px;
+	line-height:23px;
 }	
 h5 {
 	font-size: 15px;
@@ -313,13 +313,20 @@ td { vertical-align: top; }
 .task-butt a {
 	color: #ffffff;
 }
+.btn-large {
+	margin: 5px 2px 5px;
+}
 /*------------- map: tool tip and risk assessment -------*/
 .risk {
-	font-size: 20px;
+	font-size: 25px;
 	margin:0px;
 	font-weight:500px;
 	text-align: left;
 }
+hr {
+    margin-bottom: 7px;
+    margin-top: 10px;
+	}
 .risk-9 {
 	color:#FF3366;
 	} 
@@ -342,6 +349,7 @@ td { vertical-align: top; }
 	color:#666666;
 	width:210px;
 	text-align:justify;
+	font-size: 15px;
 	}	
 /*
 a.tooltip {outline:none; } 
