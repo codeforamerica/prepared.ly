@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.new(params[:contact])
+    @contact = Contact.create!(params[:contact])
     @user = current_user
     @user.send_contact_form
 
