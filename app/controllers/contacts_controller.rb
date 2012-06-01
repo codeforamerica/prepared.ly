@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(params[:contact])
-    current_user.send_contact_form
+    #current_user.send_contact_form
 
     respond_to do |format|
       if @contact.save
