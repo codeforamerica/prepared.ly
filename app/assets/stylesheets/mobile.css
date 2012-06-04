@@ -418,33 +418,6 @@ button, input {
 		0px -1px 0px rgba(255,255,255,0.1),
 		0px 1px 0px rgba(125,125,125,1);
 		}
-/*
-input[type="submit"]
-{
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: normal;
-    margin: 10px 0;
-    overflow: hidden;
-    padding: 6px 15px;
-    position: relative;
-    text-align: center;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
-    	background: -moz-linear-gradient(
-		top,
-		#cc6633 0%,
-		#fc8346);
-	background: -webkit-gradient(
-		linear, left top, left bottom, 
-		from(#cc6633),
-		to(#fc8346));
-}*/
 
 button, input[type="button"], input[type="reset"], input[type="submit"] { 
 	cursor: pointer; -webkit-appearance: button; *overflow: visible; }
@@ -468,10 +441,19 @@ button::
 	-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
 */
 textarea { 
-	overflow: auto; vertical-align: top; resize: vertical; }
-input:valid, textarea:valid {  }
+	overflow: auto; vertical-align: top; resize: vertical; 
+}
+input:valid, textarea:valid {
+	margin 10px 10px;  
+	}
 input:invalid, textarea:invalid { 
-	background-color: #f0dddd; }
+	margin 10px 10px;
+	 }
+.input-prepend .add-on, .input-append .add-on, .input-prepend .btn, .input-append .btn {
+    border-radius: 0 4px 4px 0;
+    height: 30px;
+    margin: 10px 0px;
+}	 
 
 table { border-collapse: collapse; border-spacing: 0; }
 td { vertical-align: top; }
@@ -484,13 +466,6 @@ td { vertical-align: top; }
 
 /*----navigation bar along top ---*/
 .nav-bar {
-    background-color: #333333;
-    background-position: 0 -138px;
-    background-repeat: repeat-x;
-    height: 40px;
-    position: absolute;
-    top: 0;
-    width: 100%;
 }
 
 .nav-bar-items {
@@ -541,7 +516,7 @@ td { vertical-align: top; }
 	width:200px;
 	position: relative;
 	top: 50px;
-	left: 45px;
+	left: 10px;
 	z-index:100;
 }
 #logo {
@@ -555,9 +530,12 @@ td { vertical-align: top; }
 }
 /*-----------------------------main-container ---*/
 #main {
-	padding:50px;
-	position: relative;
-	top: 15px;
+	padding:40px 15px 15px;
+}
+.container {
+	  *zoom: 1;
+    width: auto;
+    width: 330px;
 }
 
 /*---map detail ---*/

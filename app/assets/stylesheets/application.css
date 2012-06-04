@@ -45,7 +45,13 @@ body {
     width: auto;
     width: 940px;
 }
-
+.center {
+    color: white;
+    margin-left: 35px;
+    text-align: center;
+	font-family: "museo-sans", sans-serif;
+	font-size: 15px;
+}
 h1 {
 	font-size: 28px;
 	font-style: normal;
@@ -156,8 +162,13 @@ td { vertical-align: top; }
     position: absolute;
     top: 0;
     width: 100%;
+    left: 0px;
 }
-
+.input-prepend .add-on, .input-append .add-on, .input-prepend .btn, .input-append .btn {
+    border-radius: 0 4px 4px 0;
+    height: 23px;
+    margin-left: 0;
+}
 .nav-bar-items {
     display: block;
     padding: 10px 30px 0px 0px;
@@ -252,6 +263,18 @@ td { vertical-align: top; }
 	float:left;
 	margin-top: 1px;
 }
+
+.feature {
+    border-radius: 4px 4px 4px 4px;
+	border: #3AAFBF solid thin;
+	margin-left: 8px;
+    height: 350px;
+    padding: 5px;
+    width:250px;
+	float:left;
+	margin-bottom: 8px
+	}
+
 
 .detail-col {
     border-radius: 4px 4px 4px 4px;
@@ -456,7 +479,7 @@ a.tooltip:hover span{
 }
 
 .column-wrapper h2{
-	margin-top: 30px;
+	margin-top: 10px;
 	font-weight: 700;
 	color:#ffffff;
 }
@@ -469,7 +492,7 @@ a.tooltip:hover span{
     height: 113px;
     margin: 0 auto;
     padding: 0 10px;
-    width: 979px;
+    width: 917px;
     position: relative;
 	top: -94px;
 	}		
@@ -549,9 +572,13 @@ a.tooltip:hover span{
 
 /*------------------------------------------------footer stuff---*/
 #footer-main {
-    margin: 100px 40px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 40px 50px;
-    z-index:10;
+    margin-top: 50px;
+    z-index:10; 
+    width: auto;
+    width: 940px;
     }
 .column-3 {
 	float:left;
@@ -562,17 +589,22 @@ a.tooltip:hover span{
 .column-3 img {
 	padding: 0 70px;
 	}
-	
+
 .column-3 p{
 	color: #99cccc;
     margin: 38px 0 0 60px;
     }	
-#wrap {min-height: 100%;}
+#container {min-height: 100%;}
 
-#main-wrap {overflow:auto;
-	padding-bottom: 180px;}  /* must be same height as the footer */
+#main-wrap {
+	overflow:hidden;
+	padding-bottom: 180px;
+	margin-left: auto;
+	margin-right: auto;
+	}  /* must be same height as the footer */
 
-#footer {position: relative;
+#footer {
+	position: relative;
 	margin-top: -220px; /* negative value of footer height */
 	height: 113px;
 	clear:both;
@@ -583,7 +615,7 @@ a.tooltip:hover span{
     height: 113px;
     margin: 0 auto;
     padding: 0 10px;
-    width: 979px;
+    width: 917px;
     position:relative;
     top:-306px;
 	}	
