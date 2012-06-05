@@ -444,10 +444,8 @@ textarea {
 	overflow: auto; vertical-align: top; resize: vertical; 
 }
 input:valid, textarea:valid {
-	margin 10px 10px;  
 	}
 input:invalid, textarea:invalid { 
-	margin 10px 10px;
 	 }
 .input-prepend .add-on, .input-append .add-on, .input-prepend .btn, .input-append .btn {
     border-radius: 0 4px 4px 0;
