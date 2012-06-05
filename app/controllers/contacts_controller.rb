@@ -4,14 +4,15 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
     respond_to do |format|
-      format.html # new.html.erb
+      format.html #new.html.erb
       format.json { render json: @contact }
     end
   end
 
   def create
-    @contact = Contact.new(params[:contact])
-    current_user.send_contact_form
+    @contact = Contact.create!(params[:contact])
+    @user = current_user
+    @user.send_contact_form
 
     respond_to do |format|
       if @contact.save

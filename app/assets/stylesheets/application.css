@@ -584,7 +584,6 @@ a.tooltip:hover span{
 	float:left;
 	width:30%;
 	position: relative;	
-	padding-bottom:40px;
 }
 .column-3 img {
 	padding: 0 70px;
@@ -609,7 +608,9 @@ a.tooltip:hover span{
 	height: 113px;
 	clear:both;
 	} 
-
+#footer p {
+	text-align: center;
+}
 #footer-bottom {
 	background: url('footer.png') no-repeat;
     height: 113px;
