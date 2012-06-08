@@ -17,7 +17,7 @@
             <p>
             We don’t want that to happen to you. We’ve developed an easy-to-use application that brings together a variety of checklists and fire tools, and gives them to you in a manageable, timely, and actionable form.
             <p>
-            <a href="/about"><button type="submit" class="btn btn-info btn-large"><i class="icon-info-sign icon-white"></i> Read more about prepared.ly >></button></a>
+            <a href="/about"><button class="btn btn-info btn-large"><i class="icon-info-sign icon-white"></i> Read more about prepared.ly >></button></a>
             </br>
         </div>
         <div class="column reg">
@@ -25,7 +25,7 @@
                   Want to start getting more prepared <em>right now</em>?  
             </h2>
             <p> Click here to go start browsing through things you can do to make your home more prepared.</p>
-                <a href="/tasks"><button type="submit" class="btn btn-success btn-large"> <i class="icon-fire icon-white"></i> Get started! </button></a>
+                <%= link_to '<i class="icon-fire icon-white"></i> Get Started!'.html_safe, tasks_path, :class => 'btn-large btn-success btn' %>
         </div>  
     </div>      
     <div class="column-full reg">
