@@ -14,24 +14,61 @@
   <%= csrf_meta_tags %>
 
 </head>
-<body>
-<div class="container">
+  <body data-spy="scroll" data-target=".subnav" data-offset="50">
+  <div class="container">
     <div id="main-wrap">
         <div id="beta">
         </div>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>	
-<!-- Navgation -->
-            <div class="nav-bar">
-                <ul class="nav-bar-items">
-                    <!--NAVIGATION!-->
-					<%= render 'devise/menu/registration_items' %>
-					<%= render 'devise/menu/login_items' %>
-					<li><%= link_to "resources", resources_path %></li> 
-					<li><%= link_to "about", about_path %></li>
 
-                </ul>
-            </div>
+<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button"class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="./index.html">Overview</a>
+              </li>
+              <li class="">
+                <a href="./scaffolding.html">Scaffolding</a>
+              </li>
+              <li class="">
+                <a href="./base-css.html">Base CSS</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Navgation -->
+<!--            <div class="navbar navbar-fixed-top">
+                <ul class="navbar-inner">
+                	<div class="container">
+						<%= render 'devise/menu/registration_items' %>
+						<%= render 'devise/menu/login_items' %>
+						<li><%= link_to "resources", resources_path %></li> 
+						<li><%= link_to "about", about_path %></li>
+						<ul class="nav pull-right">
+						<li id="fat-menu" class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown 3 <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+							  <li><a href="#">Action</a></li>
+							  <li><a href="#">Another action</a></li>
+							  <li><a href="#">Something else here</a></li>
+							  <li class="divider"></li>
+							  <li><a href="#">Separated link</a></li>
+							</ul>
+					  </li>	
+					</ul>
+				</div>
+            </div>-->
 <!-- end Navgation -->
             
             <div id="logo-wrapper">

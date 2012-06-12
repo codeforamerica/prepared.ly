@@ -154,7 +154,7 @@ td { vertical-align: top; }
 	height:385px;
 }
 /*----navigation bar along top ---*/
-.nav-bar {
+.navbar {
     background-color: #333333;
     background-position: 0 -138px;
     background-repeat: repeat-x;
@@ -169,7 +169,7 @@ td { vertical-align: top; }
     height: 23px;
     margin-left: 0;
 }
-.nav-bar-items {
+.navbar-items {
     display: block;
     padding: 10px 30px 0px 0px;
     color: #ffffff;
@@ -177,7 +177,7 @@ td { vertical-align: top; }
     margin: 0;
 }
 
-.nav-bar-items li {
+.navbar-items li {
 	display: inline;
 	list-style-type: none;
 	padding-right: 20px;
@@ -186,17 +186,21 @@ td { vertical-align: top; }
 	font-style: normal;
 	font-weight: 700;
 }
-.nav-bar-items a{ 
+.navbar-items a{ 
 	color: #ffffff; 
 	text-decoration:none;
 	}
-.nav-bar-items a:visited { 
+.navbar-items a:visited { 
 	color: #ffffff; 
 		text-decoration:none;
 }
-.nav-bar-items a:hover { color: #CC6633; }
-.nav-bar-items a:focus { outline: thin dotted; }
-.nav-bar-items a:hover, a:active { outline: 0; }
+navbar .nav {
+    display: block;
+    float: right;
+    }
+.navbar-items a:hover { color: #CC6633; }
+.navbar-items a:focus { outline: thin dotted; }
+.navbar-items a:hover, a:active { outline: 0; }
 
 
 #beta {
