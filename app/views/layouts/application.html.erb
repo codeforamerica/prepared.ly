@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-
   <title>Preparedly</title>
     <meta name="viewport" content="width=device-width,initial-scale =1, user-scalable = no" />
   <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= yield :stylesheet_yield %>
   <%= yield :fb_og_tags %>
-
   <%= stylesheet_link_tag "mobile", :media => "all and (max-width: 600px)" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-
 </head>
-
 <body data-spy="scroll" data-target=".subnav" data-offset="100">
 <div id="beta">
 </div>
@@ -38,7 +34,6 @@
                       <ul class="dropdown-menu">
 						<li><%= render 'devise/menu/registration_items' %></li>
 						<li><%= render 'devise/menu/login_items' %></li>
-                        <!--<li><a href="#">dashboard</a></li>-->
                       </ul>
                     </li>
                 </ul>

@@ -615,13 +615,13 @@ a.tooltip:hover span{
 #main {
 	margin-bottom:200px;
 	}
-}
 #main-wrap {
 	overflow:hidden;
 	padding-bottom: 180px;
 	margin-left: auto;
 	margin-right: auto;
-	}  /* must be same height as the footer */
+	}  
+	/* must be same height as the footer */
 
 #footer {
 	position: relative;
