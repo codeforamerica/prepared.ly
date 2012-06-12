@@ -14,15 +14,11 @@
   <%= csrf_meta_tags %>
 
 </head>
-  <body data-spy="scroll" data-target=".subnav" data-offset="50">
-  <div class="container">
-    <div id="main-wrap">
-        <div id="beta">
-        </div>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>	
 
-<div class="navbar navbar-fixed-top">
+<body data-spy="scroll" data-target=".subnav" data-offset="100">
+<div id="beta">
+</div>
+    <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <button type="button"class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -30,45 +26,26 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="">
-                <a href="./index.html">Overview</a>
-              </li>
-              <li class="">
-                <a href="./scaffolding.html">Scaffolding</a>
-              </li>
-              <li class="">
-                <a href="./base-css.html">Base CSS</a>
-              </li>
-            </ul>
-          </div>
+          <!-- Navgation -->
+            <div class="nav-collapse collapse">
+                <!--Upper NAVIGATION!-->
+                <ul class="nav navbar-items">
+                	<li class=""><a href="/"> home</a></li>
+					<li><%= link_to "learn", resources_path %></li> 
+					<li><%= link_to "about", about_path %></li>
+					<li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">account <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+						<li><%= render 'devise/menu/registration_items' %></li>
+						<li><%= render 'devise/menu/login_items' %></li>
+                        <!--<li><a href="#">dashboard</a></li>-->
+                      </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
       </div>
     </div>
-
-<!-- Navgation -->
-<!--            <div class="navbar navbar-fixed-top">
-                <ul class="navbar-inner">
-                	<div class="container">
-						<%= render 'devise/menu/registration_items' %>
-						<%= render 'devise/menu/login_items' %>
-						<li><%= link_to "resources", resources_path %></li> 
-						<li><%= link_to "about", about_path %></li>
-						<ul class="nav pull-right">
-						<li id="fat-menu" class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown 3 <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-							  <li><a href="#">Action</a></li>
-							  <li><a href="#">Another action</a></li>
-							  <li><a href="#">Something else here</a></li>
-							  <li class="divider"></li>
-							  <li><a href="#">Separated link</a></li>
-							</ul>
-					  </li>	
-					</ul>
-				</div>
-            </div>-->
 <!-- end Navgation -->
             
             <div id="logo-wrapper">
@@ -122,6 +99,26 @@
 <%= javascript_include_tag "application" %>
 
 </body>
+   
+<script type="text/javascript" charset="utf-8">
+$('.dropdown-toggle').dropdown();
+$('#navbar').scrollspy();
+$(document).scroll(function(){
+    // If has not activated (has no attribute "data-top"
+    if (!$('.subnav').attr('data-top')) {
+        // If already fixed, then do nothing
+        if ($('.subnav').hasClass('subnav-fixed')) return;
+        // Remember top position
+        var offset = $('.subnav').offset()
+        $('.subnav').attr('data-top', offset.top);
+    }
+
+    if ($('.subnav').attr('data-top') - $('.subnav').outerHeight() <= $(this).scrollTop())
+        $('.subnav').addClass('subnav-fixed');
+    else
+        $('.subnav').removeClass('subnav-fixed');
+});
+</script>
 <!-- Google Analytics -->
     <script type="text/javascript">
 
