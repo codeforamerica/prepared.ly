@@ -69,7 +69,15 @@
                     </tr>
                     <tr>
                         <td><span class="condition-type">Inside of a Burn Ban: </span><span class="class="condition"> <%= @inside_burnban %></span></td>
-                    </tr>    
+                    </tr>
+                    <tr id="map-controls">
+                        <td><label for="firestations" class="condition-type">Show Fire Stations</label>&nbsp<input type="checkbox" id="firestations" name="firestations" checked="checked" /></td>
+                        </tr>
+                        <tr>
+                        <td class="note">
+                            <a href="#" id="stations-pop" data-content="<strong>Please note</strong> that fire stations are shown for information purposes to better understand your local environment. Geographic proximity to a fire station, or many stations, does <b>not</b> mean you are safer." class="note">Important note about fire stations</a></td>
+
+                    </tr>       
                 </table>
             </div>
             <% unless user_signed_in? %>
