@@ -1,5 +1,6 @@
 require 'csv'
 require 'open-uri'
+RGeo::ActiveRecord::GeometryMixin.set_json_generator(:geojson)
 
 class FireStation < ActiveRecord::Base
   attr_accessible :address, :latlon, :zip

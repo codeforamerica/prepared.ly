@@ -86,6 +86,11 @@
                   </h4>
                     <a href="/tasks"><button class="btn btn-success btn-large"> <i class="icon-fire icon-white"></i> Get started! </button></a>
             </div>   
+
+
+<div id="map-controls">
+  <input type="checkbox" id="firestations" name="firestations" checked="checked" /><label for="firestations">Show Fire Stations</label>
+</div>
       </div>
     </div>  
 <!--
@@ -143,16 +148,37 @@
             map.addLayer(homeMarker);
             map.setView(mapCenter, mapZoom);
 
-            var austin_fire_stations = new L.CartoDBLayer({
-            show_cartodb_logo: false,
-            map_canvas: 'map',
-            map: map,
-            user_name:'tinio',
-            table_name: 'afd_station_location',
-            query: "SELECT cartodb_id, the_geom_webmercator FROM {{table_name}} WHERE cartodb_id=<%= @cfs.id %>",
-            infowindow: "SELECT cartodb_id, address FROM {{table_name}} WHERE cartodb_id={{feature}}",
-            auto_bound: false 
+
+            var MyIcon = L.Icon.extend({
+                iconUrl: '/assets/firestation.png',
+                shadowUrl: '',
+                iconSize: new L.Point(40, 13),
+                shadowSize: new L.Point(0, 0),
+                iconAnchor: new L.Point(20, 13),
+                popupAnchor: new L.Point(-3, -26)
             });
+
+            var icon = new MyIcon();
+
+            var fire_stations = <%=raw @fs.to_json %>
+
+            var stations = new L.LayerGroup();
+            for(f in fire_stations){
+                station = fire_stations[f];
+                console.log(station);
+                
+                var m = new L.Marker(new L.LatLng(station.latlon.coordinates[1], station.latlon.coordinates[0]), {icon:icon});
+                stations.addLayer(m);
+            }
+            map.addLayer(stations);
+
+            $('#firestations').click(function(){
+                if($(this).is(":checked")){
+                     map.addLayer(stations);
+                }else{
+                    map.removeLayer(stations);
+                }
+            })
 
           }
         });

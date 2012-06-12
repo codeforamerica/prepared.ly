@@ -21,7 +21,9 @@ class TFS
         :f => 'pjson'
       }
     )
+
     json_response = JSON.parse(response.body)
+    print json_response
     if json_response['results'].length > 0
       return json_response['results'][0]['attributes']['Pixel Value'].to_i
     else
@@ -58,11 +60,10 @@ class MapController < ApplicationController
         :latlon => 'POINT(' + @coordinates[1].to_s + ' ' + @coordinates[0].to_s + ')')
       session[:last_address_id] = @address.id
 
-      # Closest Fire Station
-      @cfs = FireStation.order("ST_Distance(latlon, '" + @address.latlon.to_s + "') LIMIT 1")[0]
-      d_meters = @address.latlon.distance(@cfs.latlon)
-      @distance = "%.02f" % (d_meters/1609.344)
-
+      # Fire Station
+      @fs = FireStation.all() #order("ST_Distance(latlon, '" + @address.latlon.to_s + "') LIMIT 1")[0]
+      # d_meters = @address.latlon.distance(@cfs.latlon)
+      # @distance = "%.02f" % (d_meters/1609.344)
       # Weather Conditions
       w_api = Wunderground.new(ENV['WUNDERGROUND_API_KEY'])
       w_response = w_api.get_conditions_for(@address.latlon.y.to_s + "," + @address.latlon.x.to_s)
