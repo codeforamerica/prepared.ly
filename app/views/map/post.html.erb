@@ -69,7 +69,15 @@
                     </tr>
                     <tr>
                         <td><span class="condition-type">Inside of a Burn Ban: </span><span class="class="condition"> <%= @inside_burnban %></span></td>
-                    </tr>        
+                    </tr>
+                    <tr id="map-controls">
+                        <td><label for="firestations" class="condition-type">Show Fire Stations</label>&nbsp<input type="checkbox" id="firestations" name="firestations" checked="checked" /></td>
+                        </tr>
+                        <tr>
+                        <td class="note">
+                            <a href="#" id="stations-pop" data-content="<strong>Please note</strong> that fire stations are shown for information purposes to better understand your local environment. Geographic proximity to a fire station, or many stations, does <b>not</b> mean you are safer." class="note">Important note about fire stations</a></td>
+
+                    </tr>       
                 </table>
             </div>
             <% unless user_signed_in? %>
@@ -86,6 +94,9 @@
                   </h4>
                     <a href="/tasks"><button class="btn btn-success btn-large"> <i class="icon-fire icon-white"></i> Get started! </button></a>
             </div>   
+
+
+
       </div>
     </div>  
 <!--
@@ -103,6 +114,14 @@
      .click(function(e){
        e.preventDefault();
        //$('#map-pop').popover('show');
+    });
+   });
+  $(document).ready(function() {
+    $("#stations-pop")
+     .popover({/*trigger: 'manual'*/})
+     .click(function(e){
+       e.preventDefault();
+       //$('#stations-pop').popover('show');
     });
    });
   </script>
@@ -143,16 +162,38 @@
             map.addLayer(homeMarker);
             map.setView(mapCenter, mapZoom);
 
-            var austin_fire_stations = new L.CartoDBLayer({
-            show_cartodb_logo: false,
-            map_canvas: 'map',
-            map: map,
-            user_name:'tinio',
-            table_name: 'afd_station_location',
-            query: "SELECT cartodb_id, the_geom_webmercator FROM {{table_name}} WHERE cartodb_id=<%= @cfs.id %>",
-            infowindow: "SELECT cartodb_id, address FROM {{table_name}} WHERE cartodb_id={{feature}}",
-            auto_bound: false 
+
+            var MyIcon = L.Icon.extend({
+                iconUrl: '/assets/firestation.png',
+                shadowUrl: '',
+                iconSize: new L.Point(40, 13),
+                shadowSize: new L.Point(0, 0),
+                iconAnchor: new L.Point(20, 13),
+                popupAnchor: new L.Point(-3, -26)
             });
+
+            var icon = new MyIcon();
+
+            var fire_stations = <%=raw @fs.to_json %>
+
+            var stations = new L.LayerGroup();
+            for(f in fire_stations){
+                station = fire_stations[f];
+                console.log(station);
+                
+                var m = new L.Marker(new L.LatLng(station.latlon.coordinates[1], station.latlon.coordinates[0]), {icon:icon});
+                stations.addLayer(m);
+                m.bindPopup(station.address + "<br />Austin, TX " + station.zip).openPopup();
+            }
+            map.addLayer(stations);
+
+            $('#firestations').click(function(){
+                if($(this).is(":checked")){
+                     map.addLayer(stations);
+                }else{
+                    map.removeLayer(stations);
+                }
+            })
 
           }
         });

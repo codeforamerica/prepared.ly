@@ -275,6 +275,11 @@ navbar .nav {
 	margin-top: 1px;
 }
 
+#map-controls{ 
+  float:left;
+  width:60%;
+  position:relative;
+}
 .main-col {
 	/*border: #3AAFBF solid thin;*/
 	min-width: 325px;
