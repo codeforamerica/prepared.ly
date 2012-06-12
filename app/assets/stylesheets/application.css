@@ -203,6 +203,10 @@ td { vertical-align: top; }
 .navbar .dropdown-menu:before {
 	display:none;
 	}
+
+.open .dropdown-menu {
+    left: -50px;
+}
 .navbar .dropdown-menu:after {
 	display:none;
 	}	
