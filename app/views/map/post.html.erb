@@ -69,7 +69,7 @@
                     </tr>
                     <tr>
                         <td><span class="condition-type">Inside of a Burn Ban: </span><span class="class="condition"> <%= @inside_burnban %></span></td>
-                    </tr>        
+                    </tr>    
                 </table>
             </div>
             <% unless user_signed_in? %>
@@ -88,9 +88,7 @@
             </div>   
 
 
-<div id="map-controls">
-  <input type="checkbox" id="firestations" name="firestations" checked="checked" /><label for="firestations">Show Fire Stations</label>
-</div>
+
       </div>
     </div>  
 <!--
@@ -108,6 +106,14 @@
      .click(function(e){
        e.preventDefault();
        //$('#map-pop').popover('show');
+    });
+   });
+  $(document).ready(function() {
+    $("#stations-pop")
+     .popover({/*trigger: 'manual'*/})
+     .click(function(e){
+       e.preventDefault();
+       //$('#stations-pop').popover('show');
     });
    });
   </script>
@@ -169,6 +175,7 @@
                 
                 var m = new L.Marker(new L.LatLng(station.latlon.coordinates[1], station.latlon.coordinates[0]), {icon:icon});
                 stations.addLayer(m);
+                m.bindPopup(station.address + "<br />Austin, TX " + station.zip).openPopup();
             }
             map.addLayer(stations);
 
