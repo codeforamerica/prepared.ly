@@ -195,6 +195,16 @@
                 }
             })
 
+            var redflags = new L.TileLayer.WMS("http://216.38.80.111/cgi-bin/mapserv?map=/usr/local/mapserver_config/db_data/fwx.map", {
+              VERSION: '1.1.1',
+              REQUEST: 'GetMap',
+              SRS: 'EPSG:4326',
+              tileSize: 1024,
+              LAYERS: 'fwx',
+              TRANSPARENT: true,
+              FORMAT: 'image/png'
+            })
+            map.addLayer(redflags);
           }
         });
     </script>
