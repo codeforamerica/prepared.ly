@@ -874,6 +874,10 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 	text-indent: 6px;
 	}
 
+.navbar img{
+    margin: 8px;
+    padding-left: 40px;
+}
 
 /* -------------tabbed box ------------*/
 /* --------------note: this is from for Togglable tabs with bootstrap-tab.js, but since it's only one tab it's not using any js----*/
