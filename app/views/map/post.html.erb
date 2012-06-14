@@ -147,6 +147,11 @@
                 baseLayer = new L.TileLayer(baseUrl, {attribution: attrib, maxZoom:18});
             map.addLayer(baseLayer);
 
+
+            var fireUrl = 'http://radarcache.srh.noaa.gov/tilecache/tilecache.py/1.0.0/fwx/{z}/{x}/{y}.png?type=google&LAYERS=fwx', attrib = 'Red flag fire warning from NWS', fireLayer = new L.TileLayer(fireUrl, {attribution: attrib, maxZoom:18}); 
+            map.addLayer(fireLayer);
+
+
             var tx_burn_ban_counties = new L.CartoDBLayer({
             show_cartodb_logo: false,
             map_canvas: 'map',
@@ -194,17 +199,6 @@
                     map.removeLayer(stations);
                 }
             })
-
-            var redflags = new L.TileLayer.WMS("http://216.38.80.111/cgi-bin/mapserv?map=/usr/local/mapserver_config/db_data/fwx.map", {
-              VERSION: '1.1.1',
-              REQUEST: 'GetMap',
-              SRS: 'EPSG:4326',
-              tileSize: 1024,
-              LAYERS: 'fwx',
-              TRANSPARENT: true,
-              FORMAT: 'image/png'
-            })
-            map.addLayer(redflags);
           }
         });
     </script>
