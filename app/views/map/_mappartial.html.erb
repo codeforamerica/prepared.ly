@@ -1,14 +1,13 @@
+<p>hello</p>
+<div class="controls">
+            <div class="input-append">
+                <%= text_field_tag(:q, nil,  :value => '123 Main St. Austin, TX', :class => 'form-inline input-xx-large') %><%= submit_tag("Go", :class => 'btn btn-info btn') %>
+                <br><span class="help-inline note"> Include city and state, only available for the state of Texas.
+                    </span>
 <% content_for :stylesheet_yield do %>
   <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.css">
   <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.ie.css">
-
 <% end %>
-
-<!--<div id="map-main">-->
-<!--  <div id="map-content-top">
-
-  </div>
--->
   <% if @coordinates %>
   <div>
     <div class="controls">

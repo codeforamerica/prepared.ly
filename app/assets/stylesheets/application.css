@@ -166,8 +166,19 @@ td { vertical-align: top; }
 }
 .input-prepend .add-on, .input-append .add-on, .input-prepend .btn, .input-append .btn {
     border-radius: 0 4px 4px 0;
-    height: 23px;
+    /*height: 23px;*/
     margin-left: 0;
+}
+.map-butt .btn{
+	margin-top:0px;
+}
+.input-xx-large{
+	color: #333333;
+    font-size: 15px;
+    height: 30px;
+    text-align: left;
+    text-indent: 5px;
+    margin-top:0px;
 }
 .navbar-items {
     display: block;
@@ -175,6 +186,13 @@ td { vertical-align: top; }
     color: #ffffff;
     list-style: none outside none;
     margin: 0;
+}
+.navbar-inner {
+   /* background-color: #333333;*/
+    background-image: -moz-linear-gradient(center top , #333333, #333333);
+    }
+.navbar .nav > li > a {
+	font-weight:700;
 }
 .navbar .nav {
     display: block;
@@ -343,6 +361,7 @@ navbar .nav {
 .task, .task-hist, .task-butt {
 	padding: 10px;
 	margin: 10px;
+	clear:both;
 }
 .task p{
 	color: #333333;
@@ -524,7 +543,9 @@ a.tooltip:hover span{
 #about-green {
 	background: #336633;
 	/*height:2550px;*/
-	height:1600px;
+	height:1750px;
+	position:relative;
+	top:-150px;
 }
 #green {
 	background:#336633;
@@ -884,6 +905,14 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
     padding-left: 40px;
 }
 
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  margin-bottom: 0;
+}
 /* -------------tabbed box ------------*/
 /* --------------note: this is from for Togglable tabs with bootstrap-tab.js, but since it's only one tab it's not using any js----*/
 .nav-tabs {
@@ -891,6 +920,9 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 	position: relative;
 	top: 19px;
 	left:-40px;
+}
+.navbar-fixed-top {
+    top: 0;
 }
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover {
@@ -903,3 +935,155 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 	padding-bottom: 0px;
     padding-right: 15px;
 	}
+/*------------subnav---------------------*/
+.subhead {
+  padding-bottom: 0;
+  margin-bottom: 9px;
+  text-align:center;
+}
+.subhead h1 {
+  font-size: 54px;
+}
+.nav-pills a{
+	color:#339999;
+}
+.task-butt hr{
+    height: 10px;
+    position: relative;
+    top: -41px;
+    z-index: -5;
+    background:url('bg-blue.png');
+    border:none;
+}
+/* Subnav */
+.subnav {
+  width: 100%;
+  height: 60px;
+  background-color: #ffffff; /* Old browsers */
+  background-repeat: repeat-x; /* Repeat the gradient */
+  background-image: -moz-linear-gradient(top, #ffffff 0%, #ffffff 100%); /* FF3.6+ */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+  background-image: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 100%); /* Chrome 10+,Safari 5.1+ */
+  background-image: -ms-linear-gradient(top, #ffffff 0%,#ffffff 100%); /* IE10+ */
+  background-image: -o-linear-gradient(top, #ffffff 0%,#ffffff 100%); /* Opera 11.10+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+  background-image: linear-gradient(top, #ffffff 0%,#ffffff 100%); /* W3C */
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+   -moz-box-shadow: 2px 2px 1px #CCCCCC;
+	-webkit-box-shadow: 2px 2px 1px #CCCCCC;
+	box-shadow: 2px 2px 1px #CCCCCC;
+}
+.subnav .nav {
+  margin-bottom: 0;
+}
+.subnav .nav > li > a {
+  margin: 0;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  border-left: 1px solid #f5f5f5;
+  border-right: 1px solid #e5e5e5;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+}
+.subnav .nav > .active > a,
+.subnav .nav > .active > a:hover {
+  padding-left: 13px;
+  color: #339999;
+  background-color: #ffffff;
+  border-right-color: #ddd;
+  border-left: 0;
+  /*-webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.05);
+     -moz-box-shadow: inset 0 3px 5px rgba(0,0,0,.05);
+          box-shadow: inset 0 3px 5px rgba(0,0,0,.05);*/
+}
+.subnav .nav > .active > a .caret,
+.subnav .nav > .active > a:hover .caret {
+  border-top-color: #777;
+}
+.subnav .nav > li:first-child > a,
+.subnav .nav > li:first-child > a:hover {
+  border-left: 0;
+  padding-left: 12px;
+  -webkit-border-radius: 4px 0 0 4px;
+     -moz-border-radius: 4px 0 0 4px;
+          border-radius: 4px 0 0 4px;
+}
+.subnav .nav > li:last-child > a {
+  border-right: 0;
+}
+.subnav .dropdown-menu {
+  -webkit-border-radius: 0 0 4px 4px;
+     -moz-border-radius: 0 0 4px 4px;
+          border-radius: 0 0 4px 4px;
+}
+section {
+	padding-top:110px;
+	min-height:300px;
+}
+
+section img{
+	float: right;
+}
+.video{
+	float:right;
+}
+.sub-section{
+    /*border-radius: 4px 4px 4px 4px;
+	border: #3AAFBF solid thin;*/
+    /*height: 460px;*/
+    padding: 10px;
+	margin-bottom: 8px;
+	margin-top: 20px;
+	width:100%;
+	text-align:center;
+}
+.sub-section p, .note{
+	font-weight: 500;
+}
+section h2 {
+	font-weight:700;
+	font-size:25px;
+}
+/* Fixed subnav on scroll, but only for 980px and up (sorry IE!) */
+@media (min-width: 980px) {
+  .subnav-fixed {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    right: 0;
+    z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
+    border-color: #d5d5d5;
+    border-width: 0 0 1px; /* drop the border on the fixed edges */
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+    -webkit-box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
+       -moz-box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
+            box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false); /* IE6-9 */
+  }
+.subnav-fixed li{
+	margin-top: 16px;
+}
+
+.subnav a, a:hover{
+	color: #339999;
+	font-weight: 500;
+}
+  .subnav-fixed .nav {
+    width: 938px;
+    margin: 0 auto;
+    padding: 0 1px;
+    margin-left:200px;
+  }
+  .subnav .nav > li:first-child > a,
+  .subnav .nav > li:first-child > a:hover {
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+  }
+
