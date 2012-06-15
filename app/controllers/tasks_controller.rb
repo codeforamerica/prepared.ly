@@ -5,11 +5,19 @@ class TasksController < ApplicationController
   def index
     # @tasks = Task.all
     @random = Task.random
-    session[:task_id] = @random.id
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tasks }
     end
+  end
+
+  def remind
+    #sleep 10 # simulate the effect by waiting ten seconds to deliver
+    task_id = params[:task_id]
+    TaskMailer.delay.reminder_email({:user => current_user, :task => Task.find(task_id)})
+    # set non-email delayed task
+    # Task.delay.remind(session[:task_id])
+    redirect_to tasks_url, notice: "Setting reminder"
   end
 
   # GET /tasks/1

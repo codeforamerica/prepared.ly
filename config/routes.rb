@@ -6,7 +6,9 @@ Preparedly::Application.routes.draw do
 
   match "resources" => "resources#index"
 
-  match 'completed' => 'completed_tasks#completed'
+  match 'completed/:task_id' => 'completed_tasks#completed', :as => 'completed_task'
+
+  match 'remind/:task_id' => 'tasks#remind', :as => 'reminder'
 
   #match "completed" => :controller => { :completed_tasks => "completed" }
 

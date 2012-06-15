@@ -21,7 +21,7 @@ class CompletedTasksController < ApplicationController
 
   def completed
     current_user
-    task_id = session[:task_id]
+    task_id = params[:task_id]
     unless CompletedTask.exists?(:user_id => current_user.id, :task_id => task_id, :completed => TRUE)
       CompletedTask.create!(:user_id => current_user.id, :task_id => task_id, :completed => TRUE)
     end

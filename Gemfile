@@ -8,6 +8,8 @@ gem 'rails', '3.2.3'
 gem 'pg'
 gem 'activerecord-postgis-adapter'
 
+gem 'delayed_job_active_record'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
