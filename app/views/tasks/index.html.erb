@@ -1,4 +1,6 @@
-<%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css" %>
+<%= stylesheet_link_tag "jquery-ui" %>
+<!-- note that jqueryui is also required by the calendar, but that's included in application.js -->
+<%= javascript_include_tag "timepicker" %>
 
 <p id="notice"><%= notice %></p>
 <ul id="myTab" class="nav nav-tabs">
@@ -14,16 +16,10 @@
         <% if user_signed_in? %>
             <%= link_to '<i class="icon-time icon-white"></i> Skip this for now'.html_safe, tasks_path, :class => 'btn-large btn-inverse btn' %> 
             <%= link_to '<i class="icon-ok icon-white"></i> I did it!'.html_safe, completed_task_path(@random.id), :class => 'btn-large btn-success btn' -%>
-             
-           <div id="calendar">
              <%= form_tag(reminder_path(@random.id), :action => :post) do%>  
-             <%= text_field_tag(:date, nil, :id => "pick_date") %>
-             <%= submit_tag "Remind me later"  %>   
+             <%= text_field_tag(:date, "Click here to pick a reminder date", {:id => "pick_date", :dateFormat => "yy-mm-dd"}) %>
+             <%= submit_tag "Remind me!"  %>   
              <% end %>
-         </div>
-             
-          
-
             <%= link_to '<i class="icon-pencil icon-white"></i> Create a new task'.html_safe, new_task_path, :class => 'btn-large btn-info btn' %>
         <% else %>
             <%= link_to '<i class="icon-time icon-white"></i> Skip for now'.html_safe, tasks_path, :class => 'btn-large btn-success btn' %>
