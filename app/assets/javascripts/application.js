@@ -12,4 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require_tree .
+$(document).ready(function(){
+  $("#pick_date").datepicker();
+});

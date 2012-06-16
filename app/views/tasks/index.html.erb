@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css" %>
+
 <p id="notice"><%= notice %></p>
 <ul id="myTab" class="nav nav-tabs">
     <li class="active note"><a href="#home" data-toggle="tab">YOUR TASK, SHOULD YOU CHOOSE TO ACCEPT:</a></li>
@@ -12,14 +14,16 @@
         <% if user_signed_in? %>
             <%= link_to '<i class="icon-time icon-white"></i> Skip this for now'.html_safe, tasks_path, :class => 'btn-large btn-inverse btn' %> 
             <%= link_to '<i class="icon-ok icon-white"></i> I did it!'.html_safe, completed_task_path(@random.id), :class => 'btn-large btn-success btn' -%>
-            <%= datepicker_input "task","birthday" %>
-
+             
+           <div id="calendar">
              <%= form_tag(reminder_path(@random.id), :action => :post) do%>  
-             <%= select_tag(:date, options_for_select([['Tomorrow', 5.seconds.from_now], ['In a week', 7.days.from_now]])) %>
+             <%= text_field_tag(:date, nil, :id => "pick_date") %>
              <%= submit_tag "Remind me later"  %>   
              <% end %>
+         </div>
+             
+          
 
-            
             <%= link_to '<i class="icon-pencil icon-white"></i> Create a new task'.html_safe, new_task_path, :class => 'btn-large btn-info btn' %>
         <% else %>
             <%= link_to '<i class="icon-time icon-white"></i> Skip for now'.html_safe, tasks_path, :class => 'btn-large btn-success btn' %>
@@ -27,6 +31,7 @@
             <a href="users/sign_up"><button class="btn-large btn-info btn"><i class="icon-user icon-white"></i> Sign up to track my progress, set reminders, and create tasks!</button></a>
         <% end %> 
     </div> 
+
 </div>
 <div class="detail-col triangle-right left lightblue">
     <div class="note">ON THE SCALE, THIS IS</div>
