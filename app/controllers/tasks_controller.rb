@@ -14,14 +14,21 @@ class TasksController < ApplicationController
   def remind
     #sleep 10 # simulate the effect by waiting ten seconds to deliver
     task_id = params[:task_id]
-    TaskMailer.delay.reminder_email({:user => current_user, :task => Task.find(task_id)})
-    # set non-email delayed task
-    # Task.delay.remind(session[:task_id])
+    date = params[:date]
+    user = current_user
+    Task.find(task_id).send_reminder_email(user, date)
     redirect_to tasks_url, notice: "Setting reminder"
   end
 
-  # GET /tasks/1
-  # GET /tasks/1.json
+  
+
+
+  # def text_remind
+  #   # set non-email delayed task
+  #    Task.delay.remind(session[:task_id])
+  #   redirect_to tasks_url, notice: "Setting reminder"
+  # end
+
   def show
     @task = Task.find(params[:id])
     respond_to do |format|
@@ -89,5 +96,7 @@ class TasksController < ApplicationController
     end
   end
 end
+
+
 
 

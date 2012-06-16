@@ -7,4 +7,9 @@ class TaskMailer < ActionMailer::Base
     attachments.inline['preparedly-red.png'] = File.read('app/assets/images/preparedly-red.png')
     mail(:to => @user.email, :subject => "Task Reminder")
   end
+
+
+
+
+
 end
