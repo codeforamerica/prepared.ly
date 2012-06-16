@@ -228,7 +228,7 @@ td { vertical-align: top; }
 .navbar .dropdown-menu:after {
 	display:none;
 	}	
-navbar .nav {
+.navbar .nav {
     display: block;
     float: right;
     }
@@ -428,40 +428,6 @@ hr {
 	text-align:justify;
 	font-size: 15px;
 	}	
-/*
-a.tooltip {outline:none; } 
-a.tooltip strong {line-height:30px;} 
-a.tooltip:hover {text-decoration:none;} 
-a.tooltip span { 
-	z-index:10;
-	display:none; 
-	padding:14px 20px; 
-	margin-top:-30px; 
-	margin-left:28px; width:240px; 
-	line-height:16px; 
-	} 
-a.tooltip:hover span{ 
-	display:inline; 
-	position:absolute; 
-	color:#333333; 
-	border:1px solid #333333; 
-	background:#ffffff;
-	} 
-.callout {
-	z-index:20;
-	position:absolute;
-	top:30px;border:0;
-	left:-12px;
-	} 
-/*CSS3 extras*/ 
-/*a.tooltip span { 
-	border-radius:4px; 
-	-moz-border-radius: 4px; 
-	-webkit-border-radius: 4px; 
-	-moz-box-shadow: 5px 5px 8px #CCC; 
-	-webkit-box-shadow: 5px 5px 8px #CCC; 
-	box-shadow: 5px 5px 8px #CCC; 
-	}
 
 /*-------------------------------------------------about-page ---*/
 
@@ -1049,7 +1015,6 @@ section h2 {
 	font-size:25px;
 }
 /* Fixed subnav on scroll, but only for 980px and up (sorry IE!) */
-@media (min-width: 980px) {
   .subnav-fixed {
     position: fixed;
     top: 40px;
