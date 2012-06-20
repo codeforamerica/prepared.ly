@@ -50,6 +50,9 @@ end
 
 class MapController < ApplicationController
   def get
+    @user = current_user
+    #@completed_task = CompletedTask.where/find(user_id == @user.id)
+    # in view use @completed_task.detail
   end
 
   def post

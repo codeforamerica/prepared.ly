@@ -85,6 +85,9 @@
     <section id="task-section">  
             <h2>Your task summary.</h2>
             <p>completed tasks/score:</p>
+            <!--<ul>
+                <li>my completed tasks: <%= @completed_task.detail %> [edit]</li>
+            </ul>-->    
             <p>complete new tasks >></p>
             <p>your queued tasks:</p>
             <img src="assets/Preparedly-task-img.png">
@@ -146,9 +149,11 @@
                 <h2>Your account.</h2>
                 <p>Current settings:</p>
                 <ul>
-                    <li>name: [name][edit]</li>
-                    <li>saved address: [address][edit]</li>
-                    <li>date account created: [date][edit]</li>
+                    <li>name: <%= @user.first_name %> <%= @user.last_name %> [edit]</li>
+                    <li>email: <%= @user.email %> [edit]</li>
+                    <li>phone: <%= @user.phone %> [edit]</li>
+                    <li>saved address: <%= @user.address %> [edit]</li>
+                    <li>date account created: <%= @user.created_at %> [edit]</li>
                 </ul>
                 <p>Also, feel free to leave us comments and questions with the "feedback" tab on the left side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.</p>
                <div class="sub-section">
