@@ -17,8 +17,8 @@
             <%= link_to '<i class="icon-time icon-white"></i> Skip this for now'.html_safe, tasks_path, :class => 'btn-large btn-inverse btn' %> 
             <%= link_to '<i class="icon-ok icon-white"></i> I did it!'.html_safe, completed_task_path(@random.id), :class => 'btn-large btn-success btn' -%>
              <%= form_tag(reminder_path(@random.id), :action => :post) do%>  
-             <%= text_field_tag(:date, "Click here to pick a reminder date", {:id => "pick_date", :dateFormat => "yy-mm-dd"}) %>
-             <%= submit_tag "Remind me!"  %>   
+             <%= text_field_tag(:date, "Click to pick a reminder date", {:id => "pick_date", :dateFormat => "yy-mm-dd"}) %>
+             <%= submit_tag "Set my reminder"  %>   
              <% end %>
             <%= link_to '<i class="icon-pencil icon-white"></i> Create a new task'.html_safe, new_task_path, :class => 'btn-large btn-info btn' %>
         <% else %>
