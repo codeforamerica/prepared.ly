@@ -20,8 +20,8 @@ Preparedly::Application.routes.draw do
       :registrations => "users/registrations" 
   }
 
-  get "map" => "map#get"
-  post "map" => "map#post"
+  get "map" => "map#show", :as => 'map'
+  post "map" => "map#update", :as => 'update_map'
   match "share" => "share#index"
 
   get "about" => "about#index"

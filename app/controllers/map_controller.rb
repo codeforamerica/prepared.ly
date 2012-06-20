@@ -1,58 +1,13 @@
 require 'nokogiri'
-require 'open-uri'
 require 'wunderground'
-
-class TFS
-  include HTTParty
-
-  base_uri 'http://ags1.dtsgis.com/ArcGIS/rest/services/v2'
-
-  def self.risk_assessment(latlon)
-    response = get('/RiskAssessment/MapServer/identify',
-      :query => {
-        :geometryType => "esriGeometryPoint",
-        :geometry => "{x: " + latlon.x.to_s + ", y: " + latlon.y.to_s + "}",
-        :sr => 4326,
-        :layers => 'all',
-        :tolerance => 3,
-        :mapExtent => '-98,30,-97,31',
-        :imageDisplay => '572,740,96',
-        :returnGeometry => true,
-        :f => 'pjson'
-      }
-    )
-
-    json_response = JSON.parse(response.body)
-    print json_response
-    if json_response['results'].length > 0
-      return json_response['results'][0]['attributes']['Pixel Value'].to_i
-    else
-      return nil
-    end
-  end
-end
-
-class CartoDB
-  include HTTParty
-
-  base_uri 'http://tinio.cartodb.com/api/v2'
-
-  def self.current_county(latlon)
-    response = get('/sql',
-      :query => {
-        :q => "SELECT name FROM cntys04 ORDER BY ST_Distance(ST_GeomFromText('POINT(" + latlon.x.to_s + " " + latlon.y.to_s + ")',4326), the_geom) LIMIT 1;"
-      }
-    )
-    json_response = JSON.parse(response.body)
-    return json_response['rows'][0]['name']
-  end
-end
+require "#{Rails.root}/lib/cartodb.rb"
+require "#{Rails.root}/lib/tfs.rb"
 
 class MapController < ApplicationController
-  def get
+  def show
   end
 
-  def post
+  def update
     @address_str = params[:q]
     @coordinates = Geocoder.coordinates(@address_str)
     if @coordinates
