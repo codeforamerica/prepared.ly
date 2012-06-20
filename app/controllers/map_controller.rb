@@ -51,8 +51,7 @@ end
 class MapController < ApplicationController
   def get
     @user = current_user
-    #@completed_task = CompletedTask.where/find(user_id == @user.id)
-    # in view use @completed_task.detail     
+    @completed_tasks = CompletedTask.find_all_by_user_id(@user.id) # returns an array
     @random = Task.random
   end
 

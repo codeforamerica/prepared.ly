@@ -81,7 +81,15 @@
     <section id="task-section">  
             <div class="container">
                 <h2>Your task summary.</h2>
-                <p>completed tasks/score:</p>   
+                <p>completed tasks/score:</p>  
+            <p>completed tasks/score:</p>
+            <ul>
+                <ul>my completed tasks: <% @completed_tasks.each do |tsk| %>
+                    <li><%= tsk.task.detail %></li>
+                <% end %>
+                </ul>
+            </ul>
+                 
                 <p>complete new tasks >></p>
                 <p>your queued tasks:</p>
                 <%= render "tasks/tasks" %>

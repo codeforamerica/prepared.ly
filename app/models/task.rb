@@ -1,6 +1,7 @@
 class Task < ActiveRecord::Base
   attr_accessible :difficulty, :task, :fact, :detail
   has_many :users
+  has_many :completed_tasks
 
   def self.random
   	ids = connection.select_all("SELECT id from tasks")
