@@ -85,9 +85,12 @@
     <section id="task-section">  
             <h2>Your task summary.</h2>
             <p>completed tasks/score:</p>
-            <!--<ul>
-                <li>my completed tasks: <%= @completed_task.detail %> [edit]</li>
-            </ul>-->    
+            <ul>
+                <ul>my completed tasks: <% @completed_tasks.each do |tsk| %>
+                    <li><%= tsk.task.detail %></li>
+                <% end %>
+                </ul>
+            </ul>
             <p>complete new tasks >></p>
             <p>your queued tasks:</p>
             <img src="assets/Preparedly-task-img.png">
@@ -95,7 +98,7 @@
                 <div class="task-butt"><%= link_to '<i class="icon-fire icon-white"></i> Get started >>'.html_safe,  about_path, :class => 'btn-large btn-success btn' %>
                     <hr></hr>
                 </div>
-            </div>    
+        
     </section>
 <% else %>   
     <section id="task-section">  
