@@ -322,9 +322,9 @@ td { vertical-align: top; }
 	margin-left: 8px;
     /*height: 460px;*/
     padding: 10px;
-    width:275px;
+    width:230px;
 	float:left;
-	margin-bottom: 8px
+	margin-bottom: 8px;
 }
 .detail-col.no-outline {
 	border: none;
@@ -356,8 +356,13 @@ td { vertical-align: top; }
 	font-weight: 700;
 }
 .task, .task-hist, .task-butt {
-	padding: 10px;
-	margin: 10px;
+	padding-top: 10px;
+	margin-top: 10px;
+	clear:both;
+}
+.task-container {
+	max-width: 800px;
+	float:left;
 	clear:both;
 }
 .task p{
@@ -383,7 +388,12 @@ td { vertical-align: top; }
 .taskbox {
     border-radius: 4px 4px 4px 4px;
     background: #CCCCCC;
+    min-height: 300px;
+    padding:15px;
+    width: 450px;
+    float:left;
 }
+
 .task-butt a {
 	color: #ffffff;
 }
@@ -1017,11 +1027,11 @@ section img{
     /*border-radius: 4px 4px 4px 4px;
 	border: #3AAFBF solid thin;*/
     /*height: 460px;*/
-    padding: 10px;
 	margin-bottom: 8px;
 	margin-top: 20px;
 	width:100%;
 	text-align:center;
+	clear:both;
 }
 .sub-section p, .note{
 	font-weight: 500;
@@ -1069,7 +1079,7 @@ section h2 {
   }
 
   /*----------------popover --------------------*/
-  .popover {
+/*.popover {
   position: absolute;
   top: 0;
   left: 0;
@@ -1175,7 +1185,7 @@ section h2 {
 .popover-content ul,
 .popover-content ol {
   margin-bottom: 0;
-}
+}*/
 
 [class^="icon-"],
 [class*=" icon-"] {
