@@ -1,90 +1,110 @@
-  <header class="jumbotron subhead" id="overview">
-    <h1>Welcome, let's get started. </h1>
+<% if user_signed_in? %>
+        <header class="jumbotron subhead" id="overview">
+            <h1>Hello, welcome back.</h1>
 
-    <p class="lead">Make staying prepared for wildfire fun and easy.</p>
-            <p>Already a user? <a href="/users/sign_in">Log in here</a>.</p>
-            <div class="sub-section">
-                <div class="task-butt"> 
-                    <a href="../users/sign_up" class="btn btn-large btn-success"> Create an account </a>
-                    <hr></hr>
-                </div>
-            </div>  
-   <!-- <div class="task-butt"><%= link_to ' Create an account <i class="icon-thumbs-up icon-white"></i>'.html_safe,  about_path, :class => 'btn-large btn-success btn' %>
-        <hr></hr>
-    </div>-->
-    <div class="subnav">
-      <ul class="nav nav-pills">
-        <li><a href="#map-section">1. explore your location risk</a></li>
-        <li><a href="#task-section">2. get action with easy tasks</a></li>
-        <li><a href="#notify-section">3. stay notified</a></li>
-        <li><a href="#account-section">4. get started</a></li>
-      </ul>
-    </div>
-  </header>
-<section id="map-section">       
-    <%= form_tag("/map", :method=> "mappartial") do %>
-        <h2>1. Enter your address, and see your house on the map.</h2> 
-        <p>You'll also see an assessment of your risk level, current weather conditions, and burn ban information.
-        </p>
-        <img src="assets/map.jpg">
-        <div class="sub-section">
-            <p>Enter your address and we'll tell you about the risk of your location.</p>
-            <div class="controls">
-                <div class="task-butt input-append map-butt">
-                    <%= text_field_tag(:q, nil,  :value => '123 Main St. Austin, TX', :class => 'address form-inline input-xx-large') %><%= submit_tag("Load my map", :class => 'btn-large btn-success btn') %>
-                    <hr></hr>    
-                    <!--<br><span class="help-inline note"> Include city and state, only available for the state of Texas. 
-                        </span>-->
-                </div>
-            </div>
-        <% end %>
-    </div>
-</section>   
-<section id="task-section">  
-        <h2>2. Stay prepared with the abilty to accept, share, and create tasks for you and your neighborhood via text, email or Twitter.</h2>
-        <p>Use this tool to accept or decline tasks, as well as get some background on why they are important. Think something's important that you don't see? You'll have the ability to add your own, and share it with your neighbors.</p>
-        <img src="assets/Preparedly-task-img.png">
-        <div class="sub-section">
-            <div class="task-butt"><%= link_to '<i class="icon-fire icon-white"></i> Get started >>'.html_safe,  about_path, :class => 'btn-large btn-success btn' %>
+            <p class="lead">Your prepared.ly dashboard awaits!</p>
+           <!-- <div class="task-butt"><%= link_to ' Create an account <i class="icon-thumbs-up icon-white"></i>'.html_safe,  about_path, :class => 'btn-large btn-success btn' %>
                 <hr></hr>
+            </div>-->
+            <div class="subnav">
+              <ul class="nav nav-pills">
+                <li><a href="#map-section">1. my current location risks</a></li>
+                <li><a href="#task-section">2. my tasks</a></li>
+                <li><a href="#notify-section">3. my notification settings</a></li>
+                <li><a href="#account-section">4. my account</a></li>
+              </ul>
             </div>
-        </div>    
-</section>
-<section id="notify-section"> 
-             <img src="assets/notify.png">   
-            <h2>3. Set up notifications to stay on top of things, and up to date with weather conditions.</h2> 
-            <p>Set up custom alerts so that you can decide when you want to schedule a task, and be aware of high alert days and changes in weather conditions. We only want to notify you of things you want to know about, and promise not to send you messages that you didn't ask for. </p>
-            <div class="sub-section">
-                <div class="task-butt"> 
-                    <a href="../users/edit" class="btn btn-large btn-success">set your notifications preferences >></a>
-                    <hr></hr>
-                </div>
-            </div>    
-            <img src="assets/reachfd.png">   
-            <h2>Stay in touch with the Fire Department.</h2>
-            <p> The fire department is here to help. Schedule an assessment, or ask a question. </P>
-            <div class="sub-section">
-                <div class="task-butt"> 
-                    <a href="../contacts/new" class="btn btn-large btn-success">Contact the Fire Department >></a>
-                    <hr></hr>
-                </div>
-            </div>    
-</section>   
-<section id="account-section"> 
-            <h2>4. Create an account, keep track of your progress</h2>
-            <div class="video">
-                <iframe src="http://player.vimeo.com/video/44008140" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> 
-                <p><a href="http://vimeo.com/44008140">Prepared.ly</a> from <a href="http://vimeo.com/codeforamerica">Code for America</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
-            </div>
-            <p>Now that we've told you a little about Prepared.ly and what we do, continue on the check out our features by creating a free account. Also, feel free to leave us comments and questions with the "feedback" tab on the left side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.
-           <div class="sub-section">
-                <div class="task-butt"> 
-                    <a href="../users/sign_up" class="btn btn-large btn-success"> Create an account </a>
-                    <hr></hr>
-                </div>
-            </div>         
-</section>   
+          </header>
+<% else %>
+        <header class="jumbotron subhead" id="overview">
+            <h1>Welcome, let's get started. </h1>
 
+            <p class="lead">Make staying prepared for wildfire fun and easy.</p>
+                    <p>Already a user? <a href="/users/sign_in">Log in here</a>.</p>
+                    <div class="sub-section">
+                        <div class="task-butt"> 
+                            <a href="../users/sign_up" class="btn btn-large btn-success"> Create an account </a>
+                            <hr></hr>
+                        </div>
+                    </div>  
+           <!-- <div class="task-butt"><%= link_to ' Create an account <i class="icon-thumbs-up icon-white"></i>'.html_safe,  about_path, :class => 'btn-large btn-success btn' %>
+                <hr></hr>
+            </div>-->
+            <div class="subnav">
+              <ul class="nav nav-pills">
+                <li><a href="#map-section">1. explore your location risk</a></li>
+                <li><a href="#task-section">2. get action with easy tasks</a></li>
+                <li><a href="#notify-section">3. stay notified</a></li>
+                <li><a href="#account-section">4. get started</a></li>
+              </ul>
+            </div>
+          </header><% end %>
+  
+<div class="container-fluid">  
+    <section id="map-section">       
+        <%= form_tag("/map", :method=> "mappartial") do %>
+            <h2>1. Enter your address, and see your house on the map.</h2> 
+            <p>You'll also see an assessment of your risk level, current weather conditions, and burn ban information.
+            </p>
+            <img src="assets/map.jpg">
+            <div class="sub-section">
+                <p>Enter your address and we'll tell you about the risk of your location.</p>
+                <div class="controls">
+                    <div class="task-butt input-append map-butt">
+                        <%= text_field_tag(:q, nil,  :value => '123 Main St. Austin, TX', :class => 'address form-inline input-xx-large') %><%= submit_tag("Load my map", :class => 'btn-large btn-success btn') %>
+                        <hr></hr>    
+                        <!--<br><span class="help-inline note"> Include city and state, only available for the state of Texas. 
+                            </span>-->
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </section>   
+    <section id="task-section">  
+            <h2>2. Stay prepared with the abilty to accept, share, and create tasks for you and your neighborhood via text, email or Twitter.</h2>
+            <p>Use this tool to accept or decline tasks, as well as get some background on why they are important. Think something's important that you don't see? You'll have the ability to add your own, and share it with your neighbors.</p>
+            <img src="assets/Preparedly-task-img.png">
+            <div class="sub-section">
+                <div class="task-butt"><%= link_to '<i class="icon-fire icon-white"></i> Get started >>'.html_safe,  about_path, :class => 'btn-large btn-success btn' %>
+                    <hr></hr>
+                </div>
+            </div>    
+    </section>
+    <section id="notify-section"> 
+                 <img src="assets/notify.png">   
+                <h2>3. Set up notifications to stay on top of things, and up to date with weather conditions.</h2> 
+                <p>Set up custom alerts so that you can decide when you want to schedule a task, and be aware of high alert days and changes in weather conditions. We only want to notify you of things you want to know about, and promise not to send you messages that you didn't ask for. </p>
+                <div class="sub-section">
+                    <div class="task-butt"> 
+                        <a href="../users/edit" class="btn btn-large btn-success">set your notifications preferences >></a>
+                        <hr></hr>
+                    </div>
+                </div>    
+                <img src="assets/reachfd.png">   
+                <h2>Stay in touch with the Fire Department.</h2>
+                <p> The fire department is here to help. Schedule an assessment, or ask a question. </P>
+                <div class="sub-section">
+                    <div class="task-butt"> 
+                        <a href="../contacts/new" class="btn btn-large btn-success">Contact the Fire Department >></a>
+                        <hr></hr>
+                    </div>
+                </div>    
+    </section>   
+    <section id="account-section"> 
+                <h2>4. Create an account, keep track of your progress</h2>
+                <div class="video">
+                    <iframe src="http://player.vimeo.com/video/44008140" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> 
+                    <p><a href="http://vimeo.com/44008140">Prepared.ly</a> from <a href="http://vimeo.com/codeforamerica">Code for America</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+                </div>
+                <p>Now that we've told you a little about Prepared.ly and what we do, continue on the check out our features by creating a free account. Also, feel free to leave us comments and questions with the "feedback" tab on the left side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.
+               <div class="sub-section">
+                    <div class="task-butt"> 
+                        <a href="../users/sign_up" class="btn btn-large btn-success"> Create an account </a>
+                        <hr></hr>
+                    </div>
+                </div>         
+    </section>   
+</div>
 <!-- <section id="task-section">     
         <h2>Last Summer, over 1300 homes were destroyed in Bastrop County due to wildfire.</h2>
         <p>

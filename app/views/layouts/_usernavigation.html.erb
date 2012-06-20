@@ -11,13 +11,13 @@
                 <!--Upper NAVIGATION!-->
                 <ul class="nav navbar-items">
                 	<li class=""><a href="/"> home</a></li>
-					<li><%= link_to "learn", resources_path %></li> 
-					<li><%= link_to "about", about_path %></li>
-					<li class="dropdown">
+        					<li><%= link_to "learn", resources_path %></li> 
+        					<li><%= link_to "about", about_path %></li>
+        					<li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">account <b class="caret"></b></a>
                       <ul class="dropdown-menu">
-						<li><%= render 'devise/menu/registration_items' %></li>
-						<li><%= render 'devise/menu/login_items' %></li>
+      						<li><%= render 'devise/menu/registration_items' %></li>
+      						<li><%= render 'devise/menu/login_items' %></li>
                       </ul>
                     </li>
                 </ul>
