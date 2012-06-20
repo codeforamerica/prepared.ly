@@ -2320,6 +2320,7 @@ section h2 {
 	height:60px;
 	width:100%;
 	background-image: -moz-linear-gradient(center top , #FFFFFF 0%, #FFFFFF 100%);
+  	margin-top: 10px;  
 }
 .subnav .nav > .active > a .subnav .nav >.active > a:hover {
 	background-color: #FFFFFF;

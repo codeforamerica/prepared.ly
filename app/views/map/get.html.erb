@@ -8,17 +8,16 @@
             </div>-->
             <div class="subnav">
               <ul class="nav nav-pills">
-                <li><a href="#map-section">1. my current location risks</a></li>
-                <li><a href="#task-section">2. my tasks</a></li>
-                <li><a href="#notify-section">3. my notification settings</a></li>
-                <li><a href="#account-section">4. my account</a></li>
+                <li><a href="#map-section">my current location risks</a></li>
+                <li><a href="#task-section">my tasks</a></li>
+                <li><a href="#notify-section">my notification settings</a></li>
+                <li><a href="#account-section">my account</a></li>
               </ul>
             </div>
           </header>
 <% else %>
         <header class="jumbotron subhead" id="overview">
             <h1>Welcome, let's get started. </h1>
-
             <p class="lead">Make staying prepared for wildfire fun and easy.</p>
                     <p>Already a user? <a href="/users/sign_in">Log in here</a>.</p>
                     <div class="sub-section">
@@ -38,8 +37,29 @@
                 <li><a href="#account-section">4. get started</a></li>
               </ul>
             </div>
-          </header><% end %>
-  
+          </header>
+<% end %>
+<% if user_signed_in? %>
+<div class="container-fluid">  
+    <section id="map-section">       
+        <%= form_tag("/map", :method=> "mappartial") do %>
+            <h2>Current conditions for your address.</h2>
+            <p> For now this is just an image....</p>
+            <img src="assets/map.jpg">
+            <div class="sub-section">
+                <p>Search another address</p>
+                <div class="controls">
+                    <div class="task-butt input-append map-butt">
+                        <%= text_field_tag(:q, nil,  :value => '123 Main St. Austin, TX', :class => 'address form-inline input-xx-large') %><%= submit_tag("Load my map", :class => 'btn-large btn-success btn') %>
+                        <hr></hr>    
+                        <!--<br><span class="help-inline note"> Include city and state, only available for the state of Texas. 
+                            </span>-->
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </section> 
+<%else %>  
 <div class="container-fluid">  
     <section id="map-section">       
         <%= form_tag("/map", :method=> "mappartial") do %>
@@ -59,7 +79,22 @@
                 </div>
             <% end %>
         </div>
-    </section>   
+    </section> 
+<% end %>
+<% if user_signed_in? %>
+    <section id="task-section">  
+            <h2>Your task summary.</h2>
+            <p>completed tasks/score:</p>
+            <p>complete new tasks >></p>
+            <p>your queued tasks:</p>
+            <img src="assets/Preparedly-task-img.png">
+            <div class="sub-section">
+                <div class="task-butt"><%= link_to '<i class="icon-fire icon-white"></i> Get started >>'.html_safe,  about_path, :class => 'btn-large btn-success btn' %>
+                    <hr></hr>
+                </div>
+            </div>    
+    </section>
+<% else %>   
     <section id="task-section">  
             <h2>2. Stay prepared with the abilty to accept, share, and create tasks for you and your neighborhood via text, email or Twitter.</h2>
             <p>Use this tool to accept or decline tasks, as well as get some background on why they are important. Think something's important that you don't see? You'll have the ability to add your own, and share it with your neighbors.</p>
@@ -70,6 +105,21 @@
                 </div>
             </div>    
     </section>
+<% end %>     
+<% if user_signed_in? %>
+    <section id="notify-section"> 
+                <h2>Your current notifications.</h2> 
+                <p>What's happening now?</p>
+                <p>Looks like you're on top of things! Excellent work.</p>
+                <p> Adjust settings </p>
+                <div class="sub-section">
+                    <div class="task-butt"> 
+                        <a href="../contacts/new" class="btn btn-large btn-success">Contact the Fire Department >></a>
+                        <hr></hr>
+                    </div>
+                </div>    
+    </section>   
+<% else %>
     <section id="notify-section"> 
                  <img src="assets/notify.png">   
                 <h2>3. Set up notifications to stay on top of things, and up to date with weather conditions.</h2> 
@@ -82,14 +132,33 @@
                 </div>    
                 <img src="assets/reachfd.png">   
                 <h2>Stay in touch with the Fire Department.</h2>
-                <p> The fire department is here to help. Schedule an assessment, or ask a question. </P>
+                <p> The fire department is here to help. Schedule an assessment, or ask a question. </p>
                 <div class="sub-section">
                     <div class="task-butt"> 
                         <a href="../contacts/new" class="btn btn-large btn-success">Contact the Fire Department >></a>
                         <hr></hr>
                     </div>
                 </div>    
-    </section>   
+    </section>  
+<% end %>  
+<% if user_signed_in? %>  
+    <section id="account-section"> 
+                <h2>Your account.</h2>
+                <p>Current settings:</p>
+                <ul>
+                    <li>name: [name][edit]</li>
+                    <li>saved address: [address][edit]</li>
+                    <li>date account created: [date][edit]</li>
+                </ul>
+                <p>Also, feel free to leave us comments and questions with the "feedback" tab on the left side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.</p>
+               <div class="sub-section">
+                    <div class="task-butt"> 
+                        <a href="../users/sign_up" class="btn btn-large btn-success"> Create an account </a>
+                        <hr></hr>
+                    </div>
+                </div>         
+    </section>  
+<% else %>
     <section id="account-section"> 
                 <h2>4. Create an account, keep track of your progress</h2>
                 <div class="video">
@@ -103,7 +172,8 @@
                         <hr></hr>
                     </div>
                 </div>         
-    </section>   
+    </section>  
+<% end %>     
 </div>
 <!-- <section id="task-section">     
         <h2>Last Summer, over 1300 homes were destroyed in Bastrop County due to wildfire.</h2>

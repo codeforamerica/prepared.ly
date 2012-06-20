@@ -11,7 +11,7 @@
   <%= stylesheet_link_tag "mobile", :media => "all and (max-width: 800px)" %>
   <%= stylesheet_link_tag "bootstrap-responsive", :media => "all" %>
 </head>
-<body>
+<body data-offset="50" data-target=".subnav" data-spy="scroll" data-twttr-rendered="true">
   <% if user_signed_in? %>
              <%= render "layouts/usernavigation" %>
            <% else %>
@@ -63,11 +63,11 @@
 
 	<div id="footer-bottom">
 	</div>
-<!-- Typekit 
+<!-- Typekit -->
 <script type="text/javascript" src="http://use.typekit.com/osj8jgk.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
--->
-<!-- <%= yield :javascript_yield %> -->
+
+<%= yield :javascript_yield %> 
 <%= javascript_include_tag "application" %>
 
    
