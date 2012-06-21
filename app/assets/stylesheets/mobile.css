@@ -16,6 +16,11 @@
 	left: -5px;
 	z-index:1;
 }
+.navbar img{
+    margin: 8px;
+    padding-left:0px;
+}
+
 #logo {
 	background: url('preparedly-nav-blue.png') no-repeat;
 	width:180px; 

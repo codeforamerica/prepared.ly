@@ -24,3 +24,13 @@
     </div>
   </div>
 </div>
+          <div id="signin" class="modal hide fade">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h3>Modal Heading</h3>
+            </div>
+            <div class="modal-body">
+              <%= render :partial => "devise/sessions/new" %>
+              <!--  need to render :partial => "devise/links" here but it isn't working correctly %> -->
+            </div>  
+          </div>

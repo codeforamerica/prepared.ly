@@ -254,6 +254,7 @@ td { vertical-align: top; }
 	top: 75px;
 	left: 45px;
 }
+
 #logo {
 	background: url('preparedly-red.png') no-repeat;
 	height:112px;
@@ -892,7 +893,7 @@ legend + .control-group {
 
 .navbar img{
     margin: 8px;
-    padding-left: 40px;
+    padding-left:100px;
 }
 
 .navbar-fixed-top,
@@ -2330,7 +2331,7 @@ section h2 {
 	height:60px;
 	width:100%;
 	background-image: -moz-linear-gradient(center top , #FFFFFF 0%, #FFFFFF 100%);
-  	margin-top: 10px;  
+  	margin-top: 0px;  
 }
 .subnav .nav > .active > a .subnav .nav >.active > a:hover {
 	background-color: #FFFFFF;

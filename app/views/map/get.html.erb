@@ -79,21 +79,12 @@
 <% end %>
 <% if user_signed_in? %>
     <section id="task-section">  
-            <div class="container">
                 <h2>Your task summary.</h2>
-                <p>completed tasks/score:</p>  
-            <p>completed tasks/score:</p>
-            <ul>
-                <ul>my completed tasks: <% @completed_tasks.each do |tsk| %>
-                    <li><%= tsk.task.detail %></li>
-                <% end %>
-                </ul>
-            </ul>
-                 
+                    <p>completed tasks/score:</p>  
+                        <p>completed tasks/score:</p>
                 <p>complete new tasks >></p>
                 <p>your queued tasks:</p>
                 <%= render "tasks/tasks" %>
-            </div>    
            <div class="sub-section">
                 <div class="task-butt">
                     <!--<%= link_to '<i class="icon-fire icon-white"></i> Get started >>'.html_safe,  tasks_path, :class => 'btn-large btn-success btn' %>-->
