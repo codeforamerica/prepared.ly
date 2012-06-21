@@ -51,7 +51,9 @@ end
 class MapController < ApplicationController
   def get
     @user = current_user
-    @completed_tasks = CompletedTask.find_all_by_user_id(@user.id) # returns an array
+    unless @user.nil?
+      @completed_tasks = CompletedTask.find_all_by_user_id(@user.id) # returns an array
+    end
   end
 
   def post
