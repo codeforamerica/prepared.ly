@@ -88,17 +88,6 @@
               <a href="#" class="btn" data-dismiss="modal" >Close</a>
             </div> 
 
-<!-- task window -->
-<script type="text/javascript" charset="utf-8">
-$(document).ready(function() {
-$("#skip").click(function(){   
-$.get("<%= url_for "tasks/tasks" %>",
-      function(response) {
-        $("#retask").html(response);
-      });
-    });
-});
-</script>
 
 <!-- Typekit -->
 <script type="text/javascript" src="http://use.typekit.com/osj8jgk.js"></script>
@@ -111,10 +100,19 @@ $.get("<%= url_for "tasks/tasks" %>",
   var is_ssl = ("https:" == document.location.protocol);
   var asset_host = is_ssl ? "https://d3rdqalhjaisuu.cloudfront.net/" : "http://d3rdqalhjaisuu.cloudfront.net/";
   document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
 
-<!-- subnav -->
-<script type="text/javascript" charset="utf-8">
+//-- task window -->
+$(document).ready(function() {
+$("#skip").click(function(e){
+  e.preventDefault();   
+  $.get("/tasks-partial",
+      function(response) {
+        $("#retask").html(response);
+      });
+    });
+});
+
+//-- subnav -->
 $(document).scroll(function(){
     // If has not activated (has no attribute "data-top"
     if (!$('.subnav').attr('data-top')) {
@@ -130,10 +128,8 @@ $(document).scroll(function(){
     else
         $('.subnav').removeClass('subnav-fixed');
 });
-</script>
 
-<!-- feedback widget -->
-<script type="text/javascript" charset="utf-8">
+//-- feedback widget -->
   var feedback_widget_options = {};
 
   feedback_widget_options.display = "overlay";  
