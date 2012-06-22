@@ -17,6 +17,7 @@ group :assets do
   gem 'twitter-bootstrap-rails'
   gem 'therubyracer'
   gem 'uglifier', '>= 1.0.3'
+  gem 'less-rails-bootstrap'
 end
 
 gem 'jquery-rails'
