@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require bootstrap-transition
 //= require bootstrap-alert
@@ -24,8 +25,7 @@
 //= require bootstrap-collapse
 //= require bootstrap-carousel
 //= require bootstrap-typeahead
-//= require_tree .
-//= require jquery-ui
+//= require timepicker
 //= require_tree .
 $(document).ready(function(){
   $("#pick_date").datetimepicker({dateFormat: 'yy-mm-dd ', ampm: true});;
