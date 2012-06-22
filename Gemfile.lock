@@ -223,6 +223,7 @@ DEPENDENCIES
   httparty
   jquery-rails
   jquery_datepicker
+  less-rails
   less-rails-bootstrap
   nokogiri
   omniauth
