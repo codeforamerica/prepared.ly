@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale =1, user-scalable = no" />
   <%= yield :stylesheet_yield %>
   <%= yield :fb_og_tags %>
-  
   <%= stylesheet_link_tag "bootstrap", :media => "all" %>
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= stylesheet_link_tag "mobile", :media => "all and (max-width: 800px)" %>
@@ -55,7 +54,7 @@
 			<div class="column-wrapper column-full">
 						<p> <a href="mailto:info@prepared.ly"> contact us </a>  &#124; 
 						<a href="../resources">check out our resources, and partners </a>  &#124; 
-            			<a href="../terms">review our terms of use here</a>
+            <a data-toggle="modal" href="#terms">review our terms of use here</a>
 					</p>
 			</div>		
 		</div>
@@ -63,6 +62,33 @@
 
 	<div id="footer-bottom">
 	</div>
+       <div id="terms" class="modal hide fade">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h3>Terms of Use</h3>
+            </div>
+            <div class="modal-body">
+              <h4>Prepared.ly is a non-emergency wildfire preparedness tool.</h4><br> 
+              <p>Registration allows you to share prevention strategies with other users, contact wildfire prevention specialists, and receive infrequent <strong>non-emergency</strong> alerts about wildfire prevention in your area. Information entered on this site will be securely stored, and only used for the above purposes and to improve Prepared.ly. Changes to this policy will be posted here. By accessing and using Prepared.ly as a registered user or without registering, you acknowledge and agree to the above and any revisions.</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#" class="btn" data-dismiss="modal" >Close</a>
+            </div>
+          </div>
+                    <div id="signin" class="modal hide fade">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h3>Modal Heading</h3>
+            </div>
+            <div class="modal-body">
+              <h4>Sign in</h4>               
+            </div>
+            <p> put login content here </p>
+             <div class="modal-footer">
+              <a href="#" class="btn" data-dismiss="modal" >Close</a>
+            </div> 
+
+
 <!-- Typekit -->
 <script type="text/javascript" src="http://use.typekit.com/osj8jgk.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -70,9 +96,23 @@
 <%= yield :javascript_yield %> 
 <%= javascript_include_tag "application" %>
 
-   
 <script type="text/javascript" charset="utf-8">
-$('.dropdown-toggle').dropdown();
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://d3rdqalhjaisuu.cloudfront.net/" : "http://d3rdqalhjaisuu.cloudfront.net/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+
+//-- task window -->
+$(document).ready(function() {
+$("#skip").click(function(e){
+  e.preventDefault();   
+  $.get("/tasks-partial",
+      function(response) {
+        $("#retask").html(response);
+      });
+    });
+});
+
+//-- subnav -->
 $(document).scroll(function(){
     // If has not activated (has no attribute "data-top"
     if (!$('.subnav').attr('data-top')) {
@@ -88,59 +128,24 @@ $(document).scroll(function(){
     else
         $('.subnav').removeClass('subnav-fixed');
 });
-</script>
-<!-- Google Analytics -->
-    <script type="text/javascript">
-    // fix sub nav on scroll
-    var $win = $(window)
-      , $nav = $('.subnav')
-      , navTop = $('.subnav').length && $('.subnav').offset().top - 40
-      , isFixed = 0
 
-    processScroll()
+//-- feedback widget -->
+  var feedback_widget_options = {};
 
-    // hack sad times - holdover until rewrite for 2.1
-    $nav.on('click', function () {
-      if (!isFixed) setTimeout(function () {  $win.scrollTop($win.scrollTop() - 47) }, 10)
-    })
-
-    $win.on('scroll', processScroll)
-
-    function processScroll() {
-      var i, scrollTop = $win.scrollTop()
-      if (scrollTop >= navTop && !isFixed) {
-        isFixed = 1
-        $nav.addClass('subnav-fixed')
-      } else if (scrollTop <= navTop && isFixed) {
-        isFixed = 0
-        $nav.removeClass('subnav-fixed')
-      }
-    }
-
-    </script>
-<script type="text/javascript" charset="utf-8">
-//   var is_ssl = ("https:" == document.location.protocol);
-//   var asset_host = is_ssl ? "https://d3rdqalhjaisuu.cloudfront.net/" : "http://d3rdqalhjaisuu.cloudfront.net/";
-//   document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-
-<script type="text/javascript" charset="utf-8">
-//   var feedback_widget_options = {};
-
-//   feedback_widget_options.display = "overlay";  
-//   feedback_widget_options.company = "code_for_america";
-//   feedback_widget_options.placement = "right";
-//   feedback_widget_options.color = "#333333";
-//   feedback_widget_options.style = "question";
-//   feedback_widget_options.product = "code_for_america_preparedly";
-//   feedback_widget_options.tag = "feedback";
+  feedback_widget_options.display = "overlay";  
+  feedback_widget_options.company = "code_for_america";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#333333";
+  feedback_widget_options.style = "question";
+  feedback_widget_options.product = "code_for_america_preparedly";
+  feedback_widget_options.tag = "feedback";
   
-//   feedback_widget_options.custom_css = "feedback.css";
+  feedback_widget_options.custom_css = "feedback.css";
   
-//   feedback_widget_options.limit = "3";
+  feedback_widget_options.limit = "3";
   
 
-//   var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
 </script>
 </body>
 </html>

@@ -12,6 +12,11 @@ class TasksController < ApplicationController
     end
   end
 
+  def partial
+    @random = Task.random
+    render :template => "tasks/_tasks", :layout => false
+  end
+
   # GET /tasks/1
   # GET /tasks/1.json
   def show

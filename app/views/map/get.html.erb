@@ -21,14 +21,12 @@
             <p class="lead">Make staying prepared for wildfire fun and easy.</p>
                     <p>Already a user? <a href="/users/sign_in">Log in here</a>.</p>
                     <div class="sub-section">
-                        <div class="task-butt"> 
-                            <a href="../users/sign_up" class="btn btn-large btn-success"> Create an account </a>
-                            <hr></hr>
+                        <div class="task-butt"><%= link_to ' take the tour '.html_safe,  new_user_registration_path, :class => 'btn-large btn-info btn' %>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <%= link_to ' Create an account '.html_safe,  new_user_registration_path, :class => 'btn-large btn-success btn' %>
+                        <hr></hr>
                         </div>
                     </div>  
-           <!-- <div class="task-butt"><%= link_to ' Create an account <i class="icon-thumbs-up icon-white"></i>'.html_safe,  about_path, :class => 'btn-large btn-success btn' %>
-                <hr></hr>
-            </div>-->
             <div class="subnav">
               <ul class="nav nav-pills">
                 <li><a href="#map-section">1. explore your location risk</a></li>
@@ -83,22 +81,31 @@
 <% end %>
 <% if user_signed_in? %>
     <section id="task-section">  
-            <h2>Your task summary.</h2>
-            <p>completed tasks/score:</p>
-            <ul>
-                <ul>my completed tasks: <% @completed_tasks.each do |tsk| %>
-                    <li><%= tsk.task.detail %></li>
-                <% end %>
-                </ul>
+        <h2> what have you done lately? </h2>
+        <p> enter it here _______________ </p>
+        <p> what have other people been doing? <br>
+            <ul> 
+                <li>john d. cleaned his gutters!</li>
+                <li>sarah h. filled out a survey. </li>
             </ul>
-            <p>complete new tasks >></p>
-            <p>your queued tasks:</p>
-            <img src="assets/Preparedly-task-img.png">
+        </p>    
+               
+                        <%= render "tasks/tasks" %>
+                        <%= render "tasks/taskbuttons" %>
+                        <p> add to my list</p>
+                        <p> discuss/annotate this task </p>
+                        <p> schedule for later </p>
+                        <p> share [dropdown] text, tweet, email </p>
+                    <h2>Your task summary. (three columns)</h2>
+                    <p>completed tasks/score:</p>  
+                    <p>completed tasks/score:</p>
+                <p>complete new tasks >></p>
+                <p>your queued tasks:</p>
             <div class="sub-section">
-                <div class="task-butt"><%= link_to '<i class="icon-fire icon-white"></i> Get started >>'.html_safe,  about_path, :class => 'btn-large btn-success btn' %>
+                <div class="task-butt">
                     <hr></hr>
-                </div>
-        
+                </div>    
+            </div>  
     </section>
 <% else %>   
     <section id="task-section">  
@@ -106,7 +113,7 @@
             <p>Use this tool to accept or decline tasks, as well as get some background on why they are important. Think something's important that you don't see? You'll have the ability to add your own, and share it with your neighbors.</p>
             <img src="assets/Preparedly-task-img.png">
             <div class="sub-section">
-                <div class="task-butt"><%= link_to '<i class="icon-fire icon-white"></i> Get started >>'.html_safe,  about_path, :class => 'btn-large btn-success btn' %>
+                <div class="task-butt"><%= link_to '<i class="icon-fire icon-white"></i> Get started >>'.html_safe,  tasks_path, :class => 'btn-large btn-success btn' %>
                     <hr></hr>
                 </div>
             </div>    
@@ -119,8 +126,7 @@
                 <p>Looks like you're on top of things! Excellent work.</p>
                 <p> Adjust settings </p>
                 <div class="sub-section">
-                    <div class="task-butt"> 
-                        <a href="../contacts/new" class="btn btn-large btn-success">Contact the Fire Department >></a>
+                    <div class="task-butt"><%= link_to '<i class="icon-fire icon-white"></i> Contact the Fire Department >>'.html_safe,  contacts_path, :class => 'btn-large btn-success btn' %>
                         <hr></hr>
                     </div>
                 </div>    
@@ -140,8 +146,7 @@
                 <h2>Stay in touch with the Fire Department.</h2>
                 <p> The fire department is here to help. Schedule an assessment, or ask a question. </p>
                 <div class="sub-section">
-                    <div class="task-butt"> 
-                        <a href="../contacts/new" class="btn btn-large btn-success">Contact the Fire Department >></a>
+                    <div class="task-butt"><%= link_to '<i class="icon-fire icon-white"></i> Contact the Fire Department >>'.html_safe,  contacts_path, :class => 'btn-large btn-success btn' %>
                         <hr></hr>
                     </div>
                 </div>    
@@ -152,16 +157,16 @@
                 <h2>Your account.</h2>
                 <p>Current settings:</p>
                 <ul>
-                    <li>name: <%= @user.first_name %> <%= @user.last_name %> [edit]</li>
-                    <li>email: <%= @user.email %> [edit]</li>
-                    <li>phone: <%= @user.phone %> [edit]</li>
-                    <li>saved address: <%= @user.address %> [edit]</li>
-                    <li>date account created: <%= @user.created_at %> [edit]</li>
+                    <li>name: <%= @user.first_name %> <%= @user.last_name %></li>
+                    <li>email: <%= @user.email %></li>
+                    <li>phone: <%= @user.phone %></li>
+                    <li>saved address: <%= @user.address %></li>
+                    <li>date account created: <%= @user.created_at %></li>
                 </ul>
                 <p>Also, feel free to leave us comments and questions with the "feedback" tab on the left side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.</p>
                <div class="sub-section">
                     <div class="task-butt"> 
-                        <a href="../users/sign_up" class="btn btn-large btn-success"> Create an account </a>
+                        <!--<a href="../users/sign_up" class="btn btn-large btn-success"> Create an account </a>-->
                         <hr></hr>
                     </div>
                 </div>         
@@ -174,12 +179,11 @@
                     <p><a href="http://vimeo.com/44008140">Prepared.ly</a> from <a href="http://vimeo.com/codeforamerica">Code for America</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
                 </div>
                 <p>Now that we've told you a little about Prepared.ly and what we do, continue on the check out our features by creating a free account. Also, feel free to leave us comments and questions with the "feedback" tab on the left side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.
-               <div class="sub-section">
-                    <div class="task-butt"> 
-                        <a href="../users/sign_up" class="btn btn-large btn-success"> Create an account </a>
-                        <hr></hr>
-                    </div>
-                </div>         
+                   <div class="sub-section">
+                        <div class="task-butt"><%= link_to ' Create an account <i class="icon-thumbs-up icon-white"></i>'.html_safe,  new_user_registration_path, :class => 'btn-large btn-success btn' %>
+                            <hr></hr>
+                        </div>
+                    </div>     
     </section>  
 <% end %>     
 </div>
@@ -218,3 +222,4 @@
             </h5>
 </section>      
 -->
+

@@ -3,6 +3,7 @@ Preparedly::Application.routes.draw do
   resources :contacts
   resources :completed_tasks
   resources :tasks
+  match "/tasks-partial" => "tasks#partial"
 
   match "resources" => "resources#index"
 
