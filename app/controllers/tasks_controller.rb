@@ -11,7 +11,6 @@ class TasksController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
   def partial
     @random = Task.random
     render :template => "tasks/_tasks", :layout => false
