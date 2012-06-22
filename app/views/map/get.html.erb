@@ -21,8 +21,10 @@
             <p class="lead">Make staying prepared for wildfire fun and easy.</p>
                     <p>Already a user? <a href="/users/sign_in">Log in here</a>.</p>
                     <div class="sub-section">
-                        <div class="task-butt"><%= link_to ' Create an account <i class="icon-thumbs-up icon-white"></i>'.html_safe,  new_user_registration_path, :class => 'btn-large btn-success btn' %>
-                            <hr></hr>
+                        <div class="task-butt"><%= link_to ' take the tour '.html_safe,  new_user_registration_path, :class => 'btn-large btn-info btn' %>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <%= link_to ' Create an account '.html_safe,  new_user_registration_path, :class => 'btn-large btn-success btn' %>
+                        <hr></hr>
                         </div>
                     </div>  
             <div class="subnav">
@@ -79,13 +81,26 @@
 <% end %>
 <% if user_signed_in? %>
     <section id="task-section">  
-               <!-- <h2>Your task summary.</h2>
-                    <p>completed tasks/score:</p>  
-                        <p>completed tasks/score:</p>
-                <p>complete new tasks >></p>
-                <p>your queued tasks:</p>-->
+        <h2> what have you done lately? </h2>
+        <p> enter it here _______________ </p>
+        <p> what have other people been doing? <br>
+            <ul> 
+                <li>john d. cleaned his gutters!</li>
+                <li>sarah h. filled out a survey. </li>
+            </ul>
+        </p>    
+               
                         <%= render "tasks/tasks" %>
                         <%= render "tasks/taskbuttons" %>
+                        <p> add to my list</p>
+                        <p> discuss/annotate this task </p>
+                        <p> schedule for later </p>
+                        <p> share [dropdown] text, tweet, email </p>
+                    <h2>Your task summary. (three columns)</h2>
+                    <p>completed tasks/score:</p>  
+                    <p>completed tasks/score:</p>
+                <p>complete new tasks >></p>
+                <p>your queued tasks:</p>
             <div class="sub-section">
                 <div class="task-butt">
                     <hr></hr>
