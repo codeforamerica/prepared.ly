@@ -17,12 +17,12 @@ class TasksController < ApplicationController
     date = params[:date]
     user = current_user
      
-    if params[:email] == "1"
-      Task.find(task_id).send_reminder_email(user, date)
-    end
-    if params[:text] == "1"
-      Task.find(task_id).send_reminder_text(user, date)
-    end
+    # if params[:email] == "1"
+    #   Task.find(task_id).send_reminder_email(user, date)
+    # end
+    # if params[:text] == "1"
+    #   Task.find(task_id).send_reminder_text(user, date)
+    # end
 
     redirect_to tasks_url, notice: "Setting reminder(s)"
 
