@@ -1,28 +1,47 @@
 <div id="retask">
-    <div class="task-container">
-        <ul id="myTab" class="nav nav-tabs">
-            <li class="active note">
-                <a href="#home" data-toggle="tab">
-                YOUR TASK, SHOULD YOU CHOOSE TO ACCEPT:</a>
-            </li>
-        </ul>
-        <div class="main-col taskbox">
-            <div class="task">
-                <p><%= @random.task %></p>
-                <div class="detail-task"><%= @random.detail %>
-                </div>
+<!--<div class="task-container">
+<ul id="myTab" class="nav nav-tabs">
+    <li class="active note">
+        <a href="#home" data-toggle="tab">
+        YOUR TASK, SHOULD YOU CHOOSE TO ACCEPT:</a>
+    </li>
+</ul>-->
+    <div class="contentbox">
+        <h1><%= @random.task %></h1>
+        <p><%= @random.detail %></p>
+    </div>       
+    <div class="container-fluid">
+        <div class="span6">
+            <div class="triangle-top">
+            </div>            
+            <div class="triangle-top-box">
+                <h2>On the scale, this is:</h2>
+                <p><%= @random.difficulty %></p>
+            </div>  
+            <div class="triangle-top">
             </div>       
-        </div>
-        <div class="detail-col triangle-right left lightblue">
-            <div class="note">ON THE SCALE, THIS IS
+            <div class="triangle-top-box">         
+                <h2>add some knowledge:</h2>
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="taskknow">
+                </div>
+            </div>  
+        </div>   
+        <div class="span6">
+            <div class="triangle-top">
+            </div>       
+            <div class="triangle-top-box">                    
+                <h2>Why is this important?</h2>
+                <p><%= @random.fact %></p>
             </div>
-            <%= @random.difficulty %>
-        </div>    
-        <div class="detail-col triangle-right left darkgray">
-            <div class="note">WHY IS THIS IMPORTANT?
+            <div class="triangle-top">
+            </div>       
+             <div class="triangle-top-box">                     
+                <h2>Activity feed:</h2>
+                <p>Activity feed goes here</p>
             </div>
-            <%= @random.fact %>
-        </div>
-    </div>    
-</div>
+        </div>  
+    </div>      
+</div>    
+<!--</div>-->
 

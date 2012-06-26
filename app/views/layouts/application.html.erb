@@ -7,29 +7,33 @@
   <%= yield :fb_og_tags %>
   <%= stylesheet_link_tag "bootstrap", :media => "all" %>
   <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= stylesheet_link_tag "mobile", :media => "all and (max-width: 800px)" %>
+  <%= stylesheet_link_tag "mobile", :media => "all and (max-width: 600px)" %>
   <%= stylesheet_link_tag "bootstrap-responsive", :media => "all" %>
 </head>
 <body data-offset="50" data-target=".subnav" data-spy="scroll" data-twttr-rendered="true">
-  <% if user_signed_in? %>
+       <% if user_signed_in? %>
              <%= render "layouts/usernavigation" %>
-           <% else %>
+       <% else %>
              <%= render "layouts/navigation" %>
-        <% end %>
+       <% end %>
 <div class="container" id="main-wrap">      
       <div id="beta">
       </div>   
-      <div id="main">
-        <% unless user_signed_in? %>
-          <div id="logo-wrapper">
-            <a href="/">
-              <div id="logo" title="preparedly">
-              </div>
-            </a>
-          </div>
-      <% end %>   
-          <%= yield %>
-      </div>
+      <% if user_signed_in? %>
+        <div class="container-fluid">
+            <%= yield %>
+        </div>
+      <% else %>
+        <div id="main">
+            <div id="logo-wrapper">
+              <a href="/">
+                <div id="logo" title="preparedly">
+                </div>
+              </a>
+            </div>
+            <%= yield %>
+        </div>
+      <% end %>     
 </div>
 
 <div id="footer">
