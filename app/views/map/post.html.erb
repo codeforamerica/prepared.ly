@@ -65,10 +65,13 @@
                         <td><span class="condition-type">Wind: </span><span class="condition"><%= @wind_conditions %></span></td>
                     </tr>
                     <tr>
-                        <td><span class="condition-type">Humidity:</span><span class="class="condition"> <%= @relative_humidity %></span></td>
+                        <td><span class="condition-type">Humidity:</span><span class="condition"> <%= @relative_humidity %></span></td>
                     </tr>
                     <tr>
-                        <td><span class="condition-type">Inside of a Burn Ban: </span><span class="class="condition"> <%= @inside_burnban %></span></td>
+                        <td><span class="condition-type">Inside of a Burn Ban: </span><span "class="condition"> <%= @inside_burnban %></span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="condition-type">NWS Weather Warning: </span><span "class="condition"> <%= @inside_nws %></span></td>
                     </tr>
                     <tr id="map-controls">
                         <td><label for="firestations" class="condition-type">Show Fire Stations</label>&nbsp<input type="checkbox" id="firestations" name="firestations" checked="checked" /></td>
