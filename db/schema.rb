@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120531011916) do
+ActiveRecord::Schema.define(:version => 20120615185644) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address"
@@ -55,6 +55,22 @@ ActiveRecord::Schema.define(:version => 20120531011916) do
     t.datetime "updated_at",                                                                :null => false
   end
 
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
   create_table "fire_stations", :force => true do |t|
     t.string   "address"
     t.spatial  "latlon",     :limit => {:srid=>4326, :type=>"point", :geographic=>true}
@@ -83,6 +99,14 @@ ActiveRecord::Schema.define(:version => 20120531011916) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "reminders", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.datetime "remind_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false

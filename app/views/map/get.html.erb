@@ -21,7 +21,6 @@
               </ul>
             </div>
           </header>
-
 <div class="container-fluid">  
     <section id="map-section">       
         <%= form_tag("/map", :method=> "mappartial") do %>
@@ -35,8 +34,6 @@
                     <div class="task-butt input-append map-butt">
                         <%= text_field_tag(:q, nil,  :value => '123 Main St. Austin, TX', :class => 'address form-inline input-xx-large') %><%= submit_tag("Load my map", :class => 'btn-large btn-success btn') %>
                         <hr></hr>    
-                        <!--<br><span class="help-inline note"> Include city and state, only available for the state of Texas. 
-                            </span>-->
                     </div>
                 </div>
             <% end %>

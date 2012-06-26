@@ -1,0 +1,88 @@
+<div class="row-fluid dash">
+    <div class="span3">
+        <img src="assets/userphoto-default.png">
+        <div id="usercontainer">
+            <h2>Hi, <%= @user.first_name %>.</h2>
+            <ul>
+                <li><%= @user.address %></li>
+                <li>risk: Be Very Afraid</li>
+            </ul>
+        </div>
+          <ul class="nav nav-pills">
+                <li><a href="#map-section">location and current conditions</a></li>
+                <li><a href="#task-section">your preparedness</a></li>
+                <li><a href="#notify-section">notification preferences</a></li>
+                <li><a href="#account-section">account settings</a></li>
+          </ul>
+        <h2> Your info: </h2> 
+          <ul class="nav nav-pills">
+                <li><%= @user.first_name %> <%= @user.last_name %></li>
+                <li><%= @user.email %></li>
+                <li><%= @user.phone %></li>
+                <li><%= @user.address %></li>
+                <li><%= @user.created_at %></li>
+        </ul> 
+    </div> 
+    <div class="span9">
+        <ul id="myTab" class="nav nav-tabs">
+            <li class="active note">
+                <a href="#home" data-toggle="tab">
+                YOUR PREPARED.LY TASKS:</a>
+            </li>
+        </ul>
+        <div class="taskbox lightblue">
+            <section id="task-section">  
+                <%= render "tasks/tasks" %>
+                <%= render "tasks/taskbuttons" %>
+            </section>
+        </div>
+        <section id="map-section">       
+                <%= form_tag("/map", :method=> "mappartial") do %>
+                    <h2>Current conditions for your address: <%= @user.address %></h2>
+                    <p> For now this is just an image....</p>
+                    <img src="assets/map.jpg">
+                    <div class="sub-section">
+                        <p>Search another address</p>
+                        <div class="controls">
+                            <div class="task-butt input-append map-butt">
+                                <%= text_field_tag(:q, nil,  :value => '123 Main St. Austin, TX', :class => 'address form-inline input-xx-large') %><%= submit_tag("Load my map", :class => 'btn-large btn-success btn') %>
+                                <hr></hr>    
+                                <!--<br><span class="help-inline note"> Include city and state, only available for the state of Texas. 
+                                    </span>-->
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </section> 
+            
+            <section id="notify-section"> 
+                <h2>Your current notifications.</h2> 
+                <p>What's happening now?</p>
+                <p>Looks like you're on top of things! Excellent work.</p>
+                <p> Adjust settings </p>
+                <div class="sub-section">
+                    <div class="task-butt"><%= link_to '<i class="icon-fire icon-white"></i> Contact the Fire Department >>'.html_safe,  contacts_path, :class => 'btn-large btn-success btn' %>
+                        <hr></hr>
+                    </div>
+                </div>    
+            </section>   
+            <section id="account-section"> 
+                <h2>Your account.</h2>
+                <p>Current settings:</p>
+                <ul>
+                    <li>name: <%= @user.first_name %> <%= @user.last_name %></li>
+                    <li>email: <%= @user.email %></li>
+                    <li>phone: <%= @user.phone %></li>
+                    <li>saved address: <%= @user.address %></li>
+                    <li>date account created: <%= @user.created_at %></li>
+                </ul>
+                <p>Also, feel free to leave us comments and questions with the "feedback" tab on the left side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.</p>
+               <div class="sub-section">
+                    <div class="task-butt"> 
+                        <!--<a href="../users/sign_up" class="btn btn-large btn-success"> Create an account </a>-->
+                        <hr></hr>
+                    </div>
+                </div>         
+            </section>  
+    </div>
+</div>
