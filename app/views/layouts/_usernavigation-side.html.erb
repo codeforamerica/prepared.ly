@@ -1,9 +1,11 @@
+<% if user_signed_in? %>
     <div class="span3">
         <img src="assets/userphoto-default.png">
         <div id="usercontainer">
             <h2>Hi, <%= @user.first_name %>.</h2>
             <p><%= @user.address %></p>
         </div>
+<% end %>        
           <ul class="nav nav-tabs">
                 <li><a href="#map-section" data-toggle="tab">location and current conditions</a></li>
                 <li><a href="#task-section" data-toggle="tab">your preparedness</a></li>
