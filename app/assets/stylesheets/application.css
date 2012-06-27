@@ -854,9 +854,7 @@ legend + .control-group {
     background-color: #333333;
 }*/
 
-.nav-tabs .active a, .nav-tabs .active a:hover {
-	text-indent: 6px;
-	}
+
 
 .navbar img{
     margin: 8px;
@@ -872,22 +870,19 @@ legend + .control-group {
 }
 /* -------------tabbed box ------------*/
 /* --------------note: this is from for Togglable tabs with bootstrap-tab.js, but since it's only one tab it's not using any js----*/
-.nav-tabs {
-	border: none;
-	position: relative;
-}
+
 .navbar-fixed-top {
     top: 0;
 }
-.nav-tabs > .active > a,
-.nav-tabs > .active > a:hover {
+.dash-tabs > .active > a,
+.dash-tabs > .active > a:hover {
   background-color: #ABDAE2;
   /*border: 1px solid #3AAFBF;*/
   border-bottom-color: transparent;
   cursor: default;
   height:35px;
 }
-.nav-tabs li a {
+.dash-tabs li a {
 	padding-bottom: 0px;
     padding-right: 15px;
 	}
@@ -982,7 +977,9 @@ section {
 	padding-top:110px;
 	min-height:150px;
 }
-
+section.dash {
+	min-height:600px;
+}
 section img{
 	float: right;
 }
@@ -1882,7 +1879,7 @@ section h2 {
     padding:10px;
     min-height: 240px;
 }
-.nav-tabs > li > a {
+.dash-tabs > li > a {
     border-radius: 10px 10px 0 0;
     }
 /*--------- bubble/triangle TOP -----------------*/
@@ -1999,13 +1996,10 @@ section h2 {
 .btn-large {
 	margin: 5px 2px 5px;
 }
-.nav > li > a:hover {
+.dash-tabs > li > a:hover {
   text-decoration: none;
   background-color: #ABDAE2;
   color:#ffffff;
-}
-.nav ul{
-	text-align:right;
 }
 
 /*----------------Glyphicons --------------------*/
