@@ -1,9 +1,17 @@
-
 <p id="notice"><%= notice %></p>
-
-<div id="retask">
-	<%= render "tasks/tasks" %>
+<div class="headerspace">
 </div>
-<%= render "tasks/taskbuttons" %>
-
-<!--<a href="#retask" id ="skip">reload me </a>  -->
+<div class="container-fluid span9">
+        <ul id="myTab" class="nav nav-tabs">
+            <li class="active note">
+                <a href="#home" data-toggle="tab">
+                YOUR PREPARED.LY TASKS:</a>
+            </li>
+        </ul>
+        <div class="taskbox lightblue">
+        	<section>
+                <%= render "tasks/tasks" %>
+                <%= render "tasks/taskbuttons" %>
+            </section>    
+        </div>
+    </div>

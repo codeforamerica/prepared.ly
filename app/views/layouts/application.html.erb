@@ -11,7 +11,7 @@
   <%= stylesheet_link_tag "bootstrap-responsive", :media => "all" %>
   <%= stylesheet_link_tag "jquery-ui" %>
 </head>
-<body data-offset="50" data-target=".subnav" data-spy="scroll" data-twttr-rendered="true">
+<body data-offset="100" data-target=".subnav" data-spy="scroll" data-twttr-rendered="true">
        <% if user_signed_in? %>
              <%= render "layouts/usernavigation" %>
        <% else %>
@@ -83,14 +83,14 @@
                     <div id="signin" class="modal hide fade">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h3>Modal Heading</h3>
+              <h3>Sign in</h3>
             </div>
             <div class="modal-body">
               <h4>Sign in</h4>               
             </div>
             <p> put login content here </p>
              <div class="modal-footer">
-              <a href="#" class="btn" data-dismiss="modal" >Close</a>
+              <a href="#" class="btn" data-dismiss="modal">Close</a>
             </div> 
 
 
@@ -107,15 +107,14 @@
   document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
 
 //-- task window -->
-$(document).ready(function() {
 $("#skip").click(function(e){
   e.preventDefault();   
   $.get("/tasks-partial",
       function(response) {
         $("#retask").html(response);
-      });
-    });
+  });
 });
+  
 
 //-- subnav -->
 $(document).scroll(function(){

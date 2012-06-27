@@ -6,7 +6,7 @@
             <p class="lead">Make staying prepared for wildfire fun and easy.</p>
                     <p>Already a user? <a href="/users/sign_in">Log in here</a>.</p>
                     <div class="sub-section">
-                        <div class="task-butt"><%= link_to ' take the tour '.html_safe,  new_user_registration_path, :class => 'btn-large btn-info btn' %>
+                        <div class="task-butt"><a href="#map-section" class="btn-large btn-info btn"> take the tour</a>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <%= link_to ' Create an account '.html_safe,  new_user_registration_path, :class => 'btn-large btn-success btn' %>
                         <hr></hr>
@@ -31,8 +31,8 @@
             <div class="sub-section">
                 <p>Enter your address and we'll tell you about the risk of your location.</p>
                 <div class="controls">
-                    <div class="task-butt input-append map-butt">
-                        <%= text_field_tag(:q, nil,  :value => '123 Main St. Austin, TX', :class => 'address form-inline input-xx-large') %><%= submit_tag("Load my map", :class => 'btn-large btn-success btn') %>
+                    <div class="task-butt">
+                        <%= text_field_tag(:q, nil,  :value => '123 Main St. Austin, TX', :class => 'address form-inline input-xx-large') %><%= submit_tag("Load my map", :class => 'btn-success btn mapbutton') %>
                         <hr></hr>    
                     </div>
                 </div>

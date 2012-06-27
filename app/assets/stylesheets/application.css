@@ -100,6 +100,8 @@ select,
 .address label {
 	display:none;
 	}	
+
+	
 /*input {
 	margin: 10px;
 	padding: 5px;
@@ -172,22 +174,12 @@ td { vertical-align: top; }
     background-color: #333333;
 }
 
-.input-prepend .add-on, .input-append .add-on, .input-prepend .btn, .input-append .btn {
-    border-radius: 0 4px 4px 0;
-    /*height: 23px;*/
-    margin-left: 0;
+
 }
 .map-butt .btn{
 	margin-top:0px;
 }
-.input-xx-large{
-	color: #333333;
-    font-size: 15px;
-    height: 30px;
-    text-align: left;
-    text-indent: 5px;
-    margin-top:0px;
-}
+
 .navbar-items {
     display: block;
     padding: 10px 30px 0px 0px;
@@ -294,6 +286,15 @@ td { vertical-align: top; }
     width:60%;
 	float:left;
 	margin-top: 1px;
+}
+#map-small {
+	border: #3AAFBF solid thin;
+    border-radius: 10px 10px 10px 10px;
+	min-width: 250px;
+    height: 250px;
+    width:60%;
+	float:left;
+	margin: 2px 15px 10px 10px;
 }
 #map-controls{ 
   float:left;
@@ -633,12 +634,7 @@ margin-top:-32767px;/* thank you Erik J - negate effect of float*/
 .help-inline {
   padding-left: 0px;
 }
-.input-prepend .add-on,
-.input-append .add-on,
-.input-prepend .btn,
-.input-append .btn {
-  border-radius: 0 4px 4px 0;
-}
+
 legend + .control-group {
   margin-top: 18px;
 }
@@ -982,7 +978,6 @@ legend + .control-group {
      -moz-border-radius: 0 0 4px 4px;
           border-radius: 0 0 4px 4px;
 }
-
 section {
 	padding-top:110px;
 	min-height:150px;
@@ -1303,45 +1298,7 @@ section h2 {
   *zoom: 1;
 }
 
-.navbar-form:before,
-.navbar-form:after {
-  display: table;
-  content: "";
-}
 
-.navbar-form:after {
-  clear: both;
-}
-
-.navbar-form input,
-.navbar-form select,
-.navbar-form .radio,
-.navbar-form .checkbox {
-  margin-top: 5px;
-}
-
-.navbar-form input,
-.navbar-form select {
-  display: inline-block;
-  margin-bottom: 0;
-}
-
-.navbar-form input[type="image"],
-.navbar-form input[type="checkbox"],
-.navbar-form input[type="radio"] {
-  margin-top: 3px;
-}
-
-.navbar-form .input-append,
-.navbar-form .input-prepend {
-  margin-top: 6px;
-  white-space: nowrap;
-}
-
-.navbar-form .input-append input,
-.navbar-form .input-prepend input {
-  margin-top: 0;
-}
 
 .navbar-search {
   position: relative;
@@ -1368,7 +1325,14 @@ section h2 {
        -o-transition: none;
           transition: none;
 }
-
+.mapbutton {
+    font-size: 13px;
+    height: 28px;
+    left: 4px;
+    position: relative;
+    text-align: right;
+    top: -4px;
+}
 .navbar-search .search-query:-moz-placeholder {
   color: #cccccc;
 }
@@ -1435,6 +1399,7 @@ section h2 {
 
 .navbar .nav.pull-right {
   float: right;
+  text-align:right;
 }
 
 .navbar .nav > li {
@@ -1742,7 +1707,7 @@ section h2 {
     color: #339999;
     padding-left: 13px;
 	}
-.subnav .nav > .active > a, .subnav .nav > .active > a:hover {
+/*.subnav .nav > .active > a, .subnav .nav > .active > a:hover {
   padding-left: 13px;
   color: rgb(119, 119, 119);
   background-color: rgb(233, 233, 233);
@@ -1757,26 +1722,13 @@ section h2 {
 }
 
 /* Fixed subnav on scroll, but only for 980px and up (sorry IE!) */
-@media (min-width: 980px) {
-  .subnav-fixed {
-    position: fixed;
-    top: 40px;
-    right: 0;
-    z-index: 1020; /* 10 less than .navbar-fixed to prevent any overlap */
-    border-color: #d5d5d5;
-    border-width: 0 0 1px; /* drop the border on the fixed edges */
-    -webkit-border-radius: 0;
-       -moz-border-radius: 0;
-            border-radius: 0;
-    -webkit-box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
-       -moz-box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
-            box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1);
-    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false); /* IE6-9 */
-  }
+
   .subnav-fixed .nav {
     width: 938px;
     margin: 0 auto;
     padding: 0 1px;
+    left:55px;
+    position: relative;
   }
   .subnav .nav > li:first-child > a,
   .subnav .nav > li:first-child > a:hover {
@@ -1784,9 +1736,9 @@ section h2 {
        -moz-border-radius: 0;
             border-radius: 0;
   }
-}
-@media (max-width: 768px) {
 
+@media (max-width: 768px) {
+}
   /* Remove any padding from the body */
   body {
     padding-top: 0;
@@ -1895,10 +1847,22 @@ section h2 {
   }
 
 }
-/*------------dashboard---------------------*/
+/*---need to fix, being implemented in tasks/index ----*/
+.headerspace {
+	height:100px;
+}
 /*---------------- Dashboard ---------------*/
 .span9 section {
 	padding-top:0px;
+}
+.sidebar.nav {
+	text-align:right;
+	float:right;
+}
+.sidebar.nav li {
+	font-weight:500;
+	font-size:17px;
+	text-align:right;
 }
 .span3 img, #usercontainer{
 	float:left;
@@ -1933,11 +1897,12 @@ section h2 {
     height:150px;
     overflow-y: auto;
     overflow-x: hidden;
+    max-width:400px;
 }
 .triangle-top-box .input-xlarge {
     height: 75px;
     margin: 0 10px 10px;
-    width: 350px;
+    width: 330px;
 }
 .triangle-top {
 	border-color: transparent transparent #FFFFFF;
@@ -1954,10 +1919,10 @@ section h2 {
 .taskbox.lightblue {
 	background:#ABDAE2;
 }
-.task-butt {
+.taskbox .task-butt {
 	position: relative;
     top: -475px;
-    margin-left:30px;
+    margin-left:50px;
 }
 .dash {
    position: relative;
@@ -1982,7 +1947,7 @@ section h2 {
     line-height: 1.2em;
     margin: 10px;
 }
-.triangle-top-box h2 {
+.triangle-top-box h2, .contentbox h2 {
 	color: #4996A4;
 	padding-top:10px;
 }
@@ -1994,7 +1959,7 @@ section h2 {
     font-weight: 500;
     text-transform:uppercase;    
 }
-.triangle-top-box h2 {
+.triangle-top-box h2, .contentbox h2 {
     font-size: 17px;
     font-weight: 500;
     text-transform:uppercase;   
@@ -2034,10 +1999,16 @@ section h2 {
 .btn-large {
 	margin: 5px 2px 5px;
 }
+.nav > li > a:hover {
+  text-decoration: none;
+  background-color: #ABDAE2;
+  color:#ffffff;
+}
+.nav ul{
+	text-align:right;
+}
 
-
-
-/*----------------Glyphicons --------------------
+/*----------------Glyphicons --------------------*/
 
 .icon-white {
   background-image: url("glyphicons-halflings-white.png");
@@ -2603,4 +2574,3 @@ section h2 {
   background-position: -456px -144px;
 }
  
-*/
