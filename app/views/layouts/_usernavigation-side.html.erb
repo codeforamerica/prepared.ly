@@ -1,0 +1,13 @@
+    <div class="span3">
+        <img src="assets/userphoto-default.png">
+        <div id="usercontainer">
+            <h2>Hi, <%= @user.first_name %>.</h2>
+            <p><%= @user.address %></p>
+        </div>
+          <ul class="nav nav-tabs">
+                <li><a href="#map-section">location and current conditions</a></li>
+                <li><a href="#task-section">your preparedness</a></li>
+                <li><a href="#notify-section">notification preferences</a></li>
+                <li><a href="#account-section">account settings</a></li>
+          </ul>
+    </div> 
