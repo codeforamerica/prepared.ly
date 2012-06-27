@@ -11,21 +11,18 @@ class MessagesController < ApplicationController
   end
 
   def remind
-    task_id = params[:task_id]
-    date = params[:date]
+
+    @message = Message.create!(:body => Task.where(:id => params[:task_id]).first.task, :scheduled_time => params[:date])
+    # task_id = params[:task_id]
     user = current_user
-     
-    if params[:email] == "1"
-      Task.find(task_id).send_reminder_email(user, date)
-    end
+    # if params[:email] == "1"
+    #   Task.find(task_id).send_reminder_email(user, date)
+    # end
     if params[:text] == "1"
-      Task.find(task_id).send_reminder_text(user, date)
+      @message.send_scheduled_messages(user)
     end
 
-    redirect_to tasks_url, notice: "Setting reminder(s)"
-
-  end
-
+    redirect_to tasks_url, notice: params.inspect
   end
 
   # GET /messages/1
