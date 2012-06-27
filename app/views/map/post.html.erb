@@ -21,14 +21,14 @@
 <!-- div that will display the map that is set using below javascript -->
     <div id="map"></div>
    <div id="warnings"  style="display: none;">
-          <h4>National Weather Service Warnings In Your Area</h4>
+          <p><h4>National Weather Service Warnings In Your Area</h4></p>
           <% @warnings.each do |w| -%>
-            <%= w.css("title").text -%>
-            <%= "Summary: " + w.css("summary").text -%>
-            <%= "Urgency: " + w.css("urgency").text -%>
-            <%= "Severity: " + w.css("severity").text -%>
-            <%= "Certainty: " + w.css("certainty").text -%>
-            <%= "Affected counties: " + w.css("areaDesc").text -%>
+            <%= w.css("title").text -%><br />
+            <strong>Summary: </strong> <%= w.css("summary").text -%><br />
+            <strong>Urgency: </strong> <%= w.css("urgency").text -%><br />
+            <strong>Severity: </strong> <%= w.css("severity").text -%><br />
+            <strong>Certainty: </strong> <%= w.css("certainty").text -%><br />
+            <strong>Affected counties: </strong> <%= w.css("areaDesc").text -%><br />
             <br />
             <hr />
           <% end %>
