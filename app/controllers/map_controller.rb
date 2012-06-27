@@ -2,6 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'wunderground'
 
+
 class TFS
   include HTTParty
 
@@ -49,6 +50,8 @@ class CartoDB
 end
 
 class MapController < ApplicationController
+  #after_filter :post, only => [:post, :nws_warnings]
+
   def get
   end
 
@@ -85,16 +88,15 @@ class MapController < ApplicationController
       # Counties with a National Weather Service warning
       doc = Nokogiri::XML(open('http://alerts.weather.gov/cap/tx.php?x=0'))
       doc.remove_namespaces!
-      counties = doc.css('entry areaDesc').any? do |node|
-        each_county_array = node.text.strip.split('; ')
-        each_county_array.include?(CartoDB.current_county(@address.latlon).capitalize)
-      end        
-      if counties
-        @inside_nws = 'yes'
-      else
-        @inside_nws = 'no'
+      @warnings = []
+      @inside_nws = 'no'
+      doc.css('entry').each do |node|
+        each_county_array = node.css('areaDesc').text.strip.split('; ')
+        if each_county_array.include?(CartoDB.current_county(@address.latlon).capitalize)
+          @inside_nws = 'yes'
+          @warnings.push(node)
+        end
       end
-
 
       # Risk Assessment Level
       @risk_level = TFS.risk_assessment(@address.latlon)
@@ -112,4 +114,5 @@ class MapController < ApplicationController
       @risk_text = risk_text_mapping[@risk_level]
     end
   end
+
 end
