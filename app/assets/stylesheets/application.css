@@ -887,6 +887,16 @@ legend + .control-group {
     padding-right: 15px;
 	}
 /*------------subnav---------------------*/
+.subnav .nav > li > a {
+  margin: 0;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  border-left: 1px solid #f5f5f5;
+  border-right: 1px solid #e5e5e5;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+}
 .subhead {
   padding-bottom: 0;
   margin-bottom: 9px;
@@ -931,17 +941,9 @@ legend + .control-group {
 
 .subnav .nav {
   margin-bottom: 0;
+  padding-left:10px;
 }
-.subnav .nav > li > a {
-  margin: 0;
-  padding-top: 11px;
-  padding-bottom: 11px;
-  border-left: 1px solid #f5f5f5;
-  border-right: 1px solid #e5e5e5;
-  -webkit-border-radius: 0;
-     -moz-border-radius: 0;
-          border-radius: 0;
-}
+
 .subnav .nav > .active > a,
 .subnav .nav > .active > a:hover {
   padding-left: 13px;
@@ -973,6 +975,127 @@ legend + .control-group {
      -moz-border-radius: 0 0 4px 4px;
           border-radius: 0 0 4px 4px;
 }
+
+/* Subnav */
+.subnav {
+  font-size:16px;	
+  width: 100%;
+  height: 36px;
+  background-color: #eeeeee; /* Old browsers */
+  background-repeat: repeat-x; /* Repeat the gradient */
+  background-image: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%); /* FF3.6+ */
+  background-image: -ms-linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* IE10+ */
+  background-image: -o-linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* Opera 11.10+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
+  background-image: linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* W3C */
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+.subnav .nav {
+  margin-bottom: 0;
+}
+.subnav .nav > li > a {
+  margin: 0;
+  padding-top:    11px;
+  padding-bottom: 11px;
+  border-left: 1px solid #f5f5f5;
+  border-right: 1px solid #e5e5e5;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+}
+.subnav .nav > .active > a,
+.subnav .nav > .active > a:hover {
+  padding-left: 13px;
+  color: #777;
+  background-color: #e9e9e9;
+  border-right-color: #ddd;
+  border-left: 0;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.05);
+     -moz-box-shadow: inset 0 3px 5px rgba(0,0,0,.05);
+          box-shadow: inset 0 3px 5px rgba(0,0,0,.05);
+}
+.subnav .nav > .active > a .caret,
+.subnav .nav > .active > a:hover .caret {
+  border-top-color: #777;
+}
+.subnav .nav > li:first-child > a,
+.subnav .nav > li:first-child > a:hover {
+  border-left: 0;
+  padding-left: 12px;
+  -webkit-border-radius: 4px 0 0 4px;
+     -moz-border-radius: 4px 0 0 4px;
+          border-radius: 4px 0 0 4px;
+}
+.subnav .nav > li:last-child > a {
+  border-right: 0;
+}
+.subnav .dropdown-menu {
+  -webkit-border-radius: 0 0 4px 4px;
+     -moz-border-radius: 0 0 4px 4px;
+          border-radius: 0 0 4px 4px;
+}
+.subnav {
+	background-color:#FFFFFF;
+	border-right: 1px solid #e5e5e5;
+	border-radius:4px 4px 4px 4px;
+	box-shadow:2px 2px 1px #CCCCCC;
+	height:60px;
+	width:100%;
+	background-image: -moz-linear-gradient(center top , #FFFFFF 0%, #FFFFFF 100%);
+  	margin-top: 0px;  
+}
+.subnav .nav > .active > a .subnav .nav >.active > a:hover {
+	background-color: #FFFFFF;
+    border-left: 0 none;
+    border-right-color: #DDDDDD;
+    color: #339999;
+    padding-left: 13px;
+	}
+
+/* Fixed subnav on scroll, but only for 980px and up (sorry IE!) */
+
+  .subnav-fixed .nav {
+    width: 938px;
+    margin: 0 auto;
+    padding: 0 1px;
+    left:55px;
+    position: relative;
+  }
+  .subnav .nav > li:first-child > a,
+  .subnav .nav > li:first-child > a:hover {
+    -webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+  }
+
+@media (max-width: 768px) {
+}
+  /* Remove any padding from the body */
+  body {
+    padding-top: 0;
+  }
+
+  /* Jumbotron buttons */
+  .jumbotron .btn {
+    margin-bottom: 10px;
+  }
+
+  /* Subnav */
+
+  .subnav .nav > li {
+    float: left;
+  }
+
+
+  .subnav .nav > li:first-child > a,
+  .subnav .nav > li:first-child > a:hover {
+      -webkit-border-radius: 4px 4px 0 0;
+         -moz-border-radius: 4px 4px 0 0;
+              border-radius: 4px 4px 0 0;
+  }
 section {
 	padding-top:110px;
 	min-height:150px;
@@ -1624,155 +1747,6 @@ section h2 {
   line-height: 1.7em;
 }
 
-/* Subnav */
-.subnav {
-  font-size:16px;	
-  width: 100%;
-  height: 36px;
-  background-color: #eeeeee; /* Old browsers */
-  background-repeat: repeat-x; /* Repeat the gradient */
-  background-image: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%); /* FF3.6+ */
-  /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f5f5), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
-  /*background-image: -webkit-linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* Chrome 10+,Safari 5.1+ */
-  background-image: -ms-linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* IE10+ */
-  background-image: -o-linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* Opera 11.10+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
-  background-image: linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* W3C */
-  border: 1px solid #e5e5e5;
-  -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
-}
-.subnav .nav {
-  margin-bottom: 0;
-}
-.subnav .nav > li > a {
-  margin: 0;
-  padding-top:    11px;
-  padding-bottom: 11px;
-  border-left: 1px solid #f5f5f5;
-  border-right: 1px solid #e5e5e5;
-  -webkit-border-radius: 0;
-     -moz-border-radius: 0;
-          border-radius: 0;
-}
-.subnav .nav > .active > a,
-.subnav .nav > .active > a:hover {
-  padding-left: 13px;
-  color: #777;
-  background-color: #e9e9e9;
-  border-right-color: #ddd;
-  border-left: 0;
-  -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.05);
-     -moz-box-shadow: inset 0 3px 5px rgba(0,0,0,.05);
-          box-shadow: inset 0 3px 5px rgba(0,0,0,.05);
-}
-.subnav .nav > .active > a .caret,
-.subnav .nav > .active > a:hover .caret {
-  border-top-color: #777;
-}
-.subnav .nav > li:first-child > a,
-.subnav .nav > li:first-child > a:hover {
-  border-left: 0;
-  padding-left: 12px;
-  -webkit-border-radius: 4px 0 0 4px;
-     -moz-border-radius: 4px 0 0 4px;
-          border-radius: 4px 0 0 4px;
-}
-.subnav .nav > li:last-child > a {
-  border-right: 0;
-}
-.subnav .dropdown-menu {
-  -webkit-border-radius: 0 0 4px 4px;
-     -moz-border-radius: 0 0 4px 4px;
-          border-radius: 0 0 4px 4px;
-}
-.subnav {
-	background-color:#FFFFFF;
-	border-right: 1px solid #e5e5e5;
-	border-radius:4px 4px 4px 4px;
-	box-shadow:2px 2px 1px #CCCCCC;
-	height:60px;
-	width:100%;
-	background-image: -moz-linear-gradient(center top , #FFFFFF 0%, #FFFFFF 100%);
-  	margin-top: 0px;  
-}
-.subnav .nav > .active > a .subnav .nav >.active > a:hover {
-	background-color: #FFFFFF;
-    border-left: 0 none;
-    border-right-color: #DDDDDD;
-    color: #339999;
-    padding-left: 13px;
-	}
-/*.subnav .nav > .active > a, .subnav .nav > .active > a:hover {
-  padding-left: 13px;
-  color: rgb(119, 119, 119);
-  background-color: rgb(233, 233, 233);
-  border-right-color: rgb(221, 221, 221);
-  border-left: 0pt none;
-  box-shadow: 0pt 3px 5px
-    rgba(0, 0, 0, 0.05) inset;
-}
-.subnav .nav > li:first-child > a, .subnav .nav > li:first-child > a:hover {
-  border-radius: 0pt 0pt 0pt
-    0pt;
-}
-
-/* Fixed subnav on scroll, but only for 980px and up (sorry IE!) */
-
-  .subnav-fixed .nav {
-    width: 938px;
-    margin: 0 auto;
-    padding: 0 1px;
-    left:55px;
-    position: relative;
-  }
-  .subnav .nav > li:first-child > a,
-  .subnav .nav > li:first-child > a:hover {
-    -webkit-border-radius: 0;
-       -moz-border-radius: 0;
-            border-radius: 0;
-  }
-
-@media (max-width: 768px) {
-}
-  /* Remove any padding from the body */
-  body {
-    padding-top: 0;
-  }
-
-  /* Jumbotron buttons */
-  .jumbotron .btn {
-    margin-bottom: 10px;
-  }
-
-  /* Subnav */
-  .subnav {
-    position: static;
-    top: auto;
-    z-index: auto;
-    width: auto;
-    height: auto;
-    background: #fff; /* whole background property since we use a background-image for gradient */
-    -webkit-box-shadow: none;
-       -moz-box-shadow: none;
-            box-shadow: none;
-  }
-  .subnav .nav > li {
-    float: none;
-  }
-  .subnav .nav > li > a {
-    border: 0;
-  }
-  .subnav .nav > li + li > a {
-    border-top: 1px solid #e5e5e5;
-  }
-  .subnav .nav > li:first-child > a,
-  .subnav .nav > li:first-child > a:hover {
-      -webkit-border-radius: 4px 4px 0 0;
-         -moz-border-radius: 4px 4px 0 0;
-              border-radius: 4px 4px 0 0;
-  }
 
   /* Popovers */
   .large-bird {
