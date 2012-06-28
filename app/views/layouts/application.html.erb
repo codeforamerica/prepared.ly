@@ -59,7 +59,7 @@
   </div>   
   <% if user_signed_in? %>
       <div class="container-fluid">
-      <%= yield %>
+        <%= render "layouts/dashboard" %>
       </div>
       <% else %>
         <div id="main">
