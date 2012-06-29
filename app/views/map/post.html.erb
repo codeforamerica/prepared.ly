@@ -13,88 +13,7 @@
     </div>
 <!-- div that will display the map that is set using below javascript -->
     <div id="map"></div>
-<<<<<<< HEAD
-            <div class="detail-col">
-                <table>
-                    <thead>
-                        <td><h4><%= @address.address %></h4>
-                        <hr></hr></td>
-                        
-                    </thead>
-                    <tr>
-                        <td class="risk risk-title">Risk of this location:</td>
-                    </tr>
-                    <tr>
-                        <% if @risk_level %>    
-                          <td class="risk risk-<%= @risk_level %>"><%= @risk_text %>
-                          </td>
-                        <% else %>
-                          <td class="risk">No risk data is available at this location</td>
-                        <% end %>
-                    </tr>
-                    <tr>
-                        <td class="note">
-                            <a href="#" id="map-pop" rel="popover" data-content="<strong> About Risk Level </strong>
-                              <br>The risk level is supplied by the Texas Forest Service Wildfire Risk Assessment 
-                            Portal (TxWRAP), which uses the Fire Intensity Scale (FIS). 
-                            The FIS quantifies potential fire intensity based on high to extreme weather 
-                            conditions, fuels, and topography." class="note">About Risk Level</a>
-                            <!--<a href="#" class="tooltip"> About Risk Level <span> 
-                            <img class="callout" src="/assets/callout.png" /> 
-                            <strong> About Risk Level </strong>
-                            <br /> 
-                            The risk level is supplied by the Texas Forest Service Wildfire Risk Assessment 
-                            Portal (TxWRAP), which uses the Fire Intensity Scale (FIS). 
-                            The FIS quantifies potential fire intensity based on high to extreme weather 
-                            conditions, fuels, and topography. </span> </a>  
-                            <span> 
-                            <img class="callout" src="/assets/callout.png" /> -->
-                            &#124;
-                        <a href="http://www.texaswildfirerisk.com/Map" target="blank">go to TxWRAP site</a>
-                        </td> 
-                    </tr>        
-                   <!-- <tr>
-                        <td colspan="2" class="note">See more about your risk level, here.</td>
-                    </tr>-->
-                    <tr>
-                        <td><span class="condition-type">Wind: </span><span class="condition"><%= @wind_conditions %></span></td>
-                    </tr>
-                    <tr>
-                        <td><span class="condition-type">Humidity:</span><span class="class="condition"> <%= @relative_humidity %></span></td>
-                    </tr>
-                    <tr>
-                        <td><span class="condition-type">Inside of a Burn Ban: </span><span class="class="condition"> <%= @inside_burnban %></span></td>
-                    </tr>
-                    <tr id="map-controls">
-                        <td><label for="firestations" class="condition-type">Show Fire Stations</label &nbsp;<input type="checkbox" id="firestations" name="firestations" checked="checked" /></td>
-                        </tr>
-                        <tr>
-                        <td class="note">
-                            <a href="#" id="stations-pop" data-content="<strong>Please note</strong> that fire stations are shown for information purposes to better understand your local environment. Geographic proximity to a fire station, or many stations, does <b>not</b> mean you are safer." class="note">Important note about fire stations</a></td>
 
-                    </tr>       
-                </table>
-            </div>
-           <!-- <% unless user_signed_in? %>
-                <div class="detail-col">
-                  <h4>
-                      Join prepared.ly &mdash; it's free!
-                  </h4>
-                    <a href="users/sign_up"><button class="btn btn-info btn-large"> <i class="icon-user icon-white"></i> sign up now </button></a>
-                 </div>   
-             <% end %>
-             <div class="detail-col">
-                  <h4>
-                      Want to start getting more prepared <em>right now</em>?
-                  </h4>
-                    <a href="/tasks"><button class="btn btn-success btn-large"> <i class="icon-fire icon-white"></i> Get started! </button></a>
-            </div>   -->
-
-
-
-      </div>
-    </div>  
-=======
    <div id="warnings"  style="display: none;">
           <p><h4>National Weather Service Warnings In Your Area</h4></p>
           <% @warnings.each do |w| -%>
@@ -194,7 +113,6 @@
 </div>  
 <!--
   </div>-->
->>>>>>> 1023a26a77adfb097558a0ed809a3bea380c54b7
   <% else %>
   <div>Please enter a valid street address and try again.</div>
   <% end %>
