@@ -18,9 +18,12 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end -%>
 
+
+
+
 <%- if devise_mapping.omniauthable? %>
-		
-		<%# display Sign in with Google instead of google_oauth2 in sign up link %>
+		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+				<%# display Sign in with Google instead of google_oauth2 in sign up link %>
 	  <%- resource_class.omniauth_providers.each do |provider| %>
 	  	 <%- if (provider.to_s == "google_oauth2" ) %>
 				<%= provider_icon "google_oauth2" %>

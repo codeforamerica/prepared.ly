@@ -50,12 +50,12 @@ end
 
 class MapController < ApplicationController
   def get
-    @user = current_user
-    unless @user.nil?
-      @completed_tasks = CompletedTask.find_all_by_user_id(@user.id) # returns an array
-    end
-    @random = Task.random
-  end
+  #   @user = current_user
+  #   unless @user.nil?
+  #     @completed_tasks = CompletedTask.find_all_by_user_id(@user.id) # returns an array
+  #   end
+  #   @random = Task.random
+   end
 
   def post
     @address_str = params[:q]

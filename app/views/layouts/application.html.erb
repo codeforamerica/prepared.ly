@@ -50,28 +50,21 @@
   </div>
   <div class="modal-body">
       <%= render :partial => "devise/sessions/new" %>
-      <!--  need to render :partial => "devise/links" here but it isn't working correctly %> -->
+      
   </div>  
 </div>
 <!-- end login  modal content -->
 <div class="container" id="main-wrap">      
   <div id="beta">
   </div>   
-  <% if user_signed_in? %>
-      <div class="container-fluid">
-        <%= render "layouts/dashboard" %>
-      </div>
-      <% else %>
+
+
+ 
         <div id="main">
-            <div id="logo-wrapper">
-              <a href="/">
-                <div id="logo" title="preparedly">
-                </div>
-              </a>
-            </div>
+         
             <%= yield %>
-        </div>
-      <% end %>     
+  
+</div>
 </div>
 
 <div id="footer">
