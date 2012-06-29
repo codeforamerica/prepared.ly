@@ -9,22 +9,16 @@
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
   <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
 <% end -%>
+	<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+	  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+	<% end -%>
 
-<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
-<% end -%>
-
-<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
-<% end -%>
-
-
-
+	<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+	  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
+	<% end -%>
 
 <%- if devise_mapping.omniauthable? %>
-		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-				<%# display Sign in with Google instead of google_oauth2 in sign up link %>
-	  <%- resource_class.omniauth_providers.each do |provider| %>
+ <%- User.omniauth_providers.each do |provider| %>
 	  	 <%- if (provider.to_s == "google_oauth2" ) %>
 				<%= provider_icon "google_oauth2" %>
 	    	<%= link_to "Sign in with Google", user_omniauth_authorize_path(provider) %><br />
@@ -32,8 +26,5 @@
 			<% end -%>
 	    <%= provider_icon provider %>
 	    <%= link_to "Sign in with #{provider.to_s.titleize}", user_omniauth_authorize_path(provider) %><br />
-	   
 	  <% end -%>
-	  
-
 <% end -%>

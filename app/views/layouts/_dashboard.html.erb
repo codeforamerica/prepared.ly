@@ -4,6 +4,7 @@
         <div class="container-fluid">
             <div class="span9">
                 <div class="tab-content">
+                    <%= params.inspect %>
    
 <!-- //////////////////// Map ///////////////////////// -->        
                         <section id="map-section" class="tab-pane"> 
@@ -13,6 +14,7 @@
                                         LOCATION AND CURRENT CONDITIONS</a>
                                     </li>
                                 </ul>
+
                                 <div class="taskbox lightblue">  
                                     <div class="contentbox">    
                                         <%= form_tag("/map", :method=> "mappartial") do %>
