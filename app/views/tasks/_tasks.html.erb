@@ -1,5 +1,3 @@
-
-
 <div id="retask">
     <div class="contentbox">
         <h1><%= @random.task %></h1>
@@ -12,6 +10,7 @@
             <div class="triangle-top-box">
                 <h2>On the scale, this is:</h2>
                 <p><%= @random.difficulty %></p>
+                <img src="assets/easy.png">
             </div>  
             <div class="triangle-top">
             </div>       
@@ -19,6 +18,10 @@
                 <h2>add some knowledge:</h2>
                 <div class="controls">
                     <input type="text" class="input-xlarge" id="taskknow">
+                    <div class="createtask">
+                        <%= link_to '<i class="icon-pencil icon-white"></i> Create a new task'.html_safe, new_task_path, :class =>  'btn-info btn' %>
+                        <a class="btn btn-succsss">Submit</a>
+                    </div>
                 </div>
             </div>  
         </div>   

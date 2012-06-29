@@ -1,15 +1,13 @@
 <div class="task-butt">
-    
+  <div class="btn-group">
     <% if user_signed_in? %>
-        
-        <%= link_to '<i class="icon-pencil icon-white"></i> Create a new task'.html_safe, new_task_path, :class => 'btn-large btn-info btn' %>
-        <a class="btn-large btn-info btn" data-toggle="modal" href="#schedule">Schedule</a>
+        <a class="btn-large btn-info btn" data-toggle="modal" href="#schedule"><i class="icon-calendar icon-white"></i> Schedule</a>
     <% else %>
         <a href="users/sign_up"><button class="btn-large btn-info btn"><i class="icon-user icon-white"></i> Sign up to track my progress, set reminders, and create tasks!</button></a>
     <% end %> 
-        <%= link_to '<i class="icon-time icon-white"></i> Skip for now'.html_safe, tasks_path, :class => 'btn-large btn-inverse btn', :id => 'skip' %>
-        <%= link_to '<i class="icon-ok icon-white"></i> I did it!' .html_safe, "#done", :class => 'btn-large btn-success btn', :id => 'skip', :data => {:toggle => "modal"}%>
-</div> 
+        <%= link_to '<i class="icon-time icon-white"></i> Skip for now'.html_safe, tasks_path, :class => 'btn-large btn-warning btn', :id => 'skip' %>
+        <%= link_to '<i class="icon-ok icon-white"></i> I did it!' .html_safe, "#done", :class => 'btn-large btn-success btn', :data => {:toggle => "modal"}%>
+    </div>       
 <!-- //////////////////// schedule modal //////////////// -->
 <div id="schedule" class="modal hide fade">
             <div class="modal-header">
@@ -47,8 +45,22 @@
               <label>Any thing more to add?  </label>
               <input>
             </div>
-            <div class="modal-footer">
-              <%= link_to '<i class="icon-ok icon-white"></i> Give me another!'.html_safe, { :controller => 'completed_tasks', :action => 'completed' }, :class => 'btn-large btn-success btn' -%> 
+            <div class="modal-footer">        
+    <!-- //////////////////// share //////////////// -->
+                <div class="btn-group pull-right">
+                    <a class="btn-success btn dropdown-toggle" data-toggle="dropdown" href="#">
+                      <i class="icon-share icon-white"></i> Share
+                      <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <!-- dropdown menu links -->
+                      <li>Facebook</li>
+                      <li>Twitter </li>
+                      <li>Email</li>
+                    </ul>
+                </div>    
+              <%= link_to '<i class="icon-ok icon-white"></i> Give me another!'.html_safe, { :controller => 'completed_tasks', :action => 'completed' }, :class => 'btn-success btn' -%> 
+              <%= link_to '<i class="icon-pencil icon-white"></i> Create a new task'.html_safe, new_task_path, :class => 'btn-info btn' %>
               <a href="#" class="btn" data-dismiss="modal" >Close</a>
             </div>
 </div>

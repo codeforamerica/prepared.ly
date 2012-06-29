@@ -303,6 +303,7 @@ td { vertical-align: top; }
 }
 .tab-content {
 	padding-left: 15px;
+  padding-right: 10px;
 }
 .sidetabs > li > a {
 	color: #333333;
@@ -421,7 +422,9 @@ hr {
 	font-size: 15px;
 	}	
 
-
+.difficulty-easy {
+	
+}
 
 /*------------------------------------------------contact form---*/
 
@@ -1131,14 +1134,6 @@ section h2 {
   color: #ffffff;
 }
 
-.navbar .btn,
-.navbar .btn-group {
-  margin-top: 5px;
-}
-
-.navbar .btn-group .btn {
-  margin: 0;
-}
 
 .navbar-form {
   margin-bottom: 0;
@@ -1270,10 +1265,6 @@ section h2 {
   line-height: 18px;
 }
 
-.navbar .btn-group {
-  padding: 5px 5px 6px;
-  margin: 0;
-}
 
 .navbar .nav > li > a:hover {
   color: #ffffff;
@@ -1571,14 +1562,15 @@ section h2 {
     min-height: 300px;
     padding:15px;
     width: 500px;
-    float:left;
+    float:left;     
 }
 .contentbox {
     border-radius: 10px 10px 10px 10px;
     margin: 20px;
     background-color: #ffffff;
     padding:10px;
-    min-height: 240px;
+    min-height: 300px;
+
 }
 .dash-tabs > li > a {
     border-radius: 10px 10px 0 0;
@@ -1592,7 +1584,7 @@ section h2 {
     width:100%;
     float:left;
     margin-bottom:10px;
-    height:150px;
+    height:180px;
     overflow-y: auto;
     overflow-x: hidden;
     max-width:400px;
@@ -1618,9 +1610,9 @@ section h2 {
 	background:#ABDAE2;
 }
 .taskbox .task-butt {
-	position: relative;
-    top: -475px;
-    margin-left:50px;
+	 position: relative;
+    top: -530px;
+    margin-left:36px;
 }
 .dash {
    position: relative;
@@ -1635,6 +1627,7 @@ section h2 {
 	margin-top: 10px;
 	clear:both;
 }
+
 /*.task-container {
 	max-width: 800px;
 	float:left;
@@ -1684,25 +1677,32 @@ section h2 {
     top:-25px;
     position:relative;
     width:100%;
+        -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+  -webkit-box-shadow: 2px 9px 7px rgba(0, 0, 0, 0.3);
+     -moz-box-shadow: 2px 9px 7px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 9px 7px rgba(0, 0, 0, 0.3);
 }
+
 .taskbox.gray {
 	background:#cccccc;
 }
 .retask.taskbox{
 	width:450px;
 }
-.task-butt a {
+.task-butt a, .createtask a {
 	color: #ffffff;
 }
-.btn-large {
-	margin: 5px 2px 5px;
-}
+
 .dash-tabs > li > a:hover {
   text-decoration: none;
   background-color: #ABDAE2;
   color:#ffffff;
 }
-
+.btn-group {
+  float:left;
+}
 /*-------------------------------------------------about-page ---*/
 
 #about-logo {
