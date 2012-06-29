@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   # to have many ways to authenticate into a single user account, add this line and a related controller and model
   has_many :authentications
   has_many :tasks
+  has_many :messages
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable
