@@ -286,6 +286,18 @@ td { vertical-align: top; }
     width:60%;
 	float:left;
 	margin-top: 1px;
+
+}
+
+#warnings {
+	border: #3AAFBF solid thin;
+    border-radius: 4px 4px 4px 4px;
+	min-width: 325px;
+    height: 479px;
+    width:60%;
+	float:left;
+	margin-top: 1px;
+	overflow: scroll;
 }
 #map-small {
 	border: #3AAFBF solid thin;
