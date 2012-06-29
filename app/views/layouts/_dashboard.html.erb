@@ -22,7 +22,6 @@
                                         </div>
                                         <h1><%= @user.address %></h1>
                                         <p></p>
-                                        <p> For now this is just an i mage....</p>
                                          <h2>Search another address</h2>
                                             <div class="controls">
                                                 <div class="input-append map-butt">
@@ -57,7 +56,7 @@
                         </section> 
 <!-- //////////////////// tasks ///////////////////////// -->        
                         <section id ="task-section" class="tab-pane">
-                            <ul id="myTab" class="nav nav-tabs">
+                            <ul id="myTab" class="nav nav-tabs dash-tabs">
                                 <li class="active note">
                                     <a href="#home" data-toggle="tab">
                                     YOUR PREPARED.LY TASKS:</a>
@@ -68,20 +67,8 @@
                                 <%= render "tasks/taskbuttons" %>
                             </div>
                         </section> 
-<!-- //////////////////// notifications ///////////////////////// -->        
+<!-- //////////////////// notifications/account stuff ///////////////////////// -->        
                         <section id="notify-section" class="tab-pane"> 
-                                <h2>Your current notifications.</h2> 
-                                <p>What's happening now?</p>
-                                <p>Looks like you're on top of things! Excellent work.</p>
-                                <p> Adjust settings </p>
-                                <div class="sub-section">
-                                    <div class="task-butt"><%= link_to '<i class="icon-fire icon-white"></i> Contact the Fire Department >>'.html_safe,  contacts_path, :class => 'btn-large btn-success btn' %>
-                                        <hr></hr>
-                                    </div>
-                                </div>    
-                        </section>  
-<!-- //////////////////// account stuff ///////////////////////// -->        
-                        <section id="account-section" class="tab-pane"> 
                                 <h2>Your account.</h2>
                                 <p>Current settings:</p>
                                 <ul>
@@ -97,7 +84,10 @@
                                         <!--<a href="../users/sign_up" class="btn btn-large btn-success"> Create an account </a>-->
                                         <hr></hr>
                                     </div>
-                                </div>         
+                                </div>  
+                            <%= render "devise/registrations/edit" %>
+
+           
                             </section> 
                     </div>  
                 </div>           
