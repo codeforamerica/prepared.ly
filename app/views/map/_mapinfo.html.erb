@@ -1,0 +1,81 @@
+<!-- //////////////// MAP ////////////////////// -->
+<div id="map"></div>
+
+<!-- //////////////// table ////////////////////// -->
+<div id="warnings"  style="display: none;">
+      <p><h4>National Weather Service Warnings In Your Area</h4></p>
+      <% @warnings.each do |w| -%>
+        <%= w.css("title").text -%><br />
+        <strong>Summary: </strong> <%= w.css("summary").text -%><br />
+        <strong>Urgency: </strong> <%= w.css("urgency").text -%><br />
+        <strong>Severity: </strong> <%= w.css("severity").text -%><br />
+        <strong>Certainty: </strong> <%= w.css("certainty").text -%><br />
+        <strong>Affected counties: </strong> <%= w.css("areaDesc").text -%><br />
+        <br />
+        <hr />
+      <% end %>
+</div>
+    <div class="detail-col">
+        <table>
+            <thead>
+                <td><h4 id="address"><%= @address.address %></h4>
+                <hr></hr></td>
+                
+            </thead>
+            <tr>
+                <td class="risk risk-title">Risk of this location:</td>
+            </tr>
+            <tr>
+                <% if @risk_level %>    
+                  <td class="risk risk-<%= @risk_level %>" id="risk-text"><%= @risk_text %>
+                  </td>
+                <% else %>
+                  <td class="risk">No risk data is available at this location</td>
+                <% end %>
+            </tr>
+            <tr>
+                <td class="note">
+                    <a href="#" id="map-pop" data-content="<strong> About Risk Level </strong><br>The risk level is supplied by the Texas Forest Service Wildfire Risk Assessment 
+                    Portal (TxWRAP), which uses the Fire Intensity Scale (FIS). 
+                    The FIS quantifies potential fire intensity based on high to extreme weather 
+                    conditions, fuels, and topography." class="note">About Risk Level</a>
+                    &#124;
+                <a href="http://www.texaswildfirerisk.com/Map" target="blank">go to TxWRAP site</a>
+                </td> 
+            </tr>        
+           <!-- <tr>
+                <td colspan="2" class="note">See more about your risk level, here.</td>
+            </tr>-->
+            <tr>
+                <td><span class="condition-type">Wind: </span><span class="condition" id="wind-conditions"><%= @wind_conditions %></span></td>
+            </tr>
+            <tr>
+                <td><span class="condition-type">Humidity:</span><span class="condition" id="relative-humidity"> <%= @relative_humidity %></span></td>
+            </tr>
+            <tr>
+                <td><span class="condition-type">Inside of a Burn Ban: </span><span "class="condition" id="inside-burnban"> <%= @inside_burnban %></span></td>
+            </tr>
+            <tr>
+                <td><span class="condition-type">NWS Weather Warning: </span><span "class="condition" id="inside-nws"> <%= @inside_nws %></span></td>
+            </tr>
+            <tr>
+              <td class="note" id="warnings-trigger">Read current warnings</td>
+            </tr>
+            <tr>
+              <td class="note" id="remove-warnings">Go back to map</td>
+            </tr>
+            <tr id="map-controls">
+                <td><label for="firestations" class="condition-type">Show Fire Stations</label>&nbsp<input type="checkbox" id="firestations" name="firestations" checked="checked" /></td>
+            </tr>
+            <tr>
+            <td class="note">
+                <a href="#" id="stations-pop" data-content="<strong>Please note</strong> that fire stations are shown for information purposes to better understand your local environment. Geographic proximity to a fire station, or many stations, does <b>not</b> mean you are safer." class="note">Important note about fire stations</a></td>
+            </tr>       
+        </table>
+    </div>
+
+    <script>
+       var fire_stations = <%=raw @fs.to_json %>;
+       var address_location = {lat: <%=@address.latlon.y %>, lon: <%=@address.latlon.x %>};
+       var county_list = "<%= @counties_list %>";
+    </script>

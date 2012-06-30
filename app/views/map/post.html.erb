@@ -2,99 +2,21 @@
   <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.css">
   <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.ie.css">
 <% end %>
-  <% if @coordinates %>
+  
   <div>
     <div class="controls">
         <div class="input-append">
-            <%= form_tag("/map", :method=> "post") do%>
+            <%= form_tag("/map", :id => "fetchaddress", :method=> "post") do%>
                 <%= text_field_tag(:q, nil,  :value => @address_str,  :class => 'form-inline input-xx-large') %><%= submit_tag("Go", :class => 'btn btn-info btn') %>
             <% end %>
         </div>
     </div>
 <!-- div that will display the map that is set using below javascript -->
-    <div id="map"></div>
+   <div id="mapinfo"> 
 
-   <div id="warnings"  style="display: none;">
-          <p><h4>National Weather Service Warnings In Your Area</h4></p>
-          <% @warnings.each do |w| -%>
-            <%= w.css("title").text -%><br />
-            <strong>Summary: </strong> <%= w.css("summary").text -%><br />
-            <strong>Urgency: </strong> <%= w.css("urgency").text -%><br />
-            <strong>Severity: </strong> <%= w.css("severity").text -%><br />
-            <strong>Certainty: </strong> <%= w.css("certainty").text -%><br />
-            <strong>Affected counties: </strong> <%= w.css("areaDesc").text -%><br />
-            <br />
-            <hr />
-          <% end %>
-        </div>
-    <div class="detail-col">
-        <table>
-            <thead>
-                <td><h4><%= @address.address %></h4>
-                <hr></hr></td>
-                
-            </thead>
-            <tr>
-                <td class="risk risk-title">Risk of this location:</td>
-            </tr>
-            <tr>
-                <% if @risk_level %>    
-                  <td class="risk risk-<%= @risk_level %>"><%= @risk_text %>
-                  </td>
-                <% else %>
-                  <td class="risk">No risk data is available at this location</td>
-                <% end %>
-            </tr>
-            <tr>
-                <td class="note">
-                    <a href="#" id="map-pop" data-content="<strong> About Risk Level </strong><br>The risk level is supplied by the Texas Forest Service Wildfire Risk Assessment 
-                    Portal (TxWRAP), which uses the Fire Intensity Scale (FIS). 
-                    The FIS quantifies potential fire intensity based on high to extreme weather 
-                    conditions, fuels, and topography." class="note">About Risk Level</a>
-                    <!--<a href="#" class="tooltip"> About Risk Level <span> 
-                    <img class="callout" src="/assets/callout.png" /> 
-                    <strong> About Risk Level </strong>
-                    <br /> 
-                    The risk level is supplied by the Texas Forest Service Wildfire Risk Assessment 
-                    Portal (TxWRAP), which uses the Fire Intensity Scale (FIS). 
-                    The FIS quantifies potential fire intensity based on high to extreme weather 
-                    conditions, fuels, and topography. </span> </a>  
-                    <span> 
-                    <img class="callout" src="/assets/callout.png" /> -->
-                    &#124;
-                <a href="http://www.texaswildfirerisk.com/Map" target="blank">go to TxWRAP site</a>
-                </td> 
-            </tr>        
-           <!-- <tr>
-                <td colspan="2" class="note">See more about your risk level, here.</td>
-            </tr>-->
-            <tr>
-                <td><span class="condition-type">Wind: </span><span class="condition"><%= @wind_conditions %></span></td>
-            </tr>
-            <tr>
-                <td><span class="condition-type">Humidity:</span><span class="condition"> <%= @relative_humidity %></span></td>
-            </tr>
-            <tr>
-                <td><span class="condition-type">Inside of a Burn Ban: </span><span "class="condition"> <%= @inside_burnban %></span></td>
-            </tr>
-            <tr>
-                <td><span class="condition-type">NWS Weather Warning: </span><span "class="condition"> <%= @inside_nws %></span></td>
-            </tr>
-            <tr>
-              <td class="note" id="warnings-trigger">Read current warnings</td>
-            </tr>
-            <tr>
-              <td class="note" id="remove-warnings">Go back to map</td>
-            </tr>
-            <tr id="map-controls">
-                <td><label for="firestations" class="condition-type">Show Fire Stations</label>&nbsp<input type="checkbox" id="firestations" name="firestations" checked="checked" /></td>
-            </tr>
-            <tr>
-            <td class="note">
-                <a href="#" id="stations-pop" data-content="<strong>Please note</strong> that fire stations are shown for information purposes to better understand your local environment. Geographic proximity to a fire station, or many stations, does <b>not</b> mean you are safer." class="note">Important note about fire stations</a></td>
-            </tr>       
-        </table>
-    </div>
+    <%= render :partial => 'map/mapinfo' %>
+   </div>
+
     <% unless user_signed_in? %>
         <div class="detail-col">
           <h4>
@@ -113,12 +35,16 @@
 </div>  
 <!--
   </div>-->
-  <% else %>
-  <div>Please enter a valid street address and try again.</div>
-  <% end %>
+  
 </div>
 <% content_for :javascript_yield do %>
   <!-- scripts -->
+  <script src="http://code.leafletjs.com/leaflet-0.3.1/leaflet.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="app/assets/javascripts/wax.leaflet.min.js"></script>
+  <script type="text/javascript" src="app/assets/javascripts/cartodb-leaflet.js"></script>
+
+
  <script type="text/javascript">
   $(document).ready(function() {
     $("#map-pop")
@@ -146,84 +72,9 @@
     });
   });
   </script>
-  <script src="http://code.leafletjs.com/leaflet-0.3.1/leaflet.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="app/assets/javascripts/wax.leaflet.min.js"></script>
-  <script type="text/javascript" src="app/assets/javascripts/cartodb-leaflet.js"></script>
+  
 
-  <% if @coordinates %>
-    <script type="text/javascript">
-        $(document).ready(function() {
-
-          stamenTilesWithStations();
-
-          function stamenTilesWithStations() {
-
-            // make a map, using normal leaflet and stamen toner tiles
-            var map = new L.Map('map', {maxZoom: 18});
-            var mapCenter = new L.LatLng(<%= @address.latlon.y %>, <%= @address.latlon.x %>);
-            var mapZoom = 12;
-            var baseUrl = 'http://{s}.tile.stamen.com/terrain/{z}/{x}/{y}.jpg',
-                attrib = 'Map tiles by Stamen',
-                baseLayer = new L.TileLayer(baseUrl, {attribution: attrib, maxZoom:18});
-            map.addLayer(baseLayer);
-
-
-            var fireUrl = 'http://radarcache.srh.noaa.gov/tilecache/tilecache.py/1.0.0/fwx/{z}/{x}/{y}.png?type=google&LAYERS=fwx', attrib = 'Red flag fire warning from NWS', fireLayer = new L.TileLayer(fireUrl, {attribution: attrib, maxZoom:18}); 
-            map.addLayer(fireLayer);
-
-
-            var tx_burn_ban_counties = new L.CartoDBLayer({
-            show_cartodb_logo: false,
-            map_canvas: 'map',
-            map: map,
-            user_name:'tinio',
-            table_name: 'cntys04',
-            query: "SELECT cartodb_id, the_geom_webmercator FROM {{table_name}} WHERE name in (<%= @counties_list %>)",
-            infowindow: "SELECT cartodb_id, name_locas FROM {{table_name}} WHERE cartodb_id={{feature}}",
-            auto_bound: false 
-            });
-
-            var homeMarker = new L.Marker(new L.LatLng(<%= @address.latlon.y %>, <%= @address.latlon.x %>));
-            map.addLayer(homeMarker);
-            map.setView(mapCenter, mapZoom);
-
-
-            var MyIcon = L.Icon.extend({
-                iconUrl: '/assets/firestation.png',
-                shadowUrl: '',
-                iconSize: new L.Point(40, 13),
-                shadowSize: new L.Point(0, 0),
-                iconAnchor: new L.Point(20, 13),
-                popupAnchor: new L.Point(-3, -26)
-            });
-
-            var icon = new MyIcon();
-
-            var fire_stations = <%=raw @fs.to_json %>
-
-            var stations = new L.LayerGroup();
-            for(f in fire_stations){
-                station = fire_stations[f];
-                console.log(station);
-                
-                var m = new L.Marker(new L.LatLng(station.latlon.coordinates[1], station.latlon.coordinates[0]), {icon:icon});
-                stations.addLayer(m);
-                m.bindPopup(station.address + "<br />Austin, TX " + station.zip).openPopup();
-            }
-            map.addLayer(stations);
-
-            $('#firestations').click(function(){
-                if($(this).is(":checked")){
-                     map.addLayer(stations);
-                }else{
-                    map.removeLayer(stations);
-                }
-            })
-          }
-        });
-    </script>
-  <% end %>
+  
 <% end %>
 
 

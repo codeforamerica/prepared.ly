@@ -1614,6 +1614,16 @@ section h2 {
     top: -530px;
     margin-left:36px;
 }
+.supereasy, .easy, .medium, .hard, .superstar {
+  height: 67px;
+  width: 130px;
+}
+.easy {
+    background-image: url("easy.png");
+}
+.supereasy {
+    background-image: url("couch.png");
+}
 .dash {
    position: relative;
    top:10px;

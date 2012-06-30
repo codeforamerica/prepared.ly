@@ -22,11 +22,10 @@ Preparedly::Application.routes.draw do
       :omniauth_callbacks => "users/omniauth_callbacks",
       :registrations => "users/registrations" 
   }
-
+  match "/mapinfo" => "map#mapinfo"
   get "map" => "map#get"
   post "map" => "map#post"
   match "share" => "share#index"
-
   get "about" => "about#index"
 
   match "users/get" => "users#get"
