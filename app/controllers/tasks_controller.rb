@@ -16,23 +16,6 @@ class TasksController < ApplicationController
     render :template => "tasks/_tasks", :layout => false
   end
 
-  # GET /tasks/1
-  # GET /tasks/1.json
-
-  def remind
-    #sleep 10 # simulate the effect by waiting ten seconds to deliver
-    task_id = params[:task_id]
-    date = params[:date]
-    user = current_user 
-    # if params[:email] == "1"
-    #   Task.find(task_id).send_reminder_email(user, date)
-    # end
-    # if params[:text] == "1"
-    #   Task.find(task_id).send_reminder_text(user, date)
-    # end
-    redirect_to tasks_url, notice: "Setting reminder(s)"
-  end
-
   def show
     @task = Task.find(params[:id])
     respond_to do |format|
