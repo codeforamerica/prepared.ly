@@ -12,6 +12,7 @@ class TasksController < ApplicationController
   end
 
   def show
+    debugger
     @task = Task.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb

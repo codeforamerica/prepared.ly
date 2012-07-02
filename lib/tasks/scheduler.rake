@@ -5,7 +5,7 @@ task :scheduler_test => :environment do
 end
 
 task :send_scheduled_messages => :environment do
-    puts "Sending scheduled sms messages"
+    puts "Sending scheduled reminder messages"
     Message.send_scheduled_messages
     puts "done."
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120629080841) do
+ActiveRecord::Schema.define(:version => 20120702203949) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20120629080841) do
     t.datetime "scheduled_time"
     t.boolean  "sent"
     t.integer  "user_id"
+    t.string   "reminder_type"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

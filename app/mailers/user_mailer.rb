@@ -19,4 +19,13 @@ class UserMailer < ActionMailer::Base
     mail(:to => "Josh.Portie@austintexas.gov", :subject => "Prepared.ly Web Site Submission")
   end
 
+  def reminder_email(user)
+    @user = user
+    #task
+    #schedule
+    attachments.inline['preparedly-red.png'] = File.read('app/assets/images/preparedly-red.png')
+    mail(:to => user.email, :subject => "Your Scheduled Prepared.ly Reminder")
+    #share it
+  end
+
 end
