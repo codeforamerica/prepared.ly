@@ -50,7 +50,7 @@ class Message < ActiveRecord::Base
     # call the actionmailer here
     Message.where("(sent IS null OR sent = false) AND reminder_type = 'email' AND scheduled_time < ?", Time.now).each do |message|
       begin
-        UserMailer.reminder_email(message.user).deliver 
+        UserMailer.reminder_email(message).deliver 
         message.sent = true
         message.save!
       rescue Exception => e

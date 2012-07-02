@@ -62,9 +62,7 @@ class User < ActiveRecord::Base
     UserMailer.welcome_email(self).deliver
   end
 
-  # def send_reminder_email
-  #   UserMailer.reminder_email(self).deliver
-  # end
+  # reminder email is called directly from message.rb
 
   def send_contact_form
     UserMailer.contact_form.deliver
