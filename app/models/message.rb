@@ -10,10 +10,7 @@ class Message < ActiveRecord::Base
       if self.scheduled_time == nil
         begin
           @client.account.sms.messages.create(	
-          #jm sandbox number 
-          :from => '+15128616032',
-          #at number
-          #:from => '+15128616101',  	
+          :from => '+15128616032', 	
           :to => user.phone,
           :body => self.body
           )
@@ -33,10 +30,7 @@ class Message < ActiveRecord::Base
       begin
         #user = User.find(:user_id)
         @client.account.sms.messages.create(	
-        #jm sandbox number 
-        :from => '+15128616032',
-        #at number
-        #:from => '+15128616101', 	
+        :from => '+15128616032',	
         :to => message.user.phone,
         :body => message.body
         )
