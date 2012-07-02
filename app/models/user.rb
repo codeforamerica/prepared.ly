@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :authentications
   has_many :tasks
   has_many :completed_tasks
+  has_many :messages
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable
@@ -60,7 +61,9 @@ class User < ActiveRecord::Base
 
   def send_welcome_email
     UserMailer.welcome_email(self).deliver
-  end 
+  end
+
+  # reminder email is called directly from message.rb
 
   def send_contact_form
     UserMailer.contact_form.deliver

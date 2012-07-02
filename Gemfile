@@ -8,7 +8,6 @@ gem 'rails', '3.2.3'
 gem 'pg'
 gem 'activerecord-postgis-adapter'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -35,7 +34,6 @@ gem 'jquery_datepicker'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
 gem 'ruby-debug19', :require => 'ruby-debug'
 
 gem 'exception_notification'
