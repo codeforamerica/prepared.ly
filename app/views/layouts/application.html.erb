@@ -1,38 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <title>Preparedly</title>
     <meta name="viewport" content="width=device-width,initial-scale =1, user-scalable = no" />
   <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= yield :stylesheet_yield %>
   <%= yield :fb_og_tags %>
+
   <%= stylesheet_link_tag "mobile", :media => "all and (max-width: 600px)" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
 </head>
-<body data-spy="scroll" data-target=".subnav" data-offset="100">
+<body>
 <div class="container">
-  <div id="main-wrap">
-      <% if user_signed_in? %>
-           <%= render "layouts/usernavigation" %>
-         <% else %>
-           <%= render "layouts/navigation" %>
-      <% end %>
-      <div id="beta">
-      </div>   
-      <% unless user_signed_in? %>
-        <div id="logo-wrapper">
-          <a href="/">
-            <div id="logo" title="preparedly">
-            </div>
-          </a>
+    <div id="main-wrap">
+        <div id="beta">
         </div>
-      <% end %>   
-      <div id="main">
-          <%= yield %>
-      </div>
-  </div>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>	
+<!-- Navgation -->
+            <div class="nav-bar">
+                <ul class="nav-bar-items">
+                    <!--NAVIGATION!-->
+					<%= render 'devise/menu/registration_items' %>
+					<%= render 'devise/menu/login_items' %>
+					<li><%= link_to "resources", resources_path %></li> 
+					<li><%= link_to "about", about_path %></li>
+
+                </ul>
+            </div>
+<!-- end Navgation -->
+            
+            <div id="logo-wrapper">
+              <a href="/">
+                <div id="logo" title="preparedly">
+                </div>
+              </a>
+              </div>
+            <div id="main">
+                <%= yield %>
+            </div>
+    </div>
 </div>
 <div id="footer">
 	<div id="footer-green">
@@ -74,26 +85,6 @@
 <%= javascript_include_tag "application" %>
 
 </body>
-   
-<script type="text/javascript" charset="utf-8">
-$('.dropdown-toggle').dropdown();
-$('#navbar').scrollspy();
-$(document).scroll(function(){
-    // If has not activated (has no attribute "data-top"
-    if (!$('.subnav').attr('data-top')) {
-        // If already fixed, then do nothing
-        if ($('.subnav').hasClass('subnav-fixed')) return;
-        // Remember top position
-        var offset = $('.subnav').offset()
-        $('.subnav').attr('data-top', offset.top);
-    }
-
-    if ($('.subnav').attr('data-top') - $('.subnav').outerHeight() <= $(this).scrollTop())
-        $('.subnav').addClass('subnav-fixed');
-    else
-        $('.subnav').removeClass('subnav-fixed');
-});
-</script>
 <!-- Google Analytics -->
     <script type="text/javascript">
 

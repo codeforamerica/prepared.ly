@@ -28,41 +28,22 @@
         </script>
 
     </head>
-<body data-spy="scroll" data-target=".subnav" data-offset="100">
-<div class="container">
-  <div id="main-wrap">
+    <body>
     <div id="beta">
     </div>
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button"class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!-- Navgation -->
-            <div class="nav-collapse collapse">
-                <!--Upper NAVIGATION!-->
-                <ul class="nav navbar-items">
-                	<li class=""><a href="/"> home</a></li>
-					<li><%= link_to "learn", resources_path %></li> 
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+<!-- Navgation -->
+            <div class="nav-bar">
+                <ul class="nav-bar-items">
+                    <!--NAVIGATION!-->
+					<%= render 'devise/menu/registration_items' %>
+					<%= render 'devise/menu/login_items' %>
+					<li><%= link_to "resources", resources_path %></li> 
 					<li><%= link_to "about", about_path %></li>
-					<li class="dropdown">
-                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">account <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-						<li><%= render 'devise/menu/registration_items' %></li>
-						<li><%= render 'devise/menu/login_items' %></li>
-                        <!--<li><a href="#">dashboard</a></li>-->
-                      </ul>
-                    </li>
+
                 </ul>
             </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <!-- end Navgation -->
 <div class="container">
     <div id="about-green">
@@ -80,24 +61,6 @@
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     <%= yield :javascript_yield %>
     <%= javascript_include_tag "application" %>
-    <script type="text/javascript" charset="utf-8">
-$('.dropdown-toggle').dropdown();
-$('#navbar').scrollspy();
-$(document).scroll(function(){
-    // If has not activated (has no attribute "data-top"
-    if (!$('.subnav').attr('data-top')) {
-        // If already fixed, then do nothing
-        if ($('.subnav').hasClass('subnav-fixed')) return;
-        // Remember top position
-        var offset = $('.subnav').offset()
-        $('.subnav').attr('data-top', offset.top);
-    }
-
-    if ($('.subnav').attr('data-top') - $('.subnav').outerHeight() <= $(this).scrollTop())
-        $('.subnav').addClass('subnav-fixed');
-    else
-        $('.subnav').removeClass('subnav-fixed');
-});
-</script>
+    
     </body>
     </html>

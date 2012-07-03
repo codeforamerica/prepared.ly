@@ -2,7 +2,6 @@ require 'nokogiri'
 require 'open-uri'
 require 'wunderground'
 
-
 class TFS
   include HTTParty
 
@@ -22,9 +21,7 @@ class TFS
         :f => 'pjson'
       }
     )
-
     json_response = JSON.parse(response.body)
-    print json_response
     if json_response['results'].length > 0
       return json_response['results'][0]['attributes']['Pixel Value'].to_i
     else
@@ -50,8 +47,6 @@ class CartoDB
 end
 
 class MapController < ApplicationController
-  #after_filter :post, only => [:post, :nws_warnings]
-
   def get
   end
 
@@ -63,10 +58,11 @@ class MapController < ApplicationController
         :latlon => 'POINT(' + @coordinates[1].to_s + ' ' + @coordinates[0].to_s + ')')
       session[:last_address_id] = @address.id
 
-      # Fire Station
-      @fs = FireStation.all() #order("ST_Distance(latlon, '" + @address.latlon.to_s + "') LIMIT 1")[0]
-      # d_meters = @address.latlon.distance(@cfs.latlon)
-      # @distance = "%.02f" % (d_meters/1609.344)
+      # Closest Fire Station
+      @cfs = FireStation.order("ST_Distance(latlon, '" + @address.latlon.to_s + "') LIMIT 1")[0]
+      d_meters = @address.latlon.distance(@cfs.latlon)
+      @distance = "%.02f" % (d_meters/1609.344)
+
       # Weather Conditions
       w_api = Wunderground.new(ENV['WUNDERGROUND_API_KEY'])
       w_response = w_api.get_conditions_for(@address.latlon.y.to_s + "," + @address.latlon.x.to_s)
@@ -85,19 +81,6 @@ class MapController < ApplicationController
         @inside_burnban = 'no'
       end
 
-      # Counties with a National Weather Service warning
-      doc = Nokogiri::XML(open('http://alerts.weather.gov/cap/tx.php?x=0'))
-      doc.remove_namespaces!
-      @warnings = []
-      @inside_nws = 'no'
-      doc.css('entry').each do |node|
-        each_county_array = node.css('areaDesc').text.strip.split('; ')
-        if each_county_array.include?(CartoDB.current_county(@address.latlon).capitalize)
-          @inside_nws = 'yes'
-          @warnings.push(node)
-        end
-      end
-
       # Risk Assessment Level
       @risk_level = TFS.risk_assessment(@address.latlon)
       risk_text_mapping = Hash.new {0}
@@ -114,5 +97,4 @@ class MapController < ApplicationController
       @risk_text = risk_text_mapping[@risk_level]
     end
   end
-
 end
