@@ -26,7 +26,6 @@
 //= require bootstrap-carousel
 //= require bootstrap-typeahead
 //= require timepicker
-//= require_tree .
 $(document).ready(function(){
   $("#pick_date").datetimepicker({
   	dateFormat: 'yy-mm-dd ',
