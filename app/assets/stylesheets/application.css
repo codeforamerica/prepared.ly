@@ -9,15 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require bootstrap-responsive
- *= require jquery-ui
- *= require mobile
-/* They will automatically be included in application.css.
-  You can use Sass (SCSS) here: http://sass-lang.com/ */
-
-/* =============================================================================
-   HTML5 Boilerplate CSS: h5bp.com/css
-   ========================================================================== */
+ *= require bootstrap
+ *= require_tree .
+*/
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
 audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
