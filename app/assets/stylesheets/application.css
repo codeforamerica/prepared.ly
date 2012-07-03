@@ -9,7 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require bootstrap
+ *= require bootstrap-responsive
+ *= require jquery-ui
+ *= require mobile
 /* They will automatically be included in application.css.
   You can use Sass (SCSS) here: http://sass-lang.com/ */
 
