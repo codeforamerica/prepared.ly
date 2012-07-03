@@ -10,23 +10,23 @@
     </div>       
 <!-- //////////////////// schedule modal //////////////// -->
 <div id="schedule" class="modal hide fade">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h3>Schedule a reminder</h3>
-            </div>
-            <div class="modal-body">
-                 <%= form_tag(reminder_path(@random.id), :action => :post) do%>  
-                 <%= text_field_tag(:date, "Click to pick a reminder date", {:id => "pick_date", :dateFormat => "yy-mm-dd"}) %>
-            <label>Email</label><%= check_box_tag 'email' %>
-            <br />
-            <label>Text</label><%= check_box_tag 'text' %>
-            <br />
-            </div>
-            <div class="modal-footer">
-                       <%= submit_tag 'Set my reminder!', :class => 'btn-large btn-success btn' %>  
-      <% end %>
-              <a href="#" class="btn" data-dismiss="modal" >Close</a>
-            </div>
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h3>Schedule a reminder</h3>
+  </div>
+  <div class="modal-body">
+    <%= form_tag(reminder_path(@random.id), :action => :post) do%>  
+      <%= text_field_tag(:date, "Click to pick a reminder date", {:id => "pick_date", :dateFormat => "yy-mm-dd"}) %>
+      <label>Email</label><%= check_box_tag 'email' %>
+      <br />
+      <label>Text</label><%= check_box_tag 'text' %>
+      <br />
+      <%= submit_tag 'Set my reminder!', :class => 'btn-large btn-success btn' %>
+    <% end %>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal" >Close</a>
+  </div>
 </div>
 <!-- //////////////////// done modal //////////////// -->
 <div id="done" class="modal hide fade">
