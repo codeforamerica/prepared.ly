@@ -4,7 +4,6 @@
     
       <title>Preparedly</title>
       <meta name="viewport" content="width=device-width,initial-scale =1, user-scalable = no" />
-      <%= stylesheet_link_tag    "application", :media => "all" %>
       <%= yield :stylesheet_yield %>
         <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
         <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -51,7 +50,6 @@
 					<li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">account <b class="caret"></b></a>
                       <ul class="dropdown-menu">
-						<li><%= render 'devise/menu/registration_items' %></li>
 						<li><%= render 'devise/menu/login_items' %></li>
                         <!--<li><a href="#">dashboard</a></li>-->
                       </ul>
