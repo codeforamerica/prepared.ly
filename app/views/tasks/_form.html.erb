@@ -1,4 +1,4 @@
-<%= form_for(@random) do |f| %>
+<%= form_for(@task) do |f| %>
   <% if @task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
@@ -23,10 +23,6 @@
     <%= f.label :difficulty %><br />
     <%= f.text_field :difficulty %>
   </div>
-  <div>
- <%= f.label :purchased_on %><br />
- <%= f.text_field :purchased_on %>
- </div>
   <div class="actions">
     <%= f.submit %>
   </div>
