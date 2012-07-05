@@ -4,6 +4,7 @@ class Task < ActiveRecord::Base
   attr_accessible :difficulty, :task, :fact, :detail
   has_many :users
   has_many :completed_tasks
+  has_many :comments
 
   # def send_reminder_email(user, date)
   #   TaskMailer.delay(:run_at => date).reminder_email({:user => user, :task => self})

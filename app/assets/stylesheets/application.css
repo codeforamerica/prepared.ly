@@ -420,6 +420,26 @@ hr {
 	
 }
 
+/*------------------------------------------------comments on tasks---*/
+
+#comments {
+  width: 300px;
+  background-color: #EEE;
+  border: solid 1px #999;
+  padding: 0 15px;
+  margin: 5px 0;
+}
+
+.comment {
+  margin: 5px 0;
+  padding: 8px 0;
+  border-top: solid 1px #CCC;
+}
+
+.comment:first-child {
+  border: none;
+}
+
 /*------------------------------------------------contact form---*/
 
 #contact-detail {
