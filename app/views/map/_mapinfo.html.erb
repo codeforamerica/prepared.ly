@@ -74,8 +74,8 @@
         </table>
     </div>
 
-    <script>
-       var fire_stations = <%=raw @fs.to_json %>;
-       var address_location = {lat: <%=@address.latlon.y %>, lon: <%=@address.latlon.x %>};
-       var county_list = "<%= @counties_list %>";
-    </script>
+<script>
+   var fire_stations = <%=raw @fs.to_json %>;
+   var address_location = {lat: <%=@address.latlon.y %>, lon: <%=@address.latlon.x %>};
+   var county_list = "<%= @counties_list %>";
+</script>
