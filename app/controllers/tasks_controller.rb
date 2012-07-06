@@ -24,8 +24,6 @@ class TasksController < ApplicationController
     end
   end
 
-  # GET /tasks/new
-  # GET /tasks/new.json
   def new
     @task = Task.new
     respond_to do |format|
@@ -82,6 +80,8 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 end
 
 

@@ -1,8 +1,8 @@
 <div id="retask">
     <div class="contentbox">
         <h1><%= @random.task %></h1>
-        <p><%= @random.detail %></p>
-    </div>       
+        <p><%= @random.detail %></p>   
+    </div>
     <div class="container-fluid">
         <div class="span6">
             <div class="triangle-top">
@@ -39,7 +39,16 @@
                 <h2>Activity feed:</h2>
                 <p>Activity feed goes here</p>
             </div>
-        </div>  
-    </div>      
-</div>    
+        </div>
+    </div> 
+    <div id="comments">
+        <h3>Comments</h3>
+        <!-- this will just load all of the comments for the current task, there's no separate partial file -->
+        <%= render :partial => @random.comments %>
+    </div>
+</div>
+
+
+
+            
 

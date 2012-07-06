@@ -423,16 +423,26 @@ hr {
 /*------------------------------------------------comments on tasks---*/
 
 #comments {
-  width: 300px;
-  background-color: #EEE;
-  border: solid 1px #999;
-  padding: 0 15px;
-  margin: 5px 0;
+    border-radius: 10px 10px 10px 10px;
+    margin: 20px;
+    background-color: #ffffff;
+    padding:10px;
+    min-height: 100px;
+}
+
+#new_comment_body {
+  margin: 20px;
+  width: 85%;
+}
+
+#new_comment_name {
+  margin: 20px;
+  width: 75%;
 }
 
 .comment {
-  margin: 5px 0;
-  padding: 8px 0;
+  margin: 0px 0;
+  padding: 0px 0;
   border-top: solid 1px #CCC;
 }
 
@@ -762,9 +772,10 @@ legend + .control-group {
 	color:#339999;
 }
 .task-butt hr{
+    margin: 20px;
     height: 5px;
     position: relative;
-    top: -35px;
+    top: 0px;
     z-index: -5;
     background:url('bg-blue.png');
     border:none;
@@ -1623,7 +1634,7 @@ section h2 {
 }
 .taskbox .task-butt {
 	 position: relative;
-    top: -530px;
+    top: -700px;
     margin-left:36px;
 }
 .supereasy, .easy, .medium, .hard, .superstar {
@@ -1713,6 +1724,7 @@ section h2 {
 .retask.taskbox{
 	width:450px;
 }
+
 .task-butt a, .createtask a {
 	color: #ffffff;
 }
