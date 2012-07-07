@@ -12,11 +12,11 @@ class MessagesController < ApplicationController
 
   def remind
   if params[:text] == "1" && current_user.sms_opt_in = true && current_user.phone.blank? == false
-    @message = Message.create!(:body => Task.where(:id => params[:task_id]).first.task, :scheduled_time => params[:date], :user_id => current_user.id, :reminder_type => "text")
+    @message = Message.create!(:body => Task.where(:id => params[:task_id]).first.task, :scheduled_time => params[:date].to_time - 1.minutes, :user_id => current_user.id, :reminder_type => "text")
   end
    #user = current_user
   if params[:email] == "1" && current_user.email.blank? == false
-    @message = Message.create!(:body => Task.where(:id => params[:task_id]).first.task, :scheduled_time => params[:date], :user_id => current_user.id, :reminder_type => "email")
+    @message = Message.create!(:body => Task.where(:id => params[:task_id]).first.task, :scheduled_time => params[:date].to_time - 1.minutes, :user_id => current_user.id, :reminder_type => "email")
   end
   redirect_to root_url, notice: "Your reminders have been set and will be sent within one hour of your scheduled time."
   end
