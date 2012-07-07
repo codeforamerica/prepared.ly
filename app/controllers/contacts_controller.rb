@@ -16,7 +16,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to tasks_path, notice: "Thanks, your message has been sent to a wildfire specialist." }
+        format.html { redirect_to root_path, notice: "Thanks, your message has been sent to a wildfire specialist." }
         #format.json { render json: @contact, status: :created, location: @contact }
       else
         format.html { render action: "new" }
