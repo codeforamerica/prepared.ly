@@ -1,3 +1,7 @@
+<h3>Submit questions and receive answers unique to your property or situation,<br />
+Schedule on-site consultations with wildfire prevention experts,<br />
+and work with experts to make your neighborhood Firewise.</h3>
+
 <%= form_for(@contact) do |f| %>
   <% if @contact.errors.any? %>
     <div id="error_explanation">
@@ -31,3 +35,7 @@
     <%= f.submit "Submit", :class => "btn btn-success btn" %>
   </div>
 <% end %>
+
+
+<br />
+In the spirit of protecting our community, questions you submit may be posted, anonymously, along with the fire department's response, in a knowledge base on a future version of Prepared.ly.
