@@ -3,7 +3,6 @@
   <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.ie.css">
   <%= stylesheet_link_tag "mobile" %>
 <% end %>
-
 <% content_for :javascript_yield do %>
   <!-- scripts -->
   <script src="http://code.leafletjs.com/leaflet-0.3.1/leaflet.js"></script>
@@ -29,11 +28,11 @@
                             </li>
                         </ul>
                         <div class="taskbox lightblue">  
-                            <div id="mapinfo">
-                            <div class="contentbox" id="placeholder"> 
+                            
+                            <div class="contentbox" id="mapinfo"> 
                                <!-- post.js.erb puts the map contents here --> 
                             </div>
-                        </div>
+
 
                             <%= form_tag("/map", :id => "fetchaddress", :remote => true) do %>
                                     <div class="controls">

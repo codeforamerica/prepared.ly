@@ -16,7 +16,6 @@
       <% end %>
 </div>
     <div class="detail-col">
-        <%= params.inspect %>
         <table>
             <thead>
                 <td><h4 id="address"><%= @address.address %></h4>
@@ -180,8 +179,7 @@ if($("#mapinfo").length > 0){
             updateMap(data);
         }})
     });
-    $("#fetchaddress").submit();
-    return true;
+    $("#fetchaddress").one();
 
 }
 }); 
