@@ -26,6 +26,13 @@
 //= require bootstrap-carousel
 //= require bootstrap-typeahead
 //= require timepicker
+
+// load map-section in dashboard by default on page load
+$(document).ready(function(){
+    $('#joe a[href="#map-section"]').tab('show');
+});
+
+
 $(document).ready(function(){
   $("#pick_date").datetimepicker({
   	dateFormat: 'yy-mm-dd ',
@@ -138,3 +145,5 @@ if($("#mapinfo").length > 0){
 
 }
 });	
+
+
