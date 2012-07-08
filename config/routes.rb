@@ -28,6 +28,7 @@ Preparedly::Application.routes.draw do
   match "/mapinfo" => "map#mapinfo"
   get "map" => "map#get"
   post "map" => "map#post"
+
   match "share" => "share#index"
   get "about" => "about#index"
 

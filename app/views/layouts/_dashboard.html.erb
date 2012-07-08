@@ -1,3 +1,17 @@
+<% content_for :stylesheet_yield do %>
+  <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.css">
+  <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.ie.css">
+  <%= stylesheet_link_tag "mobile" %>
+<% end %>
+
+<% content_for :javascript_yield do %>
+  <!-- scripts -->
+  <script src="http://code.leafletjs.com/leaflet-0.3.1/leaflet.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <%= javascript_include_tag "wax.leaflet.min.js" %>
+  <%= javascript_include_tag "cartodb-leaflet.js" %>
+<% end %>
+
 <div class="tabbable tabs-left">
     <div class="row-fluid dash">
         <%= render "layouts/usernavigation-side" %>
@@ -15,19 +29,21 @@
                             </li>
                         </ul>
                         <div class="taskbox lightblue">  
-                            <div class="contentbox"> 
-                                <div id="map">
-                                </div>
-                                <%= form_tag("/map", :remote=> true) do %>
+                            <div id="mapinfo">
+                            <div class="contentbox" id="placeholder"> 
+                               <!-- post.js.erb puts the map contents here --> 
+                            </div>
+                        </div>
+
+                            <%= form_tag("/map", :id => "fetchaddress", :remote => true) do %>
                                     <div class="controls">
                                         <div class="input-append map-butt">
                                         <%= text_field_tag(:q, nil,  :value => @user.address, :class => 'address form-inline input-xx-large') %><%= submit_tag("Load my map", :class => 'btn-large btn-success btn') %>
                                         </div>
                                     </div>   
-                                <% end %> 
-                            </div>    
+                                <% end %>     
                             <div class="container-fluid">
-                                <div class="span6">
+                                <!-- <div class="span6">
                                     <div class="triangle-top">
                                     </div>            
                                     <div class="triangle-top-box"> 
@@ -46,7 +62,7 @@
                                     </div>            
                                     <div class="triangle-top-box"> 
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </section> 
@@ -102,3 +118,4 @@
         </div>
     </div>
 </div>
+

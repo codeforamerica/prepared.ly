@@ -63,6 +63,11 @@ class MapController < ApplicationController
   def post
     setupMapInfo()
     @address_str = params[:q]
+    respond_to do |format|
+       format.html
+       format.js
+     end
+
   end
 
   def setupMapInfo

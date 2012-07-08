@@ -27,9 +27,10 @@
 //= require bootstrap-typeahead
 //= require timepicker
 
+
 // load map-section in dashboard by default on page load
 $(document).ready(function(){
-    $('#joe a[href="#map-section"]').tab('show');
+    $('#sidenav a[href="#map-section"]').tab('show');
 });
 
 
@@ -43,6 +44,9 @@ $(document).ready(function(){
   });;
 });
 
+
+// THIS CODE IS NOW COPIED INTO _MAPINFO PARTIAL SO IT WILL LOAD THE MAP IN THE DASHBOARD VIEW
+// ONLY NECESSARY HERE IF YOU WANT TO LOAD THE MAP WHEN ACCESSING /MAP URL
 var map;
 var homeMarker;
 $(document).ready(function() {
