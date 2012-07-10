@@ -45,3 +45,20 @@ $(document).ready(function(){
 });
 
 // map creation and update stuff moved into map/_mapinfo partial
+
+// tells Rails to accept js header so we don't have to add .js extension to every request
+jQuery.ajaxSetup({ 
+  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+})
+
+jQuery.fn.submitWithAjax = function() {
+  this.submit(function() {
+    $.post(this.action, $(this).serialize(), null, "script");
+    return false;
+  })
+  return this;
+};
+
+$(document).ready(function() {
+  $("#new_comment").submitWithAjax();
+})

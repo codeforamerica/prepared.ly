@@ -43,8 +43,23 @@
     </div> 
     <div id="comments">
         <h3>Comments</h3>
-        <!-- this will just load all of the comments for the current task, there's no separate partial file -->
-        <%= render :partial => @random.comments %>
+        <!-- comments will load in here via ajax -->
+    </div>
+    <div>    
+        <h2>Add a comment:</h2>
+        <%= form_for([@random, @random.comments.build], :id => 'new_comment') do |f| %>
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name, :id => 'new_comment_name' %>
+        </div>
+        <div class="field">
+          <%= f.label :body %>
+          <%= f.text_area :body, :id => 'new_comment_body' %>
+        </div>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+        <% end %>
     </div>
 </div>
 
