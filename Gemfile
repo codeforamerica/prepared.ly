@@ -35,9 +35,7 @@ gem 'jquery_datepicker'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-group :development, :test do 
-	gem 'ruby-debug19', :require => 'ruby-debug'
-end
+
 
 gem 'exception_notification'
 
