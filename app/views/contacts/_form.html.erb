@@ -21,11 +21,11 @@ and work with experts to make your neighborhood Firewise.</h3>
   </div>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field :email, :value => @user.email %>
   </div>
   <div class="field">
-    <%= f.label :subject %><br />
-    <%= f.text_field :subject %>
+    <%= f.label :contact_type %><br />
+    <%= f.select(:contact_type, [['Schedule an on-site visit'], ['Get help organizing a community cleanup day'], ['Ask a question about your home or area'], ['General inquiry about wildfire preparedness']] ) %>
   </div>
   <div class="field">
     <%= f.label :body %><br />
