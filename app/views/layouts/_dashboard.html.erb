@@ -1,7 +1,6 @@
 <% content_for :stylesheet_yield do %>
   <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.css">
   <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.ie.css">
-  <%= stylesheet_link_tag "mobile" %>
 <% end %>
 <% content_for :javascript_yield do %>
   <!-- scripts -->
@@ -70,12 +69,12 @@
                         <ul id="myTab" class="nav nav-tabs dash-tabs">
                             <li class="active note">
                                 <a href="#home" data-toggle="tab">
-                                YOUR PREPARED.LY TASKS:</a>
+                                YOUR TASK SHOULD YOU CHOOSE TO ACCEPT:</a>
                             </li>
                         </ul>
                         <div class="taskbox lightblue">
+                            <%= render "tasks/taskbuttons" %>
                             <%= render "tasks/tasks" %>
-                            
                         </div>
                         <!-- comments included here from tasks partial -->
                     </section> 

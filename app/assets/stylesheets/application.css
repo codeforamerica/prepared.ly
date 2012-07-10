@@ -1633,19 +1633,25 @@ section h2 {
 .taskbox.lightblue {
 	background:#ABDAE2;
 }
-.taskbox .task-butt {
-	 position: relative;
-    top: -700px;
-    margin-left:36px;
-}
-.supereasy, .easy, .medium, .hard, .superstar {
+
+.supereasy, .Supereasy, .easy, .Easy, .medium, .Medium, .hard, .Hard, .superstar, .Superstar {
   height: 67px;
   width: 130px;
+  margin: 30px 0px 0px 65px
 }
-.easy {
+.superstar, .Superstar {
+  background-image: url("superhero.png");
+}
+.hard, .Hard {
+  background-image: url("hard.png");
+}
+.medium, .Medium {
+  background-image: url("medium.png");
+}
+.easy, .Easy {
     background-image: url("easy.png");
 }
-.supereasy {
+.supereasy, .Supereasy, .Fromthecouch{
     background-image: url("couch.png");
 }
 .dash {
@@ -1661,7 +1667,15 @@ section h2 {
 	margin-top: 10px;
 	clear:both;
 }
-
+#retask .contentbox-main {
+  margin-top: -260px;
+}
+.task-butt .btn-group .btn:first-child {
+  margin-left: 40px;
+}
+.task-butt {
+  margin-top: 270px;
+}
 /*.task-container {
 	max-width: 800px;
 	float:left;
