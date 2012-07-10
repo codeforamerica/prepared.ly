@@ -1,3 +1,3 @@
 class Contact < ActiveRecord::Base
-  attr_accessible :body, :email, :name, :subject
+  attr_accessible :body, :email, :name, :contact_type
 end

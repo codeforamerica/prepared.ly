@@ -16,7 +16,7 @@ class UserMailer < ActionMailer::Base
   def contact_form
     @contact = Contact.order("created_at DESC").first
     attachments.inline['preparedly-red.png'] = File.read('app/assets/images/preparedly-red.png')
-    mail(:to => "Josh.Portie@austintexas.gov", :subject => "Prepared.ly Web Site Submission")
+    mail(:to => "Josh.Portie@austintexas.gov", :subject => "Prepared.ly request: #{@contact.contact_type}")
   end
 
   def reminder_email(message)
