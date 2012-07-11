@@ -28,18 +28,19 @@
                         </ul>
                         <div class="taskbox lightblue">  
                             
-                            <div class="contentbox" id="mapinfo"> 
+                            <%= form_tag("/map", :id => "fetchaddress", :remote => true) do %>
+                                    <div class="controls">
+                                        <div class="map-butt">
+                                        <%= text_field_tag(:q, nil,  :value => @user.address, :class => 'address form-inline input-xx-large') %><%= submit_tag("Load my map", :class => 'btn-success btn') %>
+                                        </div>
+                                    </div>   
+                                <% end %>  
+                            <div id="mapinfo"> 
                                <!-- post.js.erb puts the map contents here --> 
                             </div>
 
 
-                            <%= form_tag("/map", :id => "fetchaddress", :remote => true) do %>
-                                    <div class="controls">
-                                        <div class="input-append map-butt">
-                                        <%= text_field_tag(:q, nil,  :value => @user.address, :class => 'address form-inline input-xx-large') %><%= submit_tag("Load my map", :class => 'btn-large btn-success btn') %>
-                                        </div>
-                                    </div>   
-                                <% end %>     
+   
                             <div class="container-fluid">
                                 <!-- <div class="span6">
                                     <div class="triangle-top">
@@ -75,10 +76,6 @@
                         <div class="taskbox lightblue">
                             <%= render "tasks/taskbuttons" %>
                             <%= render "tasks/tasks" %>
-<<<<<<< HEAD
-=======
-                            <%= render "tasks/taskbuttons" %>
->>>>>>> 6a33c90ac9f57159db0aa38a52a05ca3491f917d
                         </div>
                         <!-- comments included here from tasks partial -->
                     </section> 
