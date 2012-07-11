@@ -29,6 +29,18 @@
                     </span>
                     </li>
               <li class="note" id="warnings-trigger">Read current warnings</li>
+                        <div id="warnings"  style="display: none;">
+                          <h2>National Weather Service Warnings In Your Area</h2>
+                          <% @warnings.each do |w| -%>
+                            <%= w.css("title").text -%><br />
+                            <strong>Summary: </strong> <%= w.css("summary").text -%><br />
+                            <strong>Urgency: </strong> <%= w.css("urgency").text -%><br />
+                            <strong>Severity: </strong> <%= w.css("severity").text -%><br />
+                            <strong>Certainty: </strong> <%= w.css("certainty").text -%><br />
+                            <strong>Affected counties: </strong> <%= w.css("areaDesc").text -%><br />
+                          <% end %>
+                            <span class="note" id="remove-warnings">hide warnings</span>
+                        </div>
                     <li>
                         <h2>Weather</h2>
                         <hr>
@@ -43,21 +55,7 @@
                 </li>
             </ul>
     </div>    
-        <div id="warnings"  style="display: none;">
-            <div class="contentbox contentbox-short">
-          <h2>National Weather Service Warnings In Your Area</h2>
-          <% @warnings.each do |w| -%>
-            <%= w.css("title").text -%><br />
-            <strong>Summary: </strong> <%= w.css("summary").text -%><br />
-            <strong>Urgency: </strong> <%= w.css("urgency").text -%><br />
-            <strong>Severity: </strong> <%= w.css("severity").text -%><br />
-            <strong>Certainty: </strong> <%= w.css("certainty").text -%><br />
-            <strong>Affected counties: </strong> <%= w.css("areaDesc").text -%><br />
-          <% end %>
-        <span class="note" id="remove-warnings">hide warnings</span>
 
-        </div>
-    </div>             
     <div class="contentbox contentbox-short">
         <h2> About Risk Level</h2>
         <p>The risk level is supplied by the Texas Forest Service Wildfire Risk Assessment 
