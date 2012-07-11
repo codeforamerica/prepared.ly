@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   has_many :completed_tasks
   has_many :messages
 
+  
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable

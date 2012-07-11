@@ -50,6 +50,7 @@ GEM
       orm_adapter (~> 0.1)
       railties (~> 3.1)
       warden (~> 1.2.1)
+    dynamic_form (1.1.4)
     erubis (2.7.0)
     exception_notification (2.6.1)
       actionmailer (>= 3.0.4)
@@ -221,6 +222,7 @@ DEPENDENCIES
   activerecord-postgis-adapter
   coffee-rails (~> 3.2.1)
   devise
+  dynamic_form
   exception_notification
   httparty
   jquery-rails
