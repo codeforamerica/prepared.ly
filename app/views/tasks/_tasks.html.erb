@@ -54,13 +54,14 @@
             </div>  
             <div class="field">
               <%= f.label :type %>
-              <select class="span3">
+            <!--not doing anything for now -->
+            <!--  <select class="span3">
                 <option>wisdom to add</option>
                 <option>supplementary task</option>
                 <option>feedback about how it went</option>
                 <option>submit a helpful product</option>
                 <option>submit a photo</option>
-                </select>
+                </select> -->
             </div>
             <div class="field">
               <%= f.label :body %>
@@ -73,58 +74,4 @@
             </div>  
   </div>
 </div>
-<!-- //////////////////// done modal //////////////// -->
-<div id="done" class="modal hide fade">
-    <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h3>You did it!</h3>
-    </div>
-    <div class="modal-body">
-          <p> One small step for your house, one giant step for neighborhoodkind. . .    </p> 
-          <p> How'd it go? <a href "">skip this</a></p>
-          <ul>
-            <li> good</li>
-            <li> ok </li>
-            <li> terrible </li>
-          </ul>
-            <%= form_for([@random, @random.comments.build], :id => 'new_comment') do |f| %>
-            <div class="field">
-              <%= f.label :name %>
-              <%= f.text_field :name, :id => 'new_comment_name' %>
-            </div>  
-            <div class="field">
-                <%= f.label :type %>
-                <select class="span3">
-                    <option>wisdom to add</option>
-                    <option>supplementary task</option>
-                    <option>feedback about how it went</option>
-                    <option>submit a helpful product</option>
-                    <option>submit a photo</option>
-                </select>
-            </div>
-            <div class="field">
-              <%= f.label :body %>
-              <%= f.text_area :body, :id => 'new_comment_body' %>
-              <%= f.submit %>
-            <% end %>
-            </div>
-    </div>
-    <div class="actions modal-footer">
-<!-- //////////////////// share //////////////// -->
-            <div class="btn-group pull-right">
-                    <a class="btn-success btn dropdown-toggle" data-toggle="dropdown" href="#">
-                      <i class="icon-share icon-white"></i> Share
-                      <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <!-- dropdown menu links -->
-                      <li>Facebook</li>
-                      <li>Twitter </li>
-                      <li>Email</li>
-                    </ul>
-            </div>    
-              <%= link_to '<i class="icon-ok icon-white"></i> Give me another!'.html_safe, { :controller => 'completed_tasks', :action => 'completed' }, :class => 'btn-success btn' -%> 
-              <%= link_to '<i class="icon-pencil icon-white"></i> Create a new task'.html_safe, new_task_path, :class => 'btn-info btn' %>
-              <a href="#" class="btn" data-dismiss="modal" >Close</a>
-    </div>
-</div>
+
