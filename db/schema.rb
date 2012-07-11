@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(:version => 20120710190736) do
   end
 
   create_table "comments", :force => true do |t|
+    t.string   "name"
     t.text     "body"
     t.integer  "user_id"
     t.integer  "task_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "name"
   end
 
   add_index "comments", ["task_id"], :name => "index_comments_on_task_id"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20120710190736) do
   create_table "contacts", :force => true do |t|
     t.string   "name"
     t.string   "email"
+    t.string   "subject"
     t.text     "body"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
@@ -67,22 +68,6 @@ ActiveRecord::Schema.define(:version => 20120710190736) do
     t.datetime "updated_at",                                                                :null => false
   end
 
-  create_table "delayed_jobs", :force => true do |t|
-    t.integer  "priority",   :default => 0
-    t.integer  "attempts",   :default => 0
-    t.text     "handler"
-    t.text     "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-  end
-
-  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
-
   create_table "fire_stations", :force => true do |t|
     t.string   "address"
     t.spatial  "latlon",     :limit => {:srid=>4326, :type=>"point", :geographic=>true}
@@ -93,13 +78,12 @@ ActiveRecord::Schema.define(:version => 20120710190736) do
 
   create_table "messages", :force => true do |t|
     t.text     "body"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.datetime "scheduled_time"
     t.boolean  "sent"
     t.integer  "user_id"
     t.string   "reminder_type"
-    t.datetime "utc_adjusted_scheduled_time"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -114,14 +98,6 @@ ActiveRecord::Schema.define(:version => 20120710190736) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
-
-  create_table "reminders", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "task_id"
-    t.datetime "remind_at"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false

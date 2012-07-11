@@ -156,7 +156,7 @@ table {
 	border-collapse: collapse; 
 	border-spacing: 0;
 	width:100%; }
-td { vertical-align: top; }
+td { vertical-align: bottom; }
 
 .chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
 
@@ -171,7 +171,10 @@ td { vertical-align: top; }
 
 
 .map-butt .btn{
-	margin-top:0px;
+	margin:0px 10px 10px 10px;
+}
+.map-butt {
+  margin: 20px;
 }
 
 .navbar-items {
@@ -306,17 +309,8 @@ td { vertical-align: top; }
 /*------------------------------main column / detail column (map and tasks) ---*/
 
 
-#map {
-	border: #3AAFBF solid thin;
-    border-radius: 4px 4px 4px 4px;
-	min-width: 325px;
-    height: 479px;
-    width:60%;
-	float:left;
-	margin-top: 1px;
 
-}
-
+/*
 #warnings {
 	border: #3AAFBF solid thin;
     border-radius: 4px 4px 4px 4px;
@@ -327,11 +321,11 @@ td { vertical-align: top; }
 	margin-top: 1px;
 	overflow: scroll;
 }
-
+*/
 #map-controls{ 
-  float:left;
-  width:60%;
   position:relative;
+  margin:20px;
+  text-align: right; 
 }
 .main-col {
 	/*border: #3AAFBF solid thin;*/
@@ -344,12 +338,12 @@ td { vertical-align: top; }
 
 
 .detail-col {
-    border-radius: 4px 4px 4px 4px;
-	border: #3AAFBF solid thin;
-	margin-left: 8px;
-    /*height: 460px;*/
-    padding: 10px;
-    width:230px;
+  /*border-radius: 4px 4px 4px 4px;*/
+	/*border: #3AAFBF solid thin;*/
+	/*margin-left: 8px;*/
+  /*height: 460px;*/
+  padding: 10px;
+  /*width:230px;*/
 	float:left;
 	margin-bottom: 8px;
 }
@@ -377,7 +371,7 @@ td { vertical-align: top; }
 .condition-type {
 	font-size: 16px;
 	font-style: normal;
-	font-weight: 700;
+	font-weight: 500;
 }
 
 /*------------- map: tool tip and risk assessment -------*/
@@ -771,7 +765,7 @@ legend + .control-group {
 .nav-pills a{
 	color:#339999;
 }
-.task-butt hr{
+.index-butt hr{
     margin: 20px;
     height: 5px;
     position: relative;
@@ -779,7 +773,9 @@ legend + .control-group {
     z-index: -5;
     background:url('bg-blue.png');
     border:none;
+    top:-40px;
 }
+
 /* Subnav */
 .subnav {
   width: 100%;
@@ -1452,11 +1448,18 @@ section h2 {
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;
+  color: #ffffff;
 }
+ .index-butt a {
+  color: #ffffff;
+ }
+
 .jumbotron .btn-large small {
   font-size: 14px;
 }
-
+.topjumbobtns hr {
+  top:-55px;
+}
 /* Masthead (docs home) */
 .masthead {
   padding-top: 36px;
@@ -1587,13 +1590,26 @@ section h2 {
     width: 500px;
     float:left;     
 }
+.contentbox table h2 {
+  margin:0px;
+}
 .contentbox {
     border-radius: 10px 10px 10px 10px;
     margin: 20px;
     background-color: #ffffff;
     padding:10px;
     min-height: 300px;
-
+}
+.contentbox-short {
+    min-height: 200px;
+}
+#map {
+  /*border: #3AAFBF solid thin;*/
+  border-radius: 4px 4px 4px 4px;
+/*  width: 250px;*/
+  min-height: 200px;
+/*  float:left;*/
+  margin: 20px 20px -15px 20px; 
 }
 
 .dash-tabs > li > a {
@@ -1661,8 +1677,9 @@ section h2 {
 .dash ul, .dash li{
 	list-style: none;
 	clear:both;
+  line-height: 1.4em;
 }
-.task, .task-hist, .task-butt {
+.task, .task-hist, .task-butt, .index-butt {
 	padding-top: 10px;
 	margin-top: 10px;
 	clear:both;
@@ -1670,8 +1687,11 @@ section h2 {
 #retask .contentbox-main {
   margin-top: -260px;
 }
-.task-butt .btn-group .btn:first-child {
+.task-butt .btn-group .btn:first-child, .index-butt {
   margin-left: 40px;
+}
+.btn-info a {
+  color:#ffffff;
 }
 .task-butt {
   margin-top: 270px;
@@ -1681,10 +1701,21 @@ section h2 {
 	float:left;
 	clear:both;
 }*/
-.contentbox h1, .contentbox p, .triangle-top-box h2, .triangle-top-box p{
+.contentbox h1, .contentbox h2, .contentbox p, .triangle-top-box h2, .triangle-top-box p{
     font-style: normal;
     line-height: 1.2em;
-    margin: 10px;
+    margin: 10px 0px;
+}
+.contentbox table{
+  float: left;
+  width: 40%;
+}
+#address {
+  font-style: normal;
+  line-height: 1.2em;
+  margin-top: 10px;
+  font-weight: 200;
+  text-transform: uppercase;
 }
 .triangle-top-box h2, .contentbox h2 {
 	color: #4996A4;
@@ -1740,7 +1771,7 @@ section h2 {
 	width:450px;
 }
 
-.task-butt a, .createtask a {
+.task-butt a, .createtask a .index-butt a{
 	color: #ffffff;
 }
 
