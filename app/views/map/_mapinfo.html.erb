@@ -29,7 +29,6 @@
                     </span>
                     </li>
               <li class="note" id="warnings-trigger">Read current warnings</li>
-              <li class="note" id="remove-warnings">Go back to map</li>
                     <li>
                         <h2>Weather</h2>
                         <hr>
@@ -55,6 +54,8 @@
             <strong>Certainty: </strong> <%= w.css("certainty").text -%><br />
             <strong>Affected counties: </strong> <%= w.css("areaDesc").text -%><br />
           <% end %>
+        <span class="note" id="remove-warnings">hide warnings</span>
+
         </div>
     </div>             
     <div class="contentbox contentbox-short">

@@ -765,7 +765,7 @@ legend + .control-group {
 .nav-pills a{
 	color:#339999;
 }
-.task-butt hr{
+.index-butt hr{
     margin: 20px;
     height: 5px;
     position: relative;
@@ -773,7 +773,9 @@ legend + .control-group {
     z-index: -5;
     background:url('bg-blue.png');
     border:none;
+    top:-40px;
 }
+
 /* Subnav */
 .subnav {
   width: 100%;
@@ -1446,11 +1448,18 @@ section h2 {
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;
+  color: #ffffff;
 }
+ .index-butt a {
+  color: #ffffff;
+ }
+
 .jumbotron .btn-large small {
   font-size: 14px;
 }
-
+.topjumbobtns hr {
+  top:-55px;
+}
 /* Masthead (docs home) */
 .masthead {
   padding-top: 36px;
@@ -1670,7 +1679,7 @@ section h2 {
 	clear:both;
   line-height: 1.4em;
 }
-.task, .task-hist, .task-butt {
+.task, .task-hist, .task-butt, .index-butt {
 	padding-top: 10px;
 	margin-top: 10px;
 	clear:both;
@@ -1678,8 +1687,11 @@ section h2 {
 #retask .contentbox-main {
   margin-top: -260px;
 }
-.task-butt .btn-group .btn:first-child {
+.task-butt .btn-group .btn:first-child, .index-butt {
   margin-left: 40px;
+}
+.btn-info a {
+  color:#ffffff;
 }
 .task-butt {
   margin-top: 270px;
@@ -1759,7 +1771,7 @@ section h2 {
 	width:450px;
 }
 
-.task-butt a, .createtask a {
+.task-butt a, .createtask a .index-butt a{
 	color: #ffffff;
 }
 
