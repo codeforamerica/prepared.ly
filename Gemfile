@@ -39,6 +39,8 @@ gem 'jquery_datepicker'
 # 	gem 'ruby-debug19', :require => 'ruby-debug'
 # end
 
+gem 'dynamic_form'
+
 gem 'exception_notification'
 
 gem 'devise'
