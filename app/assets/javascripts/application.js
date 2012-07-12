@@ -82,6 +82,7 @@ jQuery.fn.submitWithAjax = function() {
 
 $(document).ready(function() {
   $("#new_comment").submitWithAjax();
+
 })
 
   var is_ssl = ("https:" == document.location.protocol);
