@@ -427,6 +427,7 @@ hr {
 #new_comment_body {
   margin: 20px;
   width: 85%;
+  max-height: 150px;
 }
 
 #new_comment_name {
