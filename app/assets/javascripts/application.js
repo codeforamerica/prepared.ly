@@ -27,15 +27,9 @@
 //= require bootstrap-typeahead
 //= require timepicker
 
-
-// l
-// $(document).ready(function(){
-//     $('#sidenav a[href="#map-section"]').tab('show');
-// });
-
+//add dashboard tab href to url in browser address bar
 $('#sidenav a').click(function(e){
   var href = $(this).attr('href');
-  console.log(href);
   window.location = href;
 });
 
