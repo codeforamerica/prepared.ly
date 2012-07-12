@@ -115,4 +115,13 @@
         </div>
     </div>
 </div>
-
+<script>
+//-- task window -->
+$("#skip").click(function(e){
+  e.preventDefault();   
+  $.get("/tasks-partial",
+      function(response) {
+        $("#retask").html(response);
+  });
+});
+</script>
