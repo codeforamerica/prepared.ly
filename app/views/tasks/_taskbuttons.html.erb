@@ -5,9 +5,8 @@
     <% else %>
         <a href="users/sign_up"><button class="btn-large btn-info btn"><i class="icon-user icon-white"></i> Sign up to track my progress, set reminders, and create tasks!</button></a>
     <% end %> 
-        <%= link_to '<i class="icon-time icon-white"></i> Skip for now'.html_safe, tasks_path, :class => 'btn-large btn-warning btn', :id => 'skip' %>
-<!-- this is leading to the new tasks form? -->        
-        <%= link_to '<i class="icon-ok icon-white"></i> I did it!'.html_safe, { :controller => 'completed_tasks', :action => 'completed' }, :class => 'btn-large btn-success btn' -%>  
+        <%= link_to '<i class="icon-time icon-white"></i> Skip for now'.html_safe, tasks_path, :class => 'btn-large btn-warning btn', :id => 'skip' %>       
+        <%= link_to '<i class="icon-ok icon-white"></i> I did it!'.html_safe, 'completed', :class => 'btn-large btn-success btn' %>  
         <%= link_to '<i class="icon-pencil icon-white"></i> Create a new task'.html_safe, new_task_path, :class => 'btn-large btn-info btn' %>
     </div>       
 <!-- //////////////////// schedule modal //////////////// -->

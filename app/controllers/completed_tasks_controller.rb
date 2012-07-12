@@ -25,7 +25,7 @@ class CompletedTasksController < ApplicationController
     unless CompletedTask.exists?(:user_id => current_user.id, :task_id => task_id, :completed => TRUE)
       CompletedTask.create!(:user_id => current_user.id, :task_id => task_id, :completed => TRUE)
     end
-    redirect_to tasks_path
+    redirect_to root_path, :flash => { :alert => "Nicely done! Try something else."}
   end
 
   # GET /completed_tasks/new

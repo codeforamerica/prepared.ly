@@ -10,7 +10,7 @@ Preparedly::Application.routes.draw do
 
   match "resources" => "resources#index"
 
-  match 'completed/:task_id' => 'completed_tasks#completed', :as => 'completed_task'
+  match 'completed' => 'completed_tasks#completed', :as => 'completed'
 
   match 'remind/:task_id' => 'messages#remind', :as => 'reminder'
 
@@ -35,7 +35,7 @@ Preparedly::Application.routes.draw do
   match "users/get" => "users#get"
   resources :users
 
-  match "/survey" => redirect("http://bit.ly/preparedlysurvey"), :as => :survey
+  match "survey" => redirect("http://bit.ly/preparedlysurvey")
 
   get "terms" => "terms#index"
 
