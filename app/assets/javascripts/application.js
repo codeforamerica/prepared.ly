@@ -26,7 +26,6 @@
 //= require bootstrap-carousel
 //= require bootstrap-typeahead
 //= require timepicker
-//= require kiss
 
 //add dashboard tab href to url in browser address bar
 $('#sidenav a').click(function(e){
