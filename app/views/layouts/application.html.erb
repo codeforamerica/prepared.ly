@@ -106,6 +106,12 @@
   <a href="#" class="btn" data-dismiss="modal">Close</a>
 </div> 
 </div>
+<div id="getsat-widget-761"></div>
+<script type="text/javascript" src="https://loader.engage.gsfn.us/loader.js"></script>
+<script type="text/javascript">
+if (typeof GSFN !== "undefined") { GSFN.loadWidget(761,{"containerId":"getsat-widget-761"}); }
+</script>
+</body>
 
 
 <!-- Typekit -->
@@ -114,22 +120,7 @@
 
 <%= yield :javascript_yield %> 
 <%= javascript_include_tag "application" %>
-
-<script type="text/javascript" charset="utf-8">
-  var is_ssl = ("https:" == document.location.protocol);
-  var asset_host = is_ssl ? "https://d3rdqalhjaisuu.cloudfront.net/" : "http://d3rdqalhjaisuu.cloudfront.net/";
-  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
-
-//-- task window -->
-$("#skip").click(function(e){
-  e.preventDefault();   
-  $.get("/tasks-partial",
-      function(response) {
-        $("#retask").html(response);
-  });
-});
-  
-
+<script>
 //-- subnav -->
 $(document).scroll(function(){
     // If has not activated (has no attribute "data-top"
@@ -146,24 +137,6 @@ $(document).scroll(function(){
     else
         $('.subnav').removeClass('subnav-fixed');
 });
-
-//-- feedback widget -->
-  var feedback_widget_options = {};
-
-  feedback_widget_options.display = "overlay";  
-  feedback_widget_options.company = "code_for_america";
-  feedback_widget_options.placement = "right";
-  feedback_widget_options.color = "#333333";
-  feedback_widget_options.style = "question";
-  feedback_widget_options.product = "code_for_america_preparedly";
-  feedback_widget_options.tag = "feedback";
-  
-  feedback_widget_options.custom_css = "feedback.css";
-  
-  feedback_widget_options.limit = "3";
-  
-
-  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
 </script>
-</body>
+
 </html>
