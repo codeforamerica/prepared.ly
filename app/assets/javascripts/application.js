@@ -44,7 +44,7 @@ $(document).ready(function(){
   } else {
     var match = window.location.hash;
     $('#sidenav a[href="' + match + '"]').tab('show');
-    $(window).scrollTop(0);
+    $(window).scrollTop(1);
   };
   //use browser forward/back buttons to navigate dashboard tabs
   $(window).bind('hashchange', function(){
