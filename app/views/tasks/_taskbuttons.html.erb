@@ -18,9 +18,11 @@
   <div class="modal-body">
     <%= form_tag(reminder_path(@random.id), :action => :post) do%>  
       <%= text_field_tag(:date, "Click to pick a reminder date", {:id => "pick_date", :dateFormat => "yy-mm-dd"}) %>
-      <label>Text</label><%= check_box_tag 'text' %>
       <br />
-      <label>Email</label><%= check_box_tag 'email' %>
+      <label>Remind me by text message</label><%= check_box_tag 'text' %>
+      <br />
+      <br />
+      <label>Remind me by email</label><%= check_box_tag 'email' %>
       <br />
       <%= submit_tag 'Set my reminder!', :class => 'btn-large btn-success btn' %>
     <% end %>

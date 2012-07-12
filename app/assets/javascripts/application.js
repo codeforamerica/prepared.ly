@@ -26,13 +26,34 @@
 //= require bootstrap-carousel
 //= require bootstrap-typeahead
 //= require timepicker
+//= require kiss
 
-
-// load map-section in dashboard by default on page load
-$(document).ready(function(){
-    $('#sidenav a[href="#map-section"]').tab('show');
+//add dashboard tab href to url in browser address bar
+$('#sidenav a').click(function(e){
+  var href = $(this).attr('href');
+  window.location = href;
 });
 
+
+$(document).ready(function(){
+  $(window).scrollTop(0);
+  //load map-section in dashboard by default on page load
+  if($("#sidenav") && !window.location.hash) {
+    window.location.hash = "#map-section";
+    $(window).scrollTop(0);
+    // permalink for dashboard tabs
+  } else {
+    var match = window.location.hash;
+    $('#sidenav a[href="' + match + '"]').tab('show');
+    $(window).scrollTop(1);
+  };
+  //use browser forward/back buttons to navigate dashboard tabs
+  $(window).bind('hashchange', function(){
+    var active_tab = window.location.hash;
+    $(window).scrollTop(0);
+    $('#sidenav a[href="' + active_tab + '"]').tab('show');
+  });
+});
 
 $(document).ready(function(){
   $("#pick_date").datetimepicker({
@@ -61,4 +82,25 @@ jQuery.fn.submitWithAjax = function() {
 
 $(document).ready(function() {
   $("#new_comment").submitWithAjax();
+
 })
+
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://d3rdqalhjaisuu.cloudfront.net/" : "http://d3rdqalhjaisuu.cloudfront.net/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+//-- feedback widget -->
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://d3rdqalhjaisuu.cloudfront.net/" : "http://d3rdqalhjaisuu.cloudfront.net/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+
+  var feedback_widget_options = {};
+    feedback_widget_options.display = "overlay";
+    feedback_widget_options.company = "code_for_america";
+    feedback_widget_options.placement = "right";
+    feedback_widget_options.color = "#333333";
+    feedback_widget_options.style = "question";
+    feedback_widget_options.product = "code_for_america_preparedly";
+    feedback_widget_options.tag = "feedback";
+    feedback_widget_options.custom_css = "feedback.css";
+    feedback_widget_options.limit = "3";
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
