@@ -1,90 +1,85 @@
   <% if user_signed_in? %>
   <%= render :partial => 'layouts/dashboard' %>
   <% else %>
-       <div id="logo-wrapper">
+    <div id="logo-wrapper">
           <a href="/">
             <div id="logo" title="preparedly">
             </div>
           </a>
-        </div>
-        <header class="jumbotron subhead" id="overview">
-            <h1>Welcome, let's get started. </h1>
-            <p class="lead">Make staying prepared for wildfire fun and easy.</p>
-                    <p>Already a user? <a href="/users/sign_in">Log in here</a>.</p>
-                    <div class="sub-section">
-                        <div class="index-butt topjumbobtns"><a href="#intro" class="btn-large btn-info btn"> take the tour</a>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <%= link_to ' Create an account '.html_safe,  new_user_registration_path, :class => 'btn-large btn-success btn' %>
-                        <hr></hr>
-                        </div>
-                    </div>  
-            <div class="subnav">
-              <ul class="nav nav-pills">
-                <li><a href="#intro"> an intro</a></li>
-                <li><a href="#map-section"> explore your location</a></li>
-                <li><a href="#task-section"> get prepared </a></li>
-                <li><a href="#notify-section"> stay notified</a></li>
-                <li><a href="#account-section"> get started </a></li>
-              </ul>
-            </div>
-          </header>
+    </div>
+    <header class="jumbotron subhead" id="overview">
+        <h1>Welcome, let's get started. </h1>
+        <p class="lead">Make staying prepared for wildfire fun and easy.</p>
+                <p>Already a user? <a href="/users/sign_in">Log in here</a>.</p>
+                <div class="sub-section">
+                    <!-- this button not really doing the right thing -->
+                    <div class="index-butt topjumbobtns"><a href="#intro" class="btn-large btn-info btn"> take the tour</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <%= link_to ' Create an account '.html_safe,  new_user_registration_path, :class => 'btn-large btn-success btn' %>
+                    <hr></hr>
+                    </div>
+                </div>  
+        <!--<div class="subnav">
+          <ul class="nav nav-pills">
+            <li><a href="#intro"> an intro</a></li>
+            <li><a href="#mapsection"> explore your location</a></li>
+            <li><a href="#tasksection"> get prepared </a></li>
+            <li><a href="#notifysection"> stay notified</a></li>
+            <li><a href="#accountsection"> get started </a></li>
+          </ul>
+        </div>-->
+    </header>
 <div class="container-fluid">
     <section id="intro">  
+           
+            <h2> Nice to meet you. Check out our video!</h2>
             <div class="video">
                 <iframe src="http://player.vimeo.com/video/44008140" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> 
                 <p><a href="http://vimeo.com/44008140">Prepared.ly</a> from <a href="http://vimeo.com/codeforamerica">Code for America</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
             </div>
-            <h2> Nice to meet you. </h2>
+            <br><br>
             <p>Get to know Prepared.ly a little better by checking out our video. We're brought to you by the City of Austin and Code for America, and we're here to help you stay more prepared for wildfire.</p>
             <div class="sub-section">
                 <div class="index-butt">
-                    <a href="#map-section" class="btn-large btn-success btn"> explore your location </a>
+                    <%= link_to ' explore your location '.html_safe,  new_user_registration_path, :class => 'btn-large btn-success btn' %>
                     <hr></hr>
                 </div>
             </div>  
     </section>
-    <section id="map-section">       
+    <section id="mapsection">       
             <h2> Enter your address, and see your house on the map.</h2> 
             <p>You'll also see an assessment of your risk level, current weather conditions, and burn ban information.
             </p>
             <img src="assets/map.jpg">
             <div class="sub-section">
                 <div class="index-butt">
-                    <a href="#task-section" class="btn-large btn-success btn"> get prepared  </a>
+                    <%= link_to ' get prepared '.html_safe,  new_user_registration_path, :class => 'btn-large btn-success btn' %>
                     <hr></hr>
                 </div>
             </div> 
     </section> 
-    <section id="task-section">  
+    <section id="tasksection">  
             <h2> Stay prepared with the abilty to accept, share, and create tasks for you and your neighborhood via text, email or Twitter.</h2>
             <p>Use this tool to accept or decline tasks, as well as get some background on why they are important. Think something's important that you don't see? You'll have the ability to add your own, and share it with your neighbors.</p>
             <img src="assets/Preparedly-task-img.png">
             <div class="sub-section">
                 <div class="index-butt">
-                    <a href="#notify-section" class="btn-large btn-success btn"> stay notified  </a>
+                    <%= link_to ' stay notified '.html_safe,  new_user_registration_path, :class => 'btn-large btn-success btn' %>
                     <hr></hr>
                 </div>
             </div>    
     </section>
-    <section id="notify-section"> 
-                 <img src="assets/notify.png">   
-                <h2> Set up notifications to stay on top of things, and up to date with weather conditions.</h2> 
-                <p>Set up custom alerts so that you can decide when you want to schedule a task, and be aware of high alert days and changes in weather conditions. We only want to notify you of things you want to know about, and promise not to send you messages that you didn't ask for. </p>
-                <div class="sub-section">
-                    <div class="index-butt"> 
-                        <hr></hr>
-                    </div>
-                </div>    
-                <img src="assets/reachfd.png">   
-                <h2>Stay in touch with the Fire Department.</h2>
-                <p> The fire department is here to help. Schedule an assessment, or ask a question. </p>
-                <div class="sub-section">
-                    <div class="index-butt"><%= link_to '<i class="icon-fire icon-white"></i> Contact the Fire Department >>'.html_safe,  contacts_path, :class => 'btn-large btn-success btn' %>
-                        <hr></hr>
-                    </div>
-                </div>    
+    <section id="notifysection"> 
+        <img src="assets/notify.png">   
+        <h2> Set up notifications to stay on top of things, and up to date with weather conditions.</h2> 
+        <p>Set up custom alerts so that you can decide when you want to schedule a task, and be aware of high alert days and changes in weather conditions. We only want to notify you of things you want to know about, and promise not to send you messages that you didn't ask for. </p><br>
+        <div class="sub-section">
+            <div class="index-butt"> 
+                <hr></hr>
+            </div>
+        </div>    
     </section>  
-    <section id="account-section"> 
+    <section id="accountsection"> 
                 <h2> Create an account, keep track of your progress</h2>
 
                 <p>Now that we've told you a little about Prepared.ly and what we do, continue on the check out our features by creating a free account. Also, feel free to leave us comments and questions with the "feedback" tab on the left side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.</p>

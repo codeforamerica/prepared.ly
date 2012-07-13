@@ -14,7 +14,7 @@
   <!--this must be the last -->
   <%= stylesheet_link_tag "bootstrap-responsive", :media => "all" %>
 </head>
-<body data-offset="50" data-target=".subnav" data-spy="scroll" data-twttr-rendered="true">
+  <body data-offset="50" data-target=".subnav" data-spy="scroll" data-twttr-rendered="true">
 <!-- navbar content -->
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
@@ -111,7 +111,6 @@
 <script type="text/javascript">
 if (typeof GSFN !== "undefined") { GSFN.loadWidget(761,{"containerId":"getsat-widget-761"}); }
 </script>
-</body>
 
 
 <!-- Typekit -->
@@ -121,22 +120,24 @@ if (typeof GSFN !== "undefined") { GSFN.loadWidget(761,{"containerId":"getsat-wi
 <%= yield :javascript_yield %> 
 <%= javascript_include_tag "application" %>
 <script>
-//-- subnav -->
-$(document).scroll(function(){
-    // If has not activated (has no attribute "data-top"
-    if (!$('.subnav').attr('data-top')) {
-        // If already fixed, then do nothing
-        if ($('.subnav').hasClass('subnav-fixed')) return;
-        // Remember top position
-        var offset = $('.subnav').offset()
-        $('.subnav').attr('data-top', offset.top);
-    }
+// //-- subnav -->
 
-    if ($('.subnav').attr('data-top') - $('.subnav').outerHeight() <= $(this).scrollTop())
-        $('.subnav').addClass('subnav-fixed');
-    else
-        $('.subnav').removeClass('subnav-fixed');
-});
+// $(document).scroll(function(){
+//     // If has not activated (has no attribute "data-top"
+//     if (!$('.subnav').attr('data-top')) {
+//         // If already fixed, then do nothing
+//         if ($('.subnav').hasClass('subnav-fixed')) return;
+//         // Remember top position
+//         var offset = $('.subnav').offset()
+//         $('.subnav').attr('data-top', offset.top);
+//     }
+
+//     if ($('.subnav').attr('data-top') - $('.subnav').outerHeight() <= $(this).scrollTop())
+//         $('.subnav').addClass('subnav-fixed');
+//     else
+//         $('.subnav').removeClass('subnav-fixed');
+// });
 </script>
+</body>
 
 </html>
