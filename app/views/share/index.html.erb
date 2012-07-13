@@ -18,8 +18,7 @@ Share Link: <input size=35 value="http://www.prepared.ly/?ref=<%= @share_code %>
 
 <h4>View your Prepared.ly dashboard</h4>
 <br />
-<a href="/tasks"><button class="btn btn-success btn-large"> <i class="icon-fire icon-white"></i> Go! </button></a>
-
+<%= link_to '<i class="icon-fire icon-white"></i> Go! >>'.html_safe, root_path, :class => 'btn-large btn-success btn' %>
 
 <% content_for :javascript_yield do %>
   <!-- Tumblr Setup-->

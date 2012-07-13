@@ -10,7 +10,7 @@ Preparedly::Application.routes.draw do
 
   match "resources" => "resources#index"
 
-  match 'completed' => 'completed_tasks#completed', :as => 'completed'
+  match 'completed' => 'completed_tasks#completed' #, :as => 'completed'
 
   match 'remind/:task_id' => 'messages#remind', :as => 'reminder'
 
