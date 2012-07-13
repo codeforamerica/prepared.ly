@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
   <title>Preparedly</title>
   <meta name="viewport" content="width=device-width,initial-scale =1, user-scalable = no" />
   <%= yield :stylesheet_yield %>
   <%= yield :fb_og_tags %>
+  <meta property="og:site_name" content="Prepared.ly"/>
+  <meta property="og:title" content="Prepared.ly" />
+  <meta property="og:image" content="/assets/preparedly-red.png"/>
+  <meta property="og:description"
+          content="Prepared.ly is a simple way for you to stay informed and proactive about the ongoing threat of wildfires."/>
+  <meta property="og:type" content="website" />
   <%= stylesheet_link_tag "jquery-ui" %>
   <%= stylesheet_link_tag "bootstrap", :media => "all" %>
   <!--this must be third to last, add all others above this -->

@@ -1,9 +1,8 @@
 class CompletedTasksController < ApplicationController
-  # GET /completed_tasks
-  # GET /completed_tasks.json
+before_filter :authenticate_user!
+
   def index
     @completed_tasks = CompletedTask.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @completed_tasks }
@@ -25,7 +24,7 @@ class CompletedTasksController < ApplicationController
     unless CompletedTask.exists?(:user_id => current_user.id, :task_id => task_id, :completed => TRUE)
       CompletedTask.create!(:user_id => current_user.id, :task_id => task_id, :completed => TRUE)
     end
-    redirect_to root_path, :flash => { :alert => "Nicely done! Try something else."}
+    redirect_to "/#task-section", :flash => { :alert => "Nicely done! Try something else."}
   end
 
   # GET /completed_tasks/new

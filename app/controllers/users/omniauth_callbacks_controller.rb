@@ -24,6 +24,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
      end
   end
 
+  # facebook returns missing client_id local b/c of localhost, works in production ok
   def facebook
     @user = User.find_or_create_for_facebook(request.env["omniauth.auth"], current_user)
     flash[:notice] = "Signed in with Facebook successfully."
@@ -36,6 +37,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
      end
   end
 
+  # yahoo only works in production since you can only have one url per api key
   def yahoo
     @user = User.find_or_create_for_yahoo(request.env["omniauth.auth"], current_user)
     flash[:notice] = "Signed in with Yahoo successfully."
