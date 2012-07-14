@@ -89,7 +89,8 @@
                                 <li>email: <%= @user.email %></li>
                                 <li>phone: <%= @user.phone %></li>
                                 <li>saved address: <%= @user.address %></li>
-                                <li>date account created: <%= @user.created_at %></li>
+                                <li>date account created: <%= @user.created_at.to_formatted_s(:long) %></li>
+                                <li>completed tasks: <%= @user.completed_tasks %></li>
                             </ul>
                             <p>Also, feel free to leave us comments and questions with the "feedback" tab on the left side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.</p>
                            <div class="sub-section">
@@ -116,7 +117,7 @@
     </div>
 </div>
 <script>
-//-- task window -->
+//-- refresh task div without reloading page -->
 $("#skip").click(function(e){
   e.preventDefault();   
   $.get("/tasks-partial",

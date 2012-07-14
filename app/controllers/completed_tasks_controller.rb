@@ -20,7 +20,8 @@ before_filter :authenticate_user!
 
   def completed
     current_user
-    task_id = params[:task_id]
+    # this param works but needs to be done properly!
+    task_id = params[:format]
     unless CompletedTask.exists?(:user_id => current_user.id, :task_id => task_id, :completed => TRUE)
       CompletedTask.create!(:user_id => current_user.id, :task_id => task_id, :completed => TRUE)
     end

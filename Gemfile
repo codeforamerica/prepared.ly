@@ -22,6 +22,7 @@ end
 
 gem 'jquery-rails'
 gem 'jquery_datepicker'
+gem 'tinymce-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -35,9 +36,9 @@ gem 'jquery_datepicker'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# group :development, :test do 
-# 	gem 'ruby-debug19', :require => 'ruby-debug'
-# end
+group :development, :test do 
+	gem 'ruby-debug19', :require => 'ruby-debug'
+end
 
 gem 'dynamic_form'
 
