@@ -17,8 +17,6 @@
             <p id="notice"><%= alert %></p>
                 <div class="tab-content">
                     <%= notice %>
-
-   
 <!-- //////////////////// Map ///////////////////////// -->        
                     <section id="map-section" class="tab-pane"> 
                         <ul id="myTab" class="nav nav-tabs dash-tabs">
@@ -28,18 +26,20 @@
                             </li>
                         </ul>
                         <div class="taskbox lightblue">  
-                            
                             <%= form_tag("/map", :id => "fetchaddress", :remote => true) do %>
                                     <div class="controls">
                                         <div class="map-butt">
-                                        <%= text_field_tag(:q, nil,  :value => @user.address, :class => 'address form-inline input-xx-large') %><%= submit_tag("Load my map", :class => 'btn-success btn') %>
+                                        <%= text_field_tag(:q, nil,  :value => @user.address, :class => 'address form-inline input-xx-large') %>
+                                        <%= submit_tag("Load my map", :class => 'btn-success btn', :id => 'loadMap') %>
                                         </div>
                                     </div>   
                                 <% end %>  
+                            <!--<div class="container-fluid" id="preloadmap">
+                                <img src="assets/preload-genmap.jpg">
+                            </div>-->
                             <div id="mapinfo"> 
                                <!-- post.js.erb puts the map contents here --> 
                             </div>
-
 
    
                             <div class="container-fluid">
@@ -82,8 +82,13 @@
                     </section> 
 <!-- //////////////////// notifications/account stuff ///////////////////////// -->        
                     <section id="notify-section" class="tab-pane"> 
-                            <h2>Your account.</h2>
-                            <p>Current settings:</p>
+                        <ul id="myTab" class="nav nav-tabs dash-tabs">
+                            <li class="active note">
+                                <a href="#home" data-toggle="tab">
+                                YOUR ACCOUNT:</a>
+                            </li>
+                        </ul> 
+                            <h2>Current settings:</h2>
                             <ul>
                                 <li>name: <%= @user.first_name %> <%= @user.last_name %></li>
                                 <li>email: <%= @user.email %></li>
@@ -92,8 +97,10 @@
                                 <li>date account created: <%= @user.created_at %></li>
                             </ul>
                             <p>Also, feel free to leave us comments and questions with the "feedback" tab on the left side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.</p>
+                            <br>
+                            <br>
                            <div class="sub-section">
-                                <div class="task-butt"> 
+                                <div class="index-butt"> 
                                     <!--<a href="../users/sign_up" class="btn btn-large btn-success"> Create an account </a>-->
                                     <hr></hr>
                                 </div>
@@ -125,3 +132,6 @@ $("#skip").click(function(e){
   });
 });
 </script>
+
+
+

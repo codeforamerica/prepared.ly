@@ -104,5 +104,3 @@ $(document).ready(function() {
     feedback_widget_options.custom_css = "feedback.css";
     feedback_widget_options.limit = "3";
   var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
-
-
