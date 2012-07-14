@@ -58,7 +58,10 @@ $(window).on('load', function(){
   }, 0);
 });
 
-
+// when <a> element in id sidenav is clicked, remove flash alert since page isn't refreshing
+$("#sidenav a").click(function() {
+  $('#notice').hide();
+});
 
 $(document).ready(function(){
   $("#pick_date").datetimepicker({
