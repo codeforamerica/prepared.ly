@@ -20,11 +20,17 @@ $("#mapinfo").html("<%= escape_javascript(render(:partial => 'map/mapinfo')) %>"
 
     $("#warnings-trigger").click(function(e){
       $("#warnings").show();
-      //$("#map").hide();
     });
 
     $("#remove-warnings").click(function(e){
      $("#warnings").hide();
-      $("#map").show();
+    });
+
+    $("#bans-trigger").click(function(e){
+      $("#bans").show();
+    });
+
+    $("#remove-bans").click(function(e){
+     $("#bans").hide();
     });
   });
