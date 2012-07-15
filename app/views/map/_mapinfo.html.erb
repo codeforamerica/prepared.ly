@@ -40,8 +40,18 @@
                 <strong>Certainty: </strong> <%= w.css("certainty").text -%><br />
                 <strong>Affected counties: </strong> <%= w.css("areaDesc").text -%><br />
               <% end %>
+              <p>This data comes from an <a href="http://alerts.weather.gov/cap/tx.php?x=0">ATOM feed</a> of National Weather Service warnings</a> <a href="http://alerts.weather.gov/cap/tx.php?x=1">in Texas</a>. If your county matches a current warning, the warning will be displayed above.</p>
                 <span class="note" id="remove-warnings">hide warnings</span>
             </div>
+        <!-- <li class="condition-type">Red flag warning:
+            <span class="condition" id="inside-redflag"> Look for a red overlay on the map above.</span>
+        </li>
+        <li class="note" id="redflag-trigger"><u>About red flag warnings</u></li>
+            <div id="bans"  style="display: none;">
+                <h2>Red Flag Warnings</h2>
+                <p>Red flag warnings are issued by the National Weather Service when there is a high risk of wildfire. If there is a red flag warning for your searched address, you will see pink shading On the map above, red flag areas are shaded in a reddish-pink color using the information from <a href="http://radar.srh.noaa.gov/fire/">this map</a>. More detail can be found <a href="http://www.srh.noaa.gov/tae/?n=redflag">here</a></p>
+                <span class="note" id="remove-bans">hide red flag warnings info</span>
+            </div> -->
         <li><h2>Weather</h2><hr></li>
         <li class="condition-type">Wind: <span id="wind-conditions"><%= @wind_conditions %></li>
         <li class="condition-type">Humidity:
@@ -83,7 +93,7 @@ function setupMap() {
         baseLayer = new L.TileLayer(baseUrl, {attribution: attrib, maxZoom:18});
     map.addLayer(baseLayer);
 
-
+    // as of July 14, this server was returning nothing, the requests were failing from http://radar.srh.noaa.gov/fire/ too
     var fireUrl = 'http://radarcache.srh.noaa.gov/tilecache/tilecache.py/1.0.0/fwx/{z}/{x}/{y}.png?type=google&LAYERS=fwx', attrib = 'Red flag fire warning from NWS', fireLayer = new L.TileLayer(fireUrl, {attribution: attrib, maxZoom:18}); 
     map.addLayer(fireLayer);
 
@@ -114,8 +124,6 @@ function setupMap() {
     });
 
     var icon = new MyIcon();
-
-    
 
     var stations = new L.LayerGroup();
     for(f in fire_stations){
