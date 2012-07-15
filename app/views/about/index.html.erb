@@ -41,7 +41,17 @@
             <h2>Get started!</h2>
             <p>Prepare your home and property with tasks suggested by wildfire prevention experts and suggest new activities.
             </p> 
-            <p>Review our terms of use <a href="../terms">here</a></p>    
+            <p>Review our terms <a data-toggle="modal" href="#terms">here</a></p>
+            <div id="terms" class="modal hide fade">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3>Terms of Use</h3>
+                </div>
+                <div class="modal-body">
+                    <h4>Prepared.ly is a non-emergency wildfire preparedness tool.</h4><br> 
+                    <p style="color: gray">Registration allows you to share prevention strategies with other users, contact wildfire prevention specialists, and receive infrequent <strong>non-emergency</strong> alerts about wildfire prevention in your area. Information entered on this site will be securely stored, and only used for the above purposes and to improve Prepared.ly. Changes to this policy will be posted here. By accessing and using Prepared.ly, you acknowledge and agree to the above and any revisions.</p>
+                </div>   
+            </div>
         </div>
         <div class="column">
             <h2>Sharing</h2>
@@ -49,8 +59,9 @@
             <h2>On-Site Education</h2>
             <p>Schedule on-site consultations for your home and neighborhood with wildfire prevention experts.</p>
             <h2>Resources</h2>
-            <p>Review nationally accepted safety standards including best practices for home &amp; property improvements and becoming a Firewise community.</p>     
-            <p><a href="../map"><button class="btn btn-success btn-large"><i class="icon-map-marker icon-white"></i> Check it out!</button></a></p>           
+            <p>Review nationally accepted safety standards including best practices for home &amp; property improvements and becoming a Firewise community.</p>
+            <br />    
+            <%= link_to 'Get started!', new_user_session_path, :class=> "btn-large btn-info btn" %>
         </div>  
      </div> <!--end column-full-->    
 </div> <!--end column wrapper-->

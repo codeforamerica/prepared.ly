@@ -1,5 +1,5 @@
 <h1>Sign up</h1>
-<h4>Creating an account enables you to track your progress and schedule reminders for completing wildfire prevention tasks, contact wildfire experts for advice, share with neighbors and view risk information for your area.</h4>
+<h4>Creating an account enables you to track your progress and schedule reminders for completing wildfire prevention tasks, contact wildfire experts for advice, edit your preferences, share with neighbors and view risk information for your area. You may also create an account by signing in with another service below.</h4>
 <br>
         <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
@@ -19,7 +19,7 @@
         <%= f.label :password_confirmation %>*<br />
         <%= f.password_field :password_confirmation %>
     </div>
-    <h5><a href="../terms" target="_BLANK">Please review our registration and use policy</a></h5>
+    <h5><a data-toggle="modal" href="#terms">Please review our registration and use policy</a></h5>
     <div>
         <%= f.submit "Sign Up", :class => 'btn btn-info' %>
     </div>
