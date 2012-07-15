@@ -75,6 +75,9 @@ $(document).ready(function(){
 
 // map creation and update stuff moved into map/_mapinfo partial
 
+// show ajax loader gif when "Load my map" button in dashboard clicked
+$('#loadMap').click(function(){ $('#mapinfo').html("<img src='assets/ajax-loader.gif'>"); });
+
 // tells Rails to accept js header so we don't have to add .js extension to every request
 jQuery.ajaxSetup({ 
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
