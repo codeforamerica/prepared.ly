@@ -1,4 +1,4 @@
-<%= tinymce_assets %>
+<%#= tinymce_assets %>
 <div id="retask">
     <div class="contentbox contentbox-main">
         <h1><%= @random.task %></h1>
@@ -44,15 +44,15 @@
             </div>  
             <div class="field">
               <%= f.label :comment %>
-              <%= tinymce %>
-              <%= f.text_area :body, :id => 'new_comment_body', :class => "tinymce", :cols => '100', :rows => '100' %>
+              <%#= tinymce %>
+              <%= f.text_area :body, :id => 'new_comment_body', :cols => '100', :rows => '100' %>
+              <%#= f.text_area :body, :id => 'new_comment_body', :class => "tinymce", :cols => '100', :rows => '100' %>
             </div>
             <!-- <div class="actions modal-footer"> -->
               <%= f.submit 'Add your knowledge!', :class => 'btn-large btn-info btn' %>
                   <!-- <a href="#" class="btn" data-dismiss="modal" >Close</a> -->
         <% end %>
         <div id="comments">
-            <%= params.inspect %>
             <!-- comments will load in here via ajax -->
         </div>  
     </div>

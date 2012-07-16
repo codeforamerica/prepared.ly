@@ -40,7 +40,7 @@
                 <strong>Certainty: </strong> <%= w.css("certainty").text -%><br />
                 <strong>Affected counties: </strong> <%= w.css("areaDesc").text -%><br />
               <% end %>
-              <p>This data comes from an <a href="http://alerts.weather.gov/cap/tx.php?x=0">ATOM feed</a> of National Weather Service warnings</a> <a href="http://alerts.weather.gov/cap/tx.php?x=1">in Texas</a>. If your county matches a current warning, the warning will be displayed above. You can view additional Hazardous Weather Warnings for the Austin-San Antonio here</p>
+              <p>This data comes from an <a href="http://alerts.weather.gov/cap/tx.php?x=0">ATOM feed</a> of National Weather Service warnings</a> <a href="http://alerts.weather.gov/cap/tx.php?x=1">in Texas</a>. If your county matches a current warning, the warning will be displayed above.<!-- You can view additional Hazardous Weather Warnings for the Austin-San Antonio here--></p>
                 <span class="note" id="remove-warnings">hide warnings</span>
             </div>
         <!-- <li class="condition-type">Red flag warning:
@@ -162,7 +162,6 @@ function updateMap(data){
     $("#inside-nws").text(data.inside_nws);
     $("#address").text(data.address)
 }
-
 
 if($("#mapinfo").length > 0){
 

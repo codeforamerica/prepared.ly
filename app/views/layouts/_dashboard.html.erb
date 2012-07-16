@@ -94,9 +94,16 @@
                                 <li>phone: <%= @user.phone %></li>
                                 <li>saved address: <%= @user.address %></li>
                                 <li>date account created: <%= @user.created_at.to_formatted_s(:long) %></li>
-                                <li>completed tasks: <%= @user.completed_tasks %></li>
-                            </ul>
-                            <p>Also, feel free to leave us comments and questions with the "feedback" tab on the left side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.</p>
+                                <ul>my completed tasks: <% @tasks.each do |task| %>
+                                    <li><%= task %></li>
+                                    <% end %>
+                                </ul>
+                                <ul>my comments: <% @comments.each do |comment| %>
+                                    <li><%= comment.body %></li>
+                                    <% end %>
+                                </ul>
+                            <br />
+                            <h5>Also, feel free to leave us comments and questions with the "feedback" tab on the right side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.</h5>
                             <br>
                             <br>
                            <div class="sub-section">
