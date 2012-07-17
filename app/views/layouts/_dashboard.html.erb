@@ -95,7 +95,7 @@
                                 <li>saved address: <%= @user.address %></li>
                                 <li>date account created: <%= @user.created_at.to_formatted_s(:long) %></li>
                                 <ul>my completed tasks: <% @tasks.each do |task| %>
-                                    <li><%= task %></li>
+                                    <li><% unless task.blank? %> <%= task.to_s.gsub('["', '').gsub('"]','') %> &#10003;<% end %></li>
                                     <% end %>
                                 </ul>
                                 <ul>my comments: <% @comments.each do |comment| %>
