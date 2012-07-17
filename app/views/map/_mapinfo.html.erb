@@ -26,7 +26,7 @@
                 <p>Burn ban information is imported from an <a href="http://tfsfrp.tamu.edu/wildfires/BurnBan.xml" target="_BLANK">XML data feed</a> provided by the Texas Forest Service. The feed lists counties with a current burn ban in effect, and we provide a Yes or No above for your county using the most current XML feed. The feed was updated on <%= @burnban_updated %>; view the Texas Forest Service's map <a href="http://tfsfrp.tamu.edu/wildfires/decban.png" target="_BLANK">here</a>, it is often a day or so more up-to-date than the feed.</p>
                 <span class="note" id="remove-bans">hide burn ban info</span>
             </div>
-        <li class="condition-type">NWS Weather Warning:
+        <li class="condition-type">National Weather Service Warning:
             <span class="condition" id="inside-nws"> <%= @inside_nws %></span>
         </li>
         <li class="note" id="warnings-trigger"><u>Read current warnings for your county</u></li>
@@ -43,15 +43,15 @@
               <p>This data comes from an <a href="http://alerts.weather.gov/cap/tx.php?x=0">ATOM feed</a> of National Weather Service warnings</a> <a href="http://alerts.weather.gov/cap/tx.php?x=1">in Texas</a>. If your county matches a current warning, the warning will be displayed above.<!-- You can view additional Hazardous Weather Warnings for the Austin-San Antonio here--></p>
                 <span class="note" id="remove-warnings">hide warnings</span>
             </div>
-        <!-- <li class="condition-type">Red flag warning:
-            <span class="condition" id="inside-redflag"> Look for a red overlay on the map above.</span>
+        <li class="condition-type">Red flag warning:
+            <span class="condition" id="inside-redflag"></span>
         </li>
-        <li class="note" id="redflag-trigger"><u>About red flag warnings</u></li>
-            <div id="bans"  style="display: none;">
+        <li class="note" id="flags-trigger"><u>About red flag warnings</u></li>
+            <div id="flags"  style="display: none;">
                 <h2>Red Flag Warnings</h2>
-                <p>Red flag warnings are issued by the National Weather Service when there is a high risk of wildfire. If there is a red flag warning for your searched address, you will see pink shading On the map above, red flag areas are shaded in a reddish-pink color using the information from <a href="http://radar.srh.noaa.gov/fire/">this map</a>. More detail can be found <a href="http://www.srh.noaa.gov/tae/?n=redflag">here</a></p>
-                <span class="note" id="remove-bans">hide red flag warnings info</span>
-            </div> -->
+                <p>Red flag warnings are issued by the National Weather Service when there is a high risk of wildfire. Red flag and fire risk warnings may also appear in the warnings listed above. Red flag warnings for the National Weather Service Southern Region, which includes Texas, can be found <a href="http://forecast.weather.gov/wwamap/wwatxtget.php?cwa=srh&wwa=red%20flag%20warning">here</a> and all national red flag warnings <a href="http://forecast.weather.gov/wwamap/wwatxtget.php?cwa=usa&wwa=Red%20Flag%20Warning">here</a>.</a></p>
+                <span class="note" id="remove-flags">hide red flag warnings info</span>
+            </div>
         <li><h2>Weather</h2><hr></li>
         <li class="condition-type">Wind: <span id="wind-conditions"><%= @wind_conditions %></li>
         <li class="condition-type">Humidity:
@@ -80,6 +80,7 @@
 <script>
 var map;
 var homeMarker;
+var verifyRedFlag;
 $(document).ready(function() {
 
 function setupMap() {
@@ -97,6 +98,44 @@ function setupMap() {
     var fireUrl = 'http://radarcache.srh.noaa.gov/tilecache/tilecache.py/1.0.0/fwx/{z}/{x}/{y}.png?type=google&LAYERS=fwx', attrib = 'Red flag fire warning from NWS', fireLayer = new L.TileLayer(fireUrl, {attribution: attrib, maxZoom:18}); 
     map.addLayer(fireLayer);
 
+    var bbox = '{  "xmin":-98.997803,  "ymin":29.430029,  "xmax":-96.778564,  "ymax":30.779598,  "spatialReference":{"wkid":4326} }';
+    //var bbox = '{  "xmin":-124.123535,  "ymin":42.212245,  "xmax":-116.51001,  "ymax":45.9053,  "spatialReference":{"wkid":4326} }';
+
+    verifyRedFlag = function(data){
+        if(data.features.length == 0){
+            // no warnings
+            //console.log("no warnings");
+            var redflag = "No current warnings";
+            $("#inside-redflag").html(redflag);
+        }
+        else{
+            // some alerts (could be Red Flag Warning, or other type of warning)
+            var redflag = false;
+            for(var e=0;e<data.features.length;e++){
+                if(data.features[e].attributes.event == "RED FLAG WARNING"){
+                    redflag = true;
+                    break;
+                }
+            }
+            if(redflag){
+                // there was a red flag warning
+                //console.log("red flag");
+                var redflag = "Current warning, see link below";
+                $("#inside-redflag").html(redflag);
+            }
+            else{
+                // only other types of warnings
+                // console.log("other warnings");
+                var redflag = "Other warnings, see NWS link above";
+                $("#inside-redflag").html(redflag);
+            }
+        }
+
+    };
+    var s = document.createElement("script");
+    s.src = 'http://rmgsc.cr.usgs.gov/ArcGIS/rest/services/nhss_weat/MapServer/0/query?f=json&returnGeometry=true&spatialRel=esriSpatialRelIntersects&maxAllowableOffset=4891&geometry=' + bbox + '&geometryType=esriGeometryEnvelope&inSR=4326&outFields=*&outSR=4326&callback=verifyRedFlag';
+    s.type = "text/javascript";
+    document.body.appendChild(s);
 
     var tx_burn_ban_counties = new L.CartoDBLayer({
     show_cartodb_logo: false,

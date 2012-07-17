@@ -32,4 +32,12 @@ $("#mapinfo").html("<%= escape_javascript(render(:partial => 'map/mapinfo')) %>"
     $("#remove-bans").click(function(e){
      $("#bans").hide();
     });
+
+    $("#flags-trigger").click(function(e){
+      $("#flags").show();
+    });
+
+    $("#remove-flags").click(function(e){
+     $("#flags").hide();
+    });
   });
