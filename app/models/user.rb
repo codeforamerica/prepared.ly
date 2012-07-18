@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :tasks
   has_many :completed_tasks
   has_many :messages
+  has_many :comments
 
   
 

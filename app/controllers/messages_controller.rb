@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
   if params[:email] == "1" && current_user.email.blank? == false
     @message = Message.create!(:body => Task.where(:id => params[:task_id]).first.task, :scheduled_time => params[:date].to_time - 1.minutes, :user_id => current_user.id, :reminder_type => "email")
   end
-  redirect_to root_url, notice: "Your reminders have been set and will be sent within one hour of your scheduled time."
+  redirect_to root_url, alert: "Your reminders have been set."
   end
 
   # GET /messages/1

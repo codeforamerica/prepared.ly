@@ -1,3 +1,4 @@
+<%#= tinymce_assets %>
 <div id="retask">
     <div class="contentbox contentbox-main">
         <h1><%= @random.task %></h1>
@@ -31,6 +32,7 @@
                 <p>Activity feed goes here</p>
             </div> 
         </div>-->
+    
     <div class="contentbox">         
         <h2>Comments</h2>
         <p>Do you know of a product that helps with this task? Run into any trouble while doing it? Easier than expected? Have a related suggestion? Please let us know in the comments.</p>         
@@ -42,7 +44,9 @@
             </div>  
             <div class="field">
               <%= f.label :comment %>
-              <%= f.text_area :body, :id => 'new_comment_body' %>
+              <%#= tinymce %>
+              <%= f.text_area :body, :id => 'new_comment_body', :cols => '100', :rows => '100' %>
+              <%#= f.text_area :body, :id => 'new_comment_body', :class => "tinymce", :cols => '100', :rows => '100' %>
             </div>
             <!-- <div class="actions modal-footer"> -->
               <%= f.submit 'Add your knowledge!', :class => 'btn-large btn-info btn' %>
@@ -53,15 +57,15 @@
         </div>  
     </div>
 </div>
-<!-- //////////////////// comment modal //////////////// -->
-<!-- <div id="comment" class="modal hide fade">
+<!-- //////////////////// comment modal //////////////// 
+<div id="comment" class="modal hide fade">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
     <h3>Add some knowledge:</h3>
   </div>
     <div class="modal-body">
        
-            <!--not doing anything for now -->
+            not doing anything for now -->
             <!--  <select class="span3">
                 <option>wisdom to add</option>
                 <option>supplementary task</option>

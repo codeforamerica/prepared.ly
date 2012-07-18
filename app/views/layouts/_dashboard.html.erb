@@ -16,7 +16,6 @@
             <div class="span9">
             <p id="notice"><%= alert %></p>
                 <div class="tab-content">
-                    <%= notice %>
 <!-- //////////////////// Map ///////////////////////// -->        
                     <section id="map-section" class="tab-pane"> 
                         <ul id="myTab" class="nav nav-tabs dash-tabs">
@@ -94,9 +93,17 @@
                                 <li>email: <%= @user.email %></li>
                                 <li>phone: <%= @user.phone %></li>
                                 <li>saved address: <%= @user.address %></li>
-                                <li>date account created: <%= @user.created_at %></li>
-                            </ul>
-                            <p>Also, feel free to leave us comments and questions with the "feedback" tab on the left side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.</p>
+                                <li>date account created: <%= @user.created_at.to_formatted_s(:long) %></li>
+                                <ul>my completed tasks: <% @tasks.each do |task| %>
+                                    <li><% unless task.blank? %> <%= task.to_s.gsub('["', '').gsub('"]','') %> &#10003;<% end %></li>
+                                    <% end %>
+                                </ul>
+                                <ul>my comments: <% @comments.each do |comment| %>
+                                    <li><%= comment.body %></li>
+                                    <% end %>
+                                </ul>
+                            <br />
+                            <h5>Also, feel free to leave us comments and questions with the "feedback" tab on the right side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.</h5>
                             <br>
                             <br>
                            <div class="sub-section">
@@ -123,7 +130,7 @@
     </div>
 </div>
 <script>
-//-- task window -->
+//-- refresh task div without reloading page -->
 $("#skip").click(function(e){
   e.preventDefault();   
   $.get("/tasks-partial",
@@ -132,6 +139,3 @@ $("#skip").click(function(e){
   });
 });
 </script>
-
-
-

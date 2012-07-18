@@ -10,6 +10,9 @@ gem 'activerecord-postgis-adapter'
 
 # Gems used only for assets and not required
 # in production environments by default.
+gem 'jquery-rails'
+gem 'jquery_datepicker'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -20,8 +23,7 @@ group :assets do
   gem 'prototype-rails'
 end
 
-gem 'jquery-rails'
-gem 'jquery_datepicker'
+#gem 'tinymce-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

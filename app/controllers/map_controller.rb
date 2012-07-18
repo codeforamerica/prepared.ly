@@ -99,6 +99,7 @@ class MapController < ApplicationController
       else
         @inside_burnban = 'no'
       end
+      @burnban_updated = rss.css('rss channel item title').text.split('-')[1]
 
       # Counties with a National Weather Service warning
       doc = Nokogiri::XML(open('http://alerts.weather.gov/cap/tx.php?x=0'))
