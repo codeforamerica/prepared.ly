@@ -252,11 +252,15 @@ td { vertical-align: bottom; }
 	top: 75px;
 	left: 45px;
 }
-
 #logo {
 	background: url('preparedly-red.png') no-repeat;
 	height:112px;
 	width:241px;
+}
+#logo-side {
+  background: url('preparedly-red-nologo.png') no-repeat;
+  height:112px;
+  width:241px;
 }
 #logo a{
 	height:100px;

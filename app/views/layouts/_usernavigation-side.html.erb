@@ -1,6 +1,11 @@
 <% if user_signed_in? %>
     <div class="span3 sidebar">
-        <img src="assets/userphoto-default.png">
+    <div id="logo-wrapper">
+          <a href="/">
+            <div id="logo-side" title="preparedly">
+            </div>
+          </a>
+    </div>
         <div id="usercontainer">
             <h2><%= @user.first_name %></h2>
             <p><%= @user.address %></p>
