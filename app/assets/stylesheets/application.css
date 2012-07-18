@@ -94,7 +94,12 @@ select,
 .address label {
 	display:none;
 	}	
-
+.learn-columnhack .span5 {
+  max-width: 372px;
+}
+.learn-columnhack .span10 {
+  max-width: 800px;
+}
 	
 /*input {
 	margin: 10px;
