@@ -24,10 +24,12 @@
                                 LOCATION AND CURRENT CONDITIONS</a>
                             </li>
                         </ul>
-                        <div class="taskbox lightblue">  
+                        <div class="taskbox lightblue">
+
                             <%= form_tag("/map", :id => "fetchaddress", :remote => true) do %>
                                     <div class="controls">
                                         <div class="map-butt">
+                                            <p class="note">Please enter your street address or zip code.</p>
                                         <%= text_field_tag(:q, nil,  :value => @user.address, :class => 'address form-inline input-xx-large') %>
                                         <%= submit_tag("Load my map", :class => 'btn-success btn', :id => 'loadMap') %>
                                         </div>
