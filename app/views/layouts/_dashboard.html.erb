@@ -27,45 +27,17 @@
                             </li>
                         </ul>
                         <div class="taskbox lightblue">
-
                             <%= form_tag("/map", :id => "fetchaddress", :remote => true) do %>
-                                    <div class="controls">
-                                        <div class="map-butt">
-                                            <p class="note">Please enter your street address or zip code.</p>
-                                        <%= text_field_tag(:q, nil,  :value => @user.address, :class => 'address form-inline input-xx-large') %>
-                                        <%= submit_tag("Load my map", :class => 'btn-success btn', :id => 'loadMap') %>
-                                        </div>
-                                    </div>   
-                                <% end %>  
-                            <!--<div class="container-fluid" id="preloadmap">
-                                <img src="assets/preload-genmap.jpg">
-                            </div>-->
+                                <div class="controls">
+                                    <div class="map-butt">
+                                        <p class="note">Please enter your street address or zip code.</p>
+                                    <%= text_field_tag(:q, nil,  :value => @user.address, :class => 'address form-inline input-xx-large') %>
+                                    <%= submit_tag("Load my map", :class => 'btn-success btn', :id => 'loadMap') %>
+                                    </div>
+                                </div>   
+                            <% end %>  
                             <div id="mapinfo"> 
-                               <!-- post.js.erb puts the map contents here --> 
-                            </div>
-
-   
-                            <div class="container-fluid">
-                                <!-- <div class="span6">
-                                    <div class="triangle-top">
-                                    </div>            
-                                    <div class="triangle-top-box"> 
-                                    </div>
-                                    <div class="triangle-top">
-                                    </div>            
-                                    <div class="triangle-top-box"> 
-                                    </div>
-                                </div>
-                                <div class="span6">
-                                    <div class="triangle-top">
-                                    </div>            
-                                    <div class="triangle-top-box"> 
-                                    </div>
-                                    <div class="triangle-top">
-                                    </div>            
-                                    <div class="triangle-top-box"> 
-                                    </div>
-                                </div> -->
+                            <!-- post.js.erb puts the map contents here --> 
                             </div>
                         </div>
                     </section> 
@@ -92,12 +64,13 @@
                             </li>
                         </ul> 
                             <h2>Current settings:</h2>
-                            <ul>
-                                <li>name: <%= @user.first_name %> <%= @user.last_name %></li>
-                                <li>email: <%= @user.email %></li>
-                                <li>phone: <%= @user.phone %></li>
-                                <li>saved address: <%= @user.address %></li>
-                                <li>date account created: <%= @user.created_at.to_formatted_s(:long) %></li>
+                                <ul>
+                                    <li>name: <%= @user.first_name %> <%= @user.last_name %></li>
+                                    <li>email: <%= @user.email %></li>
+                                    <li>phone: <%= @user.phone %></li>
+                                    <li>saved address: <%= @user.address %></li>
+                                    <li>date account created: <%= @user.created_at.to_formatted_s(:long) %></li>
+                                </ul>
                                 <ul>my completed tasks: <% @tasks.each do |task| %>
                                     <li><% unless task.blank? %> <%= task.to_s.gsub('["', '').gsub('"]','') %> &#10003;<% end %></li>
                                     <% end %>
@@ -106,16 +79,10 @@
                                     <li><%= comment.body %></li>
                                     <% end %>
                                 </ul>
-                            <br />
-                            <h5>Also, feel free to leave us comments and questions with the "feedback" tab on the right side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.</h5>
+                                <br />
+                                <h5>Also, feel free to leave us comments and questions with the "feedback" tab on the right side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.</h5>
                             <br>
                             <br>
-                           <div class="sub-section">
-                                <div class="index-butt"> 
-                                    <!--<a href="../users/sign_up" class="btn btn-large btn-success"> Create an account </a>-->
-                                    <hr></hr>
-                                </div>
-                            </div>  
                         <%= render "devise/registrations/edit" %>
                         </section> 
 <!-- //////////////////// contact AFD ///////////////////////// -->        
