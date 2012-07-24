@@ -2,7 +2,7 @@ require 'twilio-ruby'
 
 class Task < ActiveRecord::Base
   attr_accessible :difficulty, :task, :fact, :detail
-  has_many :users
+  # has_many :users
   has_many :completed_tasks
   has_many :comments
 

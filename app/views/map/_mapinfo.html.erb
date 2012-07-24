@@ -17,13 +17,14 @@
         <% else %>
         <li class="condition-type">No risk data is available at this location</li>
         <% end %>
-        <li class="condition-type">Inside of a Burn Ban:
+        <li class="condition-type">Inside of a countywide burn ban:
             <span class="condition" id="inside-burnban"><%= @inside_burnban %></span>
         </li>
         <li class="note" id="bans-trigger"><u>About burn bans</u></li>
             <div id="bans"  style="display: none;">
                 <h2>About burn bans</h2>
                 <p>Burn ban information is imported from an <a href="http://tfsfrp.tamu.edu/wildfires/BurnBan.xml" target="_BLANK">XML data feed</a> provided by the Texas Forest Service. The feed lists counties with a current burn ban in effect, and we provide a Yes or No above for your county using the most current XML feed. The feed was updated on <%= @burnban_updated %>; view the Texas Forest Service's map <a href="http://tfsfrp.tamu.edu/wildfires/decban.png" target="_BLANK">here</a>, it is often a day or so more up-to-date than the feed.</p>
+                <p><strong>Please note</strong> that many cities, including Austin, have a permanent burn ban inside of city limits without a permit. To secure a permit in Austin, please contact the AFD Prevention Division at (512) 974-0160. We are working on adding information for other cities.</p>
                 <span class="note" id="remove-bans">hide burn ban info</span>
             </div>
         <li class="condition-type">National Weather Service Warning:
