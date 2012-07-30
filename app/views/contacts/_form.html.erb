@@ -6,11 +6,11 @@
 <%= error_messages_for :contact -%>
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, :name => 'name' %>
+    <%= f.text_field :name, :class => 'required' %>
   </div>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.text_field :email, :value => @user.email, :name => 'email' %>
+    <%= f.text_field :email, :value => @user.email, :class => 'required' %>
   </div>
   <div class="field">
     <%= f.label :contact_type %><br />
@@ -18,7 +18,7 @@
   </div>
   <div class="field">
     <%= f.label :body %><br />
-    <%= f.text_area :body, :rows => '15', :name => 'body' %>
+    <%= f.text_area :body, :class => 'required', :rows => '15' %>
   </div>
   <div class="actions" >
     <%= f.submit "Submit", :class => "btn btn-success btn" %>
