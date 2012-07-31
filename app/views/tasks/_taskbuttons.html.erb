@@ -1,12 +1,8 @@
 <div class="task-butt">
   <div class="btn-group">
-    <% if user_signed_in? %>
         <a class="btn-large btn-info btn" data-toggle="modal" href="#schedule"><i class="icon-calendar icon-white"></i> Schedule</a>
-    <% else %>
-        <a href="users/sign_up"><button class="btn-large btn-info btn"><i class="icon-user icon-white"></i> Sign up to track my progress, set reminders, and create tasks!</button></a>
-    <% end %> 
         <%= link_to '<i class="icon-time icon-white"></i> Skip for now'.html_safe, '#task-section', :class => 'btn-large btn-warning btn', :id => 'skip', :method => 'get' %>       
-        <%= link_to '<i class="icon-ok icon-white"></i> I did it!'.html_safe, completed_path(@random.id), :class => 'btn-large btn-success btn' %>  
+        <%= link_to '<i class="icon-ok icon-white"></i> I did it!'.html_safe, completed_path(@random.id), :class => 'btn-large btn-success btn', :id => 'done' %>  
         <%= link_to '<i class="icon-pencil icon-white"></i> Create a new task'.html_safe, new_task_path, :class => 'btn-large btn-info btn' %>
     </div>       
 <!-- //////////////////// schedule modal //////////////// -->
@@ -24,7 +20,7 @@
         <br />
         <label>Remind me by email</label><%= check_box_tag 'email' %>
         <br />
-        <%= submit_tag 'Set my reminder!', :class => 'btn-large btn-success btn' %>
+        <%= submit_tag 'Set my reminder!', :class => 'btn-large btn-success btn', :id => 'scheduled' %>
       <% end %>
     </div>
     <div class="modal-footer">
