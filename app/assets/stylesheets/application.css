@@ -34,6 +34,9 @@ body {
 	height:100%;
 	line-height:1.7em;
 }
+#modal-off {
+  display: none;
+}
 /*.container {
 	  *zoom: 1;
     width: auto;
@@ -207,7 +210,6 @@ td { vertical-align: bottom; }
 .navbar-items li {
 	display: inline;
 	list-style-type: none;
-	padding-right: 20px;
 	float: right;
 	font-size: 15px;
 	font-style: normal;

@@ -7,6 +7,12 @@
  .notice, .alert {
  	height: 0px;
  	}
+ #modal-on {
+  display: none;
+}
+#modal-off {
+  display: block;
+}
 /*-----------------------------prepared.ly logo ---*/
 #logo-wrapper {
 	height:31px;
