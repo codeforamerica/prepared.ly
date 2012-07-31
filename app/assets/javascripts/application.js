@@ -75,8 +75,17 @@ $(document).ready(function(){
 
 // map creation and update stuff moved into map/_mapinfo partial
 
-// show ajax loader gif when "Load my map" button in dashboard clicked
-$('#loadMap').click(function(){ $('#mapinfo').html("<img src='assets/ajax-loader.gif'>"); });
+// alert to user if map search is empty, otherwise show ajax loading gif
+$("#loadMap").click(function(){
+            if($("#q").val() == '') {
+                 alert("Please enter a street address with city and state; or zip code.");
+                 $("#q").addClass('highlight');
+                 return false;
+            } else {
+              $('#mapinfo').html("<img src='assets/ajax-loader.gif'>");
+            }
+        });
+
 
 // tells Rails to accept js header so we don't have to add .js extension to every request
 jQuery.ajaxSetup({ 

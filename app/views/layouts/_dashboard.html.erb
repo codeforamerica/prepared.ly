@@ -1,13 +1,15 @@
 <% content_for :stylesheet_yield do %>
-  <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.css">
-  <link rel="stylesheet" href="http://code.leafletjs.com/leaflet-0.3.1/leaflet.ie.css">
+  <%= stylesheet_link_tag "leaflet.css" %>
+  <%= stylesheet_link_tag "leaflet.ie.css" %>
 <% end %>
 <% content_for :javascript_yield do %>
   <!-- scripts -->
-  <script src="http://code.leafletjs.com/leaflet-0.3.1/leaflet.js"></script>
+  <%= javascript_include_tag "leaflet.js" %>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <%= javascript_include_tag "wax.leaflet.min.js" %>
   <%= javascript_include_tag "cartodb-leaflet.js" %>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+  <%= javascript_include_tag "validate.js" %>
 <% end %>
 <div class="tabbable tabs-left">
     <div class="row-fluid dash">
@@ -24,44 +26,18 @@
                                 LOCATION AND CURRENT CONDITIONS</a>
                             </li>
                         </ul>
-                        <div class="taskbox lightblue">  
+                        <div class="taskbox lightblue">
                             <%= form_tag("/map", :id => "fetchaddress", :remote => true) do %>
-                                    <div class="controls">
-                                        <div class="map-butt">
+                                <div class="controls">
+                                    <div class="map-butt">
+                                        <p class="note">Please enter your street address or zip code.</p>
                                         <%= text_field_tag(:q, nil,  :value => @user.address, :class => 'address form-inline input-xx-large') %>
                                         <%= submit_tag("Load my map", :class => 'btn-success btn', :id => 'loadMap') %>
-                                        </div>
-                                    </div>   
-                                <% end %>  
-                            <!--<div class="container-fluid" id="preloadmap">
-                                <img src="assets/preload-genmap.jpg">
-                            </div>-->
+                                    </div>
+                                </div>   
+                            <% end %>  
                             <div id="mapinfo"> 
-                               <!-- post.js.erb puts the map contents here --> 
-                            </div>
-
-   
-                            <div class="container-fluid">
-                                <!-- <div class="span6">
-                                    <div class="triangle-top">
-                                    </div>            
-                                    <div class="triangle-top-box"> 
-                                    </div>
-                                    <div class="triangle-top">
-                                    </div>            
-                                    <div class="triangle-top-box"> 
-                                    </div>
-                                </div>
-                                <div class="span6">
-                                    <div class="triangle-top">
-                                    </div>            
-                                    <div class="triangle-top-box"> 
-                                    </div>
-                                    <div class="triangle-top">
-                                    </div>            
-                                    <div class="triangle-top-box"> 
-                                    </div>
-                                </div> -->
+                            <!-- post.js.erb puts the map contents here --> 
                             </div>
                         </div>
                     </section> 
@@ -94,25 +70,20 @@
                                 <li>phone: <%= @user.phone %></li>
                                 <li>saved address: <%= @user.address %></li>
                                 <li>date account created: <%= @user.created_at.to_formatted_s(:long) %></li>
-                                <ul>my completed tasks: <% @tasks.each do |task| %>
-                                    <li><% unless task.blank? %> <%= task.to_s.gsub('["', '').gsub('"]','') %> &#10003;<% end %></li>
-                                    <% end %>
-                                </ul>
-                                <ul>my comments: <% @comments.each do |comment| %>
-                                    <li><%= comment.body %></li>
-                                    <% end %>
-                                </ul>
+                            </ul>
+                            <ul>my completed tasks: <% @tasks.each do |task| %>
+                                <li><% unless task.blank? %> <%= task.to_s.gsub('["', '').gsub('"]','') %> &#10003;<% end %></li>
+                                <% end %>
+                            </ul>
+                            <ul>my comments: <% @comments.each do |comment| %>
+                                <li><%= comment.body %></li>
+                                <% end %>
+                            </ul>
                             <br />
                             <h5>Also, feel free to leave us comments and questions with the "feedback" tab on the right side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.</h5>
                             <br>
                             <br>
-                           <div class="sub-section">
-                                <div class="index-butt"> 
-                                    <!--<a href="../users/sign_up" class="btn btn-large btn-success"> Create an account </a>-->
-                                    <hr></hr>
-                                </div>
-                            </div>  
-                        <%= render "devise/registrations/edit" %>
+                            <%= render "devise/registrations/edit" %>
                         </section> 
 <!-- //////////////////// contact AFD ///////////////////////// -->        
                         <section id="contact-section" class="tab-pane">
@@ -129,13 +100,3 @@
         </div>
     </div>
 </div>
-<script>
-//-- refresh task div without reloading page -->
-$("#skip").click(function(e){
-  e.preventDefault();   
-  $.get("/tasks-partial",
-      function(response) {
-        $("#retask").html(response);
-  });
-});
-</script>

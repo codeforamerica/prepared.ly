@@ -10,18 +10,12 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.create!(params[:contact])
+    @contact = Contact.new(params[:contact])
     @user = current_user
-    @user.send_contact_form
 
-    respond_to do |format|
-      if @contact.save
-        format.html { redirect_to root_path, notice: "Thanks, your message has been sent to a wildfire specialist." }
-        #format.json { render json: @contact, status: :created, location: @contact }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
-      end
+    if @contact.save
+      @user.send_contact_form
+      redirect_to root_path, :flash => {:alert => "Thanks, your message has been sent to a wildfire specialist." }
     end
   end
 

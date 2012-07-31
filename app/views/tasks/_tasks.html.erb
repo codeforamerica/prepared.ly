@@ -1,4 +1,3 @@
-<%#= tinymce_assets %>
 <div id="retask">
     <div class="contentbox contentbox-main">
         <h1><%= @random.task %></h1>
@@ -6,13 +5,11 @@
     </div>
     <div class="container-fluid">
         <div class="span6">
-            <div class="triangle-top">
-            </div>            
+            <div class="triangle-top"></div>            
             <div class="triangle-top-box">
                 <h2>On the scale, this is:</h2>
                 <p><%= @random.difficulty %></p>
-                 <div class ="<%= @random.difficulty %>">
-                </div>
+                <div class ="<%= @random.difficulty %>"></div>
             </div>        
         </div>   
         <div class="span6">
@@ -24,19 +21,10 @@
             </div>
         </div>    
     </div> 
-    <!-- activity feed currently disabled until further notice ->
-        <!- <div class="triangle-top">
-            </div>       
-             <div class="triangle-top-box">                     
-                <h2>Activity feed:</h2>
-                <p>Activity feed goes here</p>
-            </div> 
-        </div>-->
     
     <div class="contentbox">         
         <h2>Comments</h2>
-        <p>Do you know of a product that helps with this task? Run into any trouble while doing it? Easier than expected? Have a related suggestion? Please let us know in the comments.</p>         
-        <%#= link_to '<i class="icon-comment icon-white"></i> add some knowledge' .html_safe, "#comment", :class => 'btn-large btn-info btn', :data => {:toggle => "modal"}%>
+        <p>Do you know of a product that helps with this task? Run into any trouble while doing it? Easier than expected? Have a related suggestion? Please let us know in the comments.</p>
         <%= form_for([@random, @random.comments.build], :id => 'new_comment') do |f| %>
             <div class="field">
               <%= f.label :name %>
@@ -44,36 +32,12 @@
             </div>  
             <div class="field">
               <%= f.label :comment %>
-              <%#= tinymce %>
               <%= f.text_area :body, :id => 'new_comment_body', :cols => '100', :rows => '100' %>
-              <%#= f.text_area :body, :id => 'new_comment_body', :class => "tinymce", :cols => '100', :rows => '100' %>
             </div>
-            <!-- <div class="actions modal-footer"> -->
-              <%= f.submit 'Add your knowledge!', :class => 'btn-large btn-info btn' %>
-                  <!-- <a href="#" class="btn" data-dismiss="modal" >Close</a> -->
+            <%= f.submit 'Add your knowledge!', :class => 'btn-large btn-info btn' %>      
         <% end %>
         <div id="comments">
             <!-- comments will load in here via ajax -->
         </div>  
     </div>
 </div>
-<!-- //////////////////// comment modal //////////////// 
-<div id="comment" class="modal hide fade">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h3>Add some knowledge:</h3>
-  </div>
-    <div class="modal-body">
-       
-            not doing anything for now -->
-            <!--  <select class="span3">
-                <option>wisdom to add</option>
-                <option>supplementary task</option>
-                <option>feedback about how it went</option>
-                <option>submit a helpful product</option>
-                <option>submit a photo</option>
-                </select>
-          
-  </div>
-</div> -->
-
