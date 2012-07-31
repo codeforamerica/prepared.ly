@@ -2,7 +2,7 @@
 <li>Schedule on-site consultations with wildfire prevention experts</li>
 <li>Work with experts to make your neighborhood Firewise</li></ul>
 
-<%= form_for(@contact), :id => 'contact_expert' do |f| %>
+<%= form_for(@contact, :id => 'contact_expert') do |f| %>
 <%= error_messages_for :contact -%>
   <div class="field">
     <%= f.label :name %><br />
