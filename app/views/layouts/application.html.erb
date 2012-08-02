@@ -1,39 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
   <title>Preparedly</title>
-    <meta name="viewport" content="width=device-width,initial-scale =1, user-scalable = no" />
-  <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <meta name="viewport" content="width=device-width,initial-scale =1, user-scalable = no" />
   <%= yield :stylesheet_yield %>
   <%= yield :fb_og_tags %>
+  <meta property="og:url" content="http://www.prepared.ly"/>
+  <meta property="og:site_name" content="Prepared.ly"/>
+  <meta property="og:title" content="Prepared.ly" />
+  <meta property="og:image" content="http://www.prepared.ly/assets/preparedly-bigblue.png"/>
+  <meta property="og:description"
+          content="Prepared.ly is a simple way for you to stay informed and proactive about the ongoing threat of wildfires."/>
+  <script type="text/javascript" src="http://updateyourbrowser.net/uyb.js"> </script>
+  <%= stylesheet_link_tag "jquery-ui" %>
+  <%= stylesheet_link_tag "bootstrap", :media => "all" %>
+  <!--this must be third to last, add all others above this -->
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <!--this must be second to last -->
   <%= stylesheet_link_tag "mobile", :media => "all and (max-width: 600px)" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <!--this must be the last -->
+  <%= stylesheet_link_tag "bootstrap-responsive", :media => "all" %>
 </head>
-<body data-spy="scroll" data-target=".subnav" data-offset="100">
-<div class="container">
-  <div id="main-wrap">
-      <% if user_signed_in? %>
-           <%= render "layouts/usernavigation" %>
-         <% else %>
-           <%= render "layouts/navigation" %>
-      <% end %>
-      <div id="beta">
-      </div>   
-      <% unless user_signed_in? %>
-        <div id="logo-wrapper">
-          <a href="/">
-            <div id="logo" title="preparedly">
-            </div>
-          </a>
-        </div>
-      <% end %>   
-      <div id="main">
-          <%= yield %>
+<body data-offset="50" data-target=".subnav" data-spy="scroll" data-twttr-rendered="true">
+<!-- navbar content -->
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <div class="nav-collapse">
+          <ul class="nav navbar-items pull-right">
+            <li class=""><a href="/"> home</a></li>
+            <li><%= link_to "learn", resources_path %></li> 
+            <li><%= link_to "about", about_path %></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">account <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <%= render 'devise/menu/login_items' %>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
+    </div>
+  </div>
+<div class="container" id="main-wrap">      
+  <div id="beta"></div>   
+  <div id="main">       
+    <%= yield %>
   </div>
 </div>
+
 <div id="footer">
 	<div id="footer-green">
 		<div id="footer-main">
@@ -44,94 +64,83 @@
 					</a>
 				</div>
 				<div class="column-3">
-
 					<a href="http://www.codeforamerica.org">
 					<img title="cfa austin" src="/assets/cfaaustin.png">
 					</a>
-					</div>
+				</div>
 				<div class="column-3">
 					<a href="http://austintexas.gov/"><img title="austin" src="/assets/austin.png" height=200px width=200px></a>
 				</div>
 			</div>
-			<div class="column-wrapper column-full">
-						<p> <a href="mailto:info@prepared.ly"> contact us </a>  &#124; 
-						<a href="../resources">check out our resources, and partners </a>  &#124; 
-            			<a href="../terms">review our terms of use here</a>
-					</p>
+		  <div class="column-wrapper column-full">
+  			<p><a href="mailto:info@prepared.ly"> contact us </a>  &#124; 
+  			<a href="../resources">check out our resources, and partners </a>  &#124; 
+        <a data-toggle="modal" href="#terms">review our terms of use here</a></p>
 			</div>		
 		</div>
 	</div>
-
 	<div id="footer-bottom">
-	</div>
-
-
 </div>
+
+<!-- modal stuff -->
+<div id="terms" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h3>Terms of Use</h3>
+  </div>
+  <div class="modal-body">
+    <h4>Prepared.ly is a non-emergency wildfire preparedness tool.</h4><br> 
+    <p>Registration allows you to share prevention strategies with other users, contact wildfire prevention specialists, and receive infrequent <strong>non-emergency</strong> alerts about wildfire prevention in your area. Information entered on this site will be securely stored, and only used for the above purposes and to improve Prepared.ly. Changes to this policy will be posted here. By accessing and using Prepared.ly as a registered user or without registering, you acknowledge and agree to the above and any revisions.</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal" >Close</a>
+  </div>
+</div>
+<div id="signin" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h3>Sign in</h3>
+      <div class="modal-body">
+        <p> <%= render :partial => 'devise/sessions/login' %> </p> 
+      </div>
+  </div>  
+  <div class="modal-footer">
+  <a href="#" class="btn" data-dismiss="modal">Close</a>
+  </div> 
+</div>
+<div id="getsat-widget-761"></div>
+<script type="text/javascript" src="https://loader.engage.gsfn.us/loader.js"></script>
+<script type="text/javascript">
+if (typeof GSFN !== "undefined") { GSFN.loadWidget(761,{"containerId":"getsat-widget-761"}); }
+</script>
+
+
 <!-- Typekit -->
 <script type="text/javascript" src="http://use.typekit.com/osj8jgk.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<%= yield :javascript_yield %>
+
+<%= yield :javascript_yield %> 
 <%= javascript_include_tag "application" %>
 
+<script>
+// //-- subnav -->
+
+// $(document).scroll(function(){
+//     // If has not activated (has no attribute "data-top"
+//     if (!$('.subnav').attr('data-top')) {
+//         // If already fixed, then do nothing
+//         if ($('.subnav').hasClass('subnav-fixed')) return;
+//         // Remember top position
+//         var offset = $('.subnav').offset()
+//         $('.subnav').attr('data-top', offset.top);
+//     }
+
+//     if ($('.subnav').attr('data-top') - $('.subnav').outerHeight() <= $(this).scrollTop())
+//         $('.subnav').addClass('subnav-fixed');
+//     else
+//         $('.subnav').removeClass('subnav-fixed');
+// });
+</script>
 </body>
-   
-<script type="text/javascript" charset="utf-8">
-$('.dropdown-toggle').dropdown();
-$('#navbar').scrollspy();
-$(document).scroll(function(){
-    // If has not activated (has no attribute "data-top"
-    if (!$('.subnav').attr('data-top')) {
-        // If already fixed, then do nothing
-        if ($('.subnav').hasClass('subnav-fixed')) return;
-        // Remember top position
-        var offset = $('.subnav').offset()
-        $('.subnav').attr('data-top', offset.top);
-    }
-
-    if ($('.subnav').attr('data-top') - $('.subnav').outerHeight() <= $(this).scrollTop())
-        $('.subnav').addClass('subnav-fixed');
-    else
-        $('.subnav').removeClass('subnav-fixed');
-});
-</script>
-<!-- Google Analytics -->
-    <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-30366897-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-    </script>
-<script type="text/javascript" charset="utf-8">
-  var is_ssl = ("https:" == document.location.protocol);
-  var asset_host = is_ssl ? "https://d3rdqalhjaisuu.cloudfront.net/" : "http://d3rdqalhjaisuu.cloudfront.net/";
-  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-
-<script type="text/javascript" charset="utf-8">
-  var feedback_widget_options = {};
-
-  feedback_widget_options.display = "overlay";  
-  feedback_widget_options.company = "code_for_america";
-  feedback_widget_options.placement = "right";
-  feedback_widget_options.color = "#333333";
-  feedback_widget_options.style = "question";
-  feedback_widget_options.product = "code_for_america_preparedly";
-  feedback_widget_options.tag = "feedback";
-  
-  feedback_widget_options.custom_css = "feedback.css";
-  
-  feedback_widget_options.limit = "3";
-  
-
-  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
-</script>
-
 
 </html>

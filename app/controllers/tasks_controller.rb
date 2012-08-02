@@ -5,15 +5,17 @@ class TasksController < ApplicationController
   def index
     # @tasks = Task.all
     @random = Task.random
-    session[:task_id] = @random.id
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tasks }
     end
   end
 
-  # GET /tasks/1
-  # GET /tasks/1.json
+  def partial
+    @random = Task.random
+    render :template => "tasks/_tasks", :layout => false
+  end
+
   def show
     @task = Task.find(params[:id])
     respond_to do |format|
@@ -22,8 +24,6 @@ class TasksController < ApplicationController
     end
   end
 
-  # GET /tasks/new
-  # GET /tasks/new.json
   def new
     @task = Task.new
     respond_to do |format|
@@ -80,6 +80,10 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 end
+
+
 
 

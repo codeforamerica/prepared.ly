@@ -1,4 +1,17 @@
 <p id="notice"><%= notice %></p>
-<%= render "tasks/tasks" %>
-
-
+<div class="headerspace">
+</div>
+<div class="container-fluid span9">
+        <ul id="myTab" class="nav nav-tabs">
+            <li class="active note">
+                <a href="#home" data-toggle="tab">
+                YOUR TASK SHOULD YOU CHOOSE TO ACCEPT:</a>
+            </li>
+        </ul>
+        <div class="taskbox lightblue">
+        	<section>
+                <%= render "tasks/taskbuttons" %>
+                <%= render "tasks/tasks" %>
+            </section>    
+        </div>
+</div>

@@ -1,0 +1,43 @@
+$("#mapinfo").html("<%= escape_javascript(render(:partial => 'map/mapinfo')) %>");
+
+   // when these are in post.html.erb, they are ignored if rendering the action via js
+
+  $(document).ready(function() {
+    $("#map-pop")
+     .popover({/*trigger: 'manual'*/})
+     .click(function(e){
+       e.preventDefault();
+       $('#map-pop').popover('show');
+    });
+
+    $("#stations-pop")
+     .popover({/*trigger: 'manual'*/})
+     .click(function(e){
+       e.preventDefault();
+       ('#stations-pop').popover('show');
+    });
+
+    $("#warnings-trigger").click(function(e){
+      $("#warnings").show();
+    });
+
+    $("#remove-warnings").click(function(e){
+     $("#warnings").hide();
+    });
+
+    $("#bans-trigger").click(function(e){
+      $("#bans").show();
+    });
+
+    $("#remove-bans").click(function(e){
+     $("#bans").hide();
+    });
+
+    $("#flags-trigger").click(function(e){
+      $("#flags").show();
+    });
+
+    $("#remove-flags").click(function(e){
+     $("#flags").hide();
+    });
+  });

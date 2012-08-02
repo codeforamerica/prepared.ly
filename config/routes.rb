@@ -2,11 +2,17 @@ Preparedly::Application.routes.draw do
 
   resources :contacts
   resources :completed_tasks
-  resources :tasks
+  resources :tasks do
+    resources :comments
+  end
+  
+  match "/tasks-partial" => "tasks#partial"
 
   match "resources" => "resources#index"
 
-  match 'completed' => 'completed_tasks#completed'
+  match 'completed' => 'completed_tasks#completed' #, :as => 'completed'
+
+  match 'remind/:task_id' => 'messages#remind', :as => 'reminder'
 
   #match "completed" => :controller => { :completed_tasks => "completed" }
 
@@ -19,17 +25,17 @@ Preparedly::Application.routes.draw do
       :omniauth_callbacks => "users/omniauth_callbacks",
       :registrations => "users/registrations" 
   }
-
+  match "/mapinfo" => "map#mapinfo"
   get "map" => "map#get"
   post "map" => "map#post"
-  match "share" => "share#index"
 
+  match "share" => "share#index"
   get "about" => "about#index"
 
   match "users/get" => "users#get"
   resources :users
 
-  match "/survey" => redirect("http://bit.ly/preparedlysurvey"), :as => :survey
+  match "survey" => redirect("http://bit.ly/preparedlysurvey")
 
   get "terms" => "terms#index"
 
@@ -82,7 +88,7 @@ Preparedly::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'map#get'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -58,7 +58,9 @@ module Preparedly
     config.assets.version = '1.0'
 
     # Devise settings
-    config.assets.initalize_on_precompile = false
+    # this also needs to be false so heroku doesn't try to connect to production db while precompiling assets, precompilation fails
+    # because config vars (the db) aren't available during slug compilation
+    config.assets.initialize_on_precompile = false
 
     # Rack:Affliates configuration
     config.middleware.use Rack::Affiliates

@@ -1,0 +1,15 @@
+<br />
+<h2>Add a comment:</h2>
+  <%= form_for([@random, @random.comments.build]) do |f| %>
+  <div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name, :id => 'new_comment_name' %>
+</div>
+<div class="field">
+  <%= f.label :body %>
+  <%= f.text_area :body, :id => 'new_comment_body' %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>

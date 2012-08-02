@@ -1,33 +1,30 @@
-<%= form_for(@contact) do |f| %>
-  <% if @contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+<ul><li>Submit questions and receive answers unique to your property or situation</li>
+<li>Schedule on-site consultations with wildfire prevention experts</li>
+<li>Work with experts to make your neighborhood Firewise</li></ul>
 
-      <ul>
-      <% @contact.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_for(@contact, :id => 'contact_expert') do |f| %>
+<%= error_messages_for :contact -%>
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class => 'required' %>
   </div>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field :email, :value => @user.email, :class => 'required' %>
   </div>
   <div class="field">
-    <%= f.label :subject %><br />
-    <%= f.text_field :subject %>
+    <%= f.label :contact_type %><br />
+    <%= f.select(:contact_type, [['Schedule an on-site visit'], ['Get help organizing a community cleanup day'], ['Ask a question about your home or area'], ['General inquiry about wildfire preparedness']] ) %>
   </div>
   <div class="field">
     <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.text_area :body, :class => 'required', :rows => '15' %>
   </div>
   <div class="actions" >
     <%= f.submit "Submit", :class => "btn btn-success btn" %>
   </div>
 <% end %>
+
+
+<br />
+In the spirit of protecting our community, questions you submit may be posted, anonymously, along with the fire department's response, in a knowledge base on a future version of Prepared.ly.

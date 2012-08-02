@@ -1,31 +1,43 @@
-<p id="notice"><%= notice %></p>
-<ul id="myTab" class="nav nav-tabs">
-    <li class="active note"><a href="#home" data-toggle="tab">YOUR TASK, SHOULD YOU CHOOSE TO ACCEPT:</a></li>
-</ul>
-
-<div class="main-col taskbox">
-    <div class="task">
-        <p><%= @random.task %></p>
-        <div class="detail-task"><%= @random.detail %></div>
+<div id="retask">
+    <div class="contentbox contentbox-main">
+        <h1><%= @random.task %></h1>
+        <p><%= @random.detail %></p>   
     </div>
-    <div class="task-butt">
-        <% if user_signed_in? %>
-            <%= link_to '<i class="icon-time icon-white"></i> Skip this for now'.html_safe, tasks_path, :class => 'btn-large btn-inverse btn' %>   
-            <%= link_to '<i class="icon-ok icon-white"></i> I did it!'.html_safe, { :controller => 'completed_tasks', :action => 'completed' }, :class => 'btn-large btn-success btn' -%> 
-            <%= link_to '<i class="icon-pencil icon-white"></i> Create a new task'.html_safe, new_task_path, :class => 'btn-large btn-info btn' %>
-        <% else %>
-            <%= link_to '<i class="icon-time icon-white"></i> Skip for now'.html_safe, tasks_path, :class => 'btn-large btn-success btn' %>
-            
-            <a href="users/sign_up"><button class="btn-large btn-info btn"><i class="icon-user icon-white"></i> Sign up to track my progress and create tasks!</button></a>
-        <% end %> 
+    <div class="container-fluid">
+        <div class="span6">
+            <div class="triangle-top"></div>            
+            <div class="triangle-top-box">
+                <h2>On the scale, this is:</h2>
+                <p><%= @random.difficulty %></p>
+                <div class ="<%= @random.difficulty %>"></div>
+            </div>        
+        </div>   
+        <div class="span6">
+            <div class="triangle-top">
+            </div>       
+            <div class="triangle-top-box">                    
+                <h2>Why is this important?</h2>
+                <p><%= @random.fact %></p>
+            </div>
+        </div>    
     </div> 
+    
+    <div class="contentbox">         
+        <h2>Comments</h2>
+        <p>Do you know of a product that helps with this task? Run into any trouble while doing it? Easier than expected? Have a related suggestion? Please let us know in the comments.</p>
+        <%= form_for([@random, @random.comments.build], :id => 'new_comment') do |f| %>
+            <div class="field">
+              <%= f.label :name %>
+              <%= f.text_field :name, :id => 'new_comment_name' %>
+            </div>  
+            <div class="field">
+              <%= f.label :comment %>
+              <%= f.text_area :body, :id => 'new_comment_body', :cols => '100', :rows => '100' %>
+            </div>
+            <%= f.submit 'Add your knowledge!', :class => 'btn-large btn-info btn' %>      
+        <% end %>
+        <div id="comments">
+            <!-- comments will load in here via ajax -->
+        </div>  
+    </div>
 </div>
-<div class="detail-col triangle-right left lightblue">
-    <div class="note">ON THE SCALE, THIS IS</div>
-    <%= @random.difficulty %></div>
-<div class="detail-col triangle-right left darkgray">
-    <div class="note">WHY IS THIS IMPORTANT?</div>
-    <%= @random.fact %>
-</div>
-
-

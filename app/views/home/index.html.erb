@@ -1,12 +1,98 @@
-<% content_for :fb_og_tags do %>
-  <meta property="og:title" content="prepared.ly - Support fire-prepared homes and communities" />
-  <meta property="og:type" content="company" /><meta property="og:site_name" content="prepared.ly" />
-  <meta property="og:url" content="http://prepared.ly" />
-  <meta property="og:image" content="https://launchrock-assets.s3.amazonaws.com/facebook-files/UPZ4FCUWFEtEXSu.png" />
-  <meta property="og:description" content="I just signed up to be the first to know about prepared.ly, a home and neighborhood safety app by Code for America Austin" />
+  <% if user_signed_in? %>
+  <%= render :partial => 'layouts/dashboard' %>
+  <% else %>
+    <div id="logo-wrapper">
+          <a href="/">
+            <div id="logo" title="preparedly">
+            </div>
+          </a>
+    </div>
+    <header class="jumbotron subhead" id="overview">
+        <h1>Welcome, let's get started. </h1>
+        <p class="lead">Make staying prepared for wildfire fun and easy.</p>
+                <p>Already a user? <a href="/users/sign_in">Log in here</a>.</p>
+                <div class="sub-section">
+                    <!-- this button not really doing the right thing -->
+                    <div class="index-butt topjumbobtns"><a href="#intro" class="btn-large btn-info btn"> take the tour</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <%= link_to ' Create an account '.html_safe,  new_user_registration_path, :class => 'btn-large btn-success btn' %>
+                    <hr></hr>
+                    </div>
+                </div>  
+        <!--<div class="subnav">
+          <ul class="nav nav-pills">
+            <li><a href="#intro"> an intro</a></li>
+            <li><a href="#mapsection"> explore your location</a></li>
+            <li><a href="#tasksection"> get prepared </a></li>
+            <li><a href="#notifysection"> stay notified</a></li>
+            <li><a href="#accountsection"> get started </a></li>
+          </ul>
+        </div>-->
+    </header>
+<div class="container-fluid">
+    <section id="intro">  
+           <h2>In 2011, over 1300 homes were destroyed in Bastrop County due to wildfire.</h2>
+            <div class="video">
+                <iframe src="http://player.vimeo.com/video/44008140" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> 
+                <p><a href="http://vimeo.com/44008140">Prepared.ly</a> from <a href="http://vimeo.com/codeforamerica">Code for America</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+            </div>
+            <p>We don’t want that to happen to you. We’ve developed an easy-to-use application that brings together a variety of checklists and fire tools, and gives them to you in a manageable, timely, and actionable form. Get to know Prepared.ly a little better by checking out our video. We're brought to you by the City of Austin and Code for America, and we're here to help you stay more prepared for wildfire.</p>
+            <div class="sub-section">
+                <div class="index-butt">
+                    <%= link_to ' explore your location '.html_safe,  new_user_registration_path, :class => 'btn-large btn-success btn' %>
+                    <hr></hr>
+                </div>
+            </div>  
+    </section>
+    <section id="mapsection">       
+            <img src="assets/map.jpg" class="pull-left">
+            <div class="span4">
+                <h2> Enter your address, and see your house on the map.</h2> 
+            <p>You'll also see an assessment of your risk level, current weather conditions, and burn ban information.
+            </p>
+            </div>
+            <div class="sub-section">
+                <div class="index-butt">
+                    <%= link_to ' get prepared '.html_safe,  new_user_registration_path, :class => 'btn-large btn-success btn' %>
+                    <hr></hr>
+                </div>
+            </div> 
+    </section> 
+    <section id="tasksection">  
+            <h2> Stay prepared with the abilty to accept, share, and create tasks for you and your neighborhood via text, email or Twitter.</h2>
+            <p>Use this tool to accept or decline tasks, as well as get some background on why they are important. Think something's important that you don't see? You'll have the ability to add your own, and share it with your neighbors.</p>
+            <img src="assets/Preparedly-task-img.png">
+            <div class="sub-section">
+                <div class="index-butt">
+                    <%= link_to ' stay notified '.html_safe,  new_user_registration_path, :class => 'btn-large btn-success btn' %>
+                    <hr></hr>
+                </div>
+            </div>    
+    </section>
+    <section id="notifysection"> 
+        <img src="assets/notify.png">   
+        <h2> Set up notifications to stay on top of things, and up to date with weather conditions.</h2> 
+        <p>Set up custom alerts so that you can decide when you want to schedule a task, and be aware of high alert days and changes in weather conditions. We only want to notify you of things you want to know about, and promise not to send you messages that you didn't ask for. </p><br>
+        <div class="sub-section">
+            <div class="index-butt"> 
+                <hr></hr>
+            </div>
+        </div>    
+    </section>  
+    <section id="accountsection"> 
+                <h2> Create an account, keep track of your progress</h2>
+
+                <p>Now that we've told you a little about Prepared.ly and what we do, continue on to check out our features by creating a free account. Also, feel free to leave us comments and questions via the "feedback" tab on the right side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.</p>
+                <p> Interested in launching prepared.ly in your state, city or neighborhood? Get in touch. </p>
+                <p>
+                <a href="https://docs.google.com/a/codeforamerica.org/spreadsheet/viewform?formkey=dGdNS1BCMU1wMVZYNzNiN2k2anI0MWc6MQ#gid=0" target="blank"> I want to bring Prepared.ly to my community.</a>
+                </p>
+                   <div class="sub-section">
+                        <div class="index-butt">                    
+                        <%= link_to ' Create an account <i class="icon-thumbs-up icon-white"></i>'.html_safe,  new_user_registration_path, :class => 'btn-large btn-success btn' %>
+                            <hr></hr>
+                        </div>
+                    </div>     
+    </section>  
+</div>
 <% end %>
-
-<center>
-<div rel="OYFK0YJK" class="lrdiscoverwidget" data-logo="off" data-background="off" data-share-url="prepared.ly" data-css=""></div><script type="text/javascript" src="http://launchrock-ignition.s3.amazonaws.com/ignition.1.1.js"></script>
-</center>
-

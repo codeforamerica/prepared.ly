@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120531011916) do
+ActiveRecord::Schema.define(:version => 20120710190736) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address"
@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(:version => 20120531011916) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "comments", :force => true do |t|
+    t.string   "name"
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["task_id"], :name => "index_comments_on_task_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
   create_table "completed_tasks", :force => true do |t|
     t.integer  "user_id"
     t.integer  "task_id"
@@ -44,8 +56,9 @@ ActiveRecord::Schema.define(:version => 20120531011916) do
     t.string   "email"
     t.string   "subject"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "contact_type"
   end
 
   create_table "counties", :force => true do |t|
@@ -69,6 +82,8 @@ ActiveRecord::Schema.define(:version => 20120531011916) do
     t.datetime "updated_at",     :null => false
     t.datetime "scheduled_time"
     t.boolean  "sent"
+    t.integer  "user_id"
+    t.string   "reminder_type"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

@@ -1,4 +1,4 @@
-# RailsAdmin config file. Generated on May 01, 2012 17:49
+# RailsAdmin config file. Generated on July 15, 2012 18:40
 # See github.com/sferik/rails_admin for more informations
 
 RailsAdmin.config do |config|
@@ -31,10 +31,10 @@ RailsAdmin.config do |config|
 
   #  ==> Included models
   # Add all excluded models here:
-  # config.excluded_models = [Address, Authentication, FireStation, User]
+  # config.excluded_models = [Address, Authentication, Comment, CompletedTask, Contact, County, FireStation, Message, Task, User]
 
   # Add models here if you want to go 'whitelist mode':
-  # config.included_models = [Address, Authentication, FireStation, User]
+  # config.included_models = [Address, Authentication, Comment, CompletedTask, Contact, County, FireStation, Message, Task, User]
 
   # Application wide tried label methods for models' instances
   # config.label_methods << :description # Default is [:name, :title]
@@ -112,6 +112,72 @@ RailsAdmin.config do |config|
   #   create do; end
   #   update do; end
   # end
+  # config.model Comment do
+  #   # Found associations:
+  #     configure :user, :belongs_to_association 
+  #     configure :task, :belongs_to_association   #   # Found columns:
+  #     configure :id, :integer 
+  #     configure :body, :text 
+  #     configure :user_id, :integer         # Hidden 
+  #     configure :task_id, :integer         # Hidden 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime 
+  #     configure :name, :string   #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
+  # config.model CompletedTask do
+  #   # Found associations:
+  #     configure :user, :belongs_to_association 
+  #     configure :task, :belongs_to_association   #   # Found columns:
+  #     configure :id, :integer 
+  #     configure :user_id, :integer         # Hidden 
+  #     configure :task_id, :integer         # Hidden 
+  #     configure :completed, :boolean 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime   #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
+  # config.model Contact do
+  #   # Found associations:
+  #   # Found columns:
+  #     configure :id, :integer 
+  #     configure :name, :string 
+  #     configure :email, :string 
+  #     configure :body, :text 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime 
+  #     configure :contact_type, :string   #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
+  # config.model County do
+  #   # Found associations:
+  #   # Found columns:
+  #     configure :id, :integer 
+  #     configure :name, :string 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime   #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
   # config.model FireStation do
   #   # Found associations:
   #   # Found columns:
@@ -127,9 +193,51 @@ RailsAdmin.config do |config|
   #   create do; end
   #   update do; end
   # end
+  # config.model Message do
+  #   # Found associations:
+  #     configure :user, :belongs_to_association   #   # Found columns:
+  #     configure :id, :integer 
+  #     configure :body, :text 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime 
+  #     configure :scheduled_time, :datetime 
+  #     configure :sent, :boolean 
+  #     configure :user_id, :integer         # Hidden 
+  #     configure :reminder_type, :string 
+  #     configure :utc_adjusted_scheduled_time, :datetime   #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
+  # config.model Task do
+  #   # Found associations:
+  #     configure :users, :has_many_association 
+  #     configure :completed_tasks, :has_many_association 
+  #     configure :comments, :has_many_association   #   # Found columns:
+  #     configure :id, :integer 
+  #     configure :task, :text 
+  #     configure :difficulty, :string 
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime 
+  #     configure :fact, :text 
+  #     configure :detail, :text   #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
   # config.model User do
   #   # Found associations:
-  #     configure :authentications, :has_many_association   #   # Found columns:
+  #     configure :authentications, :has_many_association 
+  #     configure :tasks, :has_many_association 
+  #     configure :completed_tasks, :has_many_association 
+  #     configure :messages, :has_many_association 
+  #     configure :comments, :has_many_association   #   # Found columns:
   #     configure :id, :integer 
   #     configure :email, :string 
   #     configure :password, :password         # Hidden 
@@ -153,7 +261,10 @@ RailsAdmin.config do |config|
   #     configure :twitter_screen_name, :string 
   #     configure :twitter_display_name, :string 
   #     configure :provider_id, :string 
-  #     configure :referral_code, :string   #   # Sections:
+  #     configure :referral_code, :string 
+  #     configure :share_code, :string 
+  #     configure :admin, :boolean 
+  #     configure :sms_opt_in, :boolean   #   # Sections:
   #   list do; end
   #   export do; end
   #   show do; end

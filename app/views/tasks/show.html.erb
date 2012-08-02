@@ -4,11 +4,38 @@
   <b>Task:</b>
   <%= @task.task %>
 </p>
-
+<p>
+  <b>Detail:</b>
+  <%= @task.detail %>
+</p>
+<p>
+  <b>Fact:</b>
+  <%= @task.fact %>
+</p>
 <p>
   <b>Difficulty:</b>
   <%= @task.difficulty %>
 </p>
+
+<div id="comments">
+  <%= render :partial => @task.comments %>
+</div>
+
+
+<h2>Add a comment:</h2>
+<%= form_for([@task, @task.comments.build]) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
 
 <%= link_to 'Edit', edit_task_path(@task) %> |

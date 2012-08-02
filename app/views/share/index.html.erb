@@ -1,15 +1,32 @@
-<div class="main-col">
-<h2>Thanks for signing up! Please tell others about prepared.ly</h2>
-
-<br/>
-<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.prepared.ly/?ref=<%= @share_code %>" data-text="Make staying prepared fun and easy! Check out the site" data-via="ATXPreparedly" data-hashtags="cfaATX">Tweet</a>
-<span id="tumblr_button_abc123"></span>
+<br>
+<!-- Get started -->
+<h2>
+Thanks for signing up! You can share Prepared.ly using the links below, use the resources to learn more about wildfire prevention or view your Prepared.ly dashboard to get started.
+</h2>
+<br />
+<div class = 'detail-col'>
 <div class="fb-like" data-href="http://www.prepared.ly/" ref="<%= @share_code %>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-action="recommend"></div>
-<br/>
-<br/>
+<br />
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.prepared.ly/?ref=<%= @share_code %>" data-text="Make staying prepared fun and easy! Check out the site" data-via="ATXPreparedly" data-hashtags="cfaATX">Tweet</a>
+<br />
+<span id="tumblr_button_abc123"></span>
+<br />
 Share Link: <input size=35 value="http://www.prepared.ly/?ref=<%= @share_code %>">
+<br/>
+<br/>
+</div>
+
+<h4>View your Prepared.ly dashboard</h4>
+<br />
+<%= link_to '<i class="icon-fire icon-white"></i> Go! >>'.html_safe, root_path, :class => 'btn-large btn-success btn' %>
 
 <% content_for :javascript_yield do %>
+  <!-- kiss metrics -->
+  <script type="text/javascript">
+    // other kiss metrics code is in kiss.js, required by application.js
+    _kmq.push(['identify', '<%= @user.email %>']);
+  </script>
+  
   <!-- Tumblr Setup-->
   <script type="text/javascript">
       var tumblr_link_url = "http://www.prepared.ly/?ref=<%= @share_code %>";
@@ -40,22 +57,10 @@ Share Link: <input size=35 value="http://www.prepared.ly/?ref=<%= @share_code %>
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 <% end %>
 <br>
-</div>
-<div class="detail-col">
-     <h4>
-        <br>
-          Want to start getting more prepared <em>right now</em>? 
-    </h4>
-    <br>
-    <a href="/tasks"><button class="btn btn-success btn-large"> <i class="icon-fire icon-white"></i> Get started! </button></a>
-    <br>
-</div>
-<!--
-Contact AFD
--->
+
 <div class="column-wrapper">   
     <div class="column-full">
-        <h1>Learn More</h1>
+        
     </div><!--end column-full-->
     <div class="column-full reg">
        <div class="column reg">

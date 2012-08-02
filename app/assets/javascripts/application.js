@@ -11,5 +11,127 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
-//= require_tree .
+//= require bootstrap-transition
+//= require bootstrap-alert
+//= require bootstrap-modal
+//= require bootstrap-dropdown
+//= require bootstrap-scrollspy
+//= require bootstrap-tab
+//= require bootstrap-tooltip
+//= require bootstrap-popover
+//= require bootstrap-button
+//= require bootstrap-collapse
+//= require bootstrap-carousel
+//= require bootstrap-typeahead
+//= require timepicker
+//= require kiss
+
+//add dashboard tab href to url in browser address bar
+$('#sidenav a').click(function(e){
+  var href = $(this).attr('href');
+  window.location = href;
+});
+
+$(document).ready(function(){
+  //load map-section in dashboard by default on page load for authenticated user
+  if(($("#sidenav").length > 0) && (!window.location.hash)) {
+    window.location.hash = "#map-section";
+    // permalink for dashboard tabs for authenticated user
+  } else {
+    var match = window.location.hash;
+    $('#sidenav a[href="' + match + '"]').tab('show');
+  };
+  //use browser forward/back buttons to navigate dashboard tabs
+  $(window).bind('hashchange', function(){
+    var active_tab = window.location.hash;
+    $('#sidenav a[href="' + active_tab + '"]').tab('show');
+    $(window).scrollTop(0);
+  });
+  $(window).scrollTop(0);
+});
+
+$(window).on('load', function(){
+  setTimeout(function() {
+    $(window).scrollTop(0);
+  }, 0);
+});
+
+// when <a> element in id sidenav is clicked, remove flash alert since page isn't refreshing
+$("#sidenav a").click(function() {
+  $('#notice').hide();
+});
+
+$(document).ready(function(){
+  $("#pick_date").datetimepicker({
+  	dateFormat: 'yy-mm-dd ',
+  	timeFormat: 'hh:mm:ss tt',
+  	showMinute: false,
+		stepHour: 1,
+  	ampm: true
+  });;
+});
+
+// map creation and update stuff moved into map/_mapinfo partial
+
+// alert to user if map search is empty, otherwise show ajax loading gif
+$("#loadMap").click(function(){
+            if($("#q").val() == '') {
+                 alert("Please enter a street address with city and state; or zip code.");
+                 $("#q").addClass('highlight');
+                 return false;
+            } else {
+              $('#mapinfo').html("<img src='assets/ajax-loader.gif'>");
+            }
+        });
+
+
+// tells Rails to accept js header so we don't have to add .js extension to every request
+jQuery.ajaxSetup({ 
+  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
+})
+
+jQuery.fn.submitWithAjax = function() {
+  this.submit(function() {
+    $.post(this.action, $(this).serialize(), null, "script");
+    return false;
+  })
+  return this;
+};
+
+$(document).ready(function() {
+  $("#new_comment").submitWithAjax();
+
+})
+
+var is_ssl = ("https:" == document.location.protocol);
+var asset_host = is_ssl ? "https://d3rdqalhjaisuu.cloudfront.net/" : "http://d3rdqalhjaisuu.cloudfront.net/";
+document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+//-- feedback widget -->
+var is_ssl = ("https:" == document.location.protocol);
+var asset_host = is_ssl ? "https://d3rdqalhjaisuu.cloudfront.net/" : "http://d3rdqalhjaisuu.cloudfront.net/";
+document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+
+var feedback_widget_options = {};
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "code_for_america";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#333333";
+  feedback_widget_options.style = "question";
+  feedback_widget_options.product = "code_for_america_preparedly";
+  feedback_widget_options.tag = "feedback";
+  feedback_widget_options.custom_css = "feedback.css";
+  feedback_widget_options.limit = "3";
+var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+
+// google analytics
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30366897-1']);
+  _gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();   

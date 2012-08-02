@@ -53,9 +53,24 @@ class MapController < ApplicationController
   #after_filter :post, only => [:post, :nws_warnings]
 
   def get
-  end
+  #   @user = current_user
+  #   unless @user.nil?
+  #     @completed_tasks = CompletedTask.find_all_by_user_id(@user.id) # returns an array
+  #   end
+  #   @random = Task.random
+   end
 
   def post
+    setupMapInfo()
+    @address_str = params[:q]
+    respond_to do |format|
+       format.html
+       format.js
+     end
+
+  end
+
+  def setupMapInfo
     @address_str = params[:q]
     @coordinates = Geocoder.coordinates(@address_str)
     if @coordinates
@@ -84,6 +99,20 @@ class MapController < ApplicationController
       else
         @inside_burnban = 'no'
       end
+      @burnban_updated = rss.css('rss channel item title').text.split('-')[1]
+
+      # Counties with a National Weather Service warning
+      doc = Nokogiri::XML(open('http://alerts.weather.gov/cap/tx.php?x=0'))
+      doc.remove_namespaces!
+      @warnings = []
+      @inside_nws = 'no'
+      doc.css('entry').each do |node|
+        each_county_array = node.css('areaDesc').text.strip.split('; ')
+        if each_county_array.include?(CartoDB.current_county(@address.latlon).capitalize)
+          @inside_nws = 'yes'
+          @warnings.push(node)
+        end
+      end
 
       # Counties with a National Weather Service warning
       doc = Nokogiri::XML(open('http://alerts.weather.gov/cap/tx.php?x=0'))
@@ -101,18 +130,37 @@ class MapController < ApplicationController
       # Risk Assessment Level
       @risk_level = TFS.risk_assessment(@address.latlon)
       risk_text_mapping = Hash.new {0}
-      risk_text_mapping[0] = "Minimal Direct Wildfire Impacts"
+      risk_text_mapping[0] = "Very Low"
       risk_text_mapping[1] = "Very Low"
-      risk_text_mapping[2] = "Very Low to Low"
+      risk_text_mapping[2] = "Low"
       risk_text_mapping[3] = "Low"
-      risk_text_mapping[4] = "Low to Moderate"
+      risk_text_mapping[4] = "Moderate"
       risk_text_mapping[5] = "Moderate"
-      risk_text_mapping[6] = "Moderate to High"
+      risk_text_mapping[6] = "High"
       risk_text_mapping[7] = "High"
-      risk_text_mapping[8] = "High to Very High"
+      risk_text_mapping[8] = "Very High"
       risk_text_mapping[9] = "Very High"
       @risk_text = risk_text_mapping[@risk_level]
     end
+
+  end
+
+
+  def mapinfo
+    setupMapInfo()
+    render :json => {:risk_level => @risk_level,
+      :risk_text => @risk_text,
+      :address => @address_str,
+      :warnings => @warnings,
+      :inside_nws => @inside_nws,
+      :location => {:lat => @address.latlon.y, :lon => @address.latlon.x},
+      :wind_conditions => @wind_conditions,
+      :relative_humidity => @relative_humidity,
+      :inside_burnban => @inside_burnban}
+
+    #render :partial => 'map/mapinfo'
+
+
   end
 
 end

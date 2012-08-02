@@ -1,9 +1,13 @@
 <% if user_signed_in? %>
-  <li>
-  <%= link_to('logout', destroy_user_session_path, :method => :delete) %>        
-  </li>
+	<li><%= link_to('account settings', edit_user_registration_path) %></li>
+	<li><%= link_to('logout', destroy_user_session_path, :method => :delete) %>
+	</li>
 <% else %>
-  <li>
-  <%= link_to('login', new_user_session_path)  %>  
-  </li>
+	<li><%= link_to('Register', new_user_registration_path)  %></li>
+	<div id="modal-on">
+		<li><a data-toggle="modal" href="#signin">Sign in</a></li>
+	</div>
+	<div id="modal-off">
+		<li><a href="/users/sign_in">Sign in</a></li>
+	</div>	
 <% end %>
