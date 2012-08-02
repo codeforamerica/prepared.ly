@@ -11,6 +11,7 @@ function _kms(u){
 _kms('//i.kissmetrics.com/i.js');
 _kms('//doug1izaerwt3.cloudfront.net/' + _kmk + '.1.js');
 
+_kmq.push(['identify', '<%= @user.email %>']);
 _kmq.push(['record', 'Contacts expert']);
 _kmq.push(['record', 'Adds comment']);
 _kmq.push(['record', 'Schedules task']);
