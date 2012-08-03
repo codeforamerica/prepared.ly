@@ -13,6 +13,36 @@
 #modal-off {
   display: block;
 }
+.span3 img, #usercontainer{
+	float:left;
+	margin:5px;
+	padding-top: 30px;
+}
+#logo-side {
+	margin-top: -45px;
+}
+.taskbox.lightblue {
+	background-color: #ffffff;
+}
+.taskbox {
+    border-radius: 0px;
+    box-shadow: none;
+    float: left;
+    min-height: 300px;
+    position: relative;
+}
+.map-butt {
+    margin: 10px;
+}
+.tab-content {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#map {
+    border-radius: 0px;
+    margin: 5px;
+    height: 100px;
+}
 /*-----------------------------prepared.ly logo ---*/
 #logo-wrapper {
 	height:31px;
@@ -54,10 +84,9 @@
 	position:inherit;
 	top:-30px;
 }
-#map {
-	border: none;
-	width: 80%;
-    height: 600px;
+.contentbox {
+	margin: 0px;
+	padding: 0px;
 }
 #map-detail {
 	width:100%; 
@@ -85,23 +114,22 @@
 	padding:5px;
 	vertical-align:top;
 	font-size: 14px;
-
-
 }
-.condition-type {
-	font-size: 14px;
-	font-style: normal;
-	font-weight: 500;
-	text-align: right;
-	padding:5px;
-	width:180px;
-	vertical-align:top;
+.contentbox p {
+    height: auto;
+    overflow-y: inherit;
 }
-
+.task-butt .btn-group .btn:first-child {
+    margin-left: 0px;
+}
+.btn-group > .btn {
+    float: left;
+    margin: 5px;
+}
+.dash-tabs > .active > a, .dash-tabs > .active > a:hover {
+    height: 50px;
+}
 /*-------------------------------------------------about-page ---*/
-
-#about-logo {
-}
 
 #about-main {
     margin: 0px 0px;
