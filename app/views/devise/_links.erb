@@ -22,11 +22,11 @@
 	 <%- User.omniauth_providers.each do |provider| %>
 		  	 <%- if (provider.to_s == "google_oauth2" ) %>
 					<%= provider_icon "google_oauth2" %>
-		    	<%= link_to "Sign in with Google", user_omniauth_authorize_path(provider) %><br />
+		    	<%= link_to "Sign in with Google", user_omniauth_authorize_path(provider), :id =>provider.to_s %><br />
 					<% next %>   
 				<% end -%>
 		    <%= provider_icon provider %>
-		    <%= link_to "Sign in with #{provider.to_s.titleize}", user_omniauth_authorize_path(provider) %><br />
+		    <%= link_to "Sign in with #{provider.to_s.titleize}", user_omniauth_authorize_path(provider), :id => provider.to_s %><br />
 		  <% end -%>
 	<% end -%>
 </p>

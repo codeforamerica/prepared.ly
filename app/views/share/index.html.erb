@@ -21,6 +21,12 @@ Share Link: <input size=35 value="http://www.prepared.ly/?ref=<%= @share_code %>
 <%= link_to '<i class="icon-fire icon-white"></i> Go! >>'.html_safe, root_path, :class => 'btn-large btn-success btn' %>
 
 <% content_for :javascript_yield do %>
+  <!-- kiss metrics -->
+  <script type="text/javascript">
+    // other kiss metrics code is in kiss.js, required by application.js
+    _kmq.push(['identify', '<%= @user.email %>']);
+  </script>
+  
   <!-- Tumblr Setup-->
   <script type="text/javascript">
       var tumblr_link_url = "http://www.prepared.ly/?ref=<%= @share_code %>";
