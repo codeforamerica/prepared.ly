@@ -103,11 +103,17 @@ select,
 .learn-columnhack .span10 {
   max-width: 800px;
 }
-	
-/*input {
-	margin: 10px;
-	padding: 5px;
-}*/
+#maintenance {
+  background-color: #F4D345;
+  height: 67px;
+  padding: 20px 60px;
+  width: 100%;
+}	
+#maintenance p{
+  width: 80%;
+  margin-top: 40px;
+}
+
 .note {
 	font-size: 12px;
 	font-weight: 500;
