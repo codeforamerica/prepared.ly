@@ -18,7 +18,9 @@
   </div>
   <div class="field">
     <%= f.label :recipient, "Choose your location (more coming soon!)" %><br />
-    <%= f.select(:recipient, [['Austin', ENV['AUSTIN_EMAIL']], ['Williamson County', 'WILCO_EMAIL'], ['Lakeway', 'LAKEWAY_EMAIL'], ['Other', 'TX_EMAIL']] ) %>
+    <% debugger %>
+
+    <%= f.select(:recipient, [['Austin', ENV['AUSTIN_EMAIL']], ['Williamson County', ENV['WILCO_EMAIL']], ['Lakeway', ENV['LAKEWAY_EMAIL']], ['Other', ENV['TX_EMAIL']]] ) %>
   </div>
   <div class="field">
     <%= f.label :body %><br />
