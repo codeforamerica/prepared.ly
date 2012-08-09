@@ -3,7 +3,7 @@
 <li>Work with experts to make your neighborhood Firewise</li></ul>
 
 <%= form_for(@contact, :id => 'contact_expert') do |f| %>
-<%= error_messages_for :contact -%>
+  <%= error_messages_for :contact -%>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, :class => 'required' %>
@@ -18,7 +18,7 @@
   </div>
   <div class="field">
     <%= f.label :recipient, "Choose your location (more coming soon!)" %><br />
-    <%= f.select(:recipient, [['Austin', ENV['AUSTIN_EMAIL']], ['Other', ENV['TX_EMAIL']]] ) %>
+    <%= f.select :recipient, options_for_select([['Austin', ENV['AUSTIN_EMAIL']], ['Other', ENV['TX_EMAIL']]])  %>
   </div>
   <div class="field">
     <%= f.label :body %><br />
