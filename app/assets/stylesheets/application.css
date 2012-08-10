@@ -103,13 +103,13 @@ select,
 .learn-columnhack .span10 {
   max-width: 800px;
 }
-<<<<<<< HEAD
+
   
 /*input {
   margin: 10px;
   padding: 5px;
 }*/
-=======
+
 #maintenance {
   background-color: #F4D345;
   height: 67px;
@@ -121,7 +121,7 @@ select,
   margin-top: 40px;
 }
 
->>>>>>> dashboard
+
 .note {
   font-size: 12px;
   font-weight: 500;
