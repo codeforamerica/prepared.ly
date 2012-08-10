@@ -46,13 +46,7 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-  </div>
-<div id="maintenance">
-
-<p>Prepared.ly is undergoing maintenance and account access is disabled. Please come back later. We apologize for the inconvenience!
-  <i class="icon-exclamation-sign"></i>
-</p>
-</div>
+  </div> 
 <div class="container" id="main-wrap">      
   <div id="beta"></div>   
   <div id="main">       
@@ -63,26 +57,35 @@
 <div id="footer">
 	<div id="footer-green">
 		<div id="footer-main">
-			<div class="column-wrapper">
-				<div class="column-3">
-					<a href="http://www.austintexas.gov/department/fire">
-					<img title="Austin Fire Department" src="/assets/afd.png" height=200px width=200px>
-					</a>
-				</div>
-				<div class="column-3">
-					<a href="http://www.codeforamerica.org">
-					<img title="cfa austin" src="/assets/cfaaustin.png">
-					</a>
-				</div>
-				<div class="column-3">
-					<a href="http://austintexas.gov/"><img title="austin" src="/assets/austin.png" height=200px width=200px></a>
-				</div>
+			<div class="container">
+				<div class="row">
+          <div class="span6 left">
+            <p> We, Code for America, have created prepared.ly in partnership with the City of Austin and the Austin Fire department. While created specifically for the needs of our friends in Austin, it's currently supported in Texas statewide. 
+            </p>
+            <p>Since we emphatically wish that everyone everywhere be more prepared in the face of disasters, we encourage you to use prepared.ly in your community. If you'd like to get started, you can
+              <a href="https://github.com/codeforamerica/prepared.ly/" target="blank">fork us on github</a>, or fill out a request, 
+              <a href="https://docs.google.com/a/codeforamerica.org/spreadsheet/viewform?formkey=dGdNS1BCMU1wMVZYNzNiN2k2anI0MWc6MQ#gid=0" target="blank">here</a>, and we will do our best to help. </p>
+
+  				</div>
+  				<div class="span6 left">
+            <p><a href="../resources">check out our resources, and partners </a></p> 
+            <p><a data-toggle="modal" href="#terms">review our terms of use here</a>
+            </p>
+            <p> 
+                <a href="http://austintexas.gov/">
+                  <img title="austin" src="/assets/austin.png" height=80px width=80px>
+                  </a>
+                <a href="http://www.austintexas.gov/department/fire">
+                <img title="Austin Fire Department" src="/assets/afd.png" height=80px width=80px>
+                </a>
+                <a href="http://www.codeforamerica.org">
+                <img title="cfa austin" src="/assets/cfaaustin.png" height=80px width=122px>
+                </a>
+            </p> 
+  				</div>
+        </div>
 			</div>
-		  <div class="column-wrapper column-full">
-  			<p><a href="mailto:info@prepared.ly"> contact us </a>  &#124; 
-  			<a href="../resources">check out our resources, and partners </a>  &#124; 
-        <a data-toggle="modal" href="#terms">review our terms of use here</a></p>
-			</div>		
+
 		</div>
 	</div>
 	<div id="footer-bottom">
@@ -128,25 +131,6 @@ if (typeof GSFN !== "undefined") { GSFN.loadWidget(761,{"containerId":"getsat-wi
 <%= yield :javascript_yield %> 
 <%= javascript_include_tag "application" %>
 
-<script>
-// //-- subnav -->
-
-// $(document).scroll(function(){
-//     // If has not activated (has no attribute "data-top"
-//     if (!$('.subnav').attr('data-top')) {
-//         // If already fixed, then do nothing
-//         if ($('.subnav').hasClass('subnav-fixed')) return;
-//         // Remember top position
-//         var offset = $('.subnav').offset()
-//         $('.subnav').attr('data-top', offset.top);
-//     }
-
-//     if ($('.subnav').attr('data-top') - $('.subnav').outerHeight() <= $(this).scrollTop())
-//         $('.subnav').addClass('subnav-fixed');
-//     else
-//         $('.subnav').removeClass('subnav-fixed');
-// });
-</script>
 </body>
 
 </html>
