@@ -103,11 +103,25 @@ select,
 .learn-columnhack .span10 {
   max-width: 800px;
 }
+<<<<<<< HEAD
   
 /*input {
   margin: 10px;
   padding: 5px;
 }*/
+=======
+#maintenance {
+  background-color: #F4D345;
+  height: 67px;
+  padding: 20px 60px;
+  width: 100%;
+}	
+#maintenance p{
+  width: 80%;
+  margin-top: 40px;
+}
+
+>>>>>>> dashboard
 .note {
   font-size: 12px;
   font-weight: 500;
@@ -491,12 +505,11 @@ hr {
 #footer-main {
     margin-left: auto;
     margin-right: auto;
-    padding: 40px 50px;
+    padding: 80px 50px;
     margin-top: 50px;
     z-index:10; 
-    width: auto;
-    width: 940px;
     }
+
 .column-3 {
   float:left;
   width:30%;
@@ -531,7 +544,15 @@ hr {
   clear:both;
   } 
 #footer p {
-  text-align: center;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.2em;
+}
+.left p {
+  text-align: left;
+}
+.right p {
+  text-align: right;
 }
 #footer-bottom {
   background: url('footer.png') no-repeat;
