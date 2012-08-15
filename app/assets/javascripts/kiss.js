@@ -27,3 +27,4 @@ _kmq.push(['record', 'Clicks Sign In']);
 _kmq.push(['record', 'Views login modal']);
 _kmq.push(['record', 'Clicks login link']);
 _kmq.push(['record', 'Visit homepage']);
+_kmq.push(['record', 'Sign up link on Red Flag page']);
