@@ -135,6 +135,7 @@ select,
   color: #666666;
   background-color: #F4D345;
 }
+
 #maintenance {
   background-color: #F4D345;
   height: 67px;
@@ -145,6 +146,7 @@ select,
   width: 80%;
   margin-top: 40px;
 }
+
 
 .note {
   font-size: 12px;
