@@ -30,30 +30,30 @@
 
 //add dashboard tab href to url in browser address bar
 $('#sidenav a').click(function(e){
-  console.log("a link in the sidenav has been clicked on");
+  // console.log("a link in the sidenav has been clicked on");
   e.stopPropagation();
   e.preventDefault();
   var href = $(this).attr('href');
   window.location = href;
-  console.log("href:");
-  console.log(href);
-  console.log("window.location:");
-  console.log(window.location);
+  // console.log("href:");
+  // console.log(href);
+  // console.log("window.location:");
+  // console.log(window.location);
 });
 
 $(document).ready(function(){
-  console.log("sidenav.length (expecting > 0): " + $("#sidenav").length);
-  console.log("window.location.hash (expecting empty): " + window.location.hash);
-  console.log($("#sidenav"));
+  // console.log("sidenav.length (expecting > 0): " + $("#sidenav").length);
+  // console.log("window.location.hash (expecting empty): " + window.location.hash);
+  // console.log($("#sidenav"));
 
   // By default, load #map-section in user dashboard
   if(($("#sidenav").length > 0) && (!window.location.hash)) {
-    console.log("sidenav.length is > 0 and window.location.hash is empty");
+    // console.log("sidenav.length is > 0 and window.location.hash is empty");
     window.location.hash = "#map-section";
   }
   // Handle permalinks to non-#map-section tabs in user dashboard
   else {
-    console.log("either sidenav.length was 0 or window.location.hash is true");
+    // console.log("either sidenav.length was 0 or window.location.hash is true");
     var match = window.location.hash;
     $('#sidenav a[href="' + match + '"]').tab('show');
   };

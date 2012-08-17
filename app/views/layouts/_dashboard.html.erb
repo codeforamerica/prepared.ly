@@ -5,99 +5,82 @@
 <% content_for :javascript_yield do %>
   <!-- scripts -->
   <%= javascript_include_tag "leaflet.js" %>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <%= javascript_include_tag "wax.leaflet.min.js" %>
   <%= javascript_include_tag "cartodb-leaflet.js" %>
-  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-  <%= javascript_include_tag "validate.js" %>
-
 <% end %>
-<div class="tabbable tabs-left">
-    <div class="row-fluid dash">
-        <%= render "layouts/usernavigation-side" %>
-        <div class="container-fluid">
-            <div class="span9">
+
+<div class="row-fluid dash">
+    <%= render "layouts/usernavigation-side" %>
+    <div class="container-fluid">
+        <div class="span9">
             <p id="notice"><%= alert %></p>
-                <div class="tab-content">
+            <div class="tab-content">
 <!-- //////////////////// Map ///////////////////////// -->        
-                    <section id="map-section" class="tab-pane"> 
-                        <ul class="nav nav-tabs dash-tabs">
-                            <li class="active note">
-                                <a href="#home" data-toggle="tab">
-                                LOCATION AND CURRENT CONDITIONS</a>
-                            </li>
-                        </ul>
-                        <div class="taskbox lightblue">
-                            <%= form_tag("/map", :id => "fetchaddress", :remote => true) do %>
-                                <div class="controls">
-                                    <div class="map-butt">
-                                        <p class="note">Please enter your street address or zip code.</p>
-                                        <%= text_field_tag(:q, nil,  :value => @user.address, :class => 'address form-inline input-large') %>
-                                        <%= submit_tag("Load my map", :class => 'btn-success btn', :id => 'loadMap') %>
-                                    </div>
-                                </div>   
-                            <% end %>  
-                            <div id="mapinfo"> 
-                            <!-- post.js.erb puts the map contents here --> 
-                            </div>
+                <div id="map-section" class="tab-pane active"> 
+                    <ul class="nav nav-tabs dash-tabs">
+                        <li class="active note"><a href="#map-section" data-toggle="tab">LOCATION AND CURRENT CONDITIONS</a></li>
+                    </ul>    
+                    <div class="taskbox lightblue">
+                        <%= form_tag("/map", :id => "fetchaddress", :remote => true) do %>
+                            <div class="controls">
+                                <div class="map-butt">
+                                    <p class="note">Please enter your street address or zip code.</p>
+                                    <%= text_field_tag(:q, nil,  :value => @user.address, :class => 'address form-inline input-large') %>
+                                    <%= submit_tag("Load my map", :class => 'btn-success btn', :id => 'loadMap') %>
+                                </div>
+                            </div>   
+                        <% end %>  
+                        <div id="mapinfo"> 
+                        <!-- post.js.erb puts the map contents here --> 
                         </div>
-                    </section> 
+                    </div>
+                </div>
 <!-- //////////////////// tasks ///////////////////////// -->        
-                    <section id ="task-section" class="tab-pane">
-                        <ul class="nav nav-tabs dash-tabs">
-                            <li class="active note">
-                                <a href="#home" data-toggle="tab">
-                                YOUR TASK SHOULD YOU CHOOSE TO ACCEPT:</a>
-                            </li>
-                        </ul>
-                        <div class="taskbox lightblue">
-                            <%= render "tasks/taskbuttons" %>
-                            <%= render "tasks/tasks" %>
-                        </div>
-                        <!-- comments included here from tasks partial -->
-                    </section> 
+                <div id ="task-section" class="tab-pane">
+                    <ul class="nav nav-tabs dash-tabs">
+                        <li class="active note"><a href="#task-section" data-toggle="tab">YOUR TASK SHOULD YOU CHOOSE TO ACCEPT:</a></li>
+                    </ul>
+                    <div class="taskbox lightblue">
+                        <%= render "tasks/taskbuttons" %>
+                        <%= render "tasks/tasks" %>
+                    </div>
+                    <!-- comments included here from tasks partial -->
+                </div> 
 <!-- //////////////////// notifications/account stuff ///////////////////////// -->        
-                    <section id="notify-section" class="tab-pane"> 
-                        <ul class="nav nav-tabs dash-tabs">
-                            <li class="active note">
-                                <a href="#home" data-toggle="tab">
-                                YOUR ACCOUNT:</a>
-                            </li>
-                        </ul> 
-                            <h2>Current settings:</h2>
-                            <ul>
-                                <li>name: <%= @user.first_name %> <%= @user.last_name %></li>
-                                <li>email: <%= @user.email %></li>
-                                <li>phone: <%= @user.phone %></li>
-                                <li>saved address: <%= @user.address %></li>
-                                <li>date account created: <%= @user.created_at.to_formatted_s(:long) %></li>
-                            </ul>
-                            <ul>my completed tasks: <% @tasks.each do |task| %>
-                                <li><% unless task.blank? %> <%= task.to_s.gsub('["', '').gsub('"]','') %> &#10003;<% end %></li>
-                                <% end %>
-                            </ul>
-                            <ul>my comments: <% @comments.each do |comment| %>
-                                <li><%= comment.body %></li>
-                                <% end %>
-                            </ul>
-                            <br />
-                            <h5>Also, feel free to leave us comments and questions with the "feedback" tab on the right side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.</h5>
-                            <br>
-                            <br>
-                            <%= render "devise/registrations/edit" %>
-                        </section> 
+                <div id="notify-section" class="tab-pane"> 
+                    <ul class="nav nav-tabs dash-tabs">
+                        <li class="active note"><a href="#notify-section" data-toggle="tab">YOUR ACCOUNT:</a></li>
+                    </ul> 
+                    <h2>Current settings:</h2>
+                    <ul>
+                        <li>name: <%= @user.first_name %> <%= @user.last_name %></li>
+                        <li>email: <%= @user.email %></li>
+                        <li>phone: <%= @user.phone %></li>
+                        <li>saved address: <%= @user.address %></li>
+                        <li>date account created: <%= @user.created_at.to_formatted_s(:long) %></li>
+                    </ul>
+                    <ul>my completed tasks: <% @tasks.each do |task| %>
+                        <li><% unless task.blank? %> <%= task.to_s.gsub('["', '').gsub('"]','') %> &#10003;<% end %></li>
+                        <% end %>
+                    </ul>
+                    <ul>my comments: <% @comments.each do |comment| %>
+                        <li><%= comment.body %></li>
+                        <% end %>
+                    </ul>
+                    <br />
+                    <h5>Also, feel free to leave us comments and questions with the "feedback" tab on the right side of the page, or send us an email at <a href="mailto:austin@codeforamerica.org">austin@codeforamerica.org</a> at any time.</h5>
+                    <br />
+                    <br />
+                    <%= render "devise/registrations/edit" %>
+                </div> 
 <!-- //////////////////// contact AFD ///////////////////////// -->        
-                        <section id="contact-section" class="tab-pane">
-                        <ul class="nav nav-tabs dash-tabs">
-                            <li class="active note">
-                                <a href="#home" data-toggle="tab">
-                                CONTACT AN EXPERT:</a>
-                            </li>
-                        </ul>
-                        <%= render "contacts/form" %>    
-                    </section> 
-                </div>  
-            </div>           
-        </div>
-    </div>
-</div>
+                <div id="contact-section" class="tab-pane">
+                    <ul class="nav nav-tabs dash-tabs">
+                        <li class="active note"><a href="#contact-section">CONTACT AN EXPERT:</a></li>
+                    </ul>
+                    <%= render "contacts/form" %>    
+                </div> 
+            </div>  <!-- end tab-content -->
+        </div> <!-- end span 9 -->           
+    </div> <!-- end container-fluid -->
+</div> <!-- end row-fluid dash -->
