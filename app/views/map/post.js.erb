@@ -1,3 +1,11 @@
+console.log('post.js.erb run');
+
+if(runonce){
+  runonce = false;
+}
+else{
+  return;
+}
 $("#mapinfo").html("<%= escape_javascript(render(:partial => 'map/mapinfo')) %>");
 
    // when these are in post.html.erb, they are ignored if rendering the action via js

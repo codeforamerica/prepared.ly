@@ -78,19 +78,10 @@ var map;
 var homeMarker;
 var verifyRedFlag;
 
-var runonce = true;
-
 $(document).ready(function() {
 
 function setupMap() {
     //console.log(document.getElementById('map').innerHTML);
-    console.log('kljdfkgjsdfkgjsdkfj');
-    if(runonce){
-        runonce = false;
-    }
-    else{
-        return;
-    }
 
     // make a map, using normal leaflet and stamen toner tiles
     map = new L.Map('map', {maxZoom: 18});
