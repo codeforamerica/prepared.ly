@@ -1,6 +1,5 @@
 <!-- //////////////// MAP ////////////////////// -->
 
-
 <div id="map-controls">
     <input type="checkbox" id="firestations" name="firestations" checked="checked" />&nbsp;<label for="firestations" class="note">Show Fire Stations</label>
          <a href="#" id="stations-pop" data-content="<strong>Please note</strong> that fire stations are shown for information purposes to better understand your local environment. Geographic proximity to a fire station, or many stations, does <b>not</b> mean you are safer." class="note">Important note about fire stations</a>
@@ -70,4 +69,152 @@
     conditions, fuels, and topography.<br><br>
      <a href="http://www.texaswildfirerisk.com/Map" target="blank"> go to TxWRAP site</a>
      </p>
-</div>
+</div>    
+
+<script>
+   var fire_stations = <%=raw @fs.to_json %>;
+   var address_location = {lat: <%=@address.latlon.y %>, lon: <%=@address.latlon.x %>};
+   var county_list = "<%= @counties_list %>";
+</script>
+
+<script>
+var map;
+var homeMarker;
+var verifyRedFlag;
+$(document).ready(function() {
+
+function setupMap() {
+
+    // make a map, using normal leaflet and stamen toner tiles
+    map = new L.Map('map', {maxZoom: 18});
+    var mapCenter = new L.LatLng(address_location.lat, address_location.lon);
+    var mapZoom = 12;
+    var baseUrl = 'http://{s}.tile.stamen.com/terrain/{z}/{x}/{y}.jpg',
+        attrib = 'Map tiles by Stamen',
+        baseLayer = new L.TileLayer(baseUrl, {attribution: attrib, maxZoom:18});
+    map.addLayer(baseLayer);
+
+    // as of July 14, this server was returning nothing, the requests were failing from http://radar.srh.noaa.gov/fire/ too
+    var fireUrl = 'http://radarcache.srh.noaa.gov/tilecache/tilecache.py/1.0.0/fwx/{z}/{x}/{y}.png?type=google&LAYERS=fwx', attrib = 'Red flag fire warning from NWS', fireLayer = new L.TileLayer(fireUrl, {attribution: attrib, maxZoom:18}); 
+    map.addLayer(fireLayer);
+
+    var bbox = '{  "xmin":-98.997803,  "ymin":29.430029,  "xmax":-96.778564,  "ymax":30.779598,  "spatialReference":{"wkid":4326} }';
+    //var bbox = '{  "xmin":-124.123535,  "ymin":42.212245,  "xmax":-116.51001,  "ymax":45.9053,  "spatialReference":{"wkid":4326} }';
+
+    verifyRedFlag = function(data){
+        if(data.features.length == 0){
+            // no warnings
+            //console.log("no warnings");
+            var redflag = "No current warnings";
+            $("#inside-redflag").html(redflag);
+        }
+        else{
+            // some alerts (could be Red Flag Warning, or other type of warning)
+            var redflag = false;
+            for(var e=0;e<data.features.length;e++){
+                if(data.features[e].attributes.event == "RED FLAG WARNING"){
+                    redflag = true;
+                    break;
+                }
+            }
+            if(redflag){
+                // there was a red flag warning
+                //console.log("red flag");
+                var redflag = "Current warning, see link below";
+                $("#inside-redflag").html(redflag);
+            }
+            else{
+                // only other types of warnings
+                // console.log("other warnings");
+                var redflag = "Other warnings, see NWS link above";
+                $("#inside-redflag").html(redflag);
+            }
+        }
+
+    };
+    var s = document.createElement("script");
+    s.src = 'http://rmgsc.cr.usgs.gov/ArcGIS/rest/services/nhss_weat/MapServer/0/query?f=json&returnGeometry=true&spatialRel=esriSpatialRelIntersects&maxAllowableOffset=4891&geometry=' + bbox + '&geometryType=esriGeometryEnvelope&inSR=4326&outFields=*&outSR=4326&callback=verifyRedFlag';
+    s.type = "text/javascript";
+    document.body.appendChild(s);
+
+    var tx_burn_ban_counties = new L.CartoDBLayer({
+    show_cartodb_logo: false,
+    map_canvas: 'map',
+    map: map,
+    user_name:'tinio',
+    table_name: 'cntys04',
+    query: "SELECT cartodb_id, the_geom_webmercator FROM {{table_name}} WHERE name in ("+county_list+")",
+    infowindow: "SELECT cartodb_id, name_locas FROM {{table_name}} WHERE cartodb_id={{feature}}",
+    auto_bound: false 
+    });
+
+    homeMarker = new L.Marker(new L.LatLng(address_location.lat, address_location.lon));
+    map.addLayer(homeMarker);
+    map.setView(mapCenter, mapZoom);
+
+
+    var MyIcon = L.Icon.extend({
+        iconUrl: '/assets/firestation.png',
+        shadowUrl: '',
+        iconSize: new L.Point(40, 13),
+        shadowSize: new L.Point(0, 0),
+        iconAnchor: new L.Point(20, 13),
+        popupAnchor: new L.Point(-3, -26)
+    });
+
+    var icon = new MyIcon();
+
+    var stations = new L.LayerGroup();
+    for(f in fire_stations){
+        station = fire_stations[f];
+        
+        var m = new L.Marker(new L.LatLng(station.latlon.coordinates[1], station.latlon.coordinates[0]), {icon:icon});
+        stations.addLayer(m);
+        m.bindPopup(station.address + "<br />Austin, TX " + station.zip).openPopup();
+    }
+    map.addLayer(stations);
+
+    $('#firestations').click(function(){
+        if($(this).is(":checked")){
+             map.addLayer(stations);
+        }else{
+            map.removeLayer(stations);
+        }
+    })
+}
+function updateMap(data){
+
+    var mapCenter = new L.LatLng(data.location.lat, data.location.lon);
+    map.setView(mapCenter, 12);
+    map.removeLayer(homeMarker) 
+    homeMarker = new L.Marker(mapCenter);
+    map.addLayer(homeMarker);
+
+    //set details
+    $("#risk-text").text(data.risk_text);
+    $("#risk-text").removeClass(function(){ var classes="";for(i in [0,1,2,3,4,5,6,7,8,9]){classes+="risk-"+i+" ";} return classes; })
+        .addClass("risk-"+data.risk_level); 
+    $("#wind-conditions").text(data.wind_conditions);
+    $("#relative-humidity").text(data.relative_humidity);
+    $("#relative-humidity").text(data.relative_humidity);
+    $("#inside-burnban").text(data.inside_burnban);
+    $("#inside-nws").text(data.inside_nws);
+    $("#address").text(data.address)
+}
+
+if($("#mapinfo").length > 0){
+
+    setupMap();
+    $("#fetchaddress").submit(function(e){
+        e.preventDefault();
+        $("#mapinfo").html("<img src='assets/ajax-loader.gif'>");
+
+        $.ajax("/mapinfo", {data:{q:$(this).find("input#q").val()},success:function(data){
+            updateMap(data);
+        }})
+    });
+    $("#fetchaddress").one();
+
+}
+}); 
+</script>
