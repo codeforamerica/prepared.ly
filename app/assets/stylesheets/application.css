@@ -107,33 +107,34 @@ select,
     background-color: #F4D345;
 }
 .simplestep ol, .simplestep li{
-  font-size: 78px;
+  font-size: 30px;
   list-style: decimal;
   color: #ffffff;
   list-style-position: inside;
   background-color: #F4D345;
   margin-top: 0px;
-
 }
 .simplestep h1 {
-  padding: 0px 10px 5px 70px;
+/*  padding: 0px 10px 5px 70px;*/
   background-color: #ffffff;
-  margin-top: -80px;
+/*  margin-top: -80px;*/
 }
 .simplestep p {
   font-size: 15px;
-  padding: 0px 10px 5px 70px;
+/*  padding: 0px 10px 5px 70px;*/
+
 
 }
 .simplestep hr {
-    background: url("bg-blue.png") repeat scroll 0 0 #ffffff;
-    border-bottom: 8px solid #FFFFFF;
-    border-top: 8px solid #FFFFFF;
-    height: 26px;
+    background: url("bg-blue.png") repeat #ffffff;
+    height: 10px;
+    border-top: 5px #ffffff solid;
+    border-bottom: 5px #ffffff solid;
 }
 .simplestep h1, .simplestep p {
   color: #666666;
   background-color: #F4D345;
+  padding: 10px;
 }
 
 #maintenance {
@@ -146,7 +147,9 @@ select,
   width: 80%;
   margin-top: 40px;
 }
-
+.bottomlist {
+  list-style: none;
+}
 
 .note {
   font-size: 12px;
