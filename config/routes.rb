@@ -9,7 +9,7 @@ Preparedly::Application.routes.draw do
   match "/tasks-partial" => "tasks#partial"
 
   match "resources" => "resources#index"
-  match "redflag" => "resources#redflag"
+  match "/redflag" => "resources#redflag"
 
   match 'completed' => 'completed_tasks#completed' #, :as => 'completed'
 
