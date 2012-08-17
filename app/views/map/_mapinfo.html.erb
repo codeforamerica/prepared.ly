@@ -1,5 +1,3 @@
-<div>
-
 <div id="map-controls">
     <input type="checkbox" id="firestations" name="firestations" checked="checked" />&nbsp;<label for="firestations" class="note">Show Fire Stations</label>
          <a href="#" id="stations-pop" data-content="<strong>Please note</strong> that fire stations are shown for information purposes to better understand your local environment. Geographic proximity to a fire station, or many stations, does <b>not</b> mean you are safer." class="note">Important note about fire stations</a>
@@ -70,7 +68,7 @@
      <a href="http://www.texaswildfirerisk.com/Map" target="blank"> go to TxWRAP site</a>
      </p>
 </div>    
-</div>
+
 <script>
    var fire_stations = <%=raw @fs.to_json %>;
    var address_location = {lat: <%=@address.latlon.y %>, lon: <%=@address.latlon.x %>};
