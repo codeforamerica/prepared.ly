@@ -1,9 +1,10 @@
 <!-- //////////////// MAP ////////////////////// -->
-
+<div>
 <div id="map-controls">
     <input type="checkbox" id="firestations" name="firestations" checked="checked" />&nbsp;<label for="firestations" class="note">Show Fire Stations</label>
          <a href="#" id="stations-pop" data-content="<strong>Please note</strong> that fire stations are shown for information purposes to better understand your local environment. Geographic proximity to a fire station, or many stations, does <b>not</b> mean you are safer." class="note">Important note about fire stations</a>
 </div> 
+
 <div class="contentbox">
     <!-- //////////////// table ////////////////////// -->
     <h4 id="address"><%= @address.address %></h4>
@@ -69,7 +70,8 @@
     conditions, fuels, and topography.<br><br>
      <a href="http://www.texaswildfirerisk.com/Map" target="blank"> go to TxWRAP site</a>
      </p>
-</div>    
+</div>
+</div>
 
 <script>
    var fire_stations = <%=raw @fs.to_json %>;
