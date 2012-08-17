@@ -70,18 +70,27 @@
 </div>    
 
 <script>
-   var fire_stations = <%=raw @fs.to_json %>;
-   var address_location = {lat: <%=@address.latlon.y %>, lon: <%=@address.latlon.x %>};
-   var county_list = "<%= @counties_list %>";
+var fire_stations = <%=raw @fs.to_json %>;
+var address_location = {lat: <%=@address.latlon.y %>, lon: <%=@address.latlon.x %>};
+var county_list = "<%= @counties_list %>";
 
 var map;
 var homeMarker;
 var verifyRedFlag;
+
+var runonce = true;
+
 $(document).ready(function() {
 
 function setupMap() {
-    console.log(document.getElementById('map').innerHTML);
+    //console.log(document.getElementById('map').innerHTML);
     console.log('kljdfkgjsdfkgjsdkfj');
+    if(runonce){
+        runonce = false;
+    }
+    else{
+        return;
+    }
 
     // make a map, using normal leaflet and stamen toner tiles
     map = new L.Map('map', {maxZoom: 18});
