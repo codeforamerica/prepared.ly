@@ -209,19 +209,19 @@ function updateMap(data){
     $("#address").text(data.address)
 }
 
-if($("#mapinfo").length > 0){
+ if($("#mapinfo").length > 0){
 
-    setupMap();
-    $("#fetchaddress").submit(function(e){
-        e.preventDefault();
-        $("#mapinfo").html("<img src='assets/ajax-loader.gif'>");
+     setupMap();
+     $("#fetchaddress").submit(function(e){
+         e.preventDefault();
+//         $("#mapinfo").html("<img src='assets/ajax-loader.gif'>");
 
         $.ajax("/mapinfo", {data:{q:$(this).find("input#q").val()},success:function(data){
             updateMap(data);
-        }})
-    });
-    $("#fetchaddress").one();
-
+         }})
+     });
+     $("#fetchaddress").one();
 }
+
 }); 
 </script>
