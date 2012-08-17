@@ -2,12 +2,7 @@
   <%= stylesheet_link_tag "leaflet.css" %>
   <%= stylesheet_link_tag "leaflet.ie.css" %>
 <% end %>
-<% content_for :javascript_yield do %>
-  <!-- scripts -->
-  <%= javascript_include_tag "leaflet.js" %>
-  <%= javascript_include_tag "wax.leaflet.min.js" %>
-  <%= javascript_include_tag "cartodb-leaflet.js" %>
-<% end %>
+
 
 <div class="row-fluid dash">
     <%= render "layouts/usernavigation-side" %>
@@ -84,3 +79,10 @@
         </div> <!-- end span 9 -->           
     </div> <!-- end container-fluid -->
 </div> <!-- end row-fluid dash -->
+
+<% content_for :javascript_yield do %>
+  <!-- scripts -->
+  <%= javascript_include_tag "leaflet.js" %>
+  <%= javascript_include_tag "wax.leaflet.min.js" %>
+  <%= javascript_include_tag "cartodb-leaflet.js" %>
+<% end %>
