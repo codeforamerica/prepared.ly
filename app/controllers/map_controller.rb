@@ -64,7 +64,7 @@ class MapController < ApplicationController
     setupMapInfo()
     @address_str = params[:q]
     respond_to do |format|
-       format.html
+       #format.html
        format.js
      end
 

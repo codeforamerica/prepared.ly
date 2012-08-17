@@ -1,6 +1,4 @@
-<!-- //////////////// MAP ////////////////////// -->
-<div id="map">Map inserts here</div>
-
+<div>
 <div id="map-controls">
     <input type="checkbox" id="firestations" name="firestations" checked="checked" />&nbsp;<label for="firestations" class="note">Show Fire Stations</label>
          <a href="#" id="stations-pop" data-content="<strong>Please note</strong> that fire stations are shown for information purposes to better understand your local environment. Geographic proximity to a fire station, or many stations, does <b>not</b> mean you are safer." class="note">Important note about fire stations</a>
@@ -54,7 +52,10 @@
                 <span class="note" id="remove-flags">hide red flag warnings info</span>
             </div>
         <li><h2>Weather</h2><hr></li>
-        <li class="condition-type">Wind: <span id="wind-conditions"><%= @wind_conditions %></li>
+        <li class="condition-type">Wind:
+            <span id="wind-conditions">
+            <%= @wind_conditions %></span>
+        </li>
         <li class="condition-type">Humidity:
             <span id="relative-humidity"> 
             <%= @relative_humidity %></span>
@@ -70,21 +71,23 @@
     conditions, fuels, and topography.<br><br>
      <a href="http://www.texaswildfirerisk.com/Map" target="blank"> go to TxWRAP site</a>
      </p>
-</div>    
+</div>
+
+</div>
 
 <script>
-   var fire_stations = <%=raw @fs.to_json %>;
-   var address_location = {lat: <%=@address.latlon.y %>, lon: <%=@address.latlon.x %>};
-   var county_list = "<%= @counties_list %>";
-</script>
+var fire_stations = <%=raw @fs.to_json %>;
+var address_location = {lat: <%=@address.latlon.y %>, lon: <%=@address.latlon.x %>};
+var county_list = "<%= @counties_list %>";
 
-<script>
 var map;
 var homeMarker;
 var verifyRedFlag;
+
 $(document).ready(function() {
 
 function setupMap() {
+    //console.log(document.getElementById('map').innerHTML);
 
     // make a map, using normal leaflet and stamen toner tiles
     map = new L.Map('map', {maxZoom: 18});
@@ -203,19 +206,19 @@ function updateMap(data){
     $("#address").text(data.address)
 }
 
-if($("#mapinfo").length > 0){
+ if($("#mapinfo").length > 0){
 
-    setupMap();
-    $("#fetchaddress").submit(function(e){
-        e.preventDefault();
-        $("#mapinfo").html("<img src='assets/ajax-loader.gif'>");
+     setupMap();
+     $("#fetchaddress").submit(function(e){
+         e.preventDefault();
+//         $("#mapinfo").html("<img src='assets/ajax-loader.gif'>");
 
         $.ajax("/mapinfo", {data:{q:$(this).find("input#q").val()},success:function(data){
             updateMap(data);
-        }})
-    });
-    $("#fetchaddress").one();
-
+         }})
+     });
+     $("#fetchaddress").one();
 }
+
 }); 
 </script>

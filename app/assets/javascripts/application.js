@@ -100,6 +100,7 @@ $("#loadMap").click(function(){
               $('#mapinfo').html("<img src='assets/ajax-loader.gif'>");
             }
         });
+runonce = true;
 
 
 // tells Rails to accept js header so we don't have to add .js extension to every request
