@@ -30,19 +30,34 @@
 
 //add dashboard tab href to url in browser address bar
 $('#sidenav a').click(function(e){
+  console.log("a link in the sidenav has been clicked on");
+  e.stopPropagation();
+  e.preventDefault();
   var href = $(this).attr('href');
   window.location = href;
+  console.log("href:");
+  console.log(href);
+  console.log("window.location:");
+  console.log(window.location);
 });
 
 $(document).ready(function(){
-  //load map-section in dashboard by default on page load for authenticated user
+  console.log("sidenav.length (expecting > 0): " + $("#sidenav").length);
+  console.log("window.location.hash (expecting empty): " + window.location.hash);
+  console.log($("#sidenav"));
+
+  // By default, load #map-section in user dashboard
   if(($("#sidenav").length > 0) && (!window.location.hash)) {
+    console.log("sidenav.length is > 0 and window.location.hash is empty");
     window.location.hash = "#map-section";
-    // permalink for dashboard tabs for authenticated user
-  } else {
+  }
+  // Handle permalinks to non-#map-section tabs in user dashboard
+  else {
+    console.log("either sidenav.length was 0 or window.location.hash is true");
     var match = window.location.hash;
     $('#sidenav a[href="' + match + '"]').tab('show');
   };
+
   //use browser forward/back buttons to navigate dashboard tabs
   $(window).bind('hashchange', function(){
     var active_tab = window.location.hash;
@@ -113,17 +128,17 @@ var is_ssl = ("https:" == document.location.protocol);
 var asset_host = is_ssl ? "https://d3rdqalhjaisuu.cloudfront.net/" : "http://d3rdqalhjaisuu.cloudfront.net/";
 document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
 
-var feedback_widget_options = {};
-  feedback_widget_options.display = "overlay";
-  feedback_widget_options.company = "code_for_america";
-  feedback_widget_options.placement = "right";
-  feedback_widget_options.color = "#333333";
-  feedback_widget_options.style = "question";
-  feedback_widget_options.product = "code_for_america_preparedly";
-  feedback_widget_options.tag = "feedback";
-  feedback_widget_options.custom_css = "feedback.css";
-  feedback_widget_options.limit = "3";
-var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+// var feedback_widget_options = {};
+//   feedback_widget_options.display = "overlay";
+//   feedback_widget_options.company = "code_for_america";
+//   feedback_widget_options.placement = "right";
+//   feedback_widget_options.color = "#333333";
+//   feedback_widget_options.style = "question";
+//   feedback_widget_options.product = "code_for_america_preparedly";
+//   feedback_widget_options.tag = "feedback";
+//   feedback_widget_options.custom_css = "feedback.css";
+//   feedback_widget_options.limit = "3";
+// var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
 
 // google analytics
 var _gaq = _gaq || [];

@@ -11,7 +11,7 @@
   <meta property="og:image" content="http://www.prepared.ly/assets/preparedly-bigblue.png"/>
   <meta property="og:description"
           content="Prepared.ly is a simple way for you to stay informed and proactive about the ongoing threat of wildfires."/>
-  <script type="text/javascript" src="http://updateyourbrowser.net/uyb.js"> </script>
+  
   <%= stylesheet_link_tag "jquery-ui" %>
   <%= stylesheet_link_tag "bootstrap", :media => "all" %>
   <!--this must be third to last, add all others above this -->
@@ -117,16 +117,16 @@
   <a href="#" class="btn" data-dismiss="modal">Close</a>
   </div> 
 </div>
-<div id="getsat-widget-761"></div>
-<script type="text/javascript" src="https://loader.engage.gsfn.us/loader.js"></script>
+<!-- <div id="getsat-widget-761"></div>
+<script type="text/javascript" src="http://loader.engage.gsfn.us/loader.js"></script>
 <script type="text/javascript">
 if (typeof GSFN !== "undefined") { GSFN.loadWidget(761,{"containerId":"getsat-widget-761"}); }
-</script>
+</script> -->
 
 
-<!-- Typekit -->
+<!-- Typekit 
 <script type="text/javascript" src="http://use.typekit.com/osj8jgk.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script> -->
 
 <%= yield :javascript_yield %> 
 <%= javascript_include_tag "application" %>
