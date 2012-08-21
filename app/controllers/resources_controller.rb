@@ -2,7 +2,7 @@ class ResourcesController < ApplicationController
   def index
   	@user = current_user
   end
-  def redflag
+  def alert
   	@user = current_user
   end
 end
