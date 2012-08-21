@@ -106,35 +106,50 @@ select,
 .warning {
     background-color: #F4D345;
 }
-.simplestep ol, .simplestep li{
+.simplestep {
   font-size: 30px;
-  list-style: decimal;
   color: #ffffff;
-  list-style-position: inside;
   background-color: #F4D345;
+  margin: 10px;
+}
+.nestedlist li{
+/*  list-style-image: url("whitebullet.png");*/
+  font-size: 15px;
+  color: #666666;
+  margin-left: 70px;
+  line-height: 20px;
+  list-style: outside;
+  padding-bottom: 10px;
+}
+.nestedlist ul{
   margin-top: 0px;
+  padding-top: 0px;
+}
+
+.simplestep img {
+  margin-right: 10px;
+  float: left;
+  display: block;
+  margin-left: 5px;
+  margin-top: 5px;
 }
 .simplestep h1 {
-/*  padding: 0px 10px 5px 70px;*/
   background-color: #ffffff;
-/*  margin-top: -80px;*/
+  padding-top: 5px;  
+  padding-left: 50px;
 }
 .simplestep p {
   font-size: 15px;
-/*  padding: 0px 10px 5px 70px;*/
-
-
+  padding-left: 50px;
 }
-.simplestep hr {
+.dashed {
     background: url("bg-blue.png") repeat #ffffff;
     height: 10px;
-    border-top: 5px #ffffff solid;
-    border-bottom: 5px #ffffff solid;
+    margin: 10px;
 }
 .simplestep h1, .simplestep p {
   color: #666666;
   background-color: #F4D345;
-  padding: 10px;
 }
 
 #maintenance {
