@@ -129,6 +129,13 @@ if (typeof GSFN !== "undefined") { GSFN.loadWidget(761,{"containerId":"getsat-wi
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script> 
 
 <%= yield :javascript_yield %> 
+<!-- create javascript value to push into kiss metrics from kiss.js file -->
+<% if @user %>
+  <%= javascript_tag do %>
+    window.kiss = '<%= j @user.id.to_s %>';
+  <% end %>
+<% end %>
+<!-- load application js file -->
 <%= javascript_include_tag "application" %>
 
 

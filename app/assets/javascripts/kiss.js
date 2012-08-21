@@ -11,6 +11,9 @@ function _kms(u){
 _kms('//i.kissmetrics.com/i.js');
 _kms('//doug1izaerwt3.cloudfront.net/' + _kmk + '.1.js');
 
+
+
+_kmq.push(['identify', window.kiss]);
 _kmq.push(['record', 'Contacts expert']);
 _kmq.push(['record', 'Adds comment']);
 _kmq.push(['record', 'Schedules task']);
@@ -26,4 +29,5 @@ _kmq.push(['record', 'Clicks Sign In']);
 _kmq.push(['record', 'Views login modal']);
 _kmq.push(['record', 'Clicks login link']);
 _kmq.push(['record', 'Visit homepage']);
-_kmq.push(['record', 'Sign up link on Red Flag page']);
+_kmq.push(['record', 'Visits Alert page']);
+_kmq.push(['record', 'Visits #map-section']);
