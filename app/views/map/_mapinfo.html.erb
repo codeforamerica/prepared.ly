@@ -8,13 +8,9 @@
     <h4 id="address"><%= @address.address %></h4>
     <hr>
     <ul>
-        <li class="condition-type">Risk of this location:
-            <% if @risk_level %>  
+        <li class="condition-type">Risk of this location:  
             <span class="risk risk-<%= @risk_level %>" id="risk-text"><%= @risk_text %></span>
         </li>
-        <% else %>
-        <li class="condition-type">No risk data is available at this location</li>
-        <% end %>
         <li class="condition-type">Inside of a countywide burn ban:
             <span class="condition" id="inside-burnban"><%= @inside_burnban %></span>
         </li>

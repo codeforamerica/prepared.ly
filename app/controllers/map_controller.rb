@@ -23,12 +23,13 @@ class TFS
       }
     )
 
-    json_response = JSON.parse(response.body)
-    print json_response
-    if json_response['results'].length > 0
-      return json_response['results'][0]['attributes']['Pixel Value'].to_i
-    else
-      return nil
+    unless response != nil
+      json_response = JSON.parse(response.body)
+      if json_response['results'].length > 0
+        return json_response['results'][0]['attributes']['Pixel Value'].to_i
+    # else
+    #   return nil
+      end
     end
   end
 end
@@ -127,22 +128,26 @@ class MapController < ApplicationController
         end
       end
 
-      # Risk Assessment Level
-      @risk_level = TFS.risk_assessment(@address.latlon)
-      risk_text_mapping = Hash.new {0}
-      risk_text_mapping[0] = "Very Low"
-      risk_text_mapping[1] = "Very Low"
-      risk_text_mapping[2] = "Low"
-      risk_text_mapping[3] = "Low"
-      risk_text_mapping[4] = "Moderate"
-      risk_text_mapping[5] = "Moderate"
-      risk_text_mapping[6] = "High"
-      risk_text_mapping[7] = "High"
-      risk_text_mapping[8] = "Very High"
-      risk_text_mapping[9] = "Very High"
-      @risk_text = risk_text_mapping[@risk_level]
-    end
 
+      # Risk Assessment Level
+      if TFS.risk_assessment(@address.latlon) == nil
+        @risk_text = "Not available at this time"
+      else
+        @risk_level = TFS.risk_assessment(@address.latlon)
+        risk_text_mapping = Hash.new {0}
+        risk_text_mapping[0] = "Very Low"
+        risk_text_mapping[1] = "Very Low"
+        risk_text_mapping[2] = "Low"
+        risk_text_mapping[3] = "Low"
+        risk_text_mapping[4] = "Moderate"
+        risk_text_mapping[5] = "Moderate"
+        risk_text_mapping[6] = "High"
+        risk_text_mapping[7] = "High"
+        risk_text_mapping[8] = "Very High"
+        risk_text_mapping[9] = "Very High"
+        @risk_text = risk_text_mapping[@risk_level]
+       end
+    end
   end
 
 
