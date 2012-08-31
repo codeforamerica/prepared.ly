@@ -66,7 +66,7 @@ Preparedly::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # devise setting
-  config.action_mailer.default_url_options = { :host => 'preparedly.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'prepared.ly' }
 end
 
 Preparedly::Application.config.middleware.use ExceptionNotifier,
