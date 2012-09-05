@@ -2,14 +2,38 @@ require 'nokogiri'
 require 'open-uri'
 require 'wunderground'
 
-
 class TFS
   include HTTParty
 
-  base_uri 'http://ags1.dtsgis.com/ArcGIS/rest/services/v2'
+  base_uri 'http://ags1.dtsgis.com/ArcGIS/rest/services/v3scfa'
+
+
+ def self.get_token()
+    response = get('https://agstx.dtsagile.com/ArcGIS/Tokens',
+      :query => {
+        :request => "gettoken",
+        :username => ENV['TXWRAP_USER'],
+        :password => ENV['TXWRAP_PASS'],
+        :clientId => "ref.http://www.prepared.ly",
+        :expiration => "1440"
+      }
+    )
+
+    if response != nil    
+      return response.body
+    else 
+      return nil
+    end
+  end
 
   def self.risk_assessment(latlon)
+
+    token = self.get_token()
+
     response = get('/RiskAssessment/MapServer/identify',
+      :headers => {
+        "Referer" => "http://www.prepared.ly"
+        },
       :query => {
         :geometryType => "esriGeometryPoint",
         :geometry => "{x: " + latlon.x.to_s + ", y: " + latlon.y.to_s + "}",
@@ -19,19 +43,23 @@ class TFS
         :mapExtent => '-98,30,-97,31',
         :imageDisplay => '572,740,96',
         :returnGeometry => true,
-        :f => 'pjson'
+        :f => 'pjson',
+        :token => token
       }
     )
 
-    unless response != nil
+    if response != nil
       json_response = JSON.parse(response.body)
       if json_response['results'].length > 0
         return json_response['results'][0]['attributes']['Pixel Value'].to_i
-    # else
-    #   return nil
+     else
+       return nil
       end
     end
   end
+
+
+
 end
 
 class CartoDB
