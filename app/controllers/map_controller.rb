@@ -8,7 +8,7 @@ class TFS
   base_uri 'http://ags1.dtsgis.com/ArcGIS/rest/services/v3scfa'
 
 
- def self.get_token()
+  def self.get_token()
     response = get('https://agstx.dtsagile.com/ArcGIS/Tokens',
       :query => {
         :request => "gettoken",
@@ -57,9 +57,6 @@ class TFS
       end
     end
   end
-
-
-
 end
 
 class CartoDB
