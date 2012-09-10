@@ -14,7 +14,7 @@ class TFS
         :request => "gettoken",
         :username => ENV['TXWRAP_USER'],
         :password => ENV['TXWRAP_PASS'],
-        :clientId => "ref.http://staging.prepared.ly",
+        :clientId => "ref.http://www.prepared.ly",
         :expiration => "1440"
       }
     )
@@ -32,7 +32,7 @@ class TFS
 
     response = get('/RiskAssessment/MapServer/identify',
       :headers => {
-        "Referer" => "http://staging.prepared.ly"
+        "Referer" => "http://www.prepared.ly"
         },
       :query => {
         :geometryType => "esriGeometryPoint",
