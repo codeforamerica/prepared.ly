@@ -90,15 +90,15 @@ $(document).ready(function(){
 
 // map creation and update stuff moved into map/_mapinfo partial
 
-// alert to user if map search is empty, otherwise show ajax loading gif
+// alert to user if map search is empty, otherwise show ajax loading gif (disabled since it breaks things!)
 $("#loadMap").click(function(){
             if($("#q").val() == '') {
                  alert("Please enter a street address with city and state; or zip code.");
                  $("#q").addClass('highlight');
                  return false;
-            } else {
-              $('#mapinfo').html("<img src='assets/ajax-loader.gif'>");
-            }
+            }; // else {
+              //$('#mapinfo').html("<img src='assets/ajax-loader.gif'>");
+            //}
         });
 runonce = true;
 
