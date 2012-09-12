@@ -27,6 +27,7 @@ Preparedly::Application.routes.draw do
       :registrations => "users/registrations" 
   }
   match "/mapinfo" => "map#mapinfo"
+  match "/map" => redirect("../#map-section")
   get "map" => "map#get"
   post "map" => "map#post"
 
