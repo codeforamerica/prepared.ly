@@ -78,14 +78,6 @@ end
 class MapController < ApplicationController
   #after_filter :post, only => [:post, :nws_warnings]
 
-  def get
-  #   @user = current_user
-  #   unless @user.nil?
-  #     @completed_tasks = CompletedTask.find_all_by_user_id(@user.id) # returns an array
-  #   end
-  #   @random = Task.random
-   end
-
   def post
     setupMapInfo()
     @address_str = params[:q]
