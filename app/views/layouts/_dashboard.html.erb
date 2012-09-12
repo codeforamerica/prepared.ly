@@ -25,7 +25,7 @@
                         <%= form_tag("/map", :id => "fetchaddress", :remote => true) do %>
                             <div class="controls">
                                 <div class="map-butt">
-                                    <p class="note">Please enter your street address (with city and state) or zip code.</p>
+                                    <p class="note">Please enter your street address with city and state.</p>
                                     <%= text_field_tag(:q, nil,  :value => @user.address, :class => 'address form-inline input-large') %>
                                     <%= submit_tag("Load my map", :class => 'btn-success btn', :id => 'loadMap') %>
                                 </div>
