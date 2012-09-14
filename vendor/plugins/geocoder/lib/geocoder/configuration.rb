@@ -7,7 +7,7 @@ module Geocoder
         [:timeout, 3],
 
         # name of geocoding service (symbol)
-        [:lookup, :geocoder_ca],
+        [:lookup, :google],
 
         # ISO-639 language code
         [:language, :en],
