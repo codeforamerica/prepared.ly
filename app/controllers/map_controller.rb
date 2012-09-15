@@ -115,6 +115,8 @@ class MapController < ApplicationController
       begin
         if counties_array.include?(CartoDB.current_county(@address.latlon))
           @inside_burnban = 'yes'
+        else
+          @inside_burnban = 'no'
         end
       rescue
         @inside_burnban = 'no'
