@@ -104,7 +104,7 @@ class MapController < ApplicationController
       counties_array = counties_text.strip.split(', ')
       @counties_list = '\'' + counties_array.join("\', \'") + '\''
       #use single call to geocoder above and get county back instead of using CartoDB class and API call to get *nearest* county (which sometimes matched 'yes' for a non-TX county)
-      if (counties_array.include?(@county))
+      if (counties_array.include?(@county.upcase))
         @inside_burnban = 'yes'
       else
         @inside_burnban = 'no'
