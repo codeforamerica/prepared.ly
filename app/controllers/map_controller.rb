@@ -118,7 +118,7 @@ class MapController < ApplicationController
       @inside_nws = 'no'
       doc.css('entry').each do |node|
         each_county_array = node.css('areaDesc').text.strip.split('; ')
-        if each_county_array.include?(CartoDB.current_county(@address.latlon).capitalize)
+        if each_county_array.include?(@county.capitalize)
           @inside_nws = 'yes'
           @warnings.push(node)
         end
