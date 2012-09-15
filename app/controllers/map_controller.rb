@@ -77,8 +77,8 @@ class MapController < ApplicationController
     #to get only the lat lon, use line below and remove following five lines 
     #@coordinates = Geocoder.coordinates(@address_str)
     @geocode = Geocoder.search(@address_str).to_json
-    @geocode_response = JSON.parse(@geocode)
-    @county = @geocode_response[0]['data']['address_components'][4]['long_name']
+    @geocode_response = JSON.parse(@geocode) 
+    @county = @geocode_response[0]['data']['address_components'][-4]['long_name']
     @coordinates_array = @geocode_response[0]['data']['geometry']['location'].flatten
     @coordinates = [@coordinates_array[1], @coordinates_array[3]]
 
