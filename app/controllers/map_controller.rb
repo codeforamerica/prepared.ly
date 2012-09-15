@@ -59,22 +59,6 @@ class TFS
   end
 end
 
-class CartoDB
-  include HTTParty
-
-  base_uri 'http://tinio.cartodb.com/api/v2'
-
-  def self.current_county(latlon)
-    response = get('/sql',
-      :query => {
-        :q => "SELECT name FROM cntys04 ORDER BY ST_Distance(ST_GeomFromText('POINT(" + latlon.x.to_s + " " + latlon.y.to_s + ")',4326), the_geom) LIMIT 1;"
-      }
-    )
-    json_response = JSON.parse(response.body)
-    return json_response['rows'][0]['name']
-  end
-end
-
 class MapController < ApplicationController
   #after_filter :post, only => [:post, :nws_warnings]
 
@@ -90,7 +74,14 @@ class MapController < ApplicationController
 
   def setupMapInfo
     @address_str = params[:q]
-    @coordinates = Geocoder.coordinates(@address_str)
+    #to get only the lat lon, use line below and remove following five lines 
+    #@coordinates = Geocoder.coordinates(@address_str)
+    @geocode = Geocoder.search(@address_str).to_json
+    @geocode_response = JSON.parse(@geocode)
+    @county = @geocode_response[0]['data']['address_components'][4]['long_name']
+    @coordinates_array = @geocode_response[0]['data']['geometry']['location'].flatten
+    @coordinates = [@coordinates_array[1], @coordinates_array[3]]
+
     if @coordinates
       @address = Address.find_or_create_by_address(:address => @address_str, 
         :latlon => 'POINT(' + @coordinates[1].to_s + ' ' + @coordinates[0].to_s + ')')
@@ -112,13 +103,10 @@ class MapController < ApplicationController
       counties_text = rss.css('rss channel item description').text
       counties_array = counties_text.strip.split(', ')
       @counties_list = '\'' + counties_array.join("\', \'") + '\''
-      begin
-        if counties_array.include?(CartoDB.current_county(@address.latlon))
-          @inside_burnban = 'yes'
-        else
-          @inside_burnban = 'no'
-        end
-      rescue
+      #use single call to geocoder above and get county back instead of using CartoDB class and API call to get *nearest* county (which sometimes matched 'yes' for a non-TX county)
+      if (counties_array.include?(@county))
+        @inside_burnban = 'yes'
+      else
         @inside_burnban = 'no'
       end
       @burnban_updated = rss.css('rss channel item title').text.split('-')[1]
