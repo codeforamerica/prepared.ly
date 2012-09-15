@@ -124,20 +124,6 @@ class MapController < ApplicationController
         end
       end
 
-      # Counties with a National Weather Service warning
-      doc = Nokogiri::XML(open('http://alerts.weather.gov/cap/tx.php?x=0'))
-      doc.remove_namespaces!
-      @warnings = []
-      @inside_nws = 'no'
-      doc.css('entry').each do |node|
-        each_county_array = node.css('areaDesc').text.strip.split('; ')
-        if each_county_array.include?(CartoDB.current_county(@address.latlon).capitalize)
-          @inside_nws = 'yes'
-          @warnings.push(node)
-        end
-      end
-
-
       # Risk Assessment Level
       if TFS.risk_assessment(@address.latlon) == nil
         @risk_text = "Not available at this time"
