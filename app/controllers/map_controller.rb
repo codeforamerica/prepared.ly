@@ -112,9 +112,11 @@ class MapController < ApplicationController
       counties_text = rss.css('rss channel item description').text
       counties_array = counties_text.strip.split(', ')
       @counties_list = '\'' + counties_array.join("\', \'") + '\''
-      if counties_array.include?(CartoDB.current_county(@address.latlon))
-        @inside_burnban = 'yes' 
-      else
+      begin
+        if counties_array.include?(CartoDB.current_county(@address.latlon))
+          @inside_burnban = 'yes'
+        end
+      rescue
         @inside_burnban = 'no'
       end
       @burnban_updated = rss.css('rss channel item title').text.split('-')[1]
