@@ -7,8 +7,32 @@
   <%= javascript_include_tag "leaflet.js" %>
   <%= javascript_include_tag "wax.leaflet.min.js" %>
   <%= javascript_include_tag "cartodb-leaflet.js" %>
-
 <% end %>
+
+<!-- does not load properly if put in tag above -->
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"> </script>
+
+<script>
+// create but don't display google map in #map_canvas so that autocomplete function can reference it
+  function initialize() {
+    var mapOptions = {
+      center: new google.maps.LatLng(-33.8688, 151.2195),
+      zoom: 13,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(document.getElementById('map_canvas'),
+      mapOptions);
+
+    // use the existing #q field to attach autocomplete to
+    var input = document.getElementById('q');
+    var autocomplete = new google.maps.places.Autocomplete(input);
+
+    autocomplete.bindTo('bounds', map);
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<div id="map_canvas"></div>
 
 <div class="row-fluid dash">
     <%= render "layouts/usernavigation-side" %>

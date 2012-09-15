@@ -28,6 +28,12 @@
 //= require timepicker
 //= require kiss
 
+
+
+
+
+
+
 //add dashboard tab href to url in browser address bar
 $('#sidenav a').click(function(e){
   // console.log("a link in the sidenav has been clicked on");
