@@ -78,7 +78,7 @@ class MapController < ApplicationController
     #@coordinates = Geocoder.coordinates(@address_str)
     @geocode = Geocoder.search(@address_str).to_json
     @geocode_response = JSON.parse(@geocode) 
-    @geocode_response[0]['data']['county'].gsub(' County', '').upcase
+    @county = @geocode_response[0]['data']['county'].gsub(' County', '').upcase
     @coordinates = [@geocode_response[0]['data']['latitude'], @geocode_response[0]['data']['longitude']]
 
     if @coordinates
