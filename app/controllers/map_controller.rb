@@ -78,9 +78,8 @@ class MapController < ApplicationController
     #@coordinates = Geocoder.coordinates(@address_str)
     @geocode = Geocoder.search(@address_str).to_json
     @geocode_response = JSON.parse(@geocode) 
-    @county = @geocode_response[0]['data']['address_components'][-4]['long_name']
-    @coordinates_array = @geocode_response[0]['data']['geometry']['location'].flatten
-    @coordinates = [@coordinates_array[1], @coordinates_array[3]]
+    @geocode_response[0]['data']['county'].gsub(' County', '').upcase
+    @coordinates = [@geocode_response[0]['data']['latitude'], @geocode_response[0]['data']['longitude']]
 
     if @coordinates
       @address = Address.find_or_create_by_address(:address => @address_str, 
