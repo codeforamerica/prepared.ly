@@ -66,10 +66,10 @@ Preparedly::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # devise setting
-  config.action_mailer.default_url_options = { :host => 'prepared.ly' }
+  config.action_mailer.default_url_options = { :host => ENV['DEVISE_HOST'] }
 end
 
 Preparedly::Application.config.middleware.use ExceptionNotifier,
   :email_prefix => "[prepared.ly] ",
-  :sender_address => %{"notifier" <info@prepared.ly>},
-  :exception_recipients => %w{joe@codeforamerica.org}
+  :sender_address => %{"notifier" <ENV['NOTIFIER_SENDER_EMAIL']>},
+  :exception_recipients => %w{ENV['NOTIFIER_RECIPIENT_EMAIL']}
