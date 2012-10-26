@@ -52,7 +52,9 @@
                                     <p class="note">Please enter and confirm your address, then click "Load my map."</p>
                                     <%= text_field_tag(:q, nil,  :value => @user.address, :class => 'address form-inline input-large') %>
                                     <%= submit_tag("Load my map", :class => 'btn-success btn', :id => 'loadMap') %>
+                                    <img src="assets/powered-by-google-on-white.png" align="left" />
                                 </div>
+
                             </div>   
                         <% end %> 
                        <div id="map"></div>
