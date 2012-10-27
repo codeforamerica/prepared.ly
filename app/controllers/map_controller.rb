@@ -77,9 +77,16 @@ class MapController < ApplicationController
     #to get only the lat lon, use line below and remove following five lines 
     #@coordinates = Geocoder.coordinates(@address_str)
     @geocode = Geocoder.search(@address_str).to_json
-    @geocode_response = JSON.parse(@geocode) 
-    @county = @geocode_response[0]['data']['county'].gsub(' County', '').upcase
-    @coordinates = [@geocode_response[0]['data']['latitude'], @geocode_response[0]['data']['longitude']]
+    @geocode_response = JSON.parse(@geocode)
+    # google's geocoder doesn't always put county in the same place in the returned data structure, find administrative_area_level_2 which is what they call counties
+    @address_components = @geocode_response[0]['data']['address_components']
+    @county_item = @address_components.select { |e| e['types'][0] === "administrative_area_level_2" }
+    @county = @county_item[0]["long_name"]
+    # make sure you're getting back what you want from the geocoder. for example, the yahoo geocoder returns the county every time unlike above:
+    # @county = @geocode_response[0]['data']['county'].gsub(' County', '').upcase
+    @coordinates = [@geocode_response[0]['data']['geometry']['location']['lat'], @coordinates = @geocode_response[0]['data']['geometry']['location']['lng']]
+    # get coordinates from yahoo geocoder response instead:
+    # @coordinates = [@geocode_response[0]['data']['latitude'], @geocode_response[0]['data']['longitude']]
 
     if @coordinates
       @address = Address.find_or_create_by_address(:address => @address_str, 
@@ -103,7 +110,10 @@ class MapController < ApplicationController
       counties_array = counties_text.strip.split(', ')
       @counties_list = '\'' + counties_array.join("\', \'") + '\''
       #use single call to geocoder above and get county back instead of using CartoDB class and API call to get *nearest* county (which sometimes matched 'yes' for a non-TX county)
-      if (counties_array.include?(@county.upcase))
+      if @county.nil?
+        @inside_burnban = 'unavailable'
+        @inside_nws = 'Please use a street address.'
+      elsif (counties_array.include?(@county.upcase))
         @inside_burnban = 'yes'
       else
         @inside_burnban = 'no'
@@ -111,15 +121,17 @@ class MapController < ApplicationController
       @burnban_updated = rss.css('rss channel item title').text.split('-')[1]
 
       # Counties with a National Weather Service warning
-      doc = Nokogiri::XML(open('http://alerts.weather.gov/cap/tx.php?x=0'))
-      doc.remove_namespaces!
-      @warnings = []
-      @inside_nws = 'no'
-      doc.css('entry').each do |node|
-        each_county_array = node.css('areaDesc').text.strip.split('; ')
-        if each_county_array.include?(@county.capitalize)
-          @inside_nws = 'yes'
-          @warnings.push(node)
+      unless @county.nil?
+        doc = Nokogiri::XML(open('http://alerts.weather.gov/cap/tx.php?x=0'))
+        doc.remove_namespaces!
+        @warnings = []
+        @inside_nws = 'no'
+        doc.css('entry').each do |node|
+          each_county_array = node.css('areaDesc').text.strip.split('; ')
+          if each_county_array.include?(@county.capitalize)
+            @inside_nws = 'yes'
+            @warnings.push(node)
+          end
         end
       end
 
