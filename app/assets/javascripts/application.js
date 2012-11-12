@@ -28,12 +28,6 @@
 //= require timepicker
 //= require kiss
 
-
-
-
-
-
-
 //add dashboard tab href to url in browser address bar
 $('#sidenav a').click(function(e){
   // console.log("a link in the sidenav has been clicked on");
@@ -41,17 +35,9 @@ $('#sidenav a').click(function(e){
   e.preventDefault();
   var href = $(this).attr('href');
   window.location = href;
-  // console.log("href:");
-  // console.log(href);
-  // console.log("window.location:");
-  // console.log(window.location);
 });
 
 $(document).ready(function(){
-  // console.log("sidenav.length (expecting > 0): " + $("#sidenav").length);
-  // console.log("window.location.hash (expecting empty): " + window.location.hash);
-  // console.log($("#sidenav"));
-
   // By default, load #map-section in user dashboard
   if(($("#sidenav").length > 0) && (!window.location.hash)) {
     // console.log("sidenav.length is > 0 and window.location.hash is empty");
@@ -84,6 +70,7 @@ $("#sidenav a").click(function() {
   $('#notice').hide();
 });
 
+// datetimepicker plugin - make sure to add the gem also
 $(document).ready(function(){
   $("#pick_date").datetimepicker({
   	dateFormat: 'yy-mm-dd ',
@@ -96,7 +83,7 @@ $(document).ready(function(){
 
 // map creation and update stuff moved into map/_mapinfo partial
 
-// alert to user if map search is empty, otherwise show ajax loading gif (disabled since it breaks things!)
+// alert to user if map search is empty, otherwise show ajax loading gif (disabled below since it breaks things easily!)
 $("#loadMap").click(function(){
             if($("#q").val() == '') {
                  alert("Please enter a street address with city and state; or zip code.");
