@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.11'
 gem 'pg'
 gem 'activerecord-postgis-adapter'
+gem "SystemTimer", :require => "system_timer", :platforms => :ruby_18
+gem "rack-timeout"
+
 
 gem 'jquery-rails'
 gem 'jquery_datepicker'
