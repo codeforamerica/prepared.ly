@@ -6,14 +6,12 @@ class User < ActiveRecord::Base
   has_many :messages
   has_many :comments
 
-  
-
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :id, :email, :first_name, :last_name, :phone, :address, :sms_opt_in, :password, :password_confirmation, :remember_me, :preferred_contact, :provider, :provider_id, :twitter_screen_name, :twitter_display_name, :share_code, :referral_code, :admin
+  attr_accessible :email, :first_name, :last_name, :phone, :address, :sms_opt_in, :password, :password_confirmation, :remember_me, :preferred_contact, :provider, :provider_id, :twitter_screen_name, :twitter_display_name, :share_code, :referral_code
 
   # move this so it doesn't affect oauth signups who haven't created phone number yet
   # validates :phone, :format => {
